@@ -7,8 +7,8 @@ function saveState()
     for ( var i=0;i<audios.length;i++ ) {
         var id=audios[i].getAttribute("id");
         //alert(id);
-        Cookies.set(id,document.getElementById(id).currentTime);
-        //document.cookie=id+"="+document.getElementById(id).currentTime;
+        //Cookies.set(id,document.getElementById(id).currentTime);
+        document.cookie=id+"="+document.getElementById(id).currentTime;
         //$("#test").append(id+"="+document.getElementById(id).currentTime+"   ");
     }    
 };
