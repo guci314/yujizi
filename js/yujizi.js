@@ -1,11 +1,11 @@
-
+var audioArray=[];
 setInterval("saveState()",5000);
 
 function saveState()
 {
-    var audios=document.getElementsByTagName("audio")
-    for ( var i=0;i<audios.length;i++ ) {
-        var id=audios[i].getAttribute("id");
+    //var audios=document.getElementsByTagName("audio")
+    for ( var i=0;i<audioArray.length;i++ ) {
+        var id=audioArray[i];
         //alert(id);
         //Cookies.set(id,document.getElementById(id).currentTime);
         document.cookie=id+"="+document.getElementById(id).currentTime;
@@ -13,7 +13,27 @@ function saveState()
     }    
 };
 
+function getNextId(id){
+    var i=audioArray.indexOf(id);
+    if (i==audioArray.length-1){
+        return audioArray[0];
+    }
+    else{
+       return audioArray[i+1]; 
+    }
+};
+
+function next(){
+    var nextId=getNextId(this.id);
+    document.getElementById(nextId).play();
+}
+
 function loadState(){
+    var audios=document.getElementsByTagName("audio");
+    for (var i = 0; i < audios.length; i++) {
+        audios[i].addEventListener('ended',next,false);
+        audioArray.push(audios[i].id);
+    }
     //var x=Cookies.get();
     //$("#test").append(document.cookie);
     //$("#test").append("------");
@@ -24,7 +44,6 @@ function loadState(){
         var x=c.split("=");
         var name=x[0];
         var value=x[1];
-        console.log(name);
         //$("#test").append(name+"="+value+"   ");
         //if (name.indexOf("audio")==0){
         audio=document.getElementById(name);
@@ -32,8 +51,10 @@ function loadState(){
             audio.currentTime=value;
         };
         //}
-    }
-}
+    };
+
+};
+
 
 $(
     function(){
