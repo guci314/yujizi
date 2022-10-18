@@ -15,7 +15,6 @@ function saveState()
 
 function loadState(){
     //var x=Cookies.get();
-    //alert(x)
     //$("#test").append(document.cookie);
     //$("#test").append("------");
     var ca = document.cookie.split(';');
@@ -25,6 +24,7 @@ function loadState(){
         var x=c.split("=");
         var name=x[0];
         var value=x[1];
+        console.log(name);
         //$("#test").append(name+"="+value+"   ");
         //if (name.indexOf("audio")==0){
         audio=document.getElementById(name);
