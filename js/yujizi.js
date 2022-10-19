@@ -4,7 +4,7 @@ setInterval("saveState()",5000);
 function saveState()
 {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
     var expires = "expires="+d.toUTCString();
     //var audios=document.getElementsByTagName("audio")
     for ( var i=0;i<audioArray.length;i++ ) {
