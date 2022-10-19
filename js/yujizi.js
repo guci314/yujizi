@@ -3,12 +3,15 @@ setInterval("saveState()",5000);
 
 function saveState()
 {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
     //var audios=document.getElementsByTagName("audio")
     for ( var i=0;i<audioArray.length;i++ ) {
         var id=audioArray[i];
         //alert(id);
         //Cookies.set(id,document.getElementById(id).currentTime);
-        document.cookie=id+"="+document.getElementById(id).currentTime+'; max-age=15552000; path=/';
+        document.cookie=id+"="+document.getElementById(id).currentTime+ ";"+expires +';path=/';
         //$("#test").append(id+"="+document.getElementById(id).currentTime+"   ");
     }    
 };
