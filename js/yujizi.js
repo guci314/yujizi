@@ -8,7 +8,7 @@ function saveState()
         var id=audioArray[i];
         //alert(id);
         //Cookies.set(id,document.getElementById(id).currentTime);
-        document.cookie=id+"="+document.getElementById(id).currentTime;
+        document.cookie=id+"="+document.getElementById(id).currentTime+'; max-age=15552000; path=/';
         //$("#test").append(id+"="+document.getElementById(id).currentTime+"   ");
     }    
 };
