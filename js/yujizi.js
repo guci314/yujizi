@@ -11,7 +11,7 @@ function saveState()
         var id=audioArray[i];
         //alert(id);
         //Cookies.set(id,document.getElementById(id).currentTime);
-        document.cookie=id+"="+document.getElementById(id).currentTime+ ";"+expires +';path=/';
+        document.cookie=id+"="+document.getElementById(id).currentTime+ ";"+expires + ";domain=" + window.location.hostname+';path=/';
         //$("#test").append(id+"="+document.getElementById(id).currentTime+"   ");
     }    
 };
