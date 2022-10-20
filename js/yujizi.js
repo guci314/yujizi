@@ -43,13 +43,14 @@ function stopAudio(){
         var id=audioArray[i];
         document.getElementById(id).pause();
     }
+    document.getElementById("myselect").value=-1;
 };
 
 function timingChange(){
-    document.getElementById("test").append(this.value);
     window.clearTimeout(stopAudioTimeOut);
-    if(this.value != -1){
-        stopAudioTimeOut=window.setTimeout(stopAudio,this.value);
+    var t=parseInt(this.value);
+    if(t != -1){
+        stopAudioTimeOut=window.setTimeout(stopAudio,t);
     }
 };
 
