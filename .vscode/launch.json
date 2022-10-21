@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch in chrome",
+        "url": "http://localhost:5500"
+      },
+      {
+        "type": "msedge",
+        "request": "launch",
+        "name": "Launch in edge",
+        "url": "http://localhost:5500"
+      }
+    ]
+  }
