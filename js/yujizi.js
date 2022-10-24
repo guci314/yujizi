@@ -1,5 +1,5 @@
 var audioArray=[];
-setInterval("saveState()",5000);
+setInterval("saveState()",10000);
 var stopAudioTimeOut;
 
 function saveState()
@@ -8,9 +8,9 @@ function saveState()
         var id=audioArray[i];
         var a=document.getElementById(id);
         window.localStorage.setItem(id,a.currentTime);
-        if (a.currentTime>0 && !a.paused && !a.ended && a.readyState>2){
-            window.localStorage.setItem("lastPlayId",a.id);
-        }
+        // if (a.currentTime>0 && !a.paused && !a.ended && a.readyState>2){
+        //     window.localStorage.setItem("lastPlayId",a.id);
+        // }
     }    
 };
 
@@ -39,10 +39,10 @@ function loadState(){
         var id=audioArray[i];
         document.getElementById(id).currentTime=window.localStorage.getItem(id);
     };
-    lastId=window.localStorage.getItem("lastPlayId");
-    if (lastId){
-        document.getElementById(lastId).play();
-    }
+    // lastId=window.localStorage.getItem("lastPlayId");
+    // if (lastId){
+    //     document.getElementById(lastId).play();
+    // }
 };
 
 function stopAudio(){
