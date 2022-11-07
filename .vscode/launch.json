@@ -3,10 +3,20 @@
     "configurations": [
       {
         "type": "chrome",
+        "request": "attach",
+        "name": "Attach to Chrom",
+        "port": 9222,
+        "urlFilter": "http://localhost:5500/*",
+        "webRoot": "${workspaceFolder}"
+        // "runtimeExecutable": "/opt/google/chrome/google-chrome"
+      },
+      {
+        "type": "chrome",
         "request": "launch",
-        "name": "Launch in chrome",
+        "name": "Launch chrome",
         "url": "http://localhost:5500",
-        "runtimeExecutable": "/opt/google/chrome/google-chrome"
+         "runtimeExecutable": "/usr/bin/google-chrome-stable"
+
       },
       {
         "type": "msedge",
