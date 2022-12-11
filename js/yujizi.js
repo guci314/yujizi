@@ -2,6 +2,14 @@ var audioArray=[];
 setInterval("saveState()",10000);
 var stopAudioTimeOut;
 
+function reset(){
+    for ( var i=0;i<audioArray.length;i++ ) {
+        var id=audioArray[i];
+        var a=document.getElementById(id);
+        a.currentTime=0;
+    }
+};
+
 function saveState()
 {
     for ( var i=0;i<audioArray.length;i++ ) {
