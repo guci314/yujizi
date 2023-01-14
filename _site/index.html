@@ -40,6 +40,9 @@
                             <option value="7200000">两小时</option>
                         </select>
                     </div>
+                    <div>
+                        <button onclick="reset()">复位</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,7 +56,7 @@
                         </path>
                         <circle cx="12" cy="13" r="4"></circle>
                     </svg>
-                    <strong>玉机子</strong>
+                    <strong>玉机子道长</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,105 +67,96 @@
     </header>
 
     <main role="main">
-
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">玉机子道长的音频</h1>
-                <p class="lead text-muted">路漫漫兮其修远，吾将上下而求索</p>
-                <p>点击<a href="https://codeload.github.com/guci314/yujizi/zip/refs/heads/main">这里</a>下载本站全部音频和文本</p>
-            </div>
-        </section>
-
+        <h1>玉机子道长的音频</h1>
         <div class="album py-5 bg-light">
             <div class="container">
+                <p class="lead text-muted">路漫漫兮其修远，吾将上下而求索</p>
+<p>点击<a href="https://codeload.github.com/guci314/yujizi/zip/refs/heads/main">这里</a>下载本站全部音频和文本</p>
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/阴符经.html">玉机子讲阴符经</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/白玉蟾.html">白玉蟾祖师</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/道德经.html">道德经</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/下手法.html">南宗下手法及解惑答疑</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/吕祖太乙金华宗旨.html">吕祖太乙金华宗旨</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/丹阳真人语录.html">丹阳真人语录</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/翠虚吟.html">翠虚吟</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/体真山人语录.html">体真山人语录</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/玉师聊阴符经.html">玉师聊阴符经</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <p class="card-text"><a href="/玉师聊修行.html">玉师聊修行</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/阴符经.html">玉机子讲阴符经</a></p>
             </div>
         </div>
+    </div>
 
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/白玉蟾.html">白玉蟾祖师</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/道德经.html">道德经</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/下手法.html">南宗下手法及解惑答疑</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/吕祖太乙金华宗旨.html">吕祖太乙金华宗旨</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/丹阳真人语录.html">丹阳真人语录</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/翠虚吟.html">翠虚吟</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/体真山人语录.html">体真山人语录</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/玉师聊阴符经.html">玉师聊阴符经</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <p class="card-text"><a href="/玉师聊修行.html">玉师聊修行</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+            </div>
+        </div>
     </main>
 
     <footer class="text-muted">
@@ -179,6 +173,8 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <!-- <script src="/js/js.cookie.js"></script> -->
+    <script src="/js/yujizi.js"></script>
     <script src="/js/vendor/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/vendor/holder.min.js"></script>
