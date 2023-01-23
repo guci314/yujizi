@@ -10,6 +10,16 @@ function reset(){
     }
 };
 
+function back30sec(){
+    for ( var i=0;i<audioArray.length;i++ ) {
+        var id=audioArray[i];
+        var a=document.getElementById(id);
+        if (a.currentTime>0 && !a.paused && !a.ended && a.readyState>2){
+            a.currentTime=a.currentTime-30
+        }
+    }
+};
+
 function saveState()
 {
     for ( var i=0;i<audioArray.length;i++ ) {
