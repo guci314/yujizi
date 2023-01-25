@@ -8,6 +8,7 @@ function reset(){
         var a=document.getElementById(id);
         a.currentTime=0;
     }
+    alert("已复位")
 };
 
 function back30sec(){
