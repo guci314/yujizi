@@ -1,6 +1,7 @@
 var audioArray=[];
 setInterval("saveState()",10000);
 var stopAudioTimeOut;
+var theTime;
 
 function reset(){
     for ( var i=0;i<audioArray.length;i++ ) {
@@ -8,6 +9,7 @@ function reset(){
         var a=document.getElementById(id);
         a.currentTime=0;
     }
+    saveState()
     alert("已复位")
 };
 
@@ -31,6 +33,13 @@ function saveState()
         //     window.localStorage.setItem("lastPlayId",a.id);
         // }
     }    
+    if (theTime){
+        d=new Date();
+        x=Math.floor((theTime-d)/60000)
+        if (x>=0){
+            document.getElementById("remainTime").innerText=Math.floor((theTime-d)/60000)+"分钟";
+        }
+    };
 };
 
 function getNextId(id){
@@ -75,11 +84,26 @@ function stopAudio(){
     document.getElementById("myselect").value=-1;
 };
 
+Date.dateAdd = function(currentDate, value, timeUnit) {
+
+    timeUnit = timeUnit.toLowerCase();
+    var multiplyBy = { w:604800000,
+                     d:86400000,
+                     h:3600000,
+                     m:60000,
+                     s:1000 };
+    var updatedDate = new Date(currentDate.getTime() + multiplyBy[timeUnit] * value);
+
+    return updatedDate;
+};
+
 function timingChange(){
     window.clearTimeout(stopAudioTimeOut);
     var t=parseInt(this.value);
     if(t != -1){
         stopAudioTimeOut=window.setTimeout(stopAudio,t);
+        var d=new Date();
+        theTime=Date.dateAdd(d,t/1000,"s");
     }
 };
 
