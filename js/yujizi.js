@@ -34,10 +34,13 @@ function saveState()
         // }
     }    
     if (theTime){
-        d=new Date();
-        x=Math.floor((theTime-d)/60000)
+        var d=new Date();
+        var x=theTime-d;//Math.floor((theTime-d)/60000)
+        if (x<0) x=0;
         if (x>=0){
-            document.getElementById("remainTime").innerText=Math.floor((theTime-d)/60000)+"分钟";
+            var min=Math.floor(x/60000);
+            var sec=Math.floor((x-min*60000)/1000);
+            document.getElementById("remainTime").innerText=min+"分钟"+sec+"秒";
         }
     };
 };
