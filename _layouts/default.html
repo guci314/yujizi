@@ -84,8 +84,10 @@
     <main role="main">
         <h1>{{page.title}}</h1>
         <div class="album py-5 bg-light">
-            <div class="container" style="word-wrap:break-word">
+            <div class="container" >
+            <div style="word-wrap: normal;word-break: break-all;white-space: normal;display: block;height: auto;margin: 3px auto;line-height: 1.4;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">
                 {{ content}}
+            </div>
             </div>
         </div>
     </main>
