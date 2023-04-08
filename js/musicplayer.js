@@ -25,30 +25,30 @@ musicSelect.addEventListener('change', (e) => {
     musicDownload.download = selectedMusic.name;
     musicDownload.style.display = 'inline';
     // 存储当前播放的音乐
-    localStorage.setItem('${pageid}_currentMusic', selectedIndex);
+    localStorage.setItem(`${pageid}_currentMusic`, selectedIndex);
   } else {
     musicPlayer.pause();
     musicPlayer.src = '';
     // 隐藏下载链接
     musicDownload.style.display = 'none';
     // 清除存储的音乐
-    localStorage.removeItem('${pageid}_currentMusic');
-    localStorage.removeItem('${pageid}_currentTime');
+    localStorage.removeItem(`${pageid}_currentMusic`);
+    localStorage.removeItem(`${pageid}_currentTime`);
   }
 });
 
 
 // 监听播放器的时间更新事件
 musicPlayer.addEventListener('timeupdate', () => {
-    localStorage.setItem('${pageid}_currentTime', musicPlayer.currentTime);
+    localStorage.setItem(`${pageid}_currentTime`, musicPlayer.currentTime);
   });
   
 // 监听播放器的 loadedmetadata 事件
 musicPlayer.addEventListener('loadedmetadata', () => {
-const savedTime = localStorage.getItem('${pageid}_currentTime');
-if (savedTime) {
-    musicPlayer.currentTime = parseFloat(savedTime);
-}
+    const savedTime = localStorage.getItem(`${pageid}_currentTime`);
+    if (savedTime) {
+        musicPlayer.currentTime = parseFloat(savedTime);
+    }
 });
 
 // 初始化
@@ -56,7 +56,7 @@ initSelect();
 
 // 恢复上次播放的音乐和时间
 function restoreMusic() {
-    const currentMusic = localStorage.getItem('${pageid}_currentMusic');
+    const currentMusic = localStorage.getItem(`${pageid}_currentMusic`);
     if (currentMusic) {
       const selectedMusic = musicList[currentMusic];
       musicSelect.value = currentMusic;
