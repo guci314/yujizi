@@ -41,8 +41,8 @@ musicSelect.addEventListener('change', (e) => {
 // 监听播放器的时间更新事件
 musicPlayer.addEventListener('timeupdate', () => {
   localStorage.setItem(`${pageid}_currentTime`, musicPlayer.currentTime);
-  if (player.duration - player.currentTime < 300) {
-    let nextMusicIndex = currentMusicIndex + 1;
+  if (musicPlayer.duration - musicPlayer.currentTime < 300) {
+    let nextMusicIndex = parseInt(musicSelect.value) + 1;
     if (nextMusicIndex < musicList.length) {
       let nextMusicUrl = musicList[nextMusicIndex].url;
       let isPreloaded = document.querySelector(`link[href="${nextMusicUrl}"]`);
@@ -52,6 +52,7 @@ musicPlayer.addEventListener('timeupdate', () => {
         preloadLink.as = "audio";
         preloadLink.href = nextMusicUrl;
         document.head.appendChild(preloadLink);
+        console.log("预加载下一首音乐：", nextMusicUrl);
       }
     }
   }
