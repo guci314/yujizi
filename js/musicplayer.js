@@ -86,6 +86,7 @@ function playNext() {
   
     // 存储当前播放的音乐
     localStorage.setItem(`${pageid}_currentMusic`, nextIndex);
+    localStorage.setItem(`${pageid}_currentTime`, 0);
   }
   
 // 监听播放器的 ended 事件
