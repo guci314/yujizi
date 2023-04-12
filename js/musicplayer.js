@@ -15,6 +15,9 @@ function initSelect() {
 
 // 监听下拉框选择事件
 musicSelect.addEventListener('change', (e) => {
+  // 清除存储的音乐
+  localStorage.removeItem(`${pageid}_currentMusic`);
+  localStorage.removeItem(`${pageid}_currentTime`);
   const selectedIndex = e.target.value;
   if (selectedIndex) {
     const selectedMusic = musicList[selectedIndex];
@@ -31,9 +34,7 @@ musicSelect.addEventListener('change', (e) => {
     musicPlayer.src = '';
     // 隐藏下载链接
     musicDownload.style.display = 'none';
-    // 清除存储的音乐
-    localStorage.removeItem(`${pageid}_currentMusic`);
-    localStorage.removeItem(`${pageid}_currentTime`);
+    
   }
 });
 
@@ -41,18 +42,19 @@ musicSelect.addEventListener('change', (e) => {
 // 监听播放器的时间更新事件
 musicPlayer.addEventListener('timeupdate', () => {
   localStorage.setItem(`${pageid}_currentTime`, musicPlayer.currentTime);
+  // 预加载下一首音乐, 仅在最后 5 分钟时预加载
   if (musicPlayer.duration - musicPlayer.currentTime < 300) {
     let nextMusicIndex = parseInt(musicSelect.value) + 1;
     if (nextMusicIndex < musicList.length) {
       let nextMusicUrl = musicList[nextMusicIndex].url;
       let isPreloaded = document.querySelector(`link[href="${nextMusicUrl}"]`);
       if (!isPreloaded) {
+        // 创建 link 标签 preload 音乐
         let preloadLink = document.createElement("link");
         preloadLink.rel = "preload";
         preloadLink.as = "audio";
         preloadLink.href = nextMusicUrl;
         document.head.appendChild(preloadLink);
-        console.log("预加载下一首音乐：", nextMusicUrl);
       }
     }
   }
@@ -135,6 +137,7 @@ function updateRemainTime() {
 //停止播放
 function stopAudio() {
   musicPlayer.pause();
+  theTime=null
   document.getElementById("myselect").value = -1;
 };
 
@@ -173,3 +176,10 @@ function back30sec() {
     musicPlayer.currentTime = musicPlayer.currentTime - 30
   }
 };
+
+//前进十分钟
+function forward30sec() {
+  if (musicPlayer.currentTime > 0 && !musicPlayer.paused && !musicPlayer.ended && musicPlayer.readyState > 2) {
+    musicPlayer.currentTime = musicPlayer.currentTime + 30
+  }
+}
