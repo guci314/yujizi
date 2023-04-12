@@ -74,7 +74,7 @@ initSelect();
 // 恢复上次播放的音乐和时间
 function restoreMusic() {
   const currentMusic = localStorage.getItem(`${pageid}_currentMusic`);
-  if (currentMusic) {
+  if (currentMusic !== null) {
     const selectedMusic = musicList[currentMusic];
     musicSelect.value = currentMusic;
     musicPlayer.src = selectedMusic.url;
@@ -118,7 +118,7 @@ restoreMusic();
 var stopAudioTimeOut;
 var theTime;
 
-setInterval("updateRemainTime()", 10000);
+setInterval(() => updateRemainTime(), 10000);
 
 //更新定时停止的剩余时间
 function updateRemainTime() {
@@ -129,7 +129,7 @@ function updateRemainTime() {
     if (x >= 0) {
       var min = Math.floor(x / 60000);
       var sec = Math.floor((x - min * 60000) / 1000);
-      document.getElementById("remainTime").innerText = min + "分钟" + sec + "秒";
+      document.getElementById("remainTime").innerText = `${min}分钟${sec}秒`;
     }
   };
 }
@@ -160,13 +160,14 @@ Date.dateAdd = function (currentDate, value, timeUnit) {
 //定时下拉框的响应函数
 function timingChange() {
   window.clearTimeout(stopAudioTimeOut);
-  var t = parseInt(this.value);
+  var t = parseInt(document.getElementById("myselect").value);
   if (t != -1) {
     stopAudioTimeOut = window.setTimeout(stopAudio, t);
     var d = new Date();
     theTime = Date.dateAdd(d, t / 1000, "s");
   }
-};
+}
+
 
 document.getElementById("myselect").onchange = timingChange;
 
@@ -177,7 +178,7 @@ function back30sec() {
   }
 };
 
-//前进十分钟
+//前进三十秒
 function forward30sec() {
   if (musicPlayer.currentTime > 0 && !musicPlayer.paused && !musicPlayer.ended && musicPlayer.readyState > 2) {
     musicPlayer.currentTime = musicPlayer.currentTime + 30
