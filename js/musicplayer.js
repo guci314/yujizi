@@ -106,9 +106,22 @@ function playNext() {
   localStorage.setItem(`${pageid}_currentTime`, 0);
 }
 
+const playModeSelect = document.getElementById('play-mode');
+let isLoopMode = false;
+
+// 监听播放模式选择事件
+playModeSelect.addEventListener('change', (e) => {
+  isLoopMode = e.target.value === 'loop';
+});
+
 // 监听播放器的 ended 事件
 musicPlayer.addEventListener('ended', () => {
-  playNext();
+  if (isLoopMode) {
+    musicPlayer.currentTime = 0;
+    musicPlayer.play();
+  } else {
+    playNext();
+  }
 });
 
 
@@ -184,3 +197,4 @@ function forward30sec() {
     musicPlayer.currentTime = musicPlayer.currentTime + 30
   }
 }
+
