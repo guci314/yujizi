@@ -34,7 +34,7 @@ musicSelect.addEventListener('change', (e) => {
     musicPlayer.src = '';
     // 隐藏下载链接
     musicDownload.style.display = 'none';
-    
+
   }
 });
 
@@ -104,6 +104,13 @@ function playNext() {
   // 存储当前播放的音乐
   localStorage.setItem(`${pageid}_currentMusic`, nextIndex);
   localStorage.setItem(`${pageid}_currentTime`, 0);
+
+  // 如果是播放完停止模式，停止播放
+  if (playModeSelect.value === 'stop-after') {
+    stopAudio();
+    return;
+  }
+
 }
 
 const playModeSelect = document.getElementById('play-mode');
@@ -150,7 +157,7 @@ function updateRemainTime() {
 //停止播放
 function stopAudio() {
   musicPlayer.pause();
-  theTime=null
+  theTime = null
   document.getElementById("myselect").value = -1;
 };
 
