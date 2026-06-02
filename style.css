@@ -281,6 +281,17 @@ main { position: relative; z-index: 1; }
 .reader { font-size: 1.075rem; }
 .reader p { margin: 0 0 1.1rem; }
 
+/* ---- Bootstrap 中和层:内容页仍用 .card / .card-body / .text-muted 等,统一并入水墨主题(暗色下不再白卡)---- */
+.reader .card-body { padding: 0; }
+.reader .card {
+  background: var(--paper-2); border: 1px solid var(--line);
+  border-radius: 10px; padding: 1.3rem 1.5rem; box-shadow: none; margin-bottom: 1.1rem;
+}
+.reader .card-text, .reader .card-body p { color: var(--ink); }
+.text-muted { color: var(--ink-soft) !important; }
+.bg-light, .bg-dark { background-color: transparent !important; color: var(--ink) !important; }
+.jumbotron { background: var(--paper-2) !important; color: var(--ink); border-radius: 10px; }
+
 @media (max-width: 600px) {
   body { font-size: 1rem; line-height: 1.85; }
   .brand-name { font-size: 1.35rem; }
