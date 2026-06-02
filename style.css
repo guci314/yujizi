@@ -8,10 +8,9 @@
 :root {
   --paper:      #f4efe3;   /* 米纸 */
   --paper-2:    #efe7d6;   /* 略深,面板 */
-  --paper-sink: #e9e0cd;   /* 凹陷/输入 */
   --ink:        #2b2722;   /* 墨 */
   --ink-soft:   #5d564b;   /* 次级 */
-  --ink-faint:  #918979;   /* 弱 */
+  --ink-faint:  #73695a;   /* 弱(达 WCAG AA 4.5:1 on 米纸) */
   --cinnabar:   #a8322d;   /* 朱砂 */
   --cinnabar-2: #b9554f;
   --line:       #d9cfba;   /* 发丝线 */
@@ -29,10 +28,9 @@
 [data-theme="dark"] {
   --paper:      #15171b;   /* 玄夜 */
   --paper-2:    #1b1e23;
-  --paper-sink: #101216;
   --ink:        #cfc8b6;   /* 月白 */
   --ink-soft:   #9a9384;
-  --ink-faint:  #6e695c;
+  --ink-faint:  #847d6c;   /* 弱(达 AA on 玄夜) */
   --cinnabar:   #d07065;   /* 暗夜柔朱 */
   --cinnabar-2: #c0605a;
   --line:       #2c3037;
@@ -78,6 +76,7 @@ img { max-width: 100%; }
    ============================================================================ */
 .masthead {
   position: sticky; top: 0; z-index: 30;
+  background: var(--paper);                                     /* 旧浏览器回退:不透明,防页眉透明叠压 */
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: saturate(120%) blur(8px);
   -webkit-backdrop-filter: saturate(120%) blur(8px);
@@ -133,11 +132,10 @@ img { max-width: 100%; }
 .drawer.open { max-height: 40rem; border-bottom-color: var(--line); }
 .drawer .wrap { padding-block: 2rem; }
 .drawer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem,1fr)); gap: 1.6rem 2.4rem; }
-.drawer h4 {
+.drawer .drawer-h {
   font-family: var(--serif); font-weight: 600;
   font-size: .82rem; letter-spacing: .22em;
   color: var(--cinnabar); margin: 0 0 .7rem;
-  text-transform: none;
 }
 .drawer p { margin: 0 0 .4rem; color: var(--ink-soft); font-size: .92rem; line-height: 1.8; }
 .drawer .remain { font-variant-numeric: tabular-nums; color: var(--ink); }
@@ -164,6 +162,10 @@ img { max-width: 100%; }
   padding-right: 2.2rem; cursor: pointer;
 }
 .field:focus, .btn-ink:focus-visible { outline: none; border-color: var(--cinnabar); box-shadow: 0 0 0 3px var(--sel-bg); }
+.nav-act:focus-visible, .totop:focus-visible, .scroll:focus-visible, .brand:focus-visible,
+.colophon .links a:focus-visible, .proem .sub a:focus-visible {
+  outline: none; border-radius: 6px; box-shadow: 0 0 0 3px var(--sel-bg);
+}
 label.lbl { display:block; font-size:.8rem; letter-spacing:.18em; color: var(--cinnabar); margin-bottom:.45rem; }
 
 /* ============================================================================
@@ -198,11 +200,15 @@ main { position: relative; z-index: 1; }
 .section-rule::before, .section-rule::after { content:""; height:1px; background: var(--line); flex:1; }
 
 /* 经典卡片格 */
-.scrolls { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1px;
-  background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.scrolls { display: grid; grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  background: var(--paper); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .scroll {
   position: relative;
   background: var(--paper);
+  border-left: 1px solid var(--line);   /* 边框折叠画发丝线:末行空格子露纸色而非线色 */
+  border-top: 1px solid var(--line);
+  margin-left: -1px;
+  margin-top: -1px;
   padding: 1.7rem 1.6rem 1.6rem;
   display: flex; flex-direction: column; gap: .35rem;
   text-decoration: none; color: var(--ink);
@@ -246,7 +252,7 @@ main { position: relative; z-index: 1; }
   padding: 1.3rem 1.3rem 1.5rem;
   box-shadow: 0 6px 30px -12px color-mix(in srgb, var(--ink) 35%, transparent);
 }
-.player .row { display:flex; flex-wrap:wrap; gap:.8rem; align-items:flex-end; }
+.player .row { display:flex; flex-wrap:wrap; gap:.8rem; align-items:flex-end; margin-left:0; margin-right:0; } /* 归零 Bootstrap .row 的负边距 */
 .player .grow { flex: 1 1 16rem; min-width: 0; }
 .player audio { width: 100%; margin-top: 1rem; accent-color: var(--cinnabar); border-radius: 8px; }
 .player .dl { font-size:.85rem; color: var(--ink-soft); display:inline-flex; gap:.35rem; align-items:center; margin-top:.8rem; }

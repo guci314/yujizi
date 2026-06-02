@@ -34,7 +34,7 @@
                     <span class="brand-name">玉机子道长</span>
                 </a>
                 <span class="spacer"></span>
-                <button class="nav-act" id="drawer-btn" aria-expanded="false" aria-controls="drawer">須知 · 設置</button>
+                <button class="nav-act" id="drawer-btn" aria-expanded="false" aria-controls="drawer">须知 · 设置</button>
                 <button class="nav-act theme-toggle" id="theme-btn" aria-label="切换昼夜">
                     <span class="sun">☀ 昼</span><span class="moon">☾ 夜</span>
                 </button>
@@ -44,16 +44,16 @@
                 <div class="wrap">
                     <div class="drawer-grid">
                         <div>
-                            <h4>須知</h4>
+                            <p class="drawer-h">须知</p>
                             <p>我不认识玉机子道长。本站的制作也未经玉师同意。请不要向我打听玉师的联系方式。</p>
                             <p>网页会记忆每个音频的播放位置，下次自动从该处继续。</p>
                             <p style="margin-top:1rem">
                                 <button class="btn-ink" onclick="reset()">清除播放记忆</button>
-                                <button class="btn-ink" onclick="back30sec()">後退 30 秒</button>
+                                <button class="btn-ink" onclick="back30sec()">后退 30 秒</button>
                             </p>
                         </div>
                         <div>
-                            <h4>定時關閉</h4>
+                            <p class="drawer-h">定时关闭</p>
                             <label class="lbl" for="myselect">睡前定时停止播放</label>
                             <select id="myselect" class="field">
                                 <option value="-1">不开启</option>
@@ -74,7 +74,7 @@
             <div class="wrap">
                 {% unless page.hide_title %}
                 <div class="page-head">
-                    <p class="kicker">玉机子道长 · 講習</p>
+                    <p class="kicker">玉机子道长 · 讲习</p>
                     <h1>{{ page.title }}</h1>
                 </div>
                 {% endunless %}
