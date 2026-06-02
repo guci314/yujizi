@@ -1,0 +1,9 @@
+# 媒体不入库(共识场只追踪源,不追踪 GB 级音频)
+*.mp3
+*.m4a
+*.mp4
+玉机子/
+经典读诵/
+.DS_Store
+_site/
+.jekyll-cache/
