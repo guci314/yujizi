@@ -1,0 +1,305 @@
+/* ============================================================================
+   玉机子道长 · 水墨清静 design system
+   Refined minimalism · 米纸/墨/朱砂 · 系统中文衬线(零外部字体依赖,墙内秒开)
+   光(水墨清静) / 暗(玄夜) 双主题,[data-theme="dark"] 切换
+   ============================================================================ */
+
+/* ---- 主题令牌 ---- */
+:root {
+  --paper:      #f4efe3;   /* 米纸 */
+  --paper-2:    #efe7d6;   /* 略深,面板 */
+  --ink:        #2b2722;   /* 墨 */
+  --ink-soft:   #5d564b;   /* 次级 */
+  --ink-faint:  #73695a;   /* 弱(达 WCAG AA 4.5:1 on 米纸) */
+  --cinnabar:   #a8322d;   /* 朱砂 */
+  --cinnabar-2: #b9554f;
+  --line:       #d9cfba;   /* 发丝线 */
+  --line-soft:  #e6ddca;
+  --sel-bg:     rgba(168,50,45,.10);
+  --grain-op:   .035;
+
+  --serif: "Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  --kai:   "STKaiti","KaiTi","Kaiti SC","楷体",var(--serif);
+
+  --maxw: 62rem;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+[data-theme="dark"] {
+  --paper:      #15171b;   /* 玄夜 */
+  --paper-2:    #1b1e23;
+  --ink:        #cfc8b6;   /* 月白 */
+  --ink-soft:   #9a9384;
+  --ink-faint:  #847d6c;   /* 弱(达 AA on 玄夜) */
+  --cinnabar:   #d07065;   /* 暗夜柔朱 */
+  --cinnabar-2: #c0605a;
+  --line:       #2c3037;
+  --line-soft:  #23272d;
+  --sel-bg:     rgba(208,112,101,.16);
+  --grain-op:   .05;
+}
+
+/* ---- 基础 ---- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.95;
+  color: var(--ink);
+  background-color: var(--paper);
+  letter-spacing: .01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .5s var(--ease), color .5s var(--ease);
+}
+/* 纸纹:极淡分形噪声叠加,营造手工纸的气息 */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  opacity: var(--grain-op);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection { background: var(--sel-bg); }
+::-moz-selection { background: var(--sel-bg); }
+a { color: var(--cinnabar); text-decoration: none; transition: color .25s var(--ease); }
+a:hover { color: var(--cinnabar-2); }
+img { max-width: 100%; }
+
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.2rem, 4vw, 2.5rem); }
+.shell { position: relative; z-index: 1; }
+
+/* ============================================================================
+   页眉
+   ============================================================================ */
+.masthead {
+  position: sticky; top: 0; z-index: 30;
+  background: var(--paper);                                     /* 旧浏览器回退:不透明,防页眉透明叠压 */
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.masthead .wrap {
+  display: flex; align-items: center; gap: 1rem;
+  min-height: 4.4rem;
+}
+.brand { display: flex; align-items: center; gap: .7rem; color: var(--ink); }
+.brand:hover { color: var(--ink); }
+/* 朱砂印章 */
+.seal {
+  flex: none;
+  width: 2.05rem; height: 2.05rem;
+  display: grid; place-items: center;
+  font-family: var(--kai); font-size: .92rem; line-height: 1;
+  color: #fff; background: var(--cinnabar);
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cinnabar) 60%, #000);
+  letter-spacing: -.04em;
+  transform: rotate(-2deg);
+}
+.brand-name {
+  font-family: var(--kai);
+  font-size: 1.6rem; line-height: 1;
+  letter-spacing: .12em;
+  font-weight: 400;
+}
+.spacer { flex: 1 1 auto; }
+.nav-act {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-family: var(--serif); font-size: .92rem;
+  color: var(--ink-soft);
+  background: none; border: 0; cursor: pointer;
+  padding: .5rem .7rem; border-radius: 6px;
+  transition: color .25s var(--ease), background .25s var(--ease);
+}
+.nav-act:hover { color: var(--cinnabar); background: var(--sel-bg); }
+.nav-act .ic { width: 1.05rem; height: 1.05rem; }
+/* 昼夜:用阴阳意象 */
+.theme-toggle .moon { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .moon { display: inline; }
+
+/* 须知/设置抽屉 */
+.drawer {
+  max-height: 0; overflow: hidden;
+  border-bottom: 1px solid transparent;
+  background: var(--paper-2);
+  transition: max-height .5s var(--ease), border-color .5s var(--ease);
+}
+.drawer.open { max-height: 40rem; border-bottom-color: var(--line); }
+.drawer .wrap { padding-block: 2rem; }
+.drawer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem,1fr)); gap: 1.6rem 2.4rem; }
+.drawer .drawer-h {
+  font-family: var(--serif); font-weight: 600;
+  font-size: .82rem; letter-spacing: .22em;
+  color: var(--cinnabar); margin: 0 0 .7rem;
+}
+.drawer p { margin: 0 0 .4rem; color: var(--ink-soft); font-size: .92rem; line-height: 1.8; }
+.drawer .remain { font-variant-numeric: tabular-nums; color: var(--ink); }
+
+/* ============================================================================
+   通用控件:墨线幽灵按钮 / 自定义下拉
+   ============================================================================ */
+.btn-ink, .field {
+  font-family: var(--serif); font-size: .92rem; color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: .5rem .9rem;
+  transition: border-color .25s var(--ease), color .25s var(--ease), background .25s var(--ease);
+}
+.btn-ink { cursor: pointer; letter-spacing: .04em; }
+.btn-ink:hover { border-color: var(--cinnabar); color: var(--cinnabar); }
+.btn-ink:active { background: var(--sel-bg); }
+
+.field {
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23918979' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .85rem center;
+  padding-right: 2.2rem; cursor: pointer;
+}
+.field:focus, .btn-ink:focus-visible { outline: none; border-color: var(--cinnabar); box-shadow: 0 0 0 3px var(--sel-bg); }
+.nav-act:focus-visible, .totop:focus-visible, .scroll:focus-visible, .brand:focus-visible,
+.colophon .links a:focus-visible, .proem .sub a:focus-visible {
+  outline: none; border-radius: 6px; box-shadow: 0 0 0 3px var(--sel-bg);
+}
+label.lbl { display:block; font-size:.8rem; letter-spacing:.18em; color: var(--cinnabar); margin-bottom:.45rem; }
+
+/* ============================================================================
+   主页:序 + 经典格
+   ============================================================================ */
+main { position: relative; z-index: 1; }
+
+.proem { text-align: center; padding: clamp(3.5rem,9vw,6.5rem) 0 clamp(2rem,5vw,3.5rem); position: relative; }
+/* 圆相(enso)淡墨 */
+.proem::before {
+  content: ""; position: absolute; left: 50%; top: 46%;
+  width: min(22rem, 60vw); aspect-ratio: 1; transform: translate(-50%,-50%);
+  border: 1.5px solid var(--line); border-radius: 50%;
+  border-top-color: transparent; border-right-color: var(--line-soft);
+  opacity: .55; pointer-events: none;
+}
+.proem .epigraph {
+  position: relative;
+  font-family: var(--kai); font-size: clamp(1.5rem, 4.4vw, 2.5rem);
+  line-height: 1.7; letter-spacing: .14em; color: var(--ink);
+  margin: 0;
+}
+.proem .epigraph .src { display:block; margin-top:1.1rem; font-size:.6em; color: var(--cinnabar); letter-spacing:.3em; }
+.proem .sub { position: relative; margin-top: 1.4rem; color: var(--ink-soft); font-size: .98rem; letter-spacing: .03em; }
+.proem .sub a { border-bottom: 1px solid color-mix(in srgb, var(--cinnabar) 40%, transparent); }
+
+.section-rule {
+  display: flex; align-items: center; gap: 1.1rem;
+  margin: 1.5rem 0 2.2rem; color: var(--ink-faint);
+  font-size: .8rem; letter-spacing: .35em;
+}
+.section-rule::before, .section-rule::after { content:""; height:1px; background: var(--line); flex:1; }
+
+/* 经典卡片格 */
+.scrolls { display: grid; grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  background: var(--paper); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.scroll {
+  position: relative;
+  background: var(--paper);
+  border-left: 1px solid var(--line);   /* 边框折叠画发丝线:末行空格子露纸色而非线色 */
+  border-top: 1px solid var(--line);
+  margin-left: -1px;
+  margin-top: -1px;
+  padding: 1.7rem 1.6rem 1.6rem;
+  display: flex; flex-direction: column; gap: .35rem;
+  text-decoration: none; color: var(--ink);
+  transition: background .35s var(--ease), transform .35s var(--ease);
+  opacity: 0; transform: translateY(10px);
+  animation: rise .7s var(--ease) forwards;
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
+.scroll:hover { background: var(--paper-2); color: var(--ink); }
+.scroll .idx {
+  font-family: var(--serif); font-size: .72rem; letter-spacing: .25em;
+  color: var(--cinnabar); opacity: .85;
+}
+.scroll .ttl { font-size: 1.22rem; line-height: 1.5; letter-spacing: .04em; }
+.scroll .hint { margin-top:auto; font-size:.8rem; color: var(--ink-faint); display:flex; align-items:center; gap:.4rem; }
+.scroll .hint .arrow { transition: transform .35s var(--ease); }
+.scroll:hover .hint { color: var(--cinnabar); }
+.scroll:hover .hint .arrow { transform: translateX(.3rem); }
+/* 悬停时左缘朱砂细线 */
+.scroll::before { content:""; position:absolute; left:0; top:14%; bottom:14%; width:2px; background: var(--cinnabar); transform: scaleY(0); transform-origin:center; transition: transform .4s var(--ease); }
+.scroll:hover::before { transform: scaleY(1); }
+
+/* ============================================================================
+   音频页:诵读 + 播放器
+   ============================================================================ */
+.page-head { padding: clamp(2.5rem,6vw,4rem) 0 1.2rem; }
+.page-head .kicker { font-size:.78rem; letter-spacing:.32em; color: var(--cinnabar); margin-bottom:.7rem; }
+.page-head h1 { font-family: var(--kai); font-size: clamp(2rem,6vw,3rem); letter-spacing:.1em; margin:0; font-weight:400; line-height:1.3; }
+
+.reader { padding-bottom: 4rem; }
+.reader :is(p, li) { color: var(--ink); }
+.reader h2,.reader h3 { font-family: var(--serif); letter-spacing:.06em; color: var(--ink); margin: 2.2rem 0 .8rem; }
+
+/* 播放器卡 */
+.player {
+  position: sticky; bottom: 1rem; z-index: 20;
+  margin-top: 2.5rem;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.3rem 1.3rem 1.5rem;
+  box-shadow: 0 6px 30px -12px color-mix(in srgb, var(--ink) 35%, transparent);
+}
+.player .row { display:flex; flex-wrap:wrap; gap:.8rem; align-items:flex-end; margin-left:0; margin-right:0; } /* 归零 Bootstrap .row 的负边距 */
+.player .grow { flex: 1 1 16rem; min-width: 0; }
+.player audio { width: 100%; margin-top: 1rem; accent-color: var(--cinnabar); border-radius: 8px; }
+.player .dl { font-size:.85rem; color: var(--ink-soft); display:inline-flex; gap:.35rem; align-items:center; margin-top:.8rem; }
+.player .ctrls { display:flex; gap:.6rem; flex-wrap:wrap; }
+
+/* ============================================================================
+   页脚
+   ============================================================================ */
+.colophon { border-top: 1px solid var(--line); margin-top: 3rem; }
+.colophon .wrap { padding-block: 3.2rem; text-align: center; color: var(--ink-soft); }
+.colophon .verse { font-family: var(--kai); font-size: 1.12rem; letter-spacing:.12em; color: var(--ink); line-height:1.9; }
+.colophon .verse .src { color: var(--cinnabar); font-size:.85em; letter-spacing:.2em; }
+.colophon .foot-seal { display:inline-block; margin:1.4rem 0 .8rem; width:2.4rem; height:2.4rem; line-height:2.4rem;
+  font-family:var(--kai); color:#fff; background:var(--cinnabar); border-radius:6px; transform:rotate(-3deg); font-size:1rem; }
+.colophon .links { font-size:.85rem; letter-spacing:.06em; }
+.colophon .links a { margin: 0 .6rem; color: var(--ink-soft); }
+.colophon .links a:hover { color: var(--cinnabar); }
+.totop { position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 25;
+  width:2.6rem; height:2.6rem; border-radius:50%; display:grid; place-items:center;
+  background: var(--paper-2); border:1px solid var(--line); color: var(--ink-soft);
+  opacity:0; pointer-events:none; transition: opacity .4s var(--ease), color .25s var(--ease), border-color .25s; }
+.totop.show { opacity:1; pointer-events:auto; }
+.totop:hover { color: var(--cinnabar); border-color: var(--cinnabar); }
+
+/* ---- 经典内文排版(content pages 继承)---- */
+.reader { font-size: 1.075rem; }
+.reader p { margin: 0 0 1.1rem; }
+
+/* ---- Bootstrap 中和层:内容页仍用 .card / .card-body / .text-muted 等,统一并入水墨主题(暗色下不再白卡)---- */
+.reader .card-body { padding: 0; }
+.reader .card {
+  background: var(--paper-2); border: 1px solid var(--line);
+  border-radius: 10px; padding: 1.3rem 1.5rem; box-shadow: none; margin-bottom: 1.1rem;
+}
+.reader .card-text, .reader .card-body p { color: var(--ink); }
+.text-muted { color: var(--ink-soft) !important; }
+.bg-light, .bg-dark { background-color: transparent !important; color: var(--ink) !important; }
+.jumbotron { background: var(--paper-2) !important; color: var(--ink); border-radius: 10px; }
+
+@media (max-width: 600px) {
+  body { font-size: 1rem; line-height: 1.85; }
+  .brand-name { font-size: 1.35rem; }
+  .player { position: static; }
+}
+
+/* 尊重减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .scroll { opacity: 1; transform: none; }
+}
