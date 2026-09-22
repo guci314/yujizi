@@ -1,6 +1,8 @@
 name: My Jekyll Website
 host: 0.0.0.0
 
-# 留言板后端（Cloudflare Worker，见 ~/work/yujizi-comments）。
-# 模板通过 {{ site.comments_api }} 引用 —— 换后端只改这一行，不用动模板。
-comments_api: https://comments.yujizi.org
+# 留言板后端地址（Cloudflare Worker，见 ~/work/yujizi-comments）。
+# **留空 = 同源**：Worker 用路由 www.yujizi.org/api/* 接管 /api/*，前端走相对路径。
+# 同源不触发 CORS 预检、不需要跨域头，移动端最稳 —— 当前生产就是留空。
+# 若填绝对地址（如 https://comments.yujizi.org）则回退跨域模式，靠后端白名单放行。
+comments_api:
