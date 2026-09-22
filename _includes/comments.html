@@ -28,11 +28,19 @@
                   placeholder="可留名，也可不留。匿名发言请自惜口德。"></textarea>
 
         <!-- 蜜罐：正常用户看不见这个字段（.talk-hp 把它移出视口）。
-             机器人按字段名盲填，填了后端直接拒。 -->
+             机器人按字段名盲填，填了后端直接拒。
+
+             ⚠️ 字段名故意用 website —— 这是经典机器人的填充目标，保留它当诱饵。
+             但代价是**它同时是自动填充的目标**（密码管理器 / 浏览器自动填充都认
+             website 和「网址」这个标签），手机端尤其激进。一旦被自动填上，
+             真人提交会被后端当成机器人拒掉 —— 一个很难自查的失败。
+             所以下面挂齐各家密码管理器的忽略标记。 -->
         <div class="talk-hp" aria-hidden="true">
             <label for="talk-website">网址</label>
             <input id="talk-website" name="website" type="text"
-                   tabindex="-1" autocomplete="off" value="">
+                   tabindex="-1" autocomplete="off"
+                   data-lpignore="true" data-1p-ignore data-bwignore
+                   data-form-type="other" value="">
         </div>
 
         <div class="talk-row">
