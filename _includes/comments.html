@@ -48,7 +48,10 @@
     <!-- ⚠️ ?v= 是给静态资源做缓存击穿用的。GitHub Pages 对 js/css 设了
          Cache-Control: max-age=600，改了 comments.js 却不动这个版本号，
          回访用户最多 10 分钟还在跑旧代码。**改动 comments.js 就把它加一。**
-         v2：错误处理改为区分「断网」与「被边缘拦下」，并解析非 JSON 响应。
-         v3：改为同源调用（data-api 留空），彻底不再涉及 CORS。 -->
-    <script src="/js/comments.js?v=3" defer></script>
+         另外：Cloudflare 会把静态资源缓存 4 小时，部署后要清一次缓存
+         （见 ~/work/yujizi-comments/deploy.sh），否则新版本可能被旧缓存盖住。
+         v2：错误处理区分「断网」与「被边缘拦下」，并解析非 JSON 响应。
+         v3：改为同源调用（data-api 留空），彻底不再涉及 CORS。
+         v4：修掉误导性的报错文案，失败时打 console.warn 便于定位。 -->
+    <script src="/js/comments.js?v=4" defer></script>
 </section>
