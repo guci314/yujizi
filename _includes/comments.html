@@ -1,0 +1,46 @@
+<!--
+  留言板挂载点。
+  配置通过 data-* 传给 js/comments.js，不写死在 JS 里 —— 换后端只改这一处。
+  data-api 指向 comments.yujizi.org（Cloudflare Worker）。前端在 www.yujizi.org，
+  属跨域，后端配了来源白名单。
+  样式在 style.css 的「留言板」一节（复用全站令牌，昼夜主题自动跟随）。
+-->
+<section class="talk" id="talk"
+         data-api="{{ site.comments_api | default: 'https://comments.yujizi.org' }}"
+         data-page="{{ page.url | default: '/' }}"
+         aria-label="留言">
+
+    <p class="section-rule">留 言</p>
+
+    <div class="talk-list" id="talk-list">
+        <p class="talk-empty">正在载入…</p>
+    </div>
+
+    <form class="talk-form" id="talk-form" novalidate>
+        <label class="lbl" for="talk-content">说点什么</label>
+        <textarea id="talk-content" name="content" rows="4" maxlength="500"
+                  placeholder="可留名，也可不留。匿名发言请自惜口德。"></textarea>
+
+        <!-- 蜜罐：正常用户看不见这个字段（.talk-hp 把它移出视口）。
+             机器人按字段名盲填，填了后端直接拒。 -->
+        <div class="talk-hp" aria-hidden="true">
+            <label for="talk-website">网址</label>
+            <input id="talk-website" name="website" type="text"
+                   tabindex="-1" autocomplete="off" value="">
+        </div>
+
+        <div class="talk-row">
+            <input id="talk-name" name="name" type="text" maxlength="20"
+                   placeholder="称呼（可留空）" autocomplete="nickname">
+            <span class="spacer"></span>
+            <button type="submit" class="btn-ink" id="talk-submit">留 言</button>
+        </div>
+
+        <p class="talk-msg" id="talk-msg" role="status" aria-live="polite"></p>
+    </form>
+
+    <!-- ⚠️ ?v= 是给静态资源做缓存击穿用的。GitHub Pages 对 js/css 设了
+         Cache-Control: max-age=600，改了 comments.js 却不动这个版本号，
+         回访用户最多 10 分钟还在跑旧代码。**改动 comments.js 就把它加一。** -->
+    <script src="/js/comments.js?v=1" defer></script>
+</section>

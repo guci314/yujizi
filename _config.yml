@@ -1,2 +1,6 @@
 name: My Jekyll Website
 host: 0.0.0.0
+
+# 留言板后端（Cloudflare Worker，见 ~/work/yujizi-comments）。
+# 模板通过 {{ site.comments_api }} 引用 —— 换后端只改这一行，不用动模板。
+comments_api: https://comments.yujizi.org

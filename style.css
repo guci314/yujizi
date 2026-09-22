@@ -303,3 +303,82 @@ main { position: relative; z-index: 1; }
   * { animation: none !important; transition: none !important; }
   .scroll { opacity: 1; transform: none; }
 }
+
+/* ============================================================================
+   留言板
+   与全站同一套令牌:米纸/墨/朱砂 + 发丝线。这里**不写死任何颜色**,
+   只用 var(--*),所以昼夜主题自动跟随,不需要第二套样式。
+   结构见 _includes/comments.html,行为见 js/comments.js。
+   ============================================================================ */
+.talk { margin-top: 4.5rem; }
+.talk .section-rule { margin-bottom: 1.8rem; }
+
+.talk-list { margin-bottom: 2rem; }
+.talk-items { list-style: none; margin: 0; padding: 0; }
+
+.talk-item {
+  padding: 1.2rem 0 1.1rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.talk-item:first-child { border-top: 1px solid var(--line-soft); }
+
+.talk-head { display: flex; align-items: baseline; gap: .8rem; margin-bottom: .45rem; }
+.talk-who { font-family: var(--kai); font-size: 1.02rem; letter-spacing: .06em; color: var(--ink); }
+.talk-who.is-anon { color: var(--ink-faint); }
+.talk-when {
+  font-size: .78rem; letter-spacing: .06em; color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.talk-text {
+  margin: 0; color: var(--ink);
+  font-size: 1.02rem; line-height: 1.9;
+  white-space: pre-wrap;    /* 保留留言里的换行 */
+  overflow-wrap: anywhere;  /* 长串(如无空格长词)不撑破容器 */
+}
+
+.talk-empty { margin: 0; padding: 1.6rem 0; color: var(--ink-faint); font-size: .95rem; text-align: center; }
+.talk-empty.is-error { color: var(--cinnabar); }
+/* 列表被截断时的提示（后端上限 200 条）。不静默丢数据 */
+.talk-note { margin: 0; padding: 1.2rem 0 .2rem; color: var(--ink-faint); font-size: .85rem; text-align: center; }
+
+/* ---- 表单 ---- */
+.talk-form {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-2);
+  padding: 1.3rem 1.4rem 1.4rem;
+}
+.talk-form textarea,
+.talk-form input[type="text"] {
+  width: 100%;
+  font-family: var(--serif); font-size: .98rem; line-height: 1.8;
+  color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line); border-radius: 7px;
+  padding: .6rem .8rem;
+  transition: border-color .25s var(--ease);
+}
+.talk-form textarea { resize: vertical; min-height: 5.2rem; }
+.talk-form textarea:focus,
+.talk-form input[type="text"]:focus {
+  outline: none; border-color: var(--cinnabar);
+  box-shadow: 0 0 0 3px var(--sel-bg);
+}
+.talk-form textarea::placeholder,
+.talk-form input[type="text"]::placeholder { color: var(--ink-faint); }
+
+.talk-row { display: flex; align-items: center; gap: .8rem; margin-top: .8rem; flex-wrap: wrap; }
+.talk-row input[type="text"] { flex: 0 1 14rem; }
+.talk-form button[disabled] { opacity: .5; cursor: default; }
+
+/* 蜜罐:对正常用户不可见。⚠️ 刻意不用 display:none —— 一部分机器人会跳过
+   display:none 的字段,那样这个陷阱就白设了。移出视口更稳。 */
+.talk-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.talk-msg { margin: .8rem 0 0; font-size: .88rem; color: var(--ink-soft); min-height: 1.2em; }
+.talk-msg.is-error { color: var(--cinnabar); }
+.talk-msg.is-ok { color: var(--ink-soft); }
+
+@media (max-width: 600px) {
+  .talk { margin-top: 3rem; }
+  .talk-row input[type="text"] { flex: 1 1 100%; }
+}
