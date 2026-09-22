@@ -10,7 +10,11 @@
   var mount = document.getElementById("talk");
   if (!mount) return;
 
-  var API = (mount.getAttribute("data-api") || "").replace(/\/$/, "");
+  /* data-api 留空 = **同源**（生产就是这个模式）：/api/* 由 Cloudflare Worker 路由
+     接管，前端走相对路径。同源不触发 OPTIONS 预检、不需要 CORS 头、中间代理也剥不掉
+     跨域头 —— 移动端出过的「网络异常」整类问题由此消失。
+     填绝对地址（如 https://comments.yujizi.org）则回退到跨域模式，调试时可用。 */
+  var API = (mount.getAttribute("data-api") || "").replace(/\/+$/, "");
   var PAGE = mount.getAttribute("data-page") || "/";
 
   var listEl = document.getElementById("talk-list");
@@ -118,7 +122,6 @@
   }
 
   function load() {
-    if (!API) { fail("留言板未配置接口地址。"); return; }
     fetch(API + "/api/comments?page=" + encodeURIComponent(PAGE), {
       headers: { accept: "application/json" }
     })

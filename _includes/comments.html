@@ -1,12 +1,18 @@
 <!--
   留言板挂载点。
-  配置通过 data-* 传给 js/comments.js，不写死在 JS 里 —— 换后端只改这一处。
-  data-api 指向 comments.yujizi.org（Cloudflare Worker）。前端在 www.yujizi.org，
-  属跨域，后端配了来源白名单。
+  配置通过 data-* 传给 js/comments.js，不写死在 JS 里。
+
+  data-api 留空 = **同源**（当前生产模式）：站点在 www.yujizi.org，Cloudflare Worker
+  用路由 www.yujizi.org/api/* 接管 /api/*，前端走相对路径。同源不触发 OPTIONS 预检、
+  不需要 CORS 头、中间代理也剥不掉跨域头 —— 移动端出过的「网络异常」整类问题由此消失。
+
+  若把 _config.yml 的 comments_api 填成绝对地址（如 https://comments.yujizi.org），
+  则回退到跨域模式，后端靠 CORS 白名单放行。调试或换后端时可用。
+
   样式在 style.css 的「留言板」一节（复用全站令牌，昼夜主题自动跟随）。
 -->
 <section class="talk" id="talk"
-         data-api="{{ site.comments_api | default: 'https://comments.yujizi.org' }}"
+         data-api="{{ site.comments_api }}"
          data-page="{{ page.url | default: '/' }}"
          aria-label="留言">
 
@@ -42,6 +48,7 @@
     <!-- ⚠️ ?v= 是给静态资源做缓存击穿用的。GitHub Pages 对 js/css 设了
          Cache-Control: max-age=600，改了 comments.js 却不动这个版本号，
          回访用户最多 10 分钟还在跑旧代码。**改动 comments.js 就把它加一。**
-         v2：错误处理改为区分「断网」与「被边缘拦下」，并解析非 JSON 响应。 -->
-    <script src="/js/comments.js?v=2" defer></script>
+         v2：错误处理改为区分「断网」与「被边缘拦下」，并解析非 JSON 响应。
+         v3：改为同源调用（data-api 留空），彻底不再涉及 CORS。 -->
+    <script src="/js/comments.js?v=3" defer></script>
 </section>
