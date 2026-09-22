@@ -91,16 +91,44 @@
     listEl.appendChild(p);
   }
 
+  /* 把响应读成 JSON。**先取文本再解析** —— 被边缘防护拦下时返回的是 HTML 错误页，
+     直接 r.json() 会抛异常，把「被拦」误报成「网络不通」，误导排查方向。 */
+  function readJson(r) {
+    return r.text().then(function (txt) {
+      var data = null;
+      try { data = JSON.parse(txt); } catch (e) { /* 不是 JSON，保持 null */ }
+      return { ok: r.ok, status: r.status, data: data };
+    });
+  }
+
+  /* fetch 被拒时分两种情况，必须分辨，否则用户和我们都不知道该查哪儿：
+       ① 网络真的不通；
+       ② 主机通、但响应缺少 CORS 头（被边缘防护拦下时就会这样，浏览器一律
+          把这种响应当成网络失败报出来）。
+     用 no-cors 探一次 /api/health：opaque 响应不可读内容，但只要不抛异常，
+     就说明主机可达 —— 那问题就出在②。 */
+  function diagnose() {
+    return fetch(API + "/api/health?probe=" + Date.now(), { mode: "no-cors", cache: "no-store" })
+      .then(function () {
+        return "接口拒绝了这次请求（可能触发了访问频率限制），请稍后再试。";
+      })
+      .catch(function () {
+        return "连不上留言接口，请检查网络后重试。";
+      });
+  }
+
   function load() {
     if (!API) { fail("留言板未配置接口地址。"); return; }
     fetch(API + "/api/comments?page=" + encodeURIComponent(PAGE), {
       headers: { accept: "application/json" }
     })
-      .then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
-      .then(function (data) {
+      .then(readJson)
+      .then(function (res) {
+        if (!res.ok) {
+          fail("留言载入失败（HTTP " + res.status + "）。");
+          return;
+        }
+        var data = res.data || {};
         var list = data.comments || [];
         render(list);
         // 后端上限 200 条。超出时明说，不要让旧留言无声消失
@@ -111,7 +139,9 @@
           listEl.appendChild(note);
         }
       })
-      .catch(function () { fail("留言载入失败，请稍后再试。"); });
+      .catch(function () {
+        diagnose().then(function (m) { fail(m); });
+      });
   }
 
   formEl.addEventListener("submit", function (e) {
@@ -138,14 +168,19 @@
         t: RENDERED_AT
       })
     })
-      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(readJson)
       .then(function (res) {
-        if (!res.ok) { say(res.d && res.d.error ? res.d.error : "提交失败。", "error"); return; }
+        if (!res.ok) {
+          say(res.data && res.data.error ? res.data.error : "提交失败（HTTP " + res.status + "）。", "error");
+          return;
+        }
         contentEl.value = "";
         say("已留言。", "ok");
         load();
       })
-      .catch(function () { say("网络异常，请稍后再试。", "error"); })
+      .catch(function () {
+        return diagnose().then(function (m) { say(m, "error"); });
+      })
       .then(function () { busy = false; submitEl.disabled = false; });
   });
 
