@@ -105,16 +105,17 @@
     });
   }
 
-  /* fetch 被拒时分两种情况，必须分辨，否则用户和我们都不知道该查哪儿：
-       ① 网络真的不通；
-       ② 主机通、但响应缺少 CORS 头（被边缘防护拦下时就会这样，浏览器一律
-          把这种响应当成网络失败报出来）。
-     用 no-cors 探一次 /api/health：opaque 响应不可读内容，但只要不抛异常，
-     就说明主机可达 —— 那问题就出在②。 */
-  function diagnose() {
+  /* fetch 被拒时给一句**不撒谎**的话。
+     同源模式下不存在 CORS，被拒只剩两种可能：网络真的断了，或响应被中途打断
+     （浏览器扩展、运营商/浏览器的"云加速"代理等）。用 no-cors 探一次健康端点来分辨：
+     能拿到 opaque 响应说明主机可达，问题在响应环节；连探测都失败才是真断网。
+     ⚠️ 别在这里写"可能触发了频率限制"之类的猜测 —— 限流会返回正常 HTTP 响应，
+     根本走不到这个分支，写上去只会把排查方向带偏（这个错我犯过）。 */
+  function diagnose(err) {
+    if (window.console && console.warn) console.warn("[talk] 请求失败：", err);
     return fetch(API + "/api/health?probe=" + Date.now(), { mode: "no-cors", cache: "no-store" })
       .then(function () {
-        return "接口拒绝了这次请求（可能触发了访问频率限制），请稍后再试。";
+        return "这次请求没能完成，请稍后再试。";
       })
       .catch(function () {
         return "连不上留言接口，请检查网络后重试。";
@@ -142,8 +143,8 @@
           listEl.appendChild(note);
         }
       })
-      .catch(function () {
-        diagnose().then(function (m) { fail(m); });
+      .catch(function (err) {
+        diagnose(err).then(function (m) { fail(m); });
       });
   }
 
@@ -181,8 +182,8 @@
         say("已留言。", "ok");
         load();
       })
-      .catch(function () {
-        return diagnose().then(function (m) { say(m, "error"); });
+      .catch(function (err) {
+        return diagnose(err).then(function (m) { say(m, "error"); });
       })
       .then(function () { busy = false; submitEl.disabled = false; });
   });
