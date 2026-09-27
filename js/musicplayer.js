@@ -53,6 +53,8 @@ musicPlayer.addEventListener('timeupdate', () => {
     pCloseTransition(true);
   }
   localStorage.setItem(`${pageid}_currentTime`, musicPlayer.currentTime);
+  // 「剩余」实时走字:定时关闭和播完停止都靠这里刷新,不用等 10 秒兜底 interval
+  updateRemainTime();
   // 预加载下一首音乐, 仅在最后 5 分钟时预加载
   // (原 <link rel=preload as=audio> 方案 Safari/Chrome 都基本不执行,换成真实 fetch 暖缓存)
   if (musicPlayer.duration - musicPlayer.currentTime < 300) {
@@ -126,6 +128,8 @@ let isLoopMode = false;
 playModeSelect.addEventListener('change', (e) => {
   isLoopMode = e.target.value === 'loop';
   plog('mode-change', e.target.value);
+  // 立刻重算剩余:切到「播放完停止」应马上显示曲目剩余,切走则复位成「—」
+  updateRemainTime();
 });
 
 // 监听播放器的 ended 事件
@@ -155,23 +159,45 @@ var theTime;
 
 setInterval(() => updateRemainTime(), 10000);
 
-//更新定时停止的剩余时间
+// 更新「剩余」显示 —— 剩余 = 距离本次自动停止还有多久。
+// 停止源有两个,取先到的那个:
+//   ① 定时关闭(myselect)         → 停止点 = theTime
+//   ② 播完停止(play-mode=stop-after) → 停止点 = 当前曲目末尾
+// 2026-09-27 修:原来只认 ①。选「播放完停止」时 theTime 恒为 null,
+// 于是 #remainTime 永远挂着初始的「—」,用户看不出还剩多久会停。
 function updateRemainTime() {
+  var remainMs = null;   // 距停止还有多少毫秒;null = 当前没有在倒计时的事
+  // ① 定时关闭
   if (theTime) {
-    var d = new Date();
-    var x = theTime - d;//Math.floor((theTime-d)/60000)
+    var x = theTime - new Date();
     if (x < 0) x = 0;
-    if (x >= 0) {
-      var min = Math.floor(x / 60000);
-      var sec = Math.floor((x - min * 60000) / 1000);
-      document.getElementById("remainTime").innerText = `${min}分钟${sec}秒`;
-    }
-    // 兜底:后台节流导致 setTimeout 没按时触发,由本 interval 补刀
+    remainMs = x;
+    // 兜底:后台节流导致 setTimeout 没按时触发,由本函数补刀
     if (x <= 0) {
       window.clearTimeout(stopAudioTimeOut);
       stopAudio('timer-sweep');
     }
-  };
+  }
+  // ② 播完停止。只在「确实在播」时算 —— 暂停/已停之后曲目不再倒计时,
+  //    此时显示「—」比冻结一个数字更诚实。
+  //    (duration 为 NaN/0 时是元数据还没到,先不显示,loadedmetadata 后会接上)
+  if (playModeSelect && playModeSelect.value === 'stop-after'
+    && !musicPlayer.paused && !musicPlayer.ended
+    && isFinite(musicPlayer.duration) && musicPlayer.duration > 0) {
+    var trackMs = (musicPlayer.duration - musicPlayer.currentTime) * 1000;
+    if (trackMs < 0) trackMs = 0;
+    remainMs = (remainMs === null) ? trackMs : Math.min(remainMs, trackMs);
+  }
+  var remainEl = document.getElementById("remainTime");
+  if (remainEl) {
+    if (remainMs === null) {
+      remainEl.innerText = '—';
+    } else {
+      var min = Math.floor(remainMs / 60000);
+      var sec = Math.floor((remainMs - min * 60000) / 1000);
+      remainEl.innerText = min + "分钟" + sec + "秒";
+    }
+  }
   pWatchdog();
 }
 
@@ -194,6 +220,7 @@ function stopAudio(reason) {
   musicPlayer.pause();
   theTime = null
   document.getElementById("myselect").value = -1;
+  updateRemainTime();   // 停止即无倒计时,把「剩余」复位成「—」,别挂着旧数字
 };
 
 //date 加法的扩展函数
@@ -468,6 +495,7 @@ musicPlayer.addEventListener('loadstart', function () {
 });
 
 musicPlayer.addEventListener('pause', function () {
+  updateRemainTime();   // 一暂停就不再倒计时,「剩余」立刻复位(不等 10 秒 interval)
   var why = pExpectedPause;
   pExpectedPause = '';
   if (musicPlayer.ended) { plog('pause', 'ended'); return; }
