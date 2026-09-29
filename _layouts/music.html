@@ -113,8 +113,9 @@
     <!-- ⚠️ ?v= 是缓存击穿(同 comments.js 的约定)。GitHub Pages 给 js 设了
          Cache-Control: max-age=600,Cloudflare 还可能缓存更久 —— 改了
          musicplayer.js 就把它加一,否则回访用户跑的还是旧代码。
-         v2:修「播放完停止」模式下不显示剩余时间。 -->
-    <script src="/js/musicplayer.js?v=2"></script>
+         v2:修「播放完停止」模式下不显示剩余时间。
+         v3:修连续播放转场后卡在下一首开头、时长显示 0 秒(预取改为只取头部 512KB)。 -->
+    <script src="/js/musicplayer.js?v=3"></script>
     <script>
         (function () {
             var html = document.documentElement;

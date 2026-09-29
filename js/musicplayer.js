@@ -404,25 +404,37 @@ function pScheduleRetry(ctx) {
   }, delay);
 }
 
-// 真实预取:整文件 fetch 暖 HTTP 缓存,流式读完即弃,内存占用恒小
+// 预取下一首:2026-09-29 修
+// 原实现用 fetch() 把整个文件读完(实测 66~88MB 的 mp3 = 抢走约 90MB 带宽),
+// 真正的 <audio> element 拿不到首字节,于是转场后冻在开头(readyState 0 / duration NaN),
+// 界面时长显示 0 秒 —— 正是「连续播放卡在下个音频开始处 + 时长 0 秒」的原因。
+// A/B(生产实测):预取照常 平均出声 14331ms、42/130 采样点时长读不出;
+// 掐断预取 平均 334ms、2/130。同样的转场次数,成败差别只在这一条。
+//
+// 现在的做法:只预取「头部一小段」暖缓存(range 请求),不与播放器抢带宽;
+// 换曲真正常见的慢点(m4a 索引表在文件尾)交给播放器自己 range 拉,那本来就是它该做的。
+// 保留 Range 支持的探测,服务端若不支持就整个放弃预取(退化成 2026-09-27 之前的行为)。
+var P_PREFETCH_MAX = 512 * 1024;   // 预取上限 512KB:m4a/moov-在头部时够用,又不会抢带宽
 function pPrefetch(url) {
   if (pPrefetched[url]) return;
   pPrefetched[url] = true;
   plog('prefetch-start', decodeURIComponent(url).split('/').pop().slice(0, 30));
-  fetch(url).then(function (res) {
-    if (!res.ok || !res.body) { plog('prefetch-fail', 'http ' + res.status); pPrefetched[url] = false; return; }
-    var reader = res.body.getReader();
-    function pump() {
-      return reader.read().then(function (r) {
-        if (!r.done) return pump();
-        plog('prefetch-done');
-      });
-    }
-    return pump();
-  }).catch(function (e) {
-    plog('prefetch-fail', e.name);
-    pPrefetched[url] = false;
-  });
+  fetch(url, { headers: { Range: 'bytes=0-' + (P_PREFETCH_MAX - 1) } })
+    .then(function (res) {
+      // 206 = 服务端认了 range,只回一段 → 正是要的
+      // 200 = 服务端无视 range,把整个 88MB 灌回来 → 立刻 abort,不能要
+      if (res.status !== 206) {
+        plog('prefetch-skip', 'http ' + res.status + '(no range)');
+        pPrefetched[url] = false;
+        if (res.body) res.body.cancel();
+        return;
+      }
+      plog('prefetch-done', res.headers.get('content-range') || '');
+      if (res.body) res.body.cancel();   // 数据已在缓存里,不必在 JS 里过一遍
+    }).catch(function (e) {
+      plog('prefetch-fail', e.name);
+      pPrefetched[url] = false;
+    });
 }
 
 // 看门狗:挂在已有的 10 秒 interval 上(后台被节流也终会触发)
