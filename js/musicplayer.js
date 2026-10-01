@@ -3,6 +3,12 @@ const musicSelect = document.getElementById('music-select');
 const musicPlayer = document.getElementById('music-player');
 const musicDownload = document.getElementById('music-download');
 
+// 预取参数。必须在这里声明:下面 timeupdate 里就要读它们,而 const/let
+// 不提升,放在文件末尾会导致首次 timeupdate 抛 ReferenceError,
+// 连带把「剩余」刷新和转场成功判定一起弄死(同一个监听器里)。
+var P_PREFETCH_MAX = 512 * 1024;   // 预取上限 512KB:够暖元数据缓存,又不抢带宽
+var P_PREFETCH_LEAD = 60;          // 剩余不足 60 秒才预取下一首
+
 // 初始化下拉框
 function initSelect() {
   musicList.forEach((music, index) => {
@@ -56,9 +62,14 @@ musicPlayer.addEventListener('timeupdate', () => {
   localStorage.setItem(`${pageid}_currentTime`, musicPlayer.currentTime);
   // 「剩余」实时走字:定时关闭和播完停止都靠这里刷新,不用等 10 秒兜底 interval
   updateRemainTime();
-  // 预加载下一首音乐, 仅在最后 5 分钟时预加载
+  // 预加载下一首:剩余不足 1 分钟时开始,只做一次(靠 pPrefetched 去重)。
   // (原 <link rel=preload as=audio> 方案 Safari/Chrome 都基本不执行,换成真实 fetch 暖缓存)
-  if (musicPlayer.duration - musicPlayer.currentTime < 300) {
+  // 2026-09-29:阈值从 300 秒收紧到 60 秒。早先设 5 分钟是拍脑袋的,
+  // 但这批 mp3 单个 66~88MB,提前 5 分钟预取意味着转场前 5 分钟就在抢带宽,
+  // 反而拖慢当前这一首 —— timeupdate 每秒触发数次,等于长期占用。
+  // 1 分钟足够 512KB 头部预取跑完,且不干扰正在播的内容。
+  if (isFinite(musicPlayer.duration) && musicPlayer.duration > 0
+    && musicPlayer.duration - musicPlayer.currentTime < P_PREFETCH_LEAD) {
     let nextMusicIndex = parseInt(musicSelect.value) + 1;
     if (nextMusicIndex < musicList.length) {
       pPrefetch(musicList[nextMusicIndex].url);
@@ -307,7 +318,8 @@ var pRetry = { timer: null, count: 0, deadline: 0 };
 var pFailedAt = 0;          // 最近一次 play() 失败时刻(解锁续播窗口用)
 var pHealDone = false;      // 本次转场是否已做过看门狗自救
 var pErrHeal = 0;           // 当前曲目媒体错误自救次数
-var pPrefetched = {};
+var pPrefetched = {};       // 本次会话已发起过预取的 URL(粘性,不去重不复用)
+var pPrefetchGivenUp = {};  // 明确放弃的 URL(服务端不支持 range),整个会话不再试
 // 「时长 0」看门狗的状态。声明放在 stopAudio() 之前:var 会提升但值是 undefined,
 // 若 stopAudio() 在下面 pZeroDur 初始化之前被调用,`pZeroDur.timer` 会抛
 // TypeError 而打断 stopAudio 本身。提前声明让 stopAudio 任何时候都安全。
@@ -422,18 +434,24 @@ function pScheduleRetry(ctx) {
 // 现在的做法:只预取「头部一小段」暖缓存(range 请求),不与播放器抢带宽;
 // 换曲真正常见的慢点(m4a 索引表在文件尾)交给播放器自己 range 拉,那本来就是它该做的。
 // 保留 Range 支持的探测,服务端若不支持就整个放弃预取(退化成 2026-09-27 之前的行为)。
-var P_PREFETCH_MAX = 512 * 1024;   // 预取上限 512KB:m4a/moov-在头部时够用,又不会抢带宽
 function pPrefetch(url) {
-  if (pPrefetched[url]) return;
+  // 去重必须是「粘性」的:一旦对某个 URL 发起过预取,本次会话内就不要再发起第二次。
+  //
+  // 2026-09-29 修复:原来在 200 分支上写 `pPrefetched[url] = false`,想的是
+  // 「服务端不支持 range,下次还能重试」,但 timeupdate 每秒触发数次,
+  // 于是每次都重新发起 —— 实测 8 秒内打了 25 次 Range 请求,
+  // 正好把「预取抢带宽拖慢播放」这个老毛病又请回来一遍。
+  // 现在改成用独立的「已放弃」集合:放弃了就整个会话都不再试。
+  if (pPrefetched[url] || pPrefetchGivenUp[url]) return;
   pPrefetched[url] = true;
   plog('prefetch-start', decodeURIComponent(url).split('/').pop().slice(0, 30));
   fetch(url, { headers: { Range: 'bytes=0-' + (P_PREFETCH_MAX - 1) } })
     .then(function (res) {
       // 206 = 服务端认了 range,只回一段 → 正是要的
-      // 200 = 服务端无视 range,把整个 88MB 灌回来 → 立刻 abort,不能要
+      // 200 = 服务端无视 range,把整个 88MB 灌回来 → 立刻 abort,并标记放弃
       if (res.status !== 206) {
-        plog('prefetch-skip', 'http ' + res.status + '(no range)');
-        pPrefetched[url] = false;
+        plog('prefetch-skip', 'http ' + res.status + '(no range) 本次会话不再重试');
+        pPrefetchGivenUp[url] = true;
         if (res.body) res.body.cancel();
         return;
       }
@@ -441,7 +459,8 @@ function pPrefetch(url) {
       if (res.body) res.body.cancel();   // 数据已在缓存里,不必在 JS 里过一遍
     }).catch(function (e) {
       plog('prefetch-fail', e.name);
-      pPrefetched[url] = false;
+      // 网络层失败(errors 时)可能只是抖动,保留 pPrefetched=true 不放重试,
+      // 避免在弱网下反复打同一地址。若确实需要重试,等下一轮换曲自然重来。
     });
 }
 

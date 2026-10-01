@@ -117,6 +117,12 @@
          v3:修连续播放转场后卡在下一首开头、时长显示 0 秒(预取改为只取头部 512KB)。
          v4:加「时长 0」看门狗 —— 换曲后 10 秒元数据仍未到就重载自救。 -->
     <script src="/js/musicplayer.js?v=4"></script>
+    <!-- ⚠️ 顺序有依赖:keepalive.js 用到 musicplayer.js 定义的 plog /
+         pPlayIntent / musicPlayer,放在前面会 ReferenceError 静默失效。
+         它负责 Android(尤其小米/澎湃OS)息屏后的保活:播放期间发射
+         -58dB @18kHz 的听不见信号,让系统认定「页面有声音」,从而保住
+         Chrome「最近 30 秒内发声」豁免,避免定时器被节流到每分钟一次。 -->
+    <script src="/js/keepalive.js?v=1"></script>
     <script>
         (function () {
             var html = document.documentElement;
