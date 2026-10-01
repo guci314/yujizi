@@ -8,6 +8,14 @@ const musicDownload = document.getElementById('music-download');
 // 连带把「剩余」刷新和转场成功判定一起弄死(同一个监听器里)。
 var P_PREFETCH_MAX = 512 * 1024;   // 预取上限 512KB:够暖元数据缓存,又不抢带宽
 var P_PREFETCH_LEAD = 60;          // 剩余不足 60 秒才预取下一首
+// 无法归因的暂停后,给用户「这次是我按的」一个宽限窗口。
+// 在此窗口内回前台 → 不复活(尊重用户操作);超过 → 判定为系统夺音频焦点,接上。
+var P_USER_PAUSE_GRACE = 8000;
+// 存的是「用户主动暂停的到期时刻戳」,不是布尔标记。
+// ⚠️ 早先写成 `!pUserPausedUntil` 是错的:这个值一旦被设成就永远不为 0,
+// 守卫恒为假 → 系统暂停后永远接不上(测试逐条代入才发现)。
+// 正确判据是「已过期」:`pUserPausedUntil <= Date.now()`。
+var pUserPausedUntil = 0;          // 0 = 当前不存在用户主动暂停
 
 // 初始化下拉框
 function initSelect() {
@@ -44,6 +52,7 @@ musicSelect.addEventListener('change', (e) => {
   } else {
     pPlayIntent = false;
     pExpectedPause = 'select-clear';
+    pUserPausedUntil = Date.now() + P_USER_PAUSE_GRACE;   // 清空选择是用户主动行为
     musicPlayer.pause();
     musicPlayer.src = '';
     // 隐藏下载链接
@@ -555,6 +564,7 @@ if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('pause', function () {
       pPlayIntent = false;
       pExpectedPause = 'ms-pause';
+      pUserPausedUntil = Date.now() + P_USER_PAUSE_GRACE;   // 用户主动按的,别被回前台当成系统打断
       musicPlayer.pause();
     });
     navigator.mediaSession.setActionHandler('nexttrack', function () { playNext(); });
@@ -591,10 +601,12 @@ musicPlayer.addEventListener('pause', function () {
   pExpectedPause = '';
   if (musicPlayer.ended) { plog('pause', 'ended'); return; }
   if (why) { plog('pause', why); return; }
-  // 无法归因的暂停:多半是用户在锁屏面板按了暂停 → 尊重之,不自动续播;
-  // 但定时未到就停属于待解释事件,计数留证
-  pPlayIntent = false;
-  plog('pause-unattributed', theTime ? 'timer-active' : '');
+  // 无法归因的暂停:可能是系统在息屏/来电/其他 App 抢焦点时暂停的,
+  // 也可能是用户自己在锁屏面板按了暂停。两者在这个回调里长得一模一样,
+  // 所以这里不猜:记录时刻,让 visibilitychange 回前台时再判定 ——
+  // 真正的用户主动暂停由 pUserPaused 标记,绝不复活。
+  pUserPausedUntil = Date.now() + P_USER_PAUSE_GRACE;
+  plog('pause-unattributed', (theTime ? 'timer-active' : '') + ' grace=' + P_USER_PAUSE_GRACE + 'ms');
   if (theTime) { pstats.oddPause++; psave(); }
 });
 
@@ -622,6 +634,22 @@ musicPlayer.addEventListener('error', function () {
 
 document.addEventListener('visibilitychange', function () {
   plog('visibility', document.visibilityState);
+  if (document.visibilityState !== 'visible') return;
+
+  // 息屏夺走音频焦点导致系统暂停,play() 早已 resolve,所以 pFailedAt 是 0
+  // —— 早先的条件 `&& pFailedAt` 把这种情况整个挡在门外,用户回到前台
+  // 音频永远接不上。2026-09-29 用户实测日志(17:52:37 pause-unattributed
+  // timer-active → 17:55:22 visibility visible 之后无事发生)证实的正是这条。
+  //
+  // 现在:定时未到 + 仍是连续/单曲循环 + 用户没主动停过 → 就当作被系统打断,
+  // 试着接上。真正的用户主动暂停由 pUserPaused 标记,绝不复活。
+  if (musicPlayer.paused && theTime && theTime.getTime() > Date.now()
+    && pUserPausedUntil <= Date.now() && playModeSelect.value !== 'stop-after') {
+    pPlayIntent = true;
+    plog('visible-resume', '系统暂停后接上');
+    tryPlay('visible-resume');
+  }
+
   // 解锁/回前台续播:10 分钟内有过播放失败且意图仍在 → 接上
   if (document.visibilityState === 'visible' && pPlayIntent && musicPlayer.paused
     && pFailedAt && Date.now() - pFailedAt < 600000) {
