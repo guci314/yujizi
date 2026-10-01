@@ -28,6 +28,7 @@ musicSelect.addEventListener('change', (e) => {
     musicPlayer.src = selectedMusic.url;
     tryPlay('select');
     pSetSessionMeta(selectedMusic.name);
+    pArmZeroDur(selectedIndex);   // 手动选曲同样可能撞上「时长 0」,一并纳入看门狗
     // 更新下载链接
     musicDownload.href = selectedMusic.url;
     musicDownload.download = selectedMusic.name;
@@ -104,6 +105,7 @@ function playNext() {
   musicPlayer.src = nextMusic.url;
   tryPlay('next');
   pSetSessionMeta(nextMusic.name);
+  pArmZeroDur(nextIndex);   // 换曲后开「时长 0 看门狗」:10 秒后元数据还没到就重载
 
   // 更新下载链接
   musicDownload.href = nextMusic.url;
@@ -215,6 +217,8 @@ function stopAudio(reason) {
   pPlayIntent = false;
   window.clearTimeout(pRetry.timer);
   pRetry.deadline = 0;
+  window.clearTimeout(pZeroDur.timer);   // 定时到点停播,不该再被「时长 0」看门狗复活
+  pZeroDur.idx = -1;
   if (ptrans) pDiscardTransition('stopped-by-' + reason);
   pExpectedPause = reason;
   musicPlayer.pause();
@@ -292,7 +296,7 @@ var PKEY_STATS = pageid + '_pstats';
 var PKEY_TRANS = pageid + '_ptrans';
 
 var plogBuf = [];
-var pstats = { trans: 0, ok: 0, fail: 0, earlyTimer: 0, oddPause: 0, reasons: {} };
+var pstats = { trans: 0, ok: 0, fail: 0, earlyTimer: 0, oddPause: 0, zeroDur: 0, reasons: {} };
 var ptrans = null;          // 进行中的转场 {start, from, to}
 var plastErr = '';          // 最近一次媒体/play() 错误
 var pExpectedPause = '';    // 预期内 pause 的原因(stopAudio/清空选择)
@@ -304,6 +308,10 @@ var pFailedAt = 0;          // 最近一次 play() 失败时刻(解锁续播窗�
 var pHealDone = false;      // 本次转场是否已做过看门狗自救
 var pErrHeal = 0;           // 当前曲目媒体错误自救次数
 var pPrefetched = {};
+// 「时长 0」看门狗的状态。声明放在 stopAudio() 之前:var 会提升但值是 undefined,
+// 若 stopAudio() 在下面 pZeroDur 初始化之前被调用,`pZeroDur.timer` 会抛
+// TypeError 而打断 stopAudio 本身。提前声明让 stopAudio 任何时候都安全。
+var pZeroDur = { timer: null, idx: -1, at: 0 };
 
 try { plogBuf = JSON.parse(localStorage.getItem(PKEY_LOG)) || []; } catch (e) { }
 try {
@@ -437,8 +445,60 @@ function pPrefetch(url) {
     });
 }
 
+// ── 「时长 0」看门狗 ──────────────────────────────────────────────
+// 2026-09-29 加。症状:连续播放切换到下一首后卡在开头不动,界面时长显示 0 秒。
+//
+// 为什么原来的 pWatchdog() 治不了这个:
+//   它只在 ptrans 存在、且超过 45 秒、且 musicPlayer.paused 时才自救。
+//   而这个故障的实际状态是 paused=false(play() 已 resolve)+ readyState 0,
+//   于是只走 else 分支记一笔 'stuck-loading',ptrans 被关闭成 null ——
+//   之后 ptrans 条件不再成立,再没有任何代码会回头看它。这就是漏网的原因。
+//
+// 这里不看 ptrans、不看 paused,只看「我刚换到这一首,10 秒后元数据还没到」。
+// 条件从严,避免误伤:
+//   ① 必须连续播放(loop/stop-after 不适用)
+//   ② 必须仍在播放意图内且定时未到(用户主动停过就绝不复活)
+//   ③ 必须仍是同一首 —— 换曲会被下一次 pArmZeroDur 覆盖,旧的定时器失效
+//   ④ 播放头必须没推进:动过就说明真在播,元数据只是晚到而已
+function pArmZeroDur(idx) {
+  window.clearTimeout(pZeroDur.timer);
+  // ⚠️ 必须归一成数字。下拉框 change 事件里 selectedIndex 是字符串("1"),
+  // 而下面 pCheckZeroDur 拿它跟 parseInt(musicSelect.value)(数字)比 !==,
+  // 类型不一致会让守卫永远成立 → 自救一次都不触发(测试实测日志为空)。
+  pZeroDur.idx = parseInt(idx, 10);
+  pZeroDur.at = Date.now();
+  pZeroDur.timer = setTimeout(function () { pCheckZeroDur(); }, 10000);
+}
+function pCheckZeroDur() {
+  // 已被后续换曲覆盖 → 本次任务作废
+  if (pZeroDur.idx !== parseInt(musicSelect.value)) return;
+  // 元数据到了 → 没事,不解重载
+  if (isFinite(musicPlayer.duration) && musicPlayer.duration > 0) return;
+  // 播放头在推进 → 只是在慢加载,别去打断它
+  if (musicPlayer.currentTime > 0.5) return;
+  // 用户意图之外的播放(主动暂停/定时已到/切了别的曲子)→ 尊重现状
+  if (!pPlayIntent) { plog('zero-dur-skip', '无播放意图(idx=' + pZeroDur.idx + ')'); return; }
+  if (theTime && theTime.getTime() <= Date.now()) { plog('zero-dur-skip', '定时已到'); return; }
+  if (playModeSelect.value !== 'continuous') { plog('zero-dur-skip', '非连续播放'); return; }
+
+  // ⚠️ 不能拿 paused 当「正常」判据:2026-09-29 生产实测,卡住的那一刻是
+  //    paused=FALSE(play() 早已 resolve)+ readyState 0 + duration NaN。
+  //    早先一版守卫写成 `if (!musicPlayer.paused) return;`,结果真实故障恰好
+  //    落进「已在播放」分支被直接跳过 —— 自救永不触发(测试抓到了这个反转)。
+  //    真正的判据是「有没有拿到元数据 / 播放头有没有动过」,上面两条已经查过。
+  var pMusic = musicList[pZeroDur.idx];
+  var pUrl = pMusic && pMusic.url;
+  if (!pUrl) return;
+  pstats.zeroDur++;
+  psave();
+  plog('zero-dur-heal', pZeroDur.idx + ' 重载 ' + decodeURIComponent(pUrl).split('/').pop().slice(0, 28));
+  musicPlayer.load();          // 丢掉半截的缓冲,重新按 range 拉
+  tryPlay('zero-dur-heal');
+}
+
 // 看门狗:挂在已有的 10 秒 interval 上(后台被节流也终会触发)
 function pWatchdog() {
+  // 「时长 0」看门狗不依赖 ptrans,独立于 45 秒阈值,靠自己的 10 秒定时器
   if (ptrans && Date.now() - ptrans.start > 45000) {
     if (musicPlayer.paused) {
       var pReason = 'stuck-paused' + (plastErr ? ':' + plastErr : '');
@@ -592,7 +652,7 @@ if (PQS.has('debug')) {
     };
     window.plogReset = function () {
       plogBuf = [];
-      pstats = { trans: 0, ok: 0, fail: 0, earlyTimer: 0, oddPause: 0, reasons: {} };
+      pstats = { trans: 0, ok: 0, fail: 0, earlyTimer: 0, oddPause: 0, zeroDur: 0, reasons: {} };
       ptrans = null;
       try {
         localStorage.removeItem(PKEY_LOG);
@@ -604,7 +664,8 @@ if (PQS.has('debug')) {
 
     function pRender() {
       var head = '【转场】共 ' + pstats.trans + ' 次 | 成功 ' + pstats.ok + ' | 失败 ' + pstats.fail +
-        ' | 异常暂停 ' + pstats.oddPause + ' | 定时提前 ' + pstats.earlyTimer + '\n';
+        ' | 异常暂停 ' + pstats.oddPause + ' | 定时提前 ' + pstats.earlyTimer +
+        ' | 时长0自救 ' + (pstats.zeroDur || 0) + '\n';
       var rs = Object.keys(pstats.reasons);
       if (rs.length) head += '【失败原因】' + rs.map(function (k) { return k + '×' + pstats.reasons[k]; }).join(' , ') + '\n';
       if (ptrans) head += '【转场进行中】' + ptrans.from + '->' + ptrans.to + ' 已 ' + Math.round((Date.now() - ptrans.start) / 1000) + 's\n';

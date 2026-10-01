@@ -114,8 +114,9 @@
          Cache-Control: max-age=600,Cloudflare 还可能缓存更久 —— 改了
          musicplayer.js 就把它加一,否则回访用户跑的还是旧代码。
          v2:修「播放完停止」模式下不显示剩余时间。
-         v3:修连续播放转场后卡在下一首开头、时长显示 0 秒(预取改为只取头部 512KB)。 -->
-    <script src="/js/musicplayer.js?v=3"></script>
+         v3:修连续播放转场后卡在下一首开头、时长显示 0 秒(预取改为只取头部 512KB)。
+         v4:加「时长 0」看门狗 —— 换曲后 10 秒元数据仍未到就重载自救。 -->
+    <script src="/js/musicplayer.js?v=4"></script>
     <script>
         (function () {
             var html = document.documentElement;
