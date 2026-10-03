@@ -6,3 +6,7 @@
 _site/
 .jekyll-cache/
 local-test.html
+
+# APK 发布走 GitHub Releases(releases/download/v1.0.0/...),不入库。
+# 每次出新版都提交 7MB 二进制会持续膨胀 .git(目前已 1.5GB,主要是音频)。
+downloads/*.apk
