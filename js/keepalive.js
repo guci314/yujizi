@@ -43,7 +43,8 @@ var pKeepAlive = {
 
 // 屏幕常亮锁的状态。声明放在 pKeepAliveSync 之前:该函数会读它,
 // 而 var 只提升为 undefined —— 后声明会导致首次调用抛 TypeError。
-var pWake = { lock: null, want: false, fails: 0 };
+var pWake = { lock: null, want: false, fails: 0, retryTimer: null };
+var pWakePollTimer = null;
 
 // 人耳阈值约 -60dB 就几乎听不到;再低怕被系统当静音,稍高怕真出声。
 // 取 -58dB:足以让系统判定「有声」,又确实听不见。
@@ -173,7 +174,18 @@ if (typeof musicPlayer !== 'undefined') {
   });
   musicPlayer.addEventListener('pause', function () {
     pKeepAliveSync();
+    pWakeLockSync();   // 暂停也要同步:否则锁会一直亮着
   });
+  // 关键补充:只有 playing/pause 事件是不够的。
+  // 息屏期间系统会直接暂停,有时 playing 事件还没来得及派发就被冻结;
+  // 而选曲后 pPlayIntent 已经为 true,但 audio 还在缓冲,迟迟不 playing。
+  // 这时若只等 playing,want 永远是 false,长亮锁根本不会去申请。
+  // 所以额外用低频轮询兜底:意图在 + 正在播 → 申请锁;都不在 → 释放。
+  pWakePollTimer = setInterval(function () {
+    if (!pKeepAliveReady()) return;
+    if (!pPlayIntent || musicPlayer.paused) { pWakeRetryStop(); return; }
+    pWakeLockSync();
+  }, 3000);
   musicPlayer.addEventListener('ended', function () {
     // 播完的那一瞬间音频元素是暂停态,但转场马上开始 —— 此时不能拆保活,
     // 否则恰好在转场窗口露出静音,豁免失效。
@@ -189,25 +201,57 @@ if (typeof musicPlayer !== 'undefined') {
 function pWakeLockSync() {
   if (!pKeepAliveReady()) return;
   var want = pPlayIntent && !musicPlayer.paused && pWake.fails < 3;
-  if (want === pWake.want && (!want || pWake.lock)) return;
-  pWake.want = want;
-  if (!navigator.wakeLock || !navigator.wakeLock.request) {
-    if (want) pWake.fails++;
+
+  if (!want) {
+    // 确定不该亮屏:释放并复位 want,下次播放才会重新申请
+    pWake.want = false;
+    if (pWake.lock) {
+      var l = pWake.lock; pWake.lock = null;
+      try { l.release().catch(function () { }); } catch (e) { }
+      plog('wakelock-off', '');
+    }
+    pWakeRetryStop();
     return;
   }
-  try {
-    if (want) {
-      navigator.wakeLock.request('screen').then(function (lock) {
-        pWake.lock = lock;
-        pWake.fails = 0;
-        plog('wakelock-on', '');
-        lock.addEventListener('release', function () { pWake.lock = null; });
-      }).catch(function (e) { pWake.fails++; plog('wakelock-fail', e.name); });
-    } else if (pWake.lock) {
-      var l = pWake.lock; pWake.lock = null;
-      l.release().catch(function () { });
-    }
-  } catch (e) { pWake.fails++; }
+
+  pWake.want = true;
+
+  if (!navigator.wakeLock || !navigator.wakeLock.request) {
+    if (pWake.fails++ > 0) plog('wakelock-fail', 'no API');
+    return;
+  }
+
+  // 已持有就直接返回;没有就立刻申请一次
+  if (!pWake.lock) pWakeRequest();
+  // 息屏期间页面不派发 visibilitychange,锁会被系统静默收回。
+  // 用轮询复查,发现锁掉了就补申请。
+  pWakeRetryStart();
+}
+
+function pWakeRequest() {
+  navigator.wakeLock.request('screen').then(function (lock) {
+    pWake.lock = lock;
+    pWake.fails = 0;
+    plog('wakelock-on', pWake.want ? '' : '迟到的锁');
+    lock.addEventListener('release', function () { pWake.lock = null; });
+  }).catch(function (e) {
+    pWake.fails++;
+    plog('wakelock-fail', e.name);
+  });
+}
+
+function pWakeRetryStart() {
+  if (pWake.retryTimer) return;
+  pWake.retryTimer = setInterval(function () {
+    if (!pWake.want || pWake.lock || !pKeepAliveReady()) return;
+    if (!pPlayIntent || musicPlayer.paused) return;
+    if (pWake.fails >= 3) { pWakeRetryStop(); return; }
+    pWakeRequest();
+  }, 5000);
+}
+
+function pWakeRetryStop() {
+  if (pWake.retryTimer) { clearInterval(pWake.retryTimer); pWake.retryTimer = null; }
 }
 
 // 页面重新可见时唤醒锁(锁会在息屏/切后台后被系统释放)
