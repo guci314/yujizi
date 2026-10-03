@@ -119,10 +119,10 @@
     <script src="/js/musicplayer.js?v=4"></script>
     <!-- ⚠️ 顺序有依赖:keepalive.js 用到 musicplayer.js 定义的 plog /
          pPlayIntent / musicPlayer,放在前面会 ReferenceError 静默失效。
-         它负责 Android(尤其小米/澎湃OS)息屏后的保活:播放期间发射
-         -58dB @18kHz 的听不见信号,让系统认定「页面有声音」,从而保住
-         Chrome「最近 30 秒内发声」豁免,避免定时器被节流到每分钟一次。 -->
-    <script src="/js/keepalive.js?v=2"></script>
+         它只做一件事:播放期间申请 navigator.wakeLock('screen') 让屏幕常亮。
+         2026-10-03 真机验证(小米 Android + Chrome)通过。
+         原先的「静音导频」方案已删除,实测无效。 -->
+    <script src="/js/keepalive.js?v=3"></script>
     <script>
         (function () {
             var html = document.documentElement;
