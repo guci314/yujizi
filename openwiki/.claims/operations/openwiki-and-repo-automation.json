@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:966ef6bfa699ab0f3f2cbb4048d6be317e92bebbc4c351ad58c695cb82b32755",
+  "claims": [
+    {
+      "id": "claim_acc448e1b19643c7b4fba64b36c584c8",
+      "statement": "仓库里唯一的自动化流水线是 .github/workflows/openwiki-update.yml（job `update`，ubuntu-latest），只由每日 08:00 的 cron `0 8 * * *` 与 workflow_dispatch 手动触发，没有任何 push 触发，且与站点构建无关——它的职责仅仅是更新 openwiki/ 文档索引；它需要 contents: write 与 pull-requests: write 权限才能建分支与开 PR。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L14",
+          "version": "repo-lines-v1:sha256:6e613703071f9917cc78b3627cd7f94b0bbced7b19fb8a6cabadf05678c23ef8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzMzczMzRhZWMwZGNiMjRlNDBlM2MyMGRjMDlkNTlhZjY3NDNkMDI3ZGJmZjUwYzFhY2EwODk3NDcxMTc2NzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUwMjYwNDVjMTc5MzkwMzA1NWIzYWQ1Y2RhYjRhNGY1ZjA0NzlhMTYwZTc3NWNiYWZmNjg5YTQ3NWI1ZWRmNTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e923b3c26056450bb7491fd158d7cb6f",
+      "statement": "checkout 必须使用 fetch-depth: 0，因为 `openwiki code --update` 会把 HEAD 与它上次记录过的 commit 做 diff，浅克隆会藏掉那个 commit，导致更新对着空变更集运行且不报错。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L16-L22",
+          "version": "repo-lines-v1:sha256:5f513af748b362994b00e41cc2ab8ac7880f4f9a4ac3fb63f49be6f3f2680e8b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDVkNmNmN2Q0MjhjYTgxMTVmYzRiYWJiNjgwNzM5MDIzMzI3YTdhOWQ5MTYzZjcwNmEyNzY4N2RkNTE2ZjM5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMwOTc1YzdlMjBlYmE4ODU3ZWZkMzFlNjJiNjY1Zjc4N2U1MTY0MTk1MWE2NjA3ODlmYmE5MzNhNjM0NzIxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWM1YTg5Mjc3MGFlNGY1MzMzZmQ3YzllMTJlMGE2YmM0NWIyNmI1YmI3NzUzZTAzOWRmOGVkNDljOTdiOTYwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2VmMTZlM2M4YjU0ZTJiMjA0ODE5NmFiYjRjZDgwZDIyYTUwOGVjZDYwNzQ2MTI0YTJlYTJkY2MzNDE3OTlkMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d5e1bc3c40f140edaa67115d40c238f0",
+      "statement": "流水线安装的 OpenWiki 版本被钉在 openwiki@0.6.1，并额外安装 mermaid@11.16.0 与 jsdom@29.1.1；这两个是可选依赖，作用是给 Mermaid 图做高保真校验，本仓库 wiki 含 Mermaid 图因此不应删除。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L29-L31",
+          "version": "repo-lines-v1:sha256:9ca5d28c9d58e6d43056cf35df8e80ddc1e72f9e91276a82ed4991e6608a5f39:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODZjZTBiMGQzYjM4MTIyYmMyNzUxNWE4ZDk2OTYxNWQ5ZTEwZTI4MDY0NGY3NjEyMjFkMDQ0NzlhZDI1MzkzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjQxZDU5OGMwYzMwMDljYTM1MWMwMTNhMGRhMDU2NDZkMGZjMDVkOGM1ZTEwMzk3ZDJjNzUxMjhkMjYyYjI1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjNmM2I4ODAyYjMxMGZmMmFkZDAwMjZiODJlZTJlOWU1NzE1OTEyZWFmMDgxYWY4NmNlMTEwZGQ2NDJmYzFhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTM3NjlkMjkyYWFhMDBjMmQzZDAyNzBkZmM5MjIzODZhMGRlNGRhMzhjOTA3MDA1NThlYjIzMmI4ZGIyYjdiNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e5855a46deb64f4ea4c8814da2b11d44",
+      "statement": "OpenWiki 更新步骤 `openwiki code --update --print` 带 continue-on-error: true，PR 正文记录其结果；即使结果为 failure，PR 也会故意只保留失败之前已完成的页面（合并它可让这批进度成为下次运行的基线），最后一步再以 exit 1 把 job 标成失败，避免失败被静默；而 wiki 的变更只有在该 PR 被合并后才生效，因为流水线只开 PR、从不直接 push。PR 开出后另有一「Annotate」步骤，仅在 create-pr 产出 PR URL 时打一条 ::notice 播报该链接，不改变任何状态。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L33-L36",
+          "version": "repo-lines-v1:sha256:d58ef5f498c02b45776d67452c92ddb307313815a56beddaf62b0c62e897fa58:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBlOGY5ZmE0MGU3YmQwNDk5ZDFjMGQ4M2ZkNzU4YWE4NWIzMDg0MmRiZDYxZjBlYTZiN2FlMTBlZmVjNzZkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQxYzYwZDgzNTk3Yzc2Y2NhNjk2YWFjNzRkZmI3YWM1ZGMzMzYyZmU2NTFmOGNhYjVhMzA0OTk2MzAxN2Q0MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDJjM2M3ZGUyYTk2OTFjZmFlYzM4YWNlMGI0MDQ3MWM1MzQzYmRkOTkxZjhlYTk3MzJlZTI3Y2I5OTExZTk2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmY3ZTQ2ODM3NDgxNGViZTgxZmFjOTBlMDY2NWNhOTBkMzg3MTliNTE0ZmMyZjFlYTEzOWM2MjkwZjA1N2M4NCJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L71-L95",
+          "version": "repo-lines-v1:sha256:415f687a286df9440c7cc95580eed202fee332c77e23458ae32fe3c88373a016:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2NzE4ZjA2N2I1ZTVjMWYwOTkxYTZlNzQ3MjZmZTJhMjNkMjY0MzQ1ZTA4ZTRlYWQwNGZhZjczYzI3ZWQ0NDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiZTFhZGFkYTE3YWUyZjRmM2Q4ZDQ3OTdkYjM2ZDUyNjc1OGJmNDlhOGM0YTc0OTg5ODY0YTQzY2NiMThlMTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9b2d721c19a9464a8a3d9575e3178d57",
+      "statement": "清瞬时状态与拼装 PR 路径的步骤都用 `if: ${{ !cancelled() }}` 守卫，因此即使 OpenWiki 失败也照常执行：先 `rm -f -- openwiki/.run.json`，再拼出 add-paths 白名单并开 PR（分支 openwiki/update，commit 与 title 均为 \"docs: update OpenWiki\"）。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L57-L79",
+          "version": "repo-lines-v1:sha256:c9ae9ccb06e2cc28f9a73729ba2f7fcd88734219ff049c3dbff192bc32b79a65:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3OWM4ODBmNjJkNDIyNTM4YmNhODRjYjU1ZWNlOGZlMTBlOTY1OGIwNjExMTVjM2ZhYmNkYzdiM2JlY2Y0NDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkYTQxNjY0OTBiMTcyOWI1ZWNiZmFmYmRlMmY1YmFiMDlkMmY3ZWVmZTQ0ZGQ1ZWZkMDZkZmUyMDViYjYxYTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkODlkZGU2NjgwODU1NjRmYmRkYzFiZDc3MzAxMGMyNGNhZGViOTViYzQ2ZTcxMTBiMzE5N2NkYmJhN2NkZjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ecdb66a9f28f4118b7e9fa0025962417",
+      "statement": "这个 PR 提交的文件是一份白名单：`openwiki,AGENTS.md,.github/workflows/openwiki-update.yml`，外加仅在文件存在时才加入的 CLAUDE.md——因为 `git add` 遇到不存在的路径会失败并导致什么都没 stage。白名单之外的任何手改文件都不会被这条流水线带走。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L61-L69",
+          "version": "repo-lines-v1:sha256:6afcfdf3625a6dcc3b0d241b34e0a49deee4a6d7318d0aed202e37dcbb36e1d9:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQ1NWJiN2MxZGU3ZTNlMDUyZWViYjkwOTA5NjBmOTZjMDJkMjdlNzljMGVhNmE5NzIzMjkxYWU0ZjJmYjFlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk2N2MzNzM4ZjA2YjkwZDA2MDE1YTRkNjI2NGQ1MjA5MTRmOGNkM2QxMzRhMDVhNTE3MDg2NmU0ZjEzOTNkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWZlNWNhN2ZiYmQxOTlhNmFkODJkZTUyZjRlYTY0MzE4NWY2MzUwYTgwYmE1MmQ1YWQ3ZWVhMzI1Njc3NTBjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGRlZWVlZTNlMTIwZDlkMTA0Yjc2ZTVjNzFhNjIyNmU0NWMwOTM1Y2I1YzZmMjUxMjJlNTI1N2ZiMWMzODI0MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2dc67969ee24b199825c18ece499729",
+      "statement": "OpenWiki 把「上次文档化到的那个 commit」当作持久状态保存在 openwiki/ 下，这是 --update 的 diff 基线；其中唯一被 workflow 显式删除的是瞬时运行状态 openwiki/.run.json（因此它不能当稳定配置读），而 add-paths 中的 openwiki/ 会把其余生成页与状态一并作为 wiki 提交保留。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L19-L22",
+          "version": "repo-lines-v1:sha256:beae048ca682009d230bdcaf587d4f2999860e97f34f70e709340576dfcbe021:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ2ODgyNDE1ZTdjYmFmNjM5ZTUwYzkzOWRhNjRkMTRiOTE1NGFkOGY1NTQwOTdkMWRiOTY1M2YxZDc5MjgyNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMwOTc1YzdlMjBlYmE4ODU3ZWZkMzFlNjJiNjY1Zjc4N2U1MTY0MTk1MWE2NjA3ODlmYmE5MzNhNjM0NzIxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2JlNDdmZWYyYmQ4Zjk5MTkxZGUzNDM3ZTI1Y2IxMzY4ZWU3ODUxZmRjOThkYzI3ZTFlYmQwZDM4ZmRkN2EwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2VmMTZlM2M4YjU0ZTJiMjA0ODE5NmFiYjRjZDgwZDIyYTUwOGVjZDYwNzQ2MTI0YTJlYTJkY2MzNDE3OTlkMSJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L57-L59",
+          "version": "repo-lines-v1:sha256:9a839067f47beb1ca08c710b71e598b0402cc1fd184fbaffb0641be925ef8a7a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc5Yzg4MGY2MmQ0MjI1MzhiY2E4NGNiNTVlY2U4ZmUxMGU5NjU4YjA2MTExNWMzZmFiY2RjN2IzYmVjZjQ0NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzg2ZTgzZTdmOTYxYjVhN2NhZDhlZWZmZDZhM2Y0MWY4NTczZjBiZWRhODQxZGQyM2YyOTZjNTc5NGVhNGJjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE5MTM3MzI1ODJjM2U2MDM1OTA3ODZjODY4MzY5NTFmZjM1ZTliMmQwZjhkMzEwNjdkNGY0Yzg3NDNkYjJhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTJhMDEwZGE3MWU2MGZhNjQyYTVmYzhkMTZhOGY2MDZiMTVmNzU5YjIzM2Y4ODU1MDg3ZWU2ODQ2MjRmZTVkZiJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L71-L79",
+          "version": "repo-lines-v1:sha256:e4f0c376295a0ab27415fbd9ed19def5186a7b603927304b523fd75ee9b15f04:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDFjZmY0YWQzM2JhOTFiMTQ4ZTFiMWI4MjkwYjhmZmYyN2IyMDNmYWJmZWU1ODcwMjgyZGUzNjczODNiMWJlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGRhNDE2NjQ5MGIxNzI5YjVlY2JmYWZiZGUyZjViYWIwOWQyZjdlZWZlNDRkZDVlZmQwNmRmZTIwNWJiNjFhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGJlMWFkYWRhMTdhZTJmNGYzZDhkNDc5N2RiMzZkNTI2NzU4YmY0OWE4YzRhNzQ5ODk4NjRhNDNjY2IxOGUxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQ4OWRkZTY2ODA4NTU2NGZiZGRjMWJkNzczMDEwYzI0Y2FkZWI5NWJjNDZlNzExMGIzMTk3Y2RiYmE3Y2RmOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2e1c506ffe24aaebf98bff4252ce048",
+      "statement": "AGENTS.md 中由 `<!-- OPENWIKI:START -->` 与 `<!-- OPENWIKI:END -->` 成对注释划界的区块不描述站点，而是约定 agent 如何对待生成 wiki：wiki 是按需取用的可选上下文而非启动必读，任务开始时不得枚举/预加载/搜索 wiki，只在用户要求、不熟悉的架构或依赖行为实质影响任务、或读源码后仍留下重要不确定时才检索，并有 openwiki_search/openwiki_read（工具不可用时降级为读 openwiki/quickstart.md）两条途径。",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L1-L16",
+          "version": "repo-lines-v1:sha256:8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e0c7d48ad6384a589d1205c8cc4a69ca",
+      "statement": "该 OPENWIKI 区块还确立两条权威性规则：源码与测试是权威，简报里的 unknowns 与 review items 是验证缺口而不是自动成立的需求；以及生成的 OpenWiki 页面不得手改，正确做法是改源码或仓库文档后让流水线重新生成（因此 openwiki/ 下的页面会在下次运行时被覆盖）。",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L11-L14",
+          "version": "repo-lines-v1:sha256:9eb409c08e8de7aa64760c896b4418feccc8ecb3129b33d529cbdcf4c07d2d1a:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmNiM2Q0YTQ2NjliZGM3YTQwZDk4MDc3MzVkZjYwOGJmZTMxZDM4NjA2N2M5OTliNzUwYWFjNjMyYzFiNmQzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1Mzk1M2JmYjcyYzEyNjJiYmFlMmVhY2E3MmNhYmYxYWY0OTkyN2EwYmJhMTE1N2IyZDViZGIyODVjNGJkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWM5MGE3YjU5ZmEwNjFhOTU2YzE5MTIxOTkyYWQ4ZDFmOTk2ZGMwOGE3YjQ1ODhlYjJjYjk4MzU0YjdmMTU0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA4OWRmOTNmOGJhNTdhNGRkYmZkOGYwMTM5NjJjMzk3OGNlNGRiNjgxOTljNGRhNjY2NjQ5YjA5OTZjZWRhOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0a355a3d57e54902931393f8e5f7458b",
+      "statement": ".openwikiignore 是 wiki 生成范围的唯一控制点：OpenWiki 不读 .gitignore，只读该文件，所以「文件在不在 git 里」与「会不会被写进 wiki」互不相干——例如被 .gitignore 排除、不入库的 local-test.html 仍会被 wiki 生成读到。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L5-L8",
+          "version": "repo-lines-v1:sha256:48aa7506e94ef4e921707313adbe736a504f514faf9462876906106b3c80656c:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2YyMzdjN2FmZjQ0ZWZiZTZlNTAyZTY0NWMzZTA2ZGEwM2E2OWQ3YmRlYjQzMzkyMTA4ZWYzMzQ4MTQzNDE3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmUyMDgyOGEyY2EyMjg0YzZkMTAyMjZkODYwZmZmYmQ5ZmVmZGMyYTNlNDUwZjA5YTVmNGE2ZTUwMjFiZmRkOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgwZGQ4YWEzNWNiYThhZGQ5YTJiMmQ0ZTg5ZGE2MGYzYmNiMjZjNzdkNTUxNWU2ZTJkNDc2MWI4MWY3ZWE4NiJ9"
+        },
+        {
+          "resource": "repo://.openwikiignore#L1-L4",
+          "version": "repo-lines-v1:sha256:95d5d8c4955020fd653ff2f06319cd4593a2b9860177af5cc8c70044276b1aeb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWE1M2Y3OWU4MGM3ZjczYzJlY2E4ZDBlZGMwM2MzYjg4OTMzNTA0YzliNDZhYzdjNTRkNGZkMTdhYjE4ODkwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTJjYjRhZWYyZjk0MzgyN2JhNzRjODM5MDBlMTIxYzRhZWNhZmEwNWE4MzkxNGRkMWFlYjExNjU0NTJlOTI0NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDczMzU0MjI3N2NiOWQ5ZGMwNDQxZWRkZjAwNDc3ZmY5M2YwZWMzYTc2YjMxOTAyMjc5OWNkOWVjNjc0YWQ2NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6657401518d947c98e4df99ceea81200",
+      "statement": ".openwikiignore 的匹配语义是 gitignore 风格（last-match-wins、`!` 取反、前导 `/` 锚定仓库根、尾随 `/` 仅匹配目录），但匹配刻意做成大小写不敏感，以防止在大小写不敏感的 APFS 上用另一种拼写绕过排除；改动这份清单必须按这套语义读，不能按 .gitignore 的直觉读。",
+      "evidence": [
+        {
+          "resource": "repo://.openwikiignore#L9-L11",
+          "version": "repo-lines-v1:sha256:8774420fb8cdd7586b945815a4337499cd497f521104db0fac973626a468e789:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTg3ODc1NjYxMDUyZmQ4ODZjMzY1NjA1OWFlN2I4ZDQwZDEyMmRlYzYyMTk3YWQzMzQyOWQyMjk0MDBiZDg3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTU1OWRhY2EyNmZiNmI4M2U5ZWZjMjNkNzdmM2ZiYThlMzUwYTIxNGYwMWI5MjY2MTZkZjFiN2UzZTI5NTY5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjVjNzVkNTE2Mzc4ZmNiOTgzMGM0MTE0MmRhOTEyMmFkYjRjN2Q0MzY2Njg5ZTRmN2JmM2E3NjE4ZGNmNTBiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2RlM2VlNGE1OTQ3YjlhYjFiOGRiOWZmNDJmZWU1ZDdlNWRlNTIyN2RmNDZhZDUxYWZkYjQ4YzI5ODI3NWYzNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8df0526b5cd747a488d3463ef05182b2",
+      "statement": "排除清单从 wiki 生成范围中移除了媒体与二进制通配（*.m4a／*.mp3／*.apk／*.doc／*.docx）、大体积媒体目录（玉机子/、经典读诵/、体真山人语录/、downloads/）、第三方 vendor 代码（css/bootstrap*、js/bootstrap*、js/jquery-3.2.1.slim.min.js、js/vendor/）、source map、Jekyll 构建产物（_site/、.jekyll-cache/）与编辑器/系统文件；这样做是因为不排除时生成会去读一堆二进制，既慢又产出乱码，因此音频目录既不能被 wiki 读取也不能被枚举。",
+      "evidence": [
+        {
+          "resource": "repo://.openwikiignore#L6-L45",
+          "version": "repo-lines-v1:sha256:6b799c332e8f301dfd38f559cb7f0d2852bcb9fdfe627ebd942e9e1b882501bf:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjYzgzNDI0Yzc5Y2I4NzQ1NTUzY2RjNWE1YzI2YjA4OWRhYjg2ZDBjOWY5NzBhNzk1MGEzOGVmODIzODY2YWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1OGFmNjgzMTE0MzdiZTc5YTRkOGZlYjcyZTljYTdjZDdhMDVhZjcxZmMyYWE5NmY1MmVjMWI2ZTRmNzkxOGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2MGM5NGIxY2VkNTJmMDkwMzdiMGU0NzQyMzlhZWE4Yzk4YTRhZmNmYjZkZTFjOThjOTNlZjYyOGNlMmU3ZmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_28387b0f16774ab9a758ac839e51f9e7",
+      "statement": "模型与凭据的位置不对称：OPENWIKI_PROVIDER（openai-compatible）与 OPENWIKI_MODEL_ID（\"deepseek-v4.1-flash\"）写死在 workflow 里，而 OPENAI_COMPATIBLE_API_KEY、OPENWIKI_LANGSMITH_API_KEY、LANGSMITH_API_KEY 来自仓库 secrets、OPENAI_COMPATIBLE_BASE_URL 来自仓库 variables——换 provider、换 key、换网关地址必须在 GitHub 仓库设置侧改，仓库内改不动。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L37-L53",
+          "version": "repo-lines-v1:sha256:61c080f2ba23435b5e03456f78a3eeb0416d0653c80c8714582d760290a5424c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMDc4NDhhNDM2NjY1NmIyYmE2MTk3YmUwMmI5MjA4MTQ1NDZmOWQ5YWQwYjUzMzllNGMyNmEyYzk0NjUxMTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmYjE0OWFjYzcyYTRkYmM0Mzg4NDU1NjAzOGZmMjU0NTcwZGQyNzY2NDZiYzQ0NTExMjgyZGZiNWQwNTExOTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIzZDAyZTgzYmQzMGM2MDg2NWI1ZGQxMmRlMTFhNmIyZGMwZjczZTI4ZWYwNzQzMjk4ZDA2NjcwOTQxMTg1NjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cef709d98d104d239909faea733afa86",
+      "statement": "流水线还会把自身这次 OpenWiki 运行作为 trace 发到 LangSmith（LANGCHAIN_PROJECT: openwiki、LANGCHAIN_TRACING_V2: \"true\"），且 OPENWIKI_LANGSMITH_API_KEY 用于让 LangSmith connector 的 code-mode pull 通过认证，多个 workspace 时按 _2、_3 后缀追加 secret 与 env 条目。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L48-L55",
+          "version": "repo-lines-v1:sha256:4d4205db1ffc21ec95a83dfb92186038c0a57f9d60f5f47fb4c5272bf6c0e048:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA5NTM5NzI3YjVlYTcwODU0YmMxMmRiZDBlZjJjNmM1OWQyYzcxZGZhY2ZhMjM0MDA5MTI1ZTI5ZDdiNTg4NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhmOGI4MDI3NDFhZmM3ZmIzODQwZmVjZGM0M2Q3ZjhlNDAyM2JiZmNiNWI3ZWM2NWVlMDg4Nzk4ZDg1MTcxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWY0ZTlmNTEwZGVhMTE4M2QxYjZlODJmZjkxNGFmNGM4OTc0ZWMyZWE2NzBkOTNlYmI2Y2U3NDdlYjBhOWUyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTRlNzk0ZGRmMzJhM2UyZGFhYWQ4ODI2MzEzYzI0ZjRlNGNkYTZmNjFhYmY0MTdlNDg5YmUzOWQ1Yjk4YTU1OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6ec2b952f24047248c26d9acc62c5c7a",
+      "statement": "OpenWiki 那步通过 `NODE_OPTIONS: \"--import=${{ github.workspace }}/.github/openwiki/opencode-go-fetch.mjs\"` 在进程边界加载一个 fetch shim（.github/openwiki/opencode-go-fetch.mjs）：目标网关（opencode.ai，OpenCode Go/Zen）对任何缺少 `x-opencode-session` 头的请求回 HTTP 400 MissingSessionID，而 openai-compatible provider 只管理 *_API_KEY/*_BASE_URL/STREAMING 等少数环境键、无法配置自定义请求头，所以 shim 在 CLI 启动前替换 globalThis.fetch，只给该 host 的请求补上每进程一个的 x-opencode-session 与自报身份的 user-agent，其余请求原样透传。删掉这个文件或这行 env，workflow 的每一次运行都会在 OpenWiki 那步失败。",
+      "evidence": [
+        {
+          "resource": "repo://.github/openwiki/opencode-go-fetch.mjs#L1-L93",
+          "version": "repo-lines-v1:sha256:529a9239fcf9518afba5ea1ecf8ff378d9f03e78db5da8ebb223e9781caa8030:eyJzZWxlY3RlZExpbmVDb3VudCI6OTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L42-L47",
+          "version": "repo-lines-v1:sha256:76c9a0500389fd436d9ccd4c72027e8710fe4bd5f44920aa50f7def88ea1328e:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ4ODNiYWUxMTQwMWE1M2U3MWZjMzkwOTllYmIzZTQ5Zjg3MzY2ZjZlZDVjN2Y5ZTBlMjY3OThkZDFmMTc3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjM3NmIxYTMyMGU3NDhlZmU4ZTc2N2VhZWFkMzQzZjI3YmVmZWQ1YjYzODgxM2IyNzVlYmNkNTQ0YTE2MWI0MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWY0ZTlmNTEwZGVhMTE4M2QxYjZlODJmZjkxNGFmNGM4OTc0ZWMyZWE2NzBkOTNlYmI2Y2U3NDdlYjBhOWUyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzUzMzQ2OWIyODgwMmUzMzczODBlNGQ4OTJjZDEyNmIyZDQ0NGJmMGRmYWEyNzAyMTIxNTM0ZGJlM2JmYmEzZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea350d2e537c4e9f93b779a6eec53c7b",
+      "statement": "瞬时运行状态 openwiki/.run.json 被挡在提交之外有两道保险：workflow 里 `rm -f -- openwiki/.run.json` 的删除步骤，以及 .gitignore 中针对该文件的排除条目；两者指向同一个意图（不让进行中的运行状态进入提交），且 .run.json 只在 .gitignore 里、不在 .openwikiignore 里，因此它仍是 wiki 的可见输入而不能当稳定配置读。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L14-L17",
+          "version": "repo-lines-v1:sha256:eba2dcbac955eb7cec4b2fb404b41563d1013ee5927c594eac4361b0b331d702:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ0MDg5Y2I4NjVhYTBhOTBjNGM2YTIzNzZhNmZkNjA0OGJjY2JmOWYyZWIwYWVhMDcwZGNlMTA5M2MxNzYxNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmRmZTU4OTY5MTk5OTdjYTI1ZGQzOWJiZGQ4M2IyNzQ3ODRhNDhmOGQwMzVkNzk1Y2MzMmE4MDYxNjk1NTNkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDBlNTUwZDE3Zjg0ZTM0ZmVlMjllYWY0M2U5NWE3ZDg3NjgyMWY2NmI2NDk3ZTJmM2M1NzBhN2Q4NGZjZmIzOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T20:09:52.778Z"
+  }
+}

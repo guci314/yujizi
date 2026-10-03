@@ -10,3 +10,8 @@ local-test.html
 # APK 发布走 GitHub Releases(releases/download/v1.0.0/...),不入库。
 # 每次出新版都提交 7MB 二进制会持续膨胀 .git(目前已 1.5GB,主要是音频)。
 downloads/*.apk
+
+# ⚠️ 上面「别把音频加回忽略列表」说的是 **.gitignore**。
+# 同目录的 .openwikiignore 是另一回事:它只控制 OpenWiki **读取**哪些文件来写 wiki,
+# 与 git 跟踪无关 —— 那里排除音频是为了别把几百 MB 音频喂给模型。
+openwiki/.run.json

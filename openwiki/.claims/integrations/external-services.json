@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8f6337da40d57543810b9a37a4cc3f81056ad33300d06877aba73d3dfcb8e16d",
+  "claims": [
+    {
+      "id": "claim_ddc92087be5f420db873588a0a0c7cef",
+      "statement": "本仓库对外的每一项能力都由仓库外的系统提供，仓库内只留下三类证据：域名与开关声明（CNAME 的一行域名、_config.yml 的 comments_api 键）、前端发出的请求契约（js/comments.js）以及注释里写下的运维事实；留言后端（~/work/yujizi-comments）、APK 源码与 Cloudflare 账号级配置都不在本仓库，仓库里没有 wrangler.toml 或任何边缘配置文件可供对照。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L10-L12",
+          "version": "repo-lines-v1:sha256:573a796a1f27b1bc5a48694b97e4f6febaa7f217e5d5d1f69eaba4883b8f4f2c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjVkNWM2YzZiMjc2MDJlZDc4YTlkY2QxYzgyYWFjMmUxNDg1YzkzZTA4YzhhOTFlMGEwNTgzNzI5YmJiNjc0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjdlMmJlNzIxY2RlMGNkZDlkYzM2MTNlZDdmNjllYzNmZDA2ZThlNThjMDNhMjM3ZThiZjU0OGYxZTU1ZWY0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjBhYzAzNzMzMGY2NDQyNDkyNTExYjM0NmE5NGYzMjdjY2ZjNDI0MDQ2OTZmNmE2YTcyYzRiZWUzNDgxZTI5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://CNAME#L1-L1",
+          "version": "repo-lines-v1:sha256:3e413b5e62baff869196eecfb44a398a610ceaec64a0399a9f8598147133ddca:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_config.yml#L4-L4",
+          "version": "repo-lines-v1:sha256:9ed7da31fb1730bfe9646db8b7a69405eb3a00a64d16b15cfebdee34d6574cf2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVkN2RhMzFmYjE3MzBiZmU5NjQ2ZGI4YjdhNjk0MDVlYjNhMDBhNjRkMTZiMTVjZmViZGVlMzRkNjU3NGNmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVkN2RhMzFmYjE3MzBiZmU5NjQ2ZGI4YjdhNjk0MDVlYjNhMDBhNjRkMTZiMTVjZmViZGVlMzRkNjU3NGNmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWMzZmQxZDdlOTM1MzllYzY3MjFlZWY5ZGMyOTZkMmI2MjRhMjc1Y2UxYmQ5ZDA2YTUxZmFhYTExNGQ1NTJlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDhiNTEyMzQ5ZWFjNjY4N2M0NDQ3YTQ4M2M0NzU3YjQ1NjhjNjNiZDBiZWE4NjlkZWE5MGU3MzcyOTQxM2UxYyJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L59-L60",
+          "version": "repo-lines-v1:sha256:3508ed1dc01938aadef955c569f15fdf1a95b17417836361bddb599adde5d1c2:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmY0NWQ2OTU2M2UxM2VhMmM1ZWNiNzc5M2YzNDg5ZTlhZmE5YTQ1ODk3NDg2ODMxMmMxYjRhN2QxNDZlYjA3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWU0ZjBiNzAxYTYxMThiNWE1ZjA4YmMzMTIzODc2ZThmMjYyZWMxYzBmMmY3MjllMmUwOTQyOWEzNWYzMDI5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE5NzVlZDcwOTdhMzlmMDlmYzdlOTU0ZTFiMjgwODllNWQ1YjNlZWFmZDdiNTVkNDYxYzdhNjMzMmQ3YWVmOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODdiMTQwZWYxMDJlNjZjNjc1Yjg4ZTZjMWFjOWRjNzE1MzcwNTkzNjAzM2ZmMzE3NWE0ZWRiMGU4MDBmNmIyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d608b64e570e4f81a2b9344053079176",
+      "statement": "CNAME 全文只有一行 www.yujizi.org，是仓库里唯一声明域名的可执行配置；同时 _config.yml 没有任何 url/baseurl，布局与页面的资源引用是根绝对路径（如 /style.css、/js/*），因此站点只能部署在域名根目录，换域名或挪到子路径会同时打断站内链接与静态资源。",
+      "evidence": [
+        {
+          "resource": "repo://CNAME#L1-L1",
+          "version": "repo-lines-v1:sha256:3e413b5e62baff869196eecfb44a398a610ceaec64a0399a9f8598147133ddca:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_config.yml#L1-L8",
+          "version": "repo-lines-v1:sha256:c16b94dfbc2d705f507235223c7eee7ba08a6613e64ac3fe317e8c9db07e5f85:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdhNWQzYzVkNTlkN2FjOTgxNjI2OGZjMTA1ZjY4YmM0M2MxZTZiMjNlZmJmYjY5NmM0NjZjNWEwMDYxZGZiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkNmFkZWNiZTEyMzk3YjdhMjYyZjdmMTlhYTYyNjAwNTQyMDRkMWZkN2Y2OGYwN2E2NTI1MjFhNTBmNmU4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_layouts/default.html#L23-L24",
+          "version": "repo-lines-v1:sha256:62727315397fc3dc7296afaf90dbab4837417d3cb261451603b8201a616b8c17:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ2YzRkNWY4NzE3MjhiNGY2NzgzODE4ZWU2Y2U1M2RlZmI5MjA3YzI4ZTk4NjVhZTY2ZDg2NTI0MzM2NjE4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI1ZDBhNThkMTg3YTEyOTgzMGQ5YjAxYTI5ZDA5NGFmNWQ3NTMyMWJhYjU2ODY3MDYwNGMxY2Q2NWJmNGMxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQ2M2IwYmQ2ZGNjOWU3YmRlY2Q1NTY0YWQyMzVlZTczZDE0ZDIwNGVkMDdiZWI0ODI3MzA5OTQwZjc5ZDY4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQwMjEyMDA2ZTVhYjMzZGFkZjQyZGU3ZmZiNWMwYmY5YzQxYjA5YjFhNjdjZWJhN2QyMDE3YzU0NTc5MjUyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f7f462c9b15d4eecaed9ce19fe53f9b7",
+      "statement": "留言后端模式由 _config.yml 的单个键 comments_api 决定，且该键当前留空即为生产配置：留空 = 同源模式，Cloudflare Worker 用路由 www.yujizi.org/api/* 接管 /api/*，前端走相对路径，不触发 OPTIONS 预检也不需要 CORS 头；填绝对地址（如 https://comments.yujizi.org）则回退跨域模式，靠后端白名单放行。配置通过 site.comments_api → <section id=\"talk\" data-api=\"…\"> → js/comments.js 读取 data-api 去掉尾部斜杠作为 API 前缀这条链传播。",
+      "evidence": [
+        {
+          "resource": "repo://_config.yml#L4-L8",
+          "version": "repo-lines-v1:sha256:b75f4b69bde86e65a513c37ef66384c69873c692742607b2a9b56ea0766cb545:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVkN2RhMzFmYjE3MzBiZmU5NjQ2ZGI4YjdhNjk0MDVlYjNhMDBhNjRkMTZiMTVjZmViZGVlMzRkNjU3NGNmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkNmFkZWNiZTEyMzk3YjdhMjYyZjdmMTlhYTYyNjAwNTQyMDRkMWZkN2Y2OGYwN2E2NTI1MjFhNTBmNmU4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWMzZmQxZDdlOTM1MzllYzY3MjFlZWY5ZGMyOTZkMmI2MjRhMjc1Y2UxYmQ5ZDA2YTUxZmFhYTExNGQ1NTJlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L14-L17",
+          "version": "repo-lines-v1:sha256:bc7fa0822d184d4fce3b0b9ef02dcb3449fd8249a28250f2c5328980781d7dc6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGExZDk3YjgxMGJhMDVjY2FlN2JmMmZlOGIwZDAwODg3NDE4N2M4MWIzOTk3OTRlODg3NTgxNTFkYTM4YjIwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVjODQ0N2I1ZTc0MjQwZmQ0MWMxMzUyNTk4NTVkZjE1ZWUyNTAwYTkxMmZmNGU2YWJjZTYxZWQ3NzNjMTU2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQ0MTI0NGJjMGRkMzU1MDE2ZTJlZTc2MzYxOGM0MTQzNmFkZjdhNGI5OTAyYmQ0YWEwNWViMmY1N2I3YWUyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZlYjJiNmY4NmY1NTQ5MzllMTcwMjYxMjQ1YjlhZmQ0ZTFkNWY4NmFmZTFiOTg0YjdlNDZkZmJlNzQ0NmI0NSJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L13-L18",
+          "version": "repo-lines-v1:sha256:eeb940f96d454b2fe0bae0603623c97b2f804e3b6f056f99c738c58a33411d6b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQzNjExZWRkOWM4ZTEzZDA5ODE1ZmY4ZmQwOGQ3NzFkYmM5N2U4Y2NmNjBjZTQzNDhjNjE4YTQ0ZDAwZjI5NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA2OGRkMjJhZjAyOGY4MTdhZGM4NTgyMzEwZDVhZWM3ZjFhZjI4OWI4Mjg0MzJjNDdhZDQzYTI1Mzk3NTJjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWEzYWYxYWJjZjhhY2ViMTNmYjM3OGIxY2JjMDZlNTM4NDFlMDZlZDk2N2NlOGZkY2Y4ZTJjNWFmMmE2NjkyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDljZjBjYWI2ODgyNTQ0YjFiZGI5N2YwNGQzYTUzMDg0N2JlMTA0ZGFlNGQ5ODNmMTQzZDNkNGU2YmI3ZWRiYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_993072882e56425cb38850b9aa5bc4d0",
+      "statement": "前端与留言后端之间的请求契约由三个端点构成：GET {API}/api/comments?page=<page.url> 读取留言（响应取 data.comments 渲染，data.truncated 为真时用 data.total 显示「仅显示最近 N 条」，后端上限 200 条）、POST {API}/api/comments 提交（失败时优先透传响应里的 data.error 文案，否则回退为「提交失败（HTTP <status>）」）、GET {API}/api/health 仅做健康探测。留言按 page.url 分区，取不到时回退 '/' 作为分区键。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L16-L16",
+          "version": "repo-lines-v1:sha256:c100136f1ad9c5b4578e13bdbf402441ae4e28faa60f0ef0e3207a35547c3841:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzEwMDEzNmYxYWQ5YzViNDU3OGUxM2JkYmY0MDI0NDFhZTRlMjhmYWE2MGYwZWYwZTMyMDdhMzU1NDdjMzg0MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzEwMDEzNmYxYWQ5YzViNDU3OGUxM2JkYmY0MDI0NDFhZTRlMjhmYWE2MGYwZWYwZTMyMDdhMzU1NDdjMzg0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDY5ZGJjNWU0OTFkMTcwNmUxNjEyNDJkMGNhZDYyNDI2NDQxZjQwMzM4NWY2NDFhYmQ0NGE1MGRkZWU5Y2M4MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTcyZGJmZjhlMmRkOWE4YWM4YWZlNWY1YmEwNDNhYmVkZDRkMTg5OWQwY2RmZGI1NTIyYzhkNWZhODUwOTE0NSJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L125-L149",
+          "version": "repo-lines-v1:sha256:662b693459500ff2802a0153d53db3b3f31ac7e1b8004ab25d94c2994b074909:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5NDU0NjMwYTNmYTllODMyOGNkZmZkM2UyMmQyNjExOTM4ODIyZWUyZDA0NThhYTkwMzdjMjRjNmE5OTk4N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjczYTM1YzhjMzlkMThhY2ViYjc3MDU4ZjAyYmExNzkwZDQ5YTQxMTU1MWFiYWYxZDg0NTE1MThkOWE2MGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFlMmMwNGRiYzZiMzM5YTZkNzZmOTk2NjI2MmY4MzQ3MGE1YmU4ZmQ2NjEzOWZhZTMzNTJkZjk5MWY3NTI2NDcifQ"
+        },
+        {
+          "resource": "repo://js/comments.js#L162-L184",
+          "version": "repo-lines-v1:sha256:7ffc6c09f4f0a439c64a00779f969b4a4c261c9572bfc7cd5325ee08a02aee91:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5MTdiNjZhYjg0N2JjYTlhOWNkMmEzMTA2MjkzNWI1YTYwYjkxZmI3MGMxMzE3NmYxODY0ZDY0OTBhZDkzMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MzU1MmFiNTcxNDk0YjM5OWIxODE5OTYyMmRiZTNiMzgyNmViNjFmY2QxZjc0Y2ZiMTJhYmNmODhlNGY3MjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3M2IyMTM5ZGRlYzc3NGYyMzZjM2UxOTVhNzZjMTk3NzhhZjliYTljZGNiNjQ5YjE2ZTg1NWU2Nzg2YzAwMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3YjFjNzY1ZGI4YmYzZGYxMmExM2VlYjJiNTZhNWQ3MDJkYjg1MzkyMmE2YzA3ZDE3OWM5YmJmZGIyNzk3MDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_076b29e328eb446392826b08fd4328d8",
+      "statement": "提交请求的 body 为 {page, content, name, website, t}，其中反机器人契约有两个要点：website 是蜜罐字段（正常用户看不见、值必然为空，被填则后端拒），t 是页面渲染时刻（后端只据它判断提交太快，只卡下限而上限为 2 小时）。因此改蜜罐字段名或移除 t 会直接破坏后端校验。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L38-L44",
+          "version": "repo-lines-v1:sha256:c30b182354bb55a13fbb56efd9f64aeb3d99b3bef8879a15cdc7f133f7413d25:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTYxY2JhNGY2Mjk1OGJmZWFlNGNmNzgzYjUzMjk2MjhlZmM0MjZjYmNmZDFkZjA0YjY4YzQ2MjE0ZTYwYzcwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyMTVmZDAzY2ZjMmJlZWJmODA0YTE3YWM1ZTk0Nzk1MWY3Y2QyZGMwNTYwNTIyNDk5YzYwNmZkYmNkNzE4NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzA5OTJlZmQ5NDQzMDU2MTM0ODc5NGMwNzg3YWRhMzIzYTkwYjFiY2FmZDFjMTg2NzViYWE1NTQxZGI0MDdmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjcxZTE3NTc3NTI4NDVmM2QzN2IwZjRhZWNhN2E4YTE0Mzg0MTY5ZjkwMTBkY2MyMjg0ODcxYzU4NzllOTY1ZCJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L162-L174",
+          "version": "repo-lines-v1:sha256:047172858225d8165a5867ce898b8dbea6809f85416891c7788761f10cb9149c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5MTdiNjZhYjg0N2JjYTlhOWNkMmEzMTA2MjkzNWI1YTYwYjkxZmI3MGMxMzE3NmYxODY0ZDY0OTBhZDkzMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0NzVlOTRhOTA0YWM0OWIzMTU0ZDQ2NzJhNjZlODYyOWI4NmRhYzc0ZTNlMjkzN2JlNjkyN2FlM2RhMTFjNTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3M2IyMTM5ZGRlYzc3NGYyMzZjM2UxOTVhNzZjMTk3NzhhZjliYTljZGNiNjQ5YjE2ZTg1NWU2Nzg2YzAwMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVkNGI0MGNmMTk1NTk0NzFkMGJiYWNkN2E4MzljODJkMzg4MDc1NmQ2OTJjNDVlN2VhN2NiNTkwNDg4YTZhY2UifQ"
+        },
+        {
+          "resource": "repo://js/comments.js#L28-L31",
+          "version": "repo-lines-v1:sha256:9c2b511aa0dccabd58828f2872de634dcce39cf261035f964bea97069d2367ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmY1ZTdjODg4ZWY4Mjk1YTVjNDZjNWQ4NjZmOTU4ZmFhMTc4NzQ1ZGU3NjFmZmJiZmFhMDlmMTkyZjJiNDE3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhiYWEyY2M1YWVhZTU5MTA2YjQ2ZTY3ZGJmODU0ZTFiYjc0YjA2MzM3ZDYzM2ZlZmUyYmI1ZjMyM2NlMmI1YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDFhNjZlMmI4ZGQ1YTMxYThjNjBjOWMwNDIyNmE1MDI0MmVkNjliOWZiOTAwODllNGM0OTZlMThiNDBlNzFlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTdjODE4Zjc5NGY3YjY1YjQ3NDY2MzNiOTU4Njc2NTI5MDBkYzU1MzA5NjIzNWU2ZmZmZTdhOWUxMjQ1Mzc1OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ae0bad286bb144d39a7388a0f8cde10b",
+      "statement": "渲染留言时前端对后端字段有硬性要求：created_at 必须能被 new Date() 解析，因为它既用于格式化显示又要写成 <time datetime> 的 toISOString() 值；内容一律走 textContent 构建，不解析为 HTML。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L45-L73",
+          "version": "repo-lines-v1:sha256:ceea8744050e783bdda36f34854a4b43e7b4f7e5cc77c50ad14bc494656033af:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlNjI5NzhiNjg4Yzk1ZTFhOWJlZjZkZDVkNDdhMmM0ZDE2ZWNjZTBmNjViYmIyZDg2Mzc2ZWI1N2JkZjUwYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0MDkzM2M5YzA3MTY1YWI3ZGMxYWNjNGFjYzg4NDU2MzQ3MzhiYTY1YTFkZTRhZDRkNzY5NWU4MDQxNGQ4NTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk2MTVmZjVjZGQ2ZGZmMmQ0ODNiYjA3MTY0NGE2MDk5NTFmN2E0YTgwNGZiNzE4Nzk3MzRmYzE5NGQ0MWVhMjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e701fdb1ccfe4bac99853a236234779a",
+      "statement": "留言前端把「被边缘防护拦下」与「真断网」显式分开处理：readJson 先取文本再尝试 JSON.parse，因为被拦时返回的是 HTML 错误页；diagnose 在 fetch 被拒时用 mode:no-cors 与 cache:no-store 探一次 /api/health，拿到 opaque 响应即说明主机可达、问题在响应环节，连探测都失败才判定为断网。注释同时禁止在此分支写「可能触发了频率限制」之类的猜测，因为限流会返回正常 HTTP 响应、根本走不到该分支。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L108-L113",
+          "version": "repo-lines-v1:sha256:c0481e34822616b07ea2acf7742384cdeea73df721e35dcc272dc0c353182336:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I4Mzc4NTFjYmFhYjMxMzRkMzY5MWM4Y2RhNWVmNzkwMzI2M2ZiOGEzNTUyYTlmMDFlMWY5MzQzYWRmYjQ4OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzJiZDc0YzhmYzU5ZjA5ZmEzZDE0Zjc0MWQxNzE1MDAwMGY3N2I3Mjc1NzBkYjY0MDM3YjQwOTE1YmY0ZjE1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWUxMmI2MTE4OTQzZTMwYzAwNjgzM2U3ODE2MzBhNTNiMzJmNDE3ZWY1Zjk3OTVjM2YxMmYzMzA4MDI0YzVkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmZlZGQ3MWIxZTIwZTRlN2Q3OTcyODI4YzU3Y2QxNzM5OGRlYWRiMzUxYjJjYTA3OGEzZjczY2NjMmRkYzEzMCJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L98-L123",
+          "version": "repo-lines-v1:sha256:a14cf8a4d910ca97003aff19ba8f6818ded1d5eea5e54087a1ef95921e6e9308:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0YmRmN2Q5ZWViYjYzMTllNWI4NTM5ZDg2NWJjNTQ1OWM3YmQzNTAxNTc2MGZiN2JmZTdiZjRmN2Y0MGY3NWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgzMmFkMzg3MmZlOWI0ZTc2NmUwMDFhMzIzZTZlZDgyNzA0MzdmZWZmYTdiY2Q2ZWRjYzVmMjM5OWQ1YWJkZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkYjg3OThjZTk2ZTM4OGMyYzJiNWM1ZTVjOTk3ODEzNmExNTUzMGYyOTkzZWU0N2ZjNGZjMGQ5N2UxZDExYTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5284771726ce4ea2b14e74345dc03a38",
+      "statement": "Cloudflare 边缘在这条链路上承担两件互不相干的事：一是缓存静态资源约 4 小时，清缓存的动作不在本仓库（注释指向 ~/work/yujizi-comments/deploy.sh），仓库侧绕开缓存的唯一手段是提高布局与 include 上的 ?v= 版本号；二是用路由 www.yujizi.org/api/* 接管 /api/*，使该前缀的请求不经过 GitHub Pages 而直接落到 Worker。仓库内没有任何 Cloudflare 配置文件，路由规则在账号侧。",
+      "evidence": [
+        {
+          "resource": "repo://_config.yml#L5-L5",
+          "version": "repo-lines-v1:sha256:43af04f2651cd17d7472186a9208b6e0e2986f06855543a6bc5e0520953e6719:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDNhZjA0ZjI2NTFjZDE3ZDc0NzIxODZhOTIwOGI2ZTBlMjk4NmYwNjg1NTU0M2E2YmM1ZTA1MjA5NTNlNjcxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDNhZjA0ZjI2NTFjZDE3ZDc0NzIxODZhOTIwOGI2ZTBlMjk4NmYwNjg1NTU0M2E2YmM1ZTA1MjA5NTNlNjcxOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDg4ZTgwMjgzMjcwYzViY2Y0NDZlMGU4NDI5MTQ2YzEyYTA2ZmRjOTBiZDFlMTM2YWEzZjg2ODA2NTVjYzlhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTMyYzM5MDQ2MDU1NmQ5ZWI4OGE2NjI3NWU3ODY2MDEzMGQ0ZTkwOWU0YWExMDQzMjYyOGNlZWUxNDdkYTZhZSJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L56-L64",
+          "version": "repo-lines-v1:sha256:0e2029db0c65fc9d92205a2ababbd5951ef5376963530b6fc87de340d5700a59:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY4NWY4NDZlMTk1MWQ3MWUwMjY2ZmZiYWE1NmZlNmY2MjJmODM0NmI2YmQ1ZTIzNmEwYmIzNzVlOGNkZTZlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY5OTFlMDE0Zjk1NDFlNjk4NjQ1ZTM2YTc3MzM0MmU3YjljMzBmYjIyOGNlOTg2MzMwZDVhNWQ2MzEzNmQ0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzAyZjlkYzgxZDU1NWQ1ZmM4MGVhYjg3OWI5NmI1MTJkNDk5NTNkZjA3ZWE3NzI0NzMyMDY0ZjZmYTRiYzkwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmZkMmI5M2Y5MzA5MjM1ZTBhYTU0ODNkNTk1M2NjZjNlYTgxNTRlODNjNzlmMGY2OWMwNzkzOWYwMWEyYjczYiJ9"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L113-L119",
+          "version": "repo-lines-v1:sha256:0ec67b06da12e1cbaff38af572dc3a07f53ad0517e08cff6ecbda98fb7c4227b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTAyYzU4ZjI2Mzg3MmFmMDI5NzJhZjNmYjFlZmY1NGU5MTcwN2Q0NjdlYWY4Yzg1NzgxMmM4NGJiZWEwNjVkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM3NjNmM2ZjOTQzODZlZjgyYTQzMDAyYWUzOTBiNWQ0OTNkZmJhZjVmYmM0NmE1OWRkNzYwNWU1ZmY5Yjk0YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDc1ZWFhNDA0MGRiMmJkODAxNGEzZjNlYmZjMTMwNjMzYTNkNGIxZDQzNTk4YjZiNGNmZWEyODkxYmQ5MjdkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjA2NTNmMjFlZjAwYWFhM2Q4MjQyZDZkNzlhZDQwZDZhMzJmOTk2ZGQyNzk4YTRiYzQ5MGRlZjQxYTI1ODEwOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f040adcadd246c99b3a47c5467a0e9e",
+      "statement": "Android 播放器 yujizi-listener.apk 由 GitHub Releases 的 v1.0.0 资产托管，发布新版需要仓库外先在 GitHub 打 tag、上传资产、写 release notes，再同步修改仓库内的两处耦合点：index.html L12 的 Release 下载 URL（含 v1.0.0 版本段，与同一行的 codeload 仓库归档链接相互独立）与 L13 apk-note 末尾指向 releases/tag/v1.0.0 的「版本说明与反馈」链接。也就是说版本说明不写在本仓库里。",
+      "evidence": [
+        {
+          "resource": "repo://index.html#L12-L13",
+          "version": "repo-lines-v1:sha256:65d66260d38b309427a1fb1ca69ca27b79a269270fc96045a93c10c154b14688:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIwZmQ3MjA3Njg5NzVkNWM0MmFmNGZjN2YxN2E3ZTVlNjQ1NzhhN2NlNmI0ZWNiMDYzNmJiYzcwODMzMzAwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwMGEwNzBiMzE2MjZjMzViZDcxNTM0OTUyNWFkMTI1MGQ5MDNhODgyYWIwNWVmYzQyZDdhZDYwZGE5ZmY2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWMxNTQ5ODg4OTljODU3ZTFiNTFiYjJkNmJmMmI3MTI2NTEwNDMxOWYwNzJmMzYzOGYzNjVhNGUwYTQyZmQ4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2FkMzM2NTczNjNhMDZhMTBjMjBlMTBjNDhkNzZjZDEzZmE5MjQ4YTNkNzM0M2JjM2RiNTc3ZGFiZmI4NWQxMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_52918fc94bc047ac9291cad1c00d77bd",
+      "statement": "APK 二进制被刻意排除在版本控制之外：.gitignore 的 downloads/*.apk 规则，理由是每次出新版都提交约 7MB 二进制会持续膨胀 .git（当时已 1.5GB，主要是音频）；.openwikiignore 另外把整个 downloads/ 目录排除在 wiki 生成范围外。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L10-L12",
+          "version": "repo-lines-v1:sha256:573a796a1f27b1bc5a48694b97e4f6febaa7f217e5d5d1f69eaba4883b8f4f2c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjVkNWM2YzZiMjc2MDJlZDc4YTlkY2QxYzgyYWFjMmUxNDg1YzkzZTA4YzhhOTFlMGEwNTgzNzI5YmJiNjc0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjdlMmJlNzIxY2RlMGNkZDlkYzM2MTNlZDdmNjllYzNmZDA2ZThlNThjMDNhMjM3ZThiZjU0OGYxZTU1ZWY0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjBhYzAzNzMzMGY2NDQyNDkyNTExYjM0NmE5NGYzMjdjY2ZjNDI0MDQ2OTZmNmE2YTcyYzRiZWUzNDgxZTI5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://.openwikiignore#L24-L24",
+          "version": "repo-lines-v1:sha256:229561426ed75de898a6a2784262800b70c1e1dc8856d3b31140e9064f966639:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI5NTYxNDI2ZWQ3NWRlODk4YTZhMjc4NDI2MjgwMGI3MGMxZTFkYzg4NTZkM2IzMTE0MGU5MDY0Zjk2NjYzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjI5NTYxNDI2ZWQ3NWRlODk4YTZhMjc4NDI2MjgwMGI3MGMxZTFkYzg4NTZkM2IzMTE0MGU5MDY0Zjk2NjYzOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjZhYTRkNjVlMDcyZTAxMWY1YjM5OGE4ZmFkZDk1MTI0NTAxYjMxNDM0ZTM1YmYwZTRjNThiNzkyNDI0MmZhNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDJjYjRhODhjYjg0YzM1N2JjZGI4YzY2OTE5ODM0NTk0NTlhOTBjNmU3NDJmNzRmYWMwODA5NmExOGQ2MTVjOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9648a7482aaf493a9385bd38c5eac022",
+      "statement": ".github/workflows/openwiki-update.yml 是仓库里唯一的自动化，与 GitHub Pages 的站点构建无关；它依赖仓库外的两类配置——secrets（OPENAI_COMPATIBLE_API_KEY、OPENWIKI_LANGSMITH_API_KEY、LANGSMITH_API_KEY）与 variables（OPENAI_COMPATIBLE_BASE_URL）——并在文件内钉住 provider 为 openai-compatible、模型 ID 为 deepseek-v4.1-flash、以及 openwiki@0.6.1 与可选的 mermaid@11.16.0 / jsdom@29.1.1（可选依赖用于 Mermaid 图的高保真校验）。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L29-L31",
+          "version": "repo-lines-v1:sha256:9ca5d28c9d58e6d43056cf35df8e80ddc1e72f9e91276a82ed4991e6608a5f39:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODZjZTBiMGQzYjM4MTIyYmMyNzUxNWE4ZDk2OTYxNWQ5ZTEwZTI4MDY0NGY3NjEyMjFkMDQ0NzlhZDI1MzkzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjQxZDU5OGMwYzMwMDljYTM1MWMwMTNhMGRhMDU2NDZkMGZjMDVkOGM1ZTEwMzk3ZDJjNzUxMjhkMjYyYjI1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjNmM2I4ODAyYjMxMGZmMmFkZDAwMjZiODJlZTJlOWU1NzE1OTEyZWFmMDgxYWY4NmNlMTEwZGQ2NDJmYzFhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTM3NjlkMjkyYWFhMDBjMmQzZDAyNzBkZmM5MjIzODZhMGRlNGRhMzhjOTA3MDA1NThlYjIzMmI4ZGIyYjdiNyJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L33-L49",
+          "version": "repo-lines-v1:sha256:b681ab0f019ee2b5bf67e10f90c10ba59063bfb5485b7d5bf5239fb3981fbd77:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZThmOWZhNDBlN2JkMDQ5OWQxYzBkODNmZDc1OGFhODViMzA4NDJkYmQ2MWYwZWE2YjdhZTEwZWZlYzc2ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAyYzNjN2RlMmE5NjkxY2ZhZWMzOGFjZTBiNDA0NzFjNTM0M2JkZDk5MWY4ZWE5NzMyZWUyN2NiOTkxMWU5NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0ZTc5NGRkZjMyYTNlMmRhYWFkODgyNjMxM2MyNGY0ZTRjZGE2ZjYxYWJmNDE3ZTQ4OWJlMzlkNWI5OGE1NTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4d05d0219d2a482ca00b45fbcc40f3b3",
+      "statement": "OpenWiki 流水线的两个结构性约束：checkout 必须用 fetch-depth: 0，因为 openwiki code --update 要把 HEAD 与上次记录过的 commit 做 diff，浅克隆会藏掉该 commit 使更新对着空变更集运行；产出的 PR 只收白名单路径 openwiki、AGENTS.md、自身 workflow 文件，CLAUDE.md 仅在存在时加入（因为对缺失路径执行 git add 会失败并导致什么都没 staged）。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L16-L22",
+          "version": "repo-lines-v1:sha256:5f513af748b362994b00e41cc2ab8ac7880f4f9a4ac3fb63f49be6f3f2680e8b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDVkNmNmN2Q0MjhjYTgxMTVmYzRiYWJiNjgwNzM5MDIzMzI3YTdhOWQ5MTYzZjcwNmEyNzY4N2RkNTE2ZjM5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMwOTc1YzdlMjBlYmE4ODU3ZWZkMzFlNjJiNjY1Zjc4N2U1MTY0MTk1MWE2NjA3ODlmYmE5MzNhNjM0NzIxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWM1YTg5Mjc3MGFlNGY1MzMzZmQ3YzllMTJlMGE2YmM0NWIyNmI1YmI3NzUzZTAzOWRmOGVkNDljOTdiOTYwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2VmMTZlM2M4YjU0ZTJiMjA0ODE5NmFiYjRjZDgwZDIyYTUwOGVjZDYwNzQ2MTI0YTJlYTJkY2MzNDE3OTlkMSJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L55-L63",
+          "version": "repo-lines-v1:sha256:6afcfdf3625a6dcc3b0d241b34e0a49deee4a6d7318d0aed202e37dcbb36e1d9:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQ1NWJiN2MxZGU3ZTNlMDUyZWViYjkwOTA5NjBmOTZjMDJkMjdlNzljMGVhNmE5NzIzMjkxYWU0ZjJmYjFlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk2N2MzNzM4ZjA2YjkwZDA2MDE1YTRkNjI2NGQ1MjA5MTRmOGNkM2QxMzRhMDVhNTE3MDg2NmU0ZjEzOTNkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWZlNWNhN2ZiYmQxOTlhNmFkODJkZTUyZjRlYTY0MzE4NWY2MzUwYTgwYmE1MmQ1YWQ3ZWVhMzI1Njc3NTBjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGRlZWVlZTNlMTIwZDlkMTA0Yjc2ZTVjNzFhNjIyNmU0NWMwOTM1Y2I1YzZmMjUxMjJlNTI1N2ZiMWMzODI0MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b8bbfc85ee9548ea8288d01ace518e01",
+      "statement": "OpenWiki 流水线的失败语义与权限：workflow 需要 contents: write 与 pull-requests: write；openwiki 步骤是 continue-on-error，即使结果为 failure，PR 也会保留失败之前已完成的页面并把结果写进 PR 正文（合并即让该进度成为下次定时运行的基线），最后一步再以 exit 1 把 job 标成失败以避免失败被静默。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L33-L36",
+          "version": "repo-lines-v1:sha256:d58ef5f498c02b45776d67452c92ddb307313815a56beddaf62b0c62e897fa58:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBlOGY5ZmE0MGU3YmQwNDk5ZDFjMGQ4M2ZkNzU4YWE4NWIzMDg0MmRiZDYxZjBlYTZiN2FlMTBlZmVjNzZkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQxYzYwZDgzNTk3Yzc2Y2NhNjk2YWFjNzRkZmI3YWM1ZGMzMzYyZmU2NTFmOGNhYjVhMzA0OTk2MzAxN2Q0MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDJjM2M3ZGUyYTk2OTFjZmFlYzM4YWNlMGI0MDQ3MWM1MzQzYmRkOTkxZjhlYTk3MzJlZTI3Y2I5OTExZTk2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmY3ZTQ2ODM3NDgxNGViZTgxZmFjOTBlMDY2NWNhOTBkMzg3MTliNTE0ZmMyZjFlYTEzOWM2MjkwZjA1N2M4NCJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L74-L89",
+          "version": "repo-lines-v1:sha256:f27158192bfc2ff1ea9263ecedfffddbbc172b0fa06461c6c6682c01b66892dd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1OTQxNTViZGFlYjgwMGFlMTczNGFjMDVkZGE2MTQyYTI0MGEwNGYxZWQ5MTNjMmU2ZTk5YzBiMTRmYzlmZTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2NzE4ZjA2N2I1ZTVjMWYwOTkxYTZlNzQ3MjZmZTJhMjNkMjY0MzQ1ZTA4ZTRlYWQwNGZhZjczYzI3ZWQ0NDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhkNTlmZWJlZDUzYjg4ZWQxZmQ3MTIzN2VlMWQ5MjY1ZjBkYjg2YmM1OGMwMjUyYzExNTJlMjFmNzdhNTU3OGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L8-L10",
+          "version": "repo-lines-v1:sha256:dcc4bb79f6ebc8555975f87c1bbfadb4481f70b03c1a7b0c9ccb4ee3dac77d61:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzUyNjI0N2VkZTAwNmU5YmRhYjljNjg1MDcyODQyNWQxYjQxNjZjYWY1Y2FjNTBjZjA5NTVjNDRkMjRjMWE4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTc0M2EyYTJmYjgyZWFlZDI0ODhlMjg2NGQ0MjNiZWI1MDA2MWRkNDIzZDgwYjg3MjFkM2JhZTVhNjQ3YTdmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjg4ZGMwMjcwODY5OTQyYjg1ZTUyOTViYmE0NGM3YjI0MWZiYTcxN2RmNGRkZjcyMmU1ODNjZTZjNDEwZjIwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2JhNWFmZmQ4MjMxYzBlODFiYmNkNDIxNTRhMWNjOTBlODZlZmY2NjM1NWMwNDhjZTU1YjMyMzdiZGFjM2ExZCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T17:58:00.384Z"
+  }
+}

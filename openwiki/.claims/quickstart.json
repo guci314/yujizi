@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:d2ee51101f08cf7e21f9d077ced24ad7afac5e7d2e8187e461869cf1015dd413",
+  "claims": [
+    {
+      "id": "claim_caf1d3b1997c46c1957778728788b7e1",
+      "statement": "The repository hosts a Jekyll static site deployed on GitHub Pages at www.yujizi.org, with no build scripts, dependency manifest, test framework, or linting; the only automation is .github/workflows/openwiki-update.yml, which maintains the wiki and never checks the site, so editing files is directly effective.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L14",
+          "version": "repo-lines-v1:sha256:6e613703071f9917cc78b3627cd7f94b0bbced7b19fb8a6cabadf05678c23ef8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzMzczMzRhZWMwZGNiMjRlNDBlM2MyMGRjMDlkNTlhZjY3NDNkMDI3ZGJmZjUwYzFhY2EwODk3NDcxMTc2NzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUwMjYwNDVjMTc5MzkwMzA1NWIzYWQ1Y2RhYjRhNGY1ZjA0NzlhMTYwZTc3NWNiYWZmNjg5YTQ3NWI1ZWRmNTQifQ"
+        },
+        {
+          "resource": "repo://AGENTS.md#L14-L14",
+          "version": "repo-lines-v1:sha256:ab53953bfb72c1262bbae2eaca72cabf1af49927a0bba1157b2d5bdb285c4bd2:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1Mzk1M2JmYjcyYzEyNjJiYmFlMmVhY2E3MmNhYmYxYWY0OTkyN2EwYmJhMTE1N2IyZDViZGIyODVjNGJkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1Mzk1M2JmYjcyYzEyNjJiYmFlMmVhY2E3MmNhYmYxYWY0OTkyN2EwYmJhMTE1N2IyZDViZGIyODVjNGJkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjZjYjMwYThmOTQ4MTMxNDkwODJmM2RjYjkxOWRiMTJmMjIwYjMxYTI5NWZiZWU5NTM1MWNmOGYxNGJhZGEyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA4OWRmOTNmOGJhNTdhNGRkYmZkOGYwMTM5NjJjMzk3OGNlNGRiNjgxOTljNGRhNjY2NjQ5YjA5OTZjZWRhOSJ9"
+        },
+        {
+          "resource": "repo://CNAME",
+          "version": "repo-file-v1:sha256:3e413b5e62baff869196eecfb44a398a610ceaec64a0399a9f8598147133ddca"
+        },
+        {
+          "resource": "repo://_config.yml#L1-L8",
+          "version": "repo-lines-v1:sha256:c16b94dfbc2d705f507235223c7eee7ba08a6613e64ac3fe317e8c9db07e5f85:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdhNWQzYzVkNTlkN2FjOTgxNjI2OGZjMTA1ZjY4YmM0M2MxZTZiMjNlZmJmYjY5NmM0NjZjNWEwMDYxZGZiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkNmFkZWNiZTEyMzk3YjdhMjYyZjdmMTlhYTYyNjAwNTQyMDRkMWZkN2Y2OGYwN2E2NTI1MjFhNTBmNmU4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b11c1bf1290544d584f4197678c4bf6d",
+      "statement": "The site has exactly one audio player instance: each lecture page declares its own pageid and musicList inline, populates the shared #music-select dropdown, and drives the single #music-player <audio> element, so pages are independent and differ only in their localStorage key prefix.",
+      "evidence": [
+        {
+          "resource": "repo://_layouts/music.html#L55-L95",
+          "version": "repo-lines-v1:sha256:ab7bafad09894d9fcc66b74e76e8a5a323a336b8124bdea718833895ce7ad504:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiOTRjZGY1ZTE1ZWUwY2RmOWIxZjRmNjNiOTJiY2YyZGU0YTE0ZTM3NWM3NTg3MmE0YmIyMTg1YTg1ZjFiMmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwM2RmZDYxODY0MTlmNjVjNTdhMGNiNWU5MGJjODNmMGJjODkyOWNjYWQ3YWEwYjdiOTcyMzQwNTI1NTQ5ZmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkYWMxMWVkNjU4NDc2ZTA5ZWQyNGQzMWUyYWYzZDAyOTljNWYyZTc0Mjk0YzhjYmZlNDYyODVhYmRiMWE0MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkNWRkOTg0MDQxZjMwMDdjODA0ODk4ZWI4OTEwYjZlNzNhNWVkZTJhY2IzMmMyYzJmYzMxYWFmZThlZmJkNmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L1-L3",
+          "version": "repo-lines-v1:sha256:85f7e0e6178fc794eebe68cf064cc41c9d5748c1105f03f50cc18fd055cbe492:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTM2Mzg3NjA5OTAzZWEzYjM5OGVjMmFlNTY5YWMzYTQwZGM2OGVmZDU4ZGMzY2EyYzk0YWMzMzI1YTE4NGU3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmFlNmQyYjcyZWRmYmEyNzdkYWIwNGI3MWZlNGZlYmEzMDhmYmE5YWEyNGUzMzQ2NWM1N2Q1YmNkOTY4MWFiNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTlkMDE3MzE2NTUyNTA2YWVkZjNmOGQ2MTVkYjQwMDc1MTY2MTZiOGUzOGY4MjRkZDJiZjExYmQxMjExNzg2NyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L20-L28",
+          "version": "repo-lines-v1:sha256:4642506712ee7c91c5e502181ae07fa5ea1848ad442bf030dd90f0db76a74798:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzA3M2JiNWYyMTIzOWY4Y2Q3NDM1MThkNDMxZjkyYzJhZDgxYTViZGUyMzhjZjYwZmFiOGM3YjFkNGQ3NGY4YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWIzNTM1ZWFmYzQxNmI1MzhmY2Y3YTI0YzM0OTM3YmI1OGJlZDE5ZWE4NDAxMTNmM2MxNTMzNTE3ZTQ0ZGFjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDRiZTZjYTRkZjFhZGU3MTgzNjhhYWQxZDkyOWIxNTZlZDA4ZjAzZjY3OTU2MzYxZDJhMGNmMzBjODY0Mzk4MCJ9"
+        },
+        {
+          "resource": "repo://%E9%98%B4%E7%AC%A6%E7%BB%8F.html#L1-L16",
+          "version": "repo-lines-v1:sha256:0783b5fe9cff51fcf9ec97aab9f11f9232b74b6b0d1fb3b74c42a7184c6874b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5Yzc4NDc4Yzk3MTg3YmVmZGYwZjNhZGI3YmFkYzUwMTgzY2QwMjliY2VhMzU5YmU3NjZkZGNhMGQ1MDgwZmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2YWJkNjI3ODAyMWEzOGY2NjhhZTNiMzQ0NjI0ODg1OGNmMWVkODcyMDJhYTc2MTUwNWFmZmM4NDI1ZTQyNjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczMmE4Mzc4Y2NjOWZjZTlhMjYxNTdmY2M4OGEzMGI1OGJlZTNlY2I2OGUyZTNhNmJjZDk3YzJlYTZmYzM3N2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2b9408321054e02bddac758473ed45a",
+      "statement": ".openwikiignore excludes media and binary assets (*.mp3, *.m4a, *.apk, *.doc, *.docx), the large audio directories 玉机子/, 经典读诵/, 体真山人语录/, downloads/, and vendored third-party code (css/bootstrap*, js/bootstrap*, js/jquery-3.2.1.slim.min.js, js/vendor/), so media file contents and vendor sources are unreadable to wiki generation and only their referencing paths are visible.",
+      "evidence": [
+        {
+          "resource": "repo://.openwikiignore#L13-L34",
+          "version": "repo-lines-v1:sha256:8f9ffd182efbb7e62d9996b4c703844632fae3975559b549276c547aaaaa5aa9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmZGU5ZjdmNmUyYjBkNjU0YTM1MGNmYmU5MWI0ZDYyZDViMjQwM2I0ZWVkMTNhYmNjYjQyOWRmODQ5MTA3YzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1YmY0YmE5ZWEyOGUyMTkzMWRlMDkxYzk5YWZlNTBkOWI1NWY5ZWUxZjE4Nzc2NTIzNjYzMWZiODNhMGU3YjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI2NDM0MGI4YWEzMDlhMDI0ODk5YjFkNjZkMGUzZWIzYWQxZTAzMWJjMmE2ZWY1MjdhNGE0YTI0MjI2NTBjZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmNTllMTk2ODUwYjk2Y2Y2ZTlhOWVkODc3NmZjZjAwZDA0ZGMwYzY5MmExOWE3ODJkM2QyMjUyMGYzN2MwYTkifQ"
+        },
+        {
+          "resource": "repo://.openwikiignore#L3-L7",
+          "version": "repo-lines-v1:sha256:1dac84305916b8f6cc1cc8f2c6da5acb5e0643c3771a262906bda0505f249b1a:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODYwODI5YjJmOGM3YTYxNDlhOTY0NzU1YWM2ZDRkZWIwMWE4NmRmMzM5NmVmODBlZjZjMjA4MTg4Mzk0N2EwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRiODgzYzNjYjc2YmVkNWJlYjRlMzE2ZDg4N2MwNTAyYzFjZmRiNjZhMTcxODYyOGRiOGY0NDBiYzFjYTNhYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDJhOWUyODhjNTJiYWMwNTA2YWIxOTJlZjgyYjA1ZDU5OTdlZTY2ODQ3ODM2MTRkNmI2ZTU0ZjdiMzhkN2UzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmQ0NzQzNDJjNDM2YmExZjg1ZjBhN2E0MDUzYjFiOWRjMDEwYjMwOTU4ZjFiMTg1ODE0ZDJhZDFjZWE5ZmIzYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8a851499466b4e0d8a49914501a888fb",
+      "statement": "Audio and other large assets must stay under version control and must never be re-added to .gitignore: .gitignore records that excluding them locally while the remote main branch carried them diverged the repository into two parallel histories, merged on 2026-09-27 via branch backup-before-unify-20260927; the same file states that .openwikiignore is unrelated and only controls which files OpenWiki reads.",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L1-L16",
+          "version": "repo-lines-v1:sha256:7af6948df2a2482f51b510b2bbace97e915dd5a2640b6492a90b0fec4358c7e1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYTg2MTBmOGE2MzgwMWQwMjBjY2U3M2JjNTQyNjFlYTdjY2M3NDNmNWRkNjlkYmE1NzdmZTIyYmU3OGI2OWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjljODU4NjJlYmJhZWE5YmJlMWZlNjMzMWFhYjc3ZmU3Njk0NjRkZjM0NGE0NzVmMDQzODI1ZDhmYTI4NTRiMTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZkZmU1ODk2OTE5OTk3Y2EyNWRkMzliYmRkODNiMjc0Nzg0YTQ4ZjhkMDM1ZDc5NWNjMzJhODA2MTY5NTUzZDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_166dbd033b1b441a81b351da7356b901",
+      "statement": "Script references in _layouts/music.html and _includes/comments.html carry ?v= version query strings as a cache-busting convention, because GitHub Pages sets Cache-Control: max-age=600 on js/css and Cloudflare caches static assets about four hours; both files' comments require bumping the version when the referenced script changes. The current versions are /js/musicplayer.js?v=4 (_layouts/music.html L119), /js/keepalive.js?v=3 (L125) and /js/comments.js?v=4 (_includes/comments.html L64), and the version exists only on these script tags — there is no manifest or fingerprint pipeline.",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L56-L64",
+          "version": "repo-lines-v1:sha256:0e2029db0c65fc9d92205a2ababbd5951ef5376963530b6fc87de340d5700a59:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY4NWY4NDZlMTk1MWQ3MWUwMjY2ZmZiYWE1NmZlNmY2MjJmODM0NmI2YmQ1ZTIzNmEwYmIzNzVlOGNkZTZlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY5OTFlMDE0Zjk1NDFlNjk4NjQ1ZTM2YTc3MzM0MmU3YjljMzBmYjIyOGNlOTg2MzMwZDVhNWQ2MzEzNmQ0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzAyZjlkYzgxZDU1NWQ1ZmM4MGVhYjg3OWI5NmI1MTJkNDk5NTNkZjA3ZWE3NzI0NzMyMDY0ZjZmYTRiYzkwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmZkMmI5M2Y5MzA5MjM1ZTBhYTU0ODNkNTk1M2NjZjNlYTgxNTRlODNjNzlmMGY2OWMwNzkzOWYwMWEyYjczYiJ9"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L112-L125",
+          "version": "repo-lines-v1:sha256:cd0731146d6ec18db4eeb86c0d92e61bafbb64b1275e645e2d63666c38446196:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNmI0NWE1YWFjNDMxNTIyOGMyMjQwZTk1NTgzN2M4MTI2MDY2MWUwMWU3ZTJlMzRiZWZlNWVmY2I0ZTA3MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1ZTgzMGE0NzZjZDdiMjVhZWE4NjU5NmIxMDExNTM0NjdmMmM2NWVmNWUwODc5NmI1MGZiMWZhN2RkYzE3YjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIwOWIxMmJiZGRhOTlkNmVkZTFjNGRkZDY5NjE4ZGE2OGU3Nzg4NjVjYTA0NDA0MDVmY2FmMTM3ODdmYTgxNTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkyY2I3YmNkMGY5MDkxNGEyOWE4OGNmZTJiMGMzMDcxYTBiYjBjNDcxNGUwZTdiMWQxMmRhOWNlNGY5NTBkZTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_976d2df9f7e44936859cfdd25492ea0f",
+      "statement": "js/keepalive.js must load after js/musicplayer.js because it depends on the plog function and the pPlayIntent and musicPlayer globals those scripts define; if it loads first, its pWakeReady() guards all return false and the screen wake lock fails silently with no console error.",
+      "evidence": [
+        {
+          "resource": "repo://_layouts/music.html#L119-L125",
+          "version": "repo-lines-v1:sha256:81355a2ad85cba45af1478848bc5ac123ae1602b57c9131735653e697cdc2c99:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM3NjNmM2ZjOTQzODZlZjgyYTQzMDAyYWUzOTBiNWQ0OTNkZmJhZjVmYmM0NmE1OWRkNzYwNWU1ZmY5Yjk0YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVlODMwYTQ3NmNkN2IyNWFlYTg2NTk2YjEwMTE1MzQ2N2YyYzY1ZWY1ZTA4Nzk2YjUwZmIxZmE3ZGRjMTdiMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjMzYjM0YmJmY2IwZWI0ZWNlYzJhOGIwZmJiOGU3Y2RkNzY2NDVlNzAzYTVlNjg4MmNkYjBhYjMzNzI1YzEwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTJjYjdiY2QwZjkwOTE0YTI5YTg4Y2ZlMmIwYzMwNzFhMGJiMGM0NzE0ZTBlN2IxZDEyZGE5Y2U0Zjk1MGRlNiJ9"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L17-L28",
+          "version": "repo-lines-v1:sha256:5908a986ef8b64539063398298fa7cfee19e76e2a47e9c4b0b27f4940f5cbf2c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3Nzg3NzVhOGJkYWZkN2QzYzhmYTkzZGQ0MTgyNmEyOThiNDgzNTYxZTJlZDNmYjBhYjRlYzk5MDA0NTZkZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1N2I1ODg0NjQ1MDRhZmU2ZWIzZTEzNGViN2I5Zjk0MDQzZmE2NDc1MjI2NTkwMjI0ZTA0ODhjMmNhYzQxMjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc4OTc2NmY1OTEzOGMxYzIyMGU2MTYxZTJjMGQyOTEyZDhmODQ1YTdiZGUzYTZjMDY5MTdhZDMyYTI4MTY1NTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e735d2abd05b4760884e9a3b4068cb29",
+      "statement": "AGENTS.md's OPENWIKI block designates the generated wiki as optional just-in-time context rather than required startup reading, forbids enumerating or preloading wikis at task start, and states that when retrieval tools are unavailable the fallback path is to read openwiki/quickstart.md and follow its links.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L1-L16",
+          "version": "repo-lines-v1:sha256:8926524de63a1266e7592d9f1256ec367b67e9fa0583f343808e3e51f19d4990:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://AGENTS.md#L10-L10",
+          "version": "repo-lines-v1:sha256:07553b0d52eb824ef41e76bf45b562f1ce483a1263f4ffb43b11b09a072858ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDc1NTNiMGQ1MmViODI0ZWY0MWU3NmJmNDViNTYyZjFjZTQ4M2ExMjYzZjRmZmI0M2IxMWIwOWEwNzI4NThiYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDc1NTNiMGQ1MmViODI0ZWY0MWU3NmJmNDViNTYyZjFjZTQ4M2ExMjYzZjRmZmI0M2IxMWIwOWEwNzI4NThiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTAyZDFlNjcyNTU4MTg3NTZjYjYyYmUxNGViZDVjMWI1M2FlYmQxOGZhZTVkNWMyMGVkYWNiYWZiYjdjZTMzZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjZjYjMwYThmOTQ4MTMxNDkwODJmM2RjYjkxOWRiMTJmMjIwYjMxYTI5NWZiZWU5NTM1MWNmOGYxNGJhZGEyZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0a2c5bf87c59475bade433d8bac7b7d0",
+      "statement": "Verification of player changes relies on a debug panel enabled by the ?debug query parameter exposing plogCopy and plogReset, a ?fast=N reproduction mode that seeks each track to N seconds before its end, and local-test.html which mirrors the music layout's player structure with a 15-second timer option but loads neither keepalive.js nor ?v= versioned scripts; local-test.html is excluded from version control via .gitignore while remaining readable to wiki generation.",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L8-L8",
+          "version": "repo-lines-v1:sha256:29bfc9401543531d4bb2de78a04fc36b3c58f0e96e2b1ce57c56f907cd0364f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZmYjE2ZTM3ZGNmYmMxNDkyZDk3MTU3OTQ3NzViNDIwYWMzODZlZjFhOWI2ZWYwODJlZjVjOWY1NmU2ZTJmNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgwZGQ4YWEzNWNiYThhZGQ5YTJiMmQ0ZTg5ZGE2MGYzYmNiMjZjNzdkNTUxNWU2ZTJkNDc2MWI4MWY3ZWE4NiJ9"
+        },
+        {
+          "resource": "repo://.openwikiignore#L1-L45",
+          "version": "repo-lines-v1:sha256:57e36f767264416d710c3cfff0c81a9716fd7a3e6a9005c83693602b6e49771d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhNTNmNzllODBjN2Y3M2MyZWNhOGQwZWRjMDNjM2I4ODkzMzUwNGM5YjQ2YWM3YzU0ZDRmZDE3YWIxODg5MGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1OGFmNjgzMTE0MzdiZTc5YTRkOGZlYjcyZTljYTdjZDdhMDVhZjcxZmMyYWE5NmY1MmVjMWI2ZTRmNzkxOGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L584-L590",
+          "version": "repo-lines-v1:sha256:0267ddd18c721721de636394d0ef44e8021fc6326036c24a99e661b9c7015619:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGY1M2VlMzM2ZmQ5OGVjOTk5YzY0ODFhODZhZDIwZDAyNDkyZGU1ZmUxNDYxODQyM2U2ZTJjNDBmMzljODI1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTdjM2QxNjQ4MmYyYjI0NmEyNzRhOWJmOGI5MzNiYjhlOTA5NzJmOGE4NDdhMjYyNDMzNzQzZmE2YTZlMWU1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTcyNmJmYTQzMzRmMWRhNWM2YjE0NjdjZmJiNzljYTY5NTQ4M2ExZWE0YjU4YzM5YTAzNjUzNjJhNGI5NjZlNSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L679-L734",
+          "version": "repo-lines-v1:sha256:f465db7d7c49da3f66de47e61eb3832f1866f6222518edbc68753ff00889f37c:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3MDc4MzEyN2Q1ZWU1ZWJmNGY2YzhmODVmYmI3ZTUyNGRhYzIyMTU4NzgxZGI1NjdjY2VmNzA2MTEzODY2YzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5ODAxZDUwZTdiZjhiYjE5OTZhNjlmZTE0NDU5NDRmMmNjMTQ5ZmZkNzM1ZDhjNzBlNmZjYWEwZWE5ODI1M2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3MmY1ZTk0YjIyYThhY2RkZTE4ZTAzNDU0ZDUzMmRmZTg2NmFiYjRhNDAxMjdjMzFhYTFkM2NhZDVkNTJmNmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://local-test.html#L20-L29",
+          "version": "repo-lines-v1:sha256:b29d0f513c11a17883ff9b33885f2c61d71b2f734f690edb2b8ca338e90d4e27:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxYjc1NGQwYTg3NzdmNmM1NTY5MTg1NzhiOTlkYTFmZGVjZmFjY2Q4M2U1ZDY4YzhmNTA2ZjQ0ZjRiMzdhMGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NDlhZTU3NmMwZjEyM2RiZTUwM2VmMTk0YWNmZjRhNjk3ZmVkNDMwMTRiYWVkMmYxYzg3YThlYmI2MzcwN2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFhZTg0ZWEyMzFkZjRmOTliYmQ0NDRmZGMwZDk4YjkxNjk5ZTdmYzg3ODMxYmRhMmE4NTExMDM2NjAzZGNkNGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5NDJlOTM2OGE4ZTA4ZDhiNWU1N2MzZmU3ZDJmZmNmOTY3MTRhZGQ4ODJlY2RiYmQwMTIzNjBhZTIzYTU1YzYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7524fc9305c8447895c15572a5508c5f",
+      "statement": "A single layout-provided player serves the whole site: each lecture page's inline script declares its own pageid and musicList, musicplayer.js fills the shared #music-select options from musicList, and all pages drive the same #music-player <audio> element declared in _layouts/music.html, so pages are independent and differ only in their localStorage key prefix.",
+      "evidence": [
+        {
+          "resource": "repo://_layouts/music.html#L55-L95",
+          "version": "repo-lines-v1:sha256:ab7bafad09894d9fcc66b74e76e8a5a323a336b8124bdea718833895ce7ad504:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiOTRjZGY1ZTE1ZWUwY2RmOWIxZjRmNjNiOTJiY2YyZGU0YTE0ZTM3NWM3NTg3MmE0YmIyMTg1YTg1ZjFiMmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwM2RmZDYxODY0MTlmNjVjNTdhMGNiNWU5MGJjODNmMGJjODkyOWNjYWQ3YWEwYjdiOTcyMzQwNTI1NTQ5ZmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkYWMxMWVkNjU4NDc2ZTA5ZWQyNGQzMWUyYWYzZDAyOTljNWYyZTc0Mjk0YzhjYmZlNDYyODVhYmRiMWE0MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkNWRkOTg0MDQxZjMwMDdjODA0ODk4ZWI4OTEwYjZlNzNhNWVkZTJhY2IzMmMyYzJmYzMxYWFmZThlZmJkNmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L1-L4",
+          "version": "repo-lines-v1:sha256:69a370a6a24e02d157a4548bcc16cd2adb3fc7581df4e7e9f5e4aa55d73b9fc7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTM2Mzg3NjA5OTAzZWEzYjM5OGVjMmFlNTY5YWMzYTQwZGM2OGVmZDU4ZGMzY2EyYzk0YWMzMzI1YTE4NGU3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTEyMjQzYmM1ZTI5YTE2NWZhNTIwZmMxZDllOGFjZGEzOTk2M2MzNWI3NzNhMmZhMzFkOTZkYWRlYWRlOTllNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ0ZmFlODUyNTU2ZWJkNzYzNjlmOWQ4YTBhNzc2YzgyOTRiOWJiNDAyZWVlMDU5MGQ5NDUzZTNmZGQ5NTc2MiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L20-L28",
+          "version": "repo-lines-v1:sha256:4642506712ee7c91c5e502181ae07fa5ea1848ad442bf030dd90f0db76a74798:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzA3M2JiNWYyMTIzOWY4Y2Q3NDM1MThkNDMxZjkyYzJhZDgxYTViZGUyMzhjZjYwZmFiOGM3YjFkNGQ3NGY4YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWIzNTM1ZWFmYzQxNmI1MzhmY2Y3YTI0YzM0OTM3YmI1OGJlZDE5ZWE4NDAxMTNmM2MxNTMzNTE3ZTQ0ZGFjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDRiZTZjYTRkZjFhZGU3MTgzNjhhYWQxZDkyOWIxNTZlZDA4ZjAzZjY3OTU2MzYxZDJhMGNmMzBjODY0Mzk4MCJ9"
+        },
+        {
+          "resource": "repo://%E9%98%B4%E7%AC%A6%E7%BB%8F.html#L1-L16",
+          "version": "repo-lines-v1:sha256:0783b5fe9cff51fcf9ec97aab9f11f9232b74b6b0d1fb3b74c42a7184c6874b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5Yzc4NDc4Yzk3MTg3YmVmZGYwZjNhZGI3YmFkYzUwMTgzY2QwMjliY2VhMzU5YmU3NjZkZGNhMGQ1MDgwZmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2YWJkNjI3ODAyMWEzOGY2NjhhZTNiMzQ0NjI0ODg1OGNmMWVkODcyMDJhYTc2MTUwNWFmZmM4NDI1ZTQyNjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczMmE4Mzc4Y2NjOWZjZTlhMjYxNTdmY2M4OGEzMGI1OGJlZTNlY2I2OGUyZTNhNmJjZDk3YzJlYTZmYzM3N2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c09709816e34e27802fe98d9d9c843b",
+      "statement": "The quickstart repo map treats DOM ids, page globals (pageid/musicList) and script-tag order as an unvalidated implicit contract with no build-time check: musicplayer.js dereferences the player element ids at top level without null checks, so a renamed id or missing global throws at parse time, while keepalive.js guards every access with typeof checks and a wrong script order silently disables the wake lock with nothing thrown to the console.",
+      "evidence": [
+        {
+          "resource": "repo://_layouts/music.html#L119-L125",
+          "version": "repo-lines-v1:sha256:81355a2ad85cba45af1478848bc5ac123ae1602b57c9131735653e697cdc2c99:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM3NjNmM2ZjOTQzODZlZjgyYTQzMDAyYWUzOTBiNWQ0OTNkZmJhZjVmYmM0NmE1OWRkNzYwNWU1ZmY5Yjk0YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVlODMwYTQ3NmNkN2IyNWFlYTg2NTk2YjEwMTE1MzQ2N2YyYzY1ZWY1ZTA4Nzk2YjUwZmIxZmE3ZGRjMTdiMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjMzYjM0YmJmY2IwZWI0ZWNlYzJhOGIwZmJiOGU3Y2RkNzY2NDVlNzAzYTVlNjg4MmNkYjBhYjMzNzI1YzEwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTJjYjdiY2QwZjkwOTE0YTI5YTg4Y2ZlMmIwYzMwNzFhMGJiMGM0NzE0ZTBlN2IxZDEyZGE5Y2U0Zjk1MGRlNiJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L10-L11",
+          "version": "repo-lines-v1:sha256:2f595bd6f6de6c87dcced84782aa16673f3a08a0d757dd60c7caa74c0c76131b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE3ZDk3NDU4MDk1Y2I4YjM4Yjc1NTUxYzY4Nzk5NzYxYzVjN2JkMWM5YTVmMDUyM2FjZDA3OGRhNjNlYmQxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE1MTU0YjFjN2M4YjgxNGM4NjEzM2NiMzhhZWEwNTY4MTg3NzU4NTM5NDlhZWVhNTgxYzMyNmI5YzEzOWMyYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmZlMjQ0MDUzODRkZDdmY2M5MGQ5YWVjMWE5ZWM4YmViOTc0YTJlYTRhYTE1MTljYmNjYWZlNGZkNjgzYmM5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDViN2MxNzMyZDFkZWIzMjlkYzIwNDhlMDI2YjFiNzc0ODVhM2I4ODZiYWYzMjJmNjljZmVmZmQ5ZjM4MzI4ZiJ9"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L25-L28",
+          "version": "repo-lines-v1:sha256:ff643cc3d18394ebb9cb322a345297775e86b47846dda4be4accaae9fbcba396:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzNhMzRiOGNkNTc2NmVkODIwZTAxMDZlMDA3Y2IzNTE2Y2M5MmFlZWRlOTYxYzA1ZDdjMTljN2QxMjhhYmRmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTZmN2RkM2IwZDU1ODAyNjBhNGY1MzI3NjQ0ODk5MTdmZWMzZDBhOTMxZTk3ODk0NTA1MGEyYzBkZjkwNDhiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzg5NzY2ZjU5MTM4YzFjMjIwZTYxNjFlMmMwZDI5MTJkOGY4NDVhN2JkZTNhNmMwNjkxN2FkMzJhMjgxNjU1MiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L1-L4",
+          "version": "repo-lines-v1:sha256:69a370a6a24e02d157a4548bcc16cd2adb3fc7581df4e7e9f5e4aa55d73b9fc7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTM2Mzg3NjA5OTAzZWEzYjM5OGVjMmFlNTY5YWMzYTQwZGM2OGVmZDU4ZGMzY2EyYzk0YWMzMzI1YTE4NGU3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTEyMjQzYmM1ZTI5YTE2NWZhNTIwZmMxZDllOGFjZGEzOTk2M2MzNWI3NzNhMmZhMzFkOTZkYWRlYWRlOTllNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ0ZmFlODUyNTU2ZWJkNzYzNjlmOWQ4YTBhNzc2YzgyOTRiOWJiNDAyZWVlMDU5MGQ5NDUzZTNmZGQ5NTc2MiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L146-L146",
+          "version": "repo-lines-v1:sha256:1c47a54b33b592f056ccb183d80245b7381971b6babb98caf3110ee3d1f7b6cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM0N2E1NGIzM2I1OTJmMDU2Y2NiMTgzZDgwMjQ1YjczODE5NzFiNmJhYmI5OGNhZjMxMTBlZTNkMWY3YjZjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM0N2E1NGIzM2I1OTJmMDU2Y2NiMTgzZDgwMjQ1YjczODE5NzFiNmJhYmI5OGNhZjMxMTBlZTNkMWY3YjZjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGZjNWQ4ZWM3ZDUzYTkxOTMzMjU2NjNkYzBlN2NiZmJkODNlODdkZjc3ZTFjOTY2YjY2NTdmZTY1Nzg0MGUwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTVjMGI5ZGE0YTc1Y2VhMjU3ZmY4NGI5YzY2OWZhOGM5ZDNiZWUzYzhlNmJkMGU1YzMwNWIwYmI4ODQ3MTdiYyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L282-L282",
+          "version": "repo-lines-v1:sha256:4bb55dfdc174df1ce73d856f45468791c40b69cd03d95092604ebd9ee889cf9e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGJiNTVkZmRjMTc0ZGYxY2U3M2Q4NTZmNDU0Njg3OTFjNDBiNjljZDAzZDk1MDkyNjA0ZWJkOWVlODg5Y2Y5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGJiNTVkZmRjMTc0ZGYxY2U3M2Q4NTZmNDU0Njg3OTFjNDBiNjljZDAzZDk1MDkyNjA0ZWJkOWVlODg5Y2Y5ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDlmOTMwODNjMTk3MTIxYjk4MjcwMGJhOGFmYWJkMTcyMmNmMWQzZTc0MDQ1MDllODBlZmEyNzI0N2Y2MmYwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWYwNWI4MTlmNmNkOWQxODMwZjlkYTYxMzUwYTJlMjA5M2I1MDBjNWNkMjIzZjFlMzQwYjBjOGQyMDNiMzllMCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T20:09:52.778Z"
+  }
+}

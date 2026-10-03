@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:e062f2a66e1136cd2cc7de0dc7da0cac665d4eb851bdcb6a4d33257bd35abc5c",
+  "claims": [
+    {
+      "id": "claim_f88831f624b64ce490d5892702bab01d",
+      "statement": "站点按四个可独立改动的边界层组织：内容层（仓库根 15 个页面源文件，含 9 个 layout: music 讲经页与 6 个 layout: default 文本页，页面自带的 pageid/musicList 内联脚本也属这一层）、装配层（_layouts/default.html、_layouts/music.html 与唯一的 include _includes/comments.html，外加 _config.yml、CNAME、style.css）、运行时层（js/musicplayer.js、js/keepalive.js、js/comments.js、js/yujizi.js）、外部服务层（GitHub Pages、Cloudflare 边缘、留言 Worker、GitHub Releases、GitHub Actions 的 OpenWiki 更新）。层间只有四个接缝：front matter 的 layout 值、布局底部 script 标签与 DOM id 约定、CNAME 与 _config.yml 的 comments_api 配置、以及 ?v= 缓存版本号。",
+      "evidence": [
+        {
+          "resource": "repo://CNAME#L1-L1",
+          "version": "repo-lines-v1:sha256:3e413b5e62baff869196eecfb44a398a610ceaec64a0399a9f8598147133ddca:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_config.yml#L1-L8",
+          "version": "repo-lines-v1:sha256:c16b94dfbc2d705f507235223c7eee7ba08a6613e64ac3fe317e8c9db07e5f85:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdhNWQzYzVkNTlkN2FjOTgxNjI2OGZjMTA1ZjY4YmM0M2MxZTZiMjNlZmJmYjY5NmM0NjZjNWEwMDYxZGZiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkNmFkZWNiZTEyMzk3YjdhMjYyZjdmMTlhYTYyNjAwNTQyMDRkMWZkN2Y2OGYwN2E2NTI1MjFhNTBmNmU4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L1-L65",
+          "version": "repo-lines-v1:sha256:b1bc3a26224ac6745e22a50310a287a1d9c01533c71c29ca6e9ad23771cca287:eyJzZWxlY3RlZExpbmVDb3VudCI6NjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkMWY5MWE2ZjU4NzA0ZDU1NmM2NGEyMTBhNjY5Y2Y4ZDhlMGFmNDNjYTFiODgwZjcxMzlhMDU2NmU1ZmUxY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJmZDJiOTNmOTMwOTIzNWUwYWE1NDgzZDU5NTNjY2YzZWE4MTU0ZTgzYzc5ZjBmNjljMDc5MzlmMDFhMmI3M2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://_layouts/default.html#L1-L124",
+          "version": "repo-lines-v1:sha256:4dc93e7da15d9302847cad56b89df900e81c406d53010903f23b49f405f6050a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI0LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzMzVmY2E4NTc0ZjA2MGVlYTI0ZWJjZGFlNmI3OGYzMjQxNGY1ZGUwM2RhMTA4NGZkMGU3M2Q3MTA3NjhlM2E5IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJkM2VkODFjZDE2ZGY4OGQ2OTIxNjY0NmQ4ZGFkYTc2MzRiMzNhNjk4NmU5YzIzYTcyNjMxZDE5MzNiNjM1YTUyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L1-L143",
+          "version": "repo-lines-v1:sha256:725c622cf0ef9361108b60545f005bca72901ecff7fc8e52fdfadcb7f51cfb47:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQzLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzMzVmY2E4NTc0ZjA2MGVlYTI0ZWJjZGFlNmI3OGYzMjQxNGY1ZGUwM2RhMTA4NGZkMGU3M2Q3MTA3NjhlM2E5IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJkM2VkODFjZDE2ZGY4OGQ2OTIxNjY0NmQ4ZGFkYTc2MzRiMzNhNjk4NmU5YzIzYTcyNjMxZDE5MzNiNjM1YTUyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        },
+        {
+          "resource": "repo://index.html#L19-L62",
+          "version": "repo-lines-v1:sha256:af2a0ed3f2890ed25d7d28955b5044fbf9fb0a9579d81f2b829a057975eb311d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxOTVmYzE3ODEzNTEyN2Q5YWIyZmQ4NTZiMmI5ZTdiMjIyZWJjNjg5Njk5OGIyMjZiNmUyMjE5MzQxN2RhYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1NTJlYTdiMjVmODMzOWNmNDkwMjA4MDgzODVlYTMzYjFkMTEwYjVkMTZmODliMzkyNTZmYzVmOTgzOTQ0M2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgwOTY1NWYxZWQ3YmVkNGZhYWE4ZWRjM2Y1NmJmMTAyNWQ3ZTA5YzYyYWM1OThiZmJlYjkzMWMxZDE5ZjZlZDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlYjUxNjU4YzRmZjAzNWZlY2RlYjRjMjY5ZWZiMmQzM2E2N2FjOTkyOGEyYTZjMmQyZDlhMTQ2MzBhMGVjMzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_db7ab54bc8864a6e8af720076c272a0d",
+      "statement": "内容层与装配层之间的唯一接缝是 front matter 的 layout 键：9 个页面写 layout: music，6 个页面写 layout: default，_config.yml 没有 defaults 兜底配置，因此漏写 layout 的页面会以裸正文输出（没有 CSS、脚本与留言板）。",
+      "evidence": [
+        {
+          "resource": "repo://_config.yml#L1-L8",
+          "version": "repo-lines-v1:sha256:c16b94dfbc2d705f507235223c7eee7ba08a6613e64ac3fe317e8c9db07e5f85:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdhNWQzYzVkNTlkN2FjOTgxNjI2OGZjMTA1ZjY4YmM0M2MxZTZiMjNlZmJmYjY5NmM0NjZjNWEwMDYxZGZiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkNmFkZWNiZTEyMzk3YjdhMjYyZjdmMTlhYTYyNjAwNTQyMDRkMWZkN2Y2OGYwN2E2NTI1MjFhNTBmNmU4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://%E7%8E%89%E5%B8%88%E8%81%8A%E4%BF%AE%E8%A1%8C.html#L1-L4",
+          "version": "repo-lines-v1:sha256:df342c94f6a7dcaac037be6c43317c98d51d34d4c5334b872c8e5f21775153c4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzljNzg0NzhjOTcxODdiZWZkZjBmM2FkYjdiYWRjNTAxODNjZDAyOWJjZWEzNTliZTc2NmRkY2EwZDUwODBmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzljNzg0NzhjOTcxODdiZWZkZjBmM2FkYjdiYWRjNTAxODNjZDAyOWJjZWEzNTliZTc2NmRkY2EwZDUwODBmZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQ4OWVjN2ZiMDFlNmI5ZDlhMDhmNWE2M2Y2MmE2M2NkZTRlYzE5ZjQyMWZhZTUyZjQyMWE4MGY3YWYwOTVkZSJ9"
+        },
+        {
+          "resource": "repo://%E9%98%B4%E7%AC%A6%E7%BB%8F.html#L1-L4",
+          "version": "repo-lines-v1:sha256:2539f06f3b78cb46744d2cf1a87513486d627c6bd0fb7baf5b2bd2d746509a49:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzljNzg0NzhjOTcxODdiZWZkZjBmM2FkYjdiYWRjNTAxODNjZDAyOWJjZWEzNTliZTc2NmRkY2EwZDUwODBmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzljNzg0NzhjOTcxODdiZWZkZjBmM2FkYjdiYWRjNTAxODNjZDAyOWJjZWEzNTliZTc2NmRkY2EwZDUwODBmZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGJjZDBlZWU4ZmEyZTY2ZmMwZmM1NmUxZmMwYzQwYmQ1ODRhZmQxZmI5YjhjM2NlNDgxN2VmODgxNGUxNWQ4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_223f498b24ce4f729659187038becaa1",
+      "statement": "仓库根没有构建脚本、依赖清单、测试与 lint（无 package.json、Gemfile、Makefile、_plugins/ 与 lint 配置）；jsconfig.json 全文只有 typeAcquisition.include: [\"jquery\"]，只影响编辑器类型提示，与运行时、校验、部署无关。因此没有任何机器校验会在 push 前拦住回归。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L95",
+          "version": "repo-lines-v1:sha256:b837042d64e6932097cac2b48f75737b30a8ac0d8e0d8ec57b232735a464c94a:eyJzZWxlY3RlZExpbmVDb3VudCI6OTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2NzE4ZjA2N2I1ZTVjMWYwOTkxYTZlNzQ3MjZmZTJhMjNkMjY0MzQ1ZTA4ZTRlYWQwNGZhZjczYzI3ZWQ0NDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://jsconfig.json#L1-L7",
+          "version": "repo-lines-v1:sha256:cd0fcf90eee906b6b61a72c2e29f9858a339aa8cf016ca2c7de3518d4ccea8ce:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODNlYWU3ZTZhNGQzYzcxYmNjOTYzMjhjNTE5ZmJhMjk0MWVlNDg2OTY4YTZkNjMyMmZiMDhjZWI0NGUzZWZkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwYjM2YWE3NGE1OWJjZjRhODgxODU4MzdmNjU4YWZhZjM2NDZlZmYyYmIxNmMzOTI4ZDBlOTMzNWU5NDVkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_302b95bd2b204f109e467f46123c809f",
+      "statement": "仓库里唯一的自动化 workflow 只做 OpenWiki 文档更新，与站点构建/测试无关：由 workflow_dispatch 与每日 08:00 的 cron 触发（L3-L6），跑 openwiki code --update --print（L36），再按白名单（openwiki、AGENTS.md、.github/workflows/openwiki-update.yml，CLAUDE.md 仅在存在时）开一个 openwiki/update PR；其中的 npm install --global openwiki@0.6.1 … 只是安装 CLI 工具本身，不是仓库依赖清单，也不跑任何针对站点或播放器的检查。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L29-L36",
+          "version": "repo-lines-v1:sha256:58edb450fc111dde84d5507237c215a46467f2aa39ad43cafa17732c8d0e24a8:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODZjZTBiMGQzYjM4MTIyYmMyNzUxNWE4ZDk2OTYxNWQ5ZTEwZTI4MDY0NGY3NjEyMjFkMDQ0NzlhZDI1MzkzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQxYzYwZDgzNTk3Yzc2Y2NhNjk2YWFjNzRkZmI3YWM1ZGMzMzYyZmU2NTFmOGNhYjVhMzA0OTk2MzAxN2Q0MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjNmM2I4ODAyYjMxMGZmMmFkZDAwMjZiODJlZTJlOWU1NzE1OTEyZWFmMDgxYWY4NmNlMTEwZGQ2NDJmYzFhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmY3ZTQ2ODM3NDgxNGViZTgxZmFjOTBlMDY2NWNhOTBkMzg3MTliNTE0ZmMyZjFlYTEzOWM2MjkwZjA1N2M4NCJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L3-L6",
+          "version": "repo-lines-v1:sha256:ae3cfd11fbd2aec9ba8022f9055a23900230776141f0fd80f6908edd097fed23:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTk2ZGM0ODE0OWY1YTgzZDFlZDZkYmIzOWJiYzdlMmI5MDJhYTNkMzRkNmJkNWFlNGIyOTFiNjhkZjBjYTc5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNhZWQ1MDJhNWFkZWU3YmIwY2FkZDQ2Y2Q3NDYzYjUzMjBjNmNjZWU0NDgwZDY2ODU0ODg0MzEwNjM3NjExOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzViMWYyNGU2MTgwNWVlMWE5YmM3ODA0N2UxZTRiM2Q4NjE1N2Q2ZTM3ZDhhYzBiY2JlYmQ1ZTY1ZTVlZjFhYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzk0NjJkNWYyYzIwN2U2YjRmODI4NDNkOTE1NGZmMGJiYWQwMzQzOTI0YjJjM2M0YmFiZDk5Yjg3Y2NkNGI4MiJ9"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L61-L79",
+          "version": "repo-lines-v1:sha256:6a74985f210dfbbb29e8375b6e66da9e5038cf67c52e629dfadb5169d5d81c4f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ0NTViYjdjMWRlN2UzZTA1MmVlYmI5MDkwOTYwZjk2YzAyZDI3ZTc5YzBlYTZhOTcyMzI5MWFlNGYyZmIxZWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkYTQxNjY0OTBiMTcyOWI1ZWNiZmFmYmRlMmY1YmFiMDlkMmY3ZWVmZTQ0ZGQ1ZWZkMDZkZmUyMDViYjYxYTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVmZTVjYTdmYmJkMTk5YTZhZDgyZGU1MmY0ZWE2NDMxODVmNjM1MGE4MGJhNTJkNWFkN2VlYTMyNTY3NzUwYzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRkODlkZGU2NjgwODU1NjRmYmRkYzFiZDc3MzAxMGMyNGNhZGViOTViYzQ2ZTcxMTBiMzE5N2NkYmJhN2NkZjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d939437244ff4849a3a316528e845d1b",
+      "statement": "OpenWiki 只读 .openwikiignore、不读 .gitignore，因此「文件是否在版本控制里」与「文件是否会被写入 wiki」是两件互不相干的事；.openwikiignore 采用 gitignore 风格但大小写不敏感的匹配（last-match-wins、! 取反、前导 / 锚定仓库根、尾随 / 仅匹配目录），排除媒体与二进制通配（*.m4a/*.mp3/*.apk/*.doc/*.docx）、大体积媒体目录（玉机子/、经典读诵/、体真山人语录/、downloads/）、第三方 vendor（css/bootstrap*、js/bootstrap*、js/jquery-3.2.1.slim.min.js、js/vendor/）、*.map、Jekyll 构建产物（_site/、.jekyll-cache/）以及 .DS_Store、.vscode/。",
+      "evidence": [
+        {
+          "resource": "repo://.openwikiignore#L1-L45",
+          "version": "repo-lines-v1:sha256:57e36f767264416d710c3cfff0c81a9716fd7a3e6a9005c83693602b6e49771d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhNTNmNzllODBjN2Y3M2MyZWNhOGQwZWRjMDNjM2I4ODkzMzUwNGM5YjQ2YWM3YzU0ZDRmZDE3YWIxODg5MGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1OGFmNjgzMTE0MzdiZTc5YTRkOGZlYjcyZTljYTdjZDdhMDVhZjcxZmMyYWE5NmY1MmVjMWI2ZTRmNzkxOGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2b0342640ed465ca0ae6136e767923f",
+      "statement": "被 .openwikiignore 排除的媒体与 vendor 目录既不能被 wiki 读取也不能被枚举，所以关于音频的一切只能来自页面源码里的 URL 字符串（如 /玉机子/玉机子讲阴符经/28416276.m4a、/经典读诵/阴符经.mp3、/经典读诵/养生主.mp3），体积数字（工作区 3.0G、玉机子/ 1.3G、经典读诵/ 110M、体真山人语录/ 53M、downloads/ 6.9M）是从清单注释抄下来的而非测量所得。",
+      "evidence": [
+        {
+          "resource": "repo://.openwikiignore#L6-L28",
+          "version": "repo-lines-v1:sha256:60af5c95731dc7214a466162958219ca9cbaf2cd5b2dae7c48979d546a46c106:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjYzgzNDI0Yzc5Y2I4NzQ1NTUzY2RjNWE1YzI2YjA4OWRhYjg2ZDBjOWY5NzBhNzk1MGEzOGVmODIzODY2YWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQzZGVkMTBhMzIxZGY3YTM4NzdjNWRlMDUxYjI5NTIxNGQ4MTM1NjY3NGQ5NWIyYTg2MzY2Y2JmNzk0YTU3NzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2MGM5NGIxY2VkNTJmMDkwMzdiMGU0NzQyMzlhZWE4Yzk4YTRhZmNmYjZkZTFjOThjOTNlZjYyOGNlMmU3ZmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhlYjk2MjIwMDlmZGUzMzJiNGU5MTBhNWI4OTgwY2U4ZjFkYjZjYWFjMTJlNmI0ZjEwNWE4NWNkNzlmNTcyZWUifQ"
+        },
+        {
+          "resource": "repo://local-test.html#L20-L27",
+          "version": "repo-lines-v1:sha256:b1d6c2daea77f2bbaa62d6122a4229c27fe06fa10d3f2f5e3dec2ba7006bf3bb:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiNzU0ZDBhODc3N2Y2YzU1NjkxODU3OGI5OWRhMWZkZWNmYWNjZDgzZTVkNjhjOGY1MDZmNDRmNGIzN2EwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NjZmVkZjZhNGQ2Njg0NjkyY2UyOTNiNDY4NDdkODIzNWQ0ZjAyNTEyYTc4YTNkNWFiNWIyNzU0NDY1OWQ2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWFlODRlYTIzMWRmNGY5OWJiZDQ0NGZkYzBkOThiOTE2OTllN2ZjODc4MzFiZGEyYTg1MTEwMzY2MDNkY2Q0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTE3OTZjYjlkNjQyMDhiZGU1ZDU3ZTBkZjY4Mjc4MGRmNjUyNjUwMWI4ZDJiODQ5ZGI0NGRjYjc0ZDAxNTczMyJ9"
+        },
+        {
+          "resource": "repo://%E7%BB%8F%E5%85%B8%E8%AF%BB%E8%AF%B5.html#L9-L21",
+          "version": "repo-lines-v1:sha256:22ee634d633f25565cc51f5920df700a173b365fae99bdf25e822a2c009517a8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzNjAxMTk2YTMxZWI3Mjg4YjI0ZWNiMzY4Njk5ZmZjYTBiMjFmNjEwMDVjOGI4OGQ4NjA3NDc0OGJjZmFjNTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NjMyN2ZiZTZkOGY2Y2Y1ZTYwOGM0MzFkMjUwZjA4YTJjMjJhNDExN2IxN2QzNGQ5YzdiOWIyMThkNzJkZDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlZjJjZWIxZWQ3OTQ1OGM5OTk0ZjkwMGRjOWRjYmZiZGE4ZWE4OThmNTg0OGVjNGU3YjQ1ZWU2MTZjNjI2ODYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1ZjU1NzQ1ZTNhZjRkZjQ2OWU4YjZjYTBlZjJjMmEwYmQ5ZTY2ODZlMjY0YWVhODgzZTIwZGFlYmM4YTUwNjUifQ"
+        },
+        {
+          "resource": "repo://%E9%98%B4%E7%AC%A6%E7%BB%8F.html#L9-L14",
+          "version": "repo-lines-v1:sha256:4e2e8b921c8fd27d3b1d6d8c104b83933591a71b94c9ba831baa7acfafb4bc32:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI1NjcwYmZjNzExM2NhMjFjOTUxMGU3M2EzNTdjM2U5NzZkYWM0MWFiZTk1MjljZTEzYzc2YWIwODJjM2VlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTgwNmRhZDA1ODVkMjU1ODRiNWJkMDAzMjU1NTkyYjc3N2FiODUxYTY4ZGEyMDJiNWQ5Y2E3YThiZjE2YTQ1MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjJmZWI2MjAwODU2ODI5OGUwZmY1NGQ3YTE0YmZiM2Y3MWM4ZGQ2ZDAwMmVkZmJhZGFkMjIzOWY1NDdjNGRlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTMwYTRiYjljMzcwZTBkNWQwZmJmMjgxNjc2ODY0MTkzYzE0MTczN2Y0NjdlMGQ0MTY2ZDc3OTcxOGQ1YzZiZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fdcd8ffb05e3474393d6345c8dc556bd",
+      "statement": ".gitignore 的排除项是 .DS_Store、_site/、.jekyll-cache/、local-test.html 与 downloads/*.apk，并且顶部注释记录了一次真实事故（2026-09-27 之前本地单独忽略 *.mp3/*.m4a/玉机子//经典读诵/ 而远端 main 带着这些文件，导致本地与远端分叉成两条平行历史，同日经 backup-before-unify-20260927 合并），由此得出一条硬约束：音频绝不能加回 .gitignore，这类大文件（含音频）必须进 git。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L1-L12",
+          "version": "repo-lines-v1:sha256:315b4152d26f6b6058308db879c21f3cd33fe1ef7df96edbd5b93c828c5c18ff:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYTg2MTBmOGE2MzgwMWQwMjBjY2U3M2JjNTQyNjFlYTdjY2M3NDNmNWRkNjlkYmE1NzdmZTIyYmU3OGI2OWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY3ZTJiZTcyMWNkZTBjZGQ5ZGMzNjEzZWQ3ZjY5ZWMzZmQwNmU4ZTU4YzAzYTIzN2U4YmY1NDhmMWU1NWVmNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiMzRhZDBjNGFjOGI3OTY5OGZhNTQ1YjY3YTAzNGZhMGQ1NmZkNzFkNmVmNTM2NzlhNTY1NThkY2UzNDI2NWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fad72c87a97147aea481ad2b3ddd889b",
+      "statement": "两份忽略清单的关键不对称：local-test.html 被 .gitignore 排除（不入库）但 .openwikiignore 没有排它，所以 wiki 生成仍能读到它；而 css/bootstrap.min.css 虽然被同步加载（两个布局都 <link> 它）却被 .openwikiignore 排除，因此「读不到」不等于「不生效」。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L8-L8",
+          "version": "repo-lines-v1:sha256:29bfc9401543531d4bb2de78a04fc36b3c58f0e96e2b1ce57c56f907cd0364f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZmYjE2ZTM3ZGNmYmMxNDkyZDk3MTU3OTQ3NzViNDIwYWMzODZlZjFhOWI2ZWYwODJlZjVjOWY1NmU2ZTJmNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgwZGQ4YWEzNWNiYThhZGQ5YTJiMmQ0ZTg5ZGE2MGYzYmNiMjZjNzdkNTUxNWU2ZTJkNDc2MWI4MWY3ZWE4NiJ9"
+        },
+        {
+          "resource": "repo://.openwikiignore#L30-L37",
+          "version": "repo-lines-v1:sha256:2183596447c98ec9ceccc8380318baa925cc7692feb1512b5c83a7a71000db64:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg0ZDk2NzYzN2JmMTIwMDg0YWY0ZjZhYjU0YWYzNTU0OWI5NWY0OWE1MGFlYjI3M2JmODhiZjJmMTk3NWVjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmFiMTY0MzVkODFiMTgwMDU2MmVkNDFhYjMzN2E2NmNjY2M4NjUyZTk0NDAyNzU0MDliM2NhMzMwMTk0MDM0YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWJhMTY0NTRlOWQxYjY3ZDVkMjYyNTFjYTg1NWJkNzcwMWU1OGEyZTA2ZGI1NGU4OGRkYjIxMTlkNWEzNzIxZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWFjNmY5ZDhjZGEwNmI1Nzk5MjFjOWQ3MDJhNGE3N2JjZjgzZDlhZGU2YThmZmFmNWM1MjdjNzFkZjQ4ZDA2OSJ9"
+        },
+        {
+          "resource": "repo://_layouts/default.html#L23-L24",
+          "version": "repo-lines-v1:sha256:62727315397fc3dc7296afaf90dbab4837417d3cb261451603b8201a616b8c17:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ2YzRkNWY4NzE3MjhiNGY2NzgzODE4ZWU2Y2U1M2RlZmI5MjA3YzI4ZTk4NjVhZTY2ZDg2NTI0MzM2NjE4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI1ZDBhNThkMTg3YTEyOTgzMGQ5YjAxYTI5ZDA5NGFmNWQ3NTMyMWJhYjU2ODY3MDYwNGMxY2Q2NWJmNGMxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQ2M2IwYmQ2ZGNjOWU3YmRlY2Q1NTY0YWQyMzVlZTczZDE0ZDIwNGVkMDdiZWI0ODI3MzA5OTQwZjc5ZDY4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQwMjEyMDA2ZTVhYjMzZGFkZjQyZGU3ZmZiNWMwYmY5YzQxYjA5YjFhNjdjZWJhN2QyMDE3YzU0NTc5MjUyYSJ9"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L22-L23",
+          "version": "repo-lines-v1:sha256:62727315397fc3dc7296afaf90dbab4837417d3cb261451603b8201a616b8c17:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ2YzRkNWY4NzE3MjhiNGY2NzgzODE4ZWU2Y2U1M2RlZmI5MjA3YzI4ZTk4NjVhZTY2ZDg2NTI0MzM2NjE4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI1ZDBhNThkMTg3YTEyOTgzMGQ5YjAxYTI5ZDA5NGFmNWQ3NTMyMWJhYjU2ODY3MDYwNGMxY2Q2NWJmNGMxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQ2M2IwYmQ2ZGNjOWU3YmRlY2Q1NTY0YWQyMzVlZTczZDE0ZDIwNGVkMDdiZWI0ODI3MzA5OTQwZjc5ZDY4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQwMjEyMDA2ZTVhYjMzZGFkZjQyZGU3ZmZiNWMwYmY5YzQxYjA5YjFhNjdjZWJhN2QyMDE3YzU0NTc5MjUyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_de9c3eb4d5fc46d3abfe71e796825437",
+      "statement": "仓库根的目录职责：_layouts/ 只有 default.html 与 music.html，_includes/ 只有 comments.html（被两个布局各 include 一次），js/ 下 wiki 可见 musicplayer.js、keepalive.js、comments.js、yujizi.js 与零引用的第三方拷贝 js.cookie.js，docs/ 只有人工维护的真机验证基线 播放器息屏播放-已验证版本.md，.github/ 装唯一 workflow 与给 OpenWiki 调用外部网关补请求头的 openwiki/opencode-go-fetch.mjs，openwiki/ 是含三类状态文件的生成物目录，css/ 只有被排除的 Bootstrap 样式。",
+      "evidence": [
+        {
+          "resource": "repo://.github/openwiki/opencode-go-fetch.mjs#L1-L30",
+          "version": "repo-lines-v1:sha256:90ab864e92ebbb85c3f92d26cc7b1bfc9cd1e5d614804b78261044f50bbc32d3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhOGQxY2M4ZWQwMjIyZmU1N2RlMzJlMGEyY2M2MWUwMjEyNjYyZjEyODAzZWZjYWMxZTZiM2UyMGNhYjc4MWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlmZWI0NDc0YWQ3N2VkNWM2MmY5OWIzZGRiZGQ1OTI0NTM1NzE2MDdkNTc1YjI2MTVhZTBkMzMzM2U0Y2VhOTMifQ"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L1-L17",
+          "version": "repo-lines-v1:sha256:97673e133a773c4801b4d1adac4f05e459a4d0f7f2003c3bd199f185ae5b9d0c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkMWY5MWE2ZjU4NzA0ZDU1NmM2NGEyMTBhNjY5Y2Y4ZDhlMGFmNDNjYTFiODgwZjcxMzlhMDU2NmU1ZmUxY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1Yzg0NDdiNWU3NDI0MGZkNDFjMTM1MjU5ODU1ZGYxNWVlMjUwMGE5MTJmZjRlNmFiY2U2MWVkNzczYzE1NjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZWIyYjZmODZmNTU0OTM5ZTE3MDI2MTI0NWI5YWZkNGUxZDVmODZhZmUxYjk4NGI3ZTQ2ZGZiZTc0NDZiNDUifQ"
+        },
+        {
+          "resource": "repo://_layouts/default.html#L85-L85",
+          "version": "repo-lines-v1:sha256:911986bcbd8f6aea8e6b7cbe7970526128055ee11e14e2a1f26a5edb9f9e9267:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjZkNDMyNWUzYmVhYWRlMzdmOTM5NTc5OWY2MWZlNWUzN2VjZTA2ZTE0Y2ExMzNlZmY3YzEyODhmNjlmOGVjYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDg2MzczNjAyNjYyNWViZDJjMjkzNWRkOGY3MzQ2NDA1YjgyZWY0ZjNmYmUxODcwNTZjOTk2ODc5MDljNjY3YyJ9"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L97-L97",
+          "version": "repo-lines-v1:sha256:911986bcbd8f6aea8e6b7cbe7970526128055ee11e14e2a1f26a5edb9f9e9267:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM2ZTM5NTViZDMyMGVhNWE2ZjlkODc3ZjQ0YmNkMmVjMDI5NjQ0ZGExYjJjYTYwZGZkODY5MDhkOGVlZTc2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDg2MzczNjAyNjYyNWViZDJjMjkzNWRkOGY3MzQ2NDA1YjgyZWY0ZjNmYmUxODcwNTZjOTk2ODc5MDljNjY3YyJ9"
+        },
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L1-L52",
+          "version": "repo-lines-v1:sha256:95157f210f356265d87d4c863a7acae6bef1db61d884e61ba9ff2c2ef66e5ef7:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4MmFhOGMwNmFiN2NmOTBhZjUwZDA1MWMwZWQ2ZWE5OTgzMjRhYTIwYzU3OGE0ZDY0ZjQ5YWU4Mzg3ODM0OTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzYjA3NzI0OWYwZDI1NTU5ZmQzZDE0MzJjN2JlNGRlNjQyYzg0MzNkMmUyODIzZTQ4NmVkZjlhNDg3MGIyMGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://js/js.cookie.js#L1-L7",
+          "version": "repo-lines-v1:sha256:a95d7fbbd96f1635af43b9eb35e9a4d306a4bdca657846406992858662afdd9a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2FiZmJhMjhiNjJlMzYzZjBiMThmNjA1NzM3YmI4MWNlMzhiNzA2YzRmMzY2NDFhNzU5MWVlNWQ4NWVkYWQzMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTcyYTQyOTM4MmIyZTE0NzE4ZTBlMzdiMDU3MGE4YTE3MDI5OTFmY2Q4NDk4Y2Q4NDA2MGE4YmY0ZjA1MDE3YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWJhYTBiZGU2ZDU5MmFhZGZjNTA0OTk4YTNlNDZhMDg3ZDExNDA2MDYzYzY0MzEwOTc0NWNiOTU0ZTU0NmUwZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_09d4cf35821f4d13a7c07f2c4249fd98",
+      "statement": "仓库根的两个特殊文件都不在正常装配链上：local-test.html 没有 front matter、不经过任何布局（L1 直接是 HTML 文档声明），手工复刻了 music 布局的播放器结构与 pageid/musicList 内联脚本，是本地测量装置且被 .gitignore 排除、不入版本控制；album.css 是孤儿文件，全仓库没有任何 <link> 指向它（样式表引用只有 /css/bootstrap.min.css 与 /style.css），对线上渲染零影响。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L8-L8",
+          "version": "repo-lines-v1:sha256:29bfc9401543531d4bb2de78a04fc36b3c58f0e96e2b1ce57c56f907cd0364f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZmYjE2ZTM3ZGNmYmMxNDkyZDk3MTU3OTQ3NzViNDIwYWMzODZlZjFhOWI2ZWYwODJlZjVjOWY1NmU2ZTJmNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgwZGQ4YWEzNWNiYThhZGQ5YTJiMmQ0ZTg5ZGE2MGYzYmNiMjZjNzdkNTUxNWU2ZTJkNDc2MWI4MWY3ZWE4NiJ9"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L22-L23",
+          "version": "repo-lines-v1:sha256:62727315397fc3dc7296afaf90dbab4837417d3cb261451603b8201a616b8c17:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ2YzRkNWY4NzE3MjhiNGY2NzgzODE4ZWU2Y2U1M2RlZmI5MjA3YzI4ZTk4NjVhZTY2ZDg2NTI0MzM2NjE4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI1ZDBhNThkMTg3YTEyOTgzMGQ5YjAxYTI5ZDA5NGFmNWQ3NTMyMWJhYjU2ODY3MDYwNGMxY2Q2NWJmNGMxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQ2M2IwYmQ2ZGNjOWU3YmRlY2Q1NTY0YWQyMzVlZTczZDE0ZDIwNGVkMDdiZWI0ODI3MzA5OTQwZjc5ZDY4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQwMjEyMDA2ZTVhYjMzZGFkZjQyZGU3ZmZiNWMwYmY5YzQxYjA5YjFhNjdjZWJhN2QyMDE3YzU0NTc5MjUyYSJ9"
+        },
+        {
+          "resource": "repo://album.css#L1-L39",
+          "version": "repo-lines-v1:sha256:4501066d7f9986c587498daa54e7e2d7f4525a7de186c4b6e1605a99d415b05b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlZWE1MDRiZjIwYjQxYzQ3MjlkM2NjZTQwYzIzODUxZDNhZTk1YjUwMTdlNmIwYTFhOGNhMzg1ZWIzMzU3YzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI2MGYzYTE2Y2NiZjEyZDM1Nzc3YTlhY2JhYjhlOWY1ZmY4MTE2MWVlODgzYzBiZjljZTNhYjg2MWE2NjY4NjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://local-test.html#L1-L78",
+          "version": "repo-lines-v1:sha256:e44a67a7577fb8669987af194a66cd10fc86382565e798c70736ea1fb105cecc:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzNWZjYTg1NzRmMDYwZWVhMjRlYmNkYWU2Yjc4ZjMyNDE0ZjVkZTAzZGExMDg0ZmQwZTczZDcxMDc2OGUzYTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1MGI4ZDVlYTM3ODk1ZDYzMWEyNjlmY2QxMGEwM2QwMjljZTQ0ODQ3NDJlZDRiZGY3MDQ3NGM3MGMyMWYwM2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4OGMzMTRjMTVhN2E1ZDBkYTMxMDc0ODkwZjMwZTMwZDMyZWQzYTc2MzFlYWZhNTlmNGNhNjJkMDc3ZDM3MmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c29e2cf8c595408a9b301d5c810c74d9",
+      "statement": "三条跨层硬约束：改了 js/*.js 必须 bump 引用处的 ?v=（三处引用为 _layouts/music.html L119 的 musicplayer.js?v=4、L125 的 keepalive.js?v=3、_includes/comments.html L64 的 comments.js?v=4）；音频绝不能加回 .gitignore；而这两条都没有任何校验兜底，失效方式一律是静默的（回访用户继续吃旧缓存、本地与远端再次分叉）。版本号只存在于这几个 script 标签上，音频 URL、style.css、jQuery slim 与 js/yujizi.js 都是裸路径、没有可 bump 的版本号。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L1-L4",
+          "version": "repo-lines-v1:sha256:d4cb5f6e685297be426aa718403324a4891d753ca5c11666c7ba03eb665436fe:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODFhODYxMGY4YTYzODAxZDAyMGNjZTczYmM1NDI2MWVhN2NjYzc0M2Y1ZGQ2OWRiYTU3N2ZlMjJiZTc4YjY5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNhNDM2Yzk3MzRlYWEzOTRjNjA2NDkyODAzNWU5YjFhNzZmYzRkODA0ZmMwNzljMTYzOTVlZmRjMjcxNjAxZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzZmYjE2ZTM3ZGNmYmMxNDkyZDk3MTU3OTQ3NzViNDIwYWMzODZlZjFhOWI2ZWYwODJlZjVjOWY1NmU2ZTJmNCJ9"
+        },
+        {
+          "resource": "repo://.openwikiignore#L1-L4",
+          "version": "repo-lines-v1:sha256:95d5d8c4955020fd653ff2f06319cd4593a2b9860177af5cc8c70044276b1aeb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWE1M2Y3OWU4MGM3ZjczYzJlY2E4ZDBlZGMwM2MzYjg4OTMzNTA0YzliNDZhYzdjNTRkNGZkMTdhYjE4ODkwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTJjYjRhZWYyZjk0MzgyN2JhNzRjODM5MDBlMTIxYzRhZWNhZmEwNWE4MzkxNGRkMWFlYjExNjU0NTJlOTI0NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDczMzU0MjI3N2NiOWQ5ZGMwNDQxZWRkZjAwNDc3ZmY5M2YwZWMzYTc2YjMxOTAyMjc5OWNkOWVjNjc0YWQ2NiJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L56-L64",
+          "version": "repo-lines-v1:sha256:0e2029db0c65fc9d92205a2ababbd5951ef5376963530b6fc87de340d5700a59:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY4NWY4NDZlMTk1MWQ3MWUwMjY2ZmZiYWE1NmZlNmY2MjJmODM0NmI2YmQ1ZTIzNmEwYmIzNzVlOGNkZTZlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY5OTFlMDE0Zjk1NDFlNjk4NjQ1ZTM2YTc3MzM0MmU3YjljMzBmYjIyOGNlOTg2MzMwZDVhNWQ2MzEzNmQ0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzAyZjlkYzgxZDU1NWQ1ZmM4MGVhYjg3OWI5NmI1MTJkNDk5NTNkZjA3ZWE3NzI0NzMyMDY0ZjZmYTRiYzkwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmZkMmI5M2Y5MzA5MjM1ZTBhYTU0ODNkNTk1M2NjZjNlYTgxNTRlODNjNzlmMGY2OWMwNzkzOWYwMWEyYjczYiJ9"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L112-L125",
+          "version": "repo-lines-v1:sha256:cd0731146d6ec18db4eeb86c0d92e61bafbb64b1275e645e2d63666c38446196:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkNmI0NWE1YWFjNDMxNTIyOGMyMjQwZTk1NTgzN2M4MTI2MDY2MWUwMWU3ZTJlMzRiZWZlNWVmY2I0ZTA3MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1ZTgzMGE0NzZjZDdiMjVhZWE4NjU5NmIxMDExNTM0NjdmMmM2NWVmNWUwODc5NmI1MGZiMWZhN2RkYzE3YjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIwOWIxMmJiZGRhOTlkNmVkZTFjNGRkZDY5NjE4ZGE2OGU3Nzg4NjVjYTA0NDA0MDVmY2FmMTM3ODdmYTgxNTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkyY2I3YmNkMGY5MDkxNGEyOWE4OGNmZTJiMGMzMDcxYTBiYjBjNDcxNGUwZTdiMWQxMmRhOWNlNGY5NTBkZTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c81638d107cf48f3912a83c39054a2f5",
+      "statement": "仓库外那一层在仓库内只留下三类声明：CNAME 单行声明域名 www.yujizi.org；_config.yml 的 comments_api 决定留言后端是同源（留空，当前生产）还是跨域（填绝对地址），其值经 {% include comments.html %} 填进挂载点的 data-api；.github/workflows/openwiki-update.yml 是 wiki 自动更新的载体。Cloudflare 路由、边缘缓存 TTL、留言 Worker 与 APK 的构建都在仓库之外，仓库里没有对应配置文件。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L11",
+          "version": "repo-lines-v1:sha256:07c15848094addddf46c91bc6d7d9fd1ad86340ae0abe5610094cc45ac89d0b5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwYjY2YzU5ZGY4YTA0MzQ0OTRhZTRmMjZmMGJjYmQ2NmEzNmY5ZDA5YTUxMGE1ZGEwNjEzNGQ5YzkyMTA2MTQifQ"
+        },
+        {
+          "resource": "repo://CNAME#L1-L1",
+          "version": "repo-lines-v1:sha256:3e413b5e62baff869196eecfb44a398a610ceaec64a0399a9f8598147133ddca:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0MTNiNWU2MmJhZmY4NjkxOTZlZWNmYjQ0YTM5OGE2MTBjZWFlYzY0YTAzOTlhOWY4NTk4MTQ3MTMzZGRjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_config.yml#L4-L8",
+          "version": "repo-lines-v1:sha256:b75f4b69bde86e65a513c37ef66384c69873c692742607b2a9b56ea0766cb545:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVkN2RhMzFmYjE3MzBiZmU5NjQ2ZGI4YjdhNjk0MDVlYjNhMDBhNjRkMTZiMTVjZmViZGVlMzRkNjU3NGNmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkNmFkZWNiZTEyMzk3YjdhMjYyZjdmMTlhYTYyNjAwNTQyMDRkMWZkN2Y2OGYwN2E2NTI1MjFhNTBmNmU4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWMzZmQxZDdlOTM1MzllYzY3MjFlZWY5ZGMyOTZkMmI2MjRhMjc1Y2UxYmQ5ZDA2YTUxZmFhYTExNGQ1NTJlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L14-L17",
+          "version": "repo-lines-v1:sha256:bc7fa0822d184d4fce3b0b9ef02dcb3449fd8249a28250f2c5328980781d7dc6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGExZDk3YjgxMGJhMDVjY2FlN2JmMmZlOGIwZDAwODg3NDE4N2M4MWIzOTk3OTRlODg3NTgxNTFkYTM4YjIwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVjODQ0N2I1ZTc0MjQwZmQ0MWMxMzUyNTk4NTVkZjE1ZWUyNTAwYTkxMmZmNGU2YWJjZTYxZWQ3NzNjMTU2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQ0MTI0NGJjMGRkMzU1MDE2ZTJlZTc2MzYxOGM0MTQzNmFkZjdhNGI5OTAyYmQ0YWEwNWViMmY1N2I3YWUyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZlYjJiNmY4NmY1NTQ5MzllMTcwMjYxMjQ1YjlhZmQ0ZTFkNWY4NmFmZTFiOTg0YjdlNDZkZmJlNzQ0NmI0NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T20:09:52.778Z"
+  }
+}

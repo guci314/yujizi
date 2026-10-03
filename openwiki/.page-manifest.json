@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/architecture/layout-and-frontend-contract.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:85d84391238253cb1a2c0b349d7a2f1938bbd17076fd33d509fc14f4bdeb853f",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/architecture/overview.md": {
+      "pageVersion": "sha256:e062f2a66e1136cd2cc7de0dc7da0cac665d4eb851bdcb6a4d33257bd35abc5c",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "bfbe6933-7ac2-4850-821b-aa24c402020b",
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556"
+    },
+    "/openwiki/architecture/site-build-and-deploy.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:7035a3883ca311e458fe3fa295fad008f3a5e442b7f4ae496fbb2d1458bbf2cf",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/concepts/audio-page-model.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:09d447e850afbdad9db80ef5de401a14c867e8c62f1517b439519f4cf086592d",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/concepts/design-system.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:8aeba158927061c52af2bef70c4b2b2b38813e794ea3947ae4a4e76279bef175",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/concepts/legacy-multi-audio-player.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:7135fc87373acf21c38476f5a2aca61d231a1be31c42b39196db1edc276f505c",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/concepts/player-persistence-and-diagnostics.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:d1649c8f5390d800abbf237e57924bb5350ac499909d3bfc868cac2888b7e18f",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/concepts/player-state-machine.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:e4bde20e1bce88be21ed0b7546c9ca51fbee8c45c057f4e73968ec15b4fe9aea",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/integrations/external-services.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:8f6337da40d57543810b9a37a4cc3f81056ad33300d06877aba73d3dfcb8e16d",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/operations/assets-and-cache-busting.md": {
+      "pageVersion": "sha256:08491acf9fa5def519a66a441a52185f39071d3d0edded7146e555babd7fe78e",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "bfbe6933-7ac2-4850-821b-aa24c402020b",
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556"
+    },
+    "/openwiki/operations/openwiki-and-repo-automation.md": {
+      "pageVersion": "sha256:966ef6bfa699ab0f3f2cbb4048d6be317e92bebbc4c351ad58c695cb82b32755",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "bfbe6933-7ac2-4850-821b-aa24c402020b",
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:d2ee51101f08cf7e21f9d077ced24ad7afac5e7d2e8187e461869cf1015dd413",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "bfbe6933-7ac2-4850-821b-aa24c402020b",
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556"
+    },
+    "/openwiki/testing/verification-playbook.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:b1ab902506a30f4853c21dfce9f5f71717aa1710827a4aa3f7ce430a58fddaa8",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/workflows/comments-roundtrip.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:50ab5e513460a672b341402cfe6aa98a3e096d1c015c871b1d6924f2d7d1f37f",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/workflows/continuous-playback-transition.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:bcc5b95f6acc5ecac9c9e3b7b3b53decbc2e4eff343d31e621d786787727d21a",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/workflows/playback-recovery-and-selfhealing.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:b8239d57970a74e71b192cf7eb6b711aad58b2d22bc28c91cf6260a894b0410b",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/workflows/screen-off-continuous-playback.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:48bbd64dd2805a3df1c87cffb7d56c957ce54abe36428992476955f13f322d16",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    },
+    "/openwiki/workflows/timed-stop-and-remaining-time.md": {
+      "gitHead": "52dbb763f00b2529a1f1837aca376b6222513293",
+      "sourceFingerprint": "sha256:2edf9a7ea67a2de9295adb3a1b69b791afe09f7a0d630d9c4bb5db53ec31a556",
+      "pageVersion": "sha256:61e481474418a3fa412883826d3fe2ba55f49586a38dc4938c9f265dd443b66f",
+      "completedBy": "openwiki/0.6.1",
+      "completedRunId": "14113cb6-98c9-4d11-8f51-aee78edf31c0"
+    }
+  }
+}

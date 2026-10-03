@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:e4bde20e1bce88be21ed0b7546c9ca51fbee8c45c057f4e73968ec15b4fe9aea",
+  "claims": [
+    {
+      "id": "claim_d6729b6d4fa24da1b44d3b1f9535b47d",
+      "statement": "`pPlayIntent` 是 `musicplayer.js` 中唯一权威的「用户意图：此刻应当在播放」变量，全部自愈与续播通道的第一步守卫都是它；`musicPlayer.paused` 只反映媒体元素/操作系统的事实，可以不经任何 JS 代码被改动，因此不能当作「是否应该播放」的判据。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L322-L326",
+          "version": "repo-lines-v1:sha256:003bdba5662ce02493bda9719d9642aea89078d154e9ddeb00a5d3dcb4ab9ead:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE2MmJmNzY3OGViMjBmNWU5MWRmY2Q1YmE5MmJjMTU4ZTE4ZGVmOTlkYjcyYjZjYjM4MzMxMmQ5ZDE2ZGIwOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI1OTY1MzYwZjQ0OTRiYTZmOTMwNTliYTQ3ZmMzZDNmNmI2OTdlZDRhYmMzMzQyZWE2YTZhOTIxOWFiYTkxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2RlMTEzZDMzMzIyN2NmOGUxMTJjNTM2OGFjMDhhNzg4ODE0MGE1MDI5YTQ4OTA4NTlkY2JjMzYyOWEwYWUzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWQ1OWVhNzI2YzU3M2I1MmFlOTZjMGFmYTkzYjEwNTMwY2FjOWMxNWU5ZTJkMzE2MzYwYTMwZTBmODdkODUyMiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L420-L434",
+          "version": "repo-lines-v1:sha256:75b4bc372b3ad1ecbc75024979ecfcb6560e5f6dc6803c7068860a18baddc66a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFkMmQxMDg3NTFhNzg1NTk4MmE4NjZkMzE5NTU2MzdhMWQxYjFmZWQ1NDFmNWFlNGU1ZDZkOTM4NjZlNjVkODMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5NTYwNDEwMTRmMGUyM2U0MjA2YTM3YTdlNjQxY2ZkOTNlYjQ2OTc0MzJlOTE3ODU4YmVjYTI4MDI5YjhkMmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L642-L659",
+          "version": "repo-lines-v1:sha256:990f7873ef2b49a25bed38df4443fe2ccc318ba69cc65673a1fe53c8baab7861:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlYjdlZWE5YzdkNGM5NWIwNWQzYWZmM2RkOWNhZjlmMzEyMTg0NGVhMTgxZTkyNjVmMjM1OTM2OTljMjFiZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI0MGM4ZDVhMThmZmE5OWMzMTZhMjg0ODU2YTc1MDYxMmQxOWEwY2JkMmJiNjU3OGQxYzBmNTE1N2IzODIyMWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFmNGI2ZTkxOTMxYzFjMDJmODY3NGVjOTgxYzE5MzkxZGY2ZjNjZjhlZWY4OWMwMjU5YWQwZmZjMDU5NTQwMmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e588a8ea9b84472d903de94dd2d8d7eb",
+      "statement": "`pUserPausedUntil` 存的是「用户主动暂停的到期时刻戳」（`Date.now() + P_USER_PAUSE_GRACE`，宽限 8000ms）而不是布尔标记，唯一正确判据是 `pUserPausedUntil <= Date.now()`；写成 `!pUserPausedUntil` 会让守卫恒为假、系统暂停后永远接不上。该变量只被赋值、从不清零，所以「用户主动暂停绝不复活」严格只在最后 8 秒内成立。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L11-L18",
+          "version": "repo-lines-v1:sha256:cd9b4f44be8ed618c89955567f48950e9a63c6263db740e1ac992932ef955780:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkzMTdmYmVjNWI5ZmY1YzY3OTBhMjQxMmJjYmU2NWRiYTc5MmQ1Y2RiYzI2NzlkZTU3MDg3NWQxODdkYTU0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ2M2YzZGJkNjYzZDllNWFjNTgyYzRjYzdmZDEwZjk0MjhiZTk1NTI1N2YzNjE0ZmIxOWNlZWRiODBhMTAxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWRkMzVkMWRlZDg3NjM1ZGUwMjY4ZTNiOTFiYjVhOGY2ZDY1OWEyMTQyZjM5ZGVmZmE2YTkwMzAyOTdhMjUyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmIyMWRkZDE1NThlZjZiNDUwMjUwMDk2ZDU0NDk4Y2M2NDBmZmYzZWUyYTA3YzE1MjQxMDlmOTZjMjBiYWY3OCJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L55-L55",
+          "version": "repo-lines-v1:sha256:37a954af79d4901eddabe5ce5425138a524adce2a9621ccf26be71841c6bc119:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzdhOTU0YWY3OWQ0OTAxZWRkYWJlNWNlNTQyNTEzOGE1MjRhZGNlMmE5NjIxY2NmMjZiZTcxODQxYzZiYzExOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzdhOTU0YWY3OWQ0OTAxZWRkYWJlNWNlNTQyNTEzOGE1MjRhZGNlMmE5NjIxY2NmMjZiZTcxODQxYzZiYzExOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODNkODkxOTk0YjNiYjJmZTk5NjI5NWM2YmE4OWYxM2IzZjc5NGI5YzVjZjhiMzhiMmMyZGQyNTRiOWRhZjgxZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE3MDZjNTY4MDViOWE4MzA4NzA2ZTlhZDgxYzI3YTRkN2YyYTNhZmRiM2QzYmMyZTkxYzc2ZDdjZjg3MDJjYSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L564-L568",
+          "version": "repo-lines-v1:sha256:73d580aafa232ea3914bddb8c17196353549440b3e2dc2a62548c607b7bbab01:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDhkNWViMDUzMWM5ZDUwNTlmNTQ0MGExYjUyMjI1YTkzOTE4YzExM2UyYTI2ZWU3ZTgwM2E1ZDE3NWUwZGVhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhiMTY1NGI2ODQxMjk4N2IzNzU1MjYxMDUzNGMxYTJlYzgzYTA2ZGM2MzllZDg5NTZhMDA5ZDBhMmIyZDYzOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTNmMzJhYjVjYjNkYzVkMjc0MGNjMDM4ZmU4Njc0N2ZhYjJjNGU5YjkyMTdkMjIxNWM3YzJhNzE1ZDlhZDJiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGFmZGM2Nzg3NmRkNGY1NTFlODRmNjdjNzI4YTFkNTQyOWMwMjdmNzc4YWNhMzY1Y2VmMDZjOTViNWJiNzVjMiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L646-L651",
+          "version": "repo-lines-v1:sha256:4051f3eab4d97a4e0305c5f4a730fea75032f4402e20a39dc7d57eacf343f865:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhkYzQzODg2ZWVlZDEwMTE5NTg2ZTMyMGQyMTg1ZTAyMTQ1ZTMxMWI4N2ViMTVlMDA5MTgwZTI2MTU5NWRkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg3ZWUwZjkyN2ExNWFjYjRkMmUzNjJiNmYyZGFmMGJlYTAwYjM2OGU5NGU3YjQwYTM1OTE4MWE5YjFkNzUyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGM2YjkyMGUxODllMDYzZGM4ZTc2YmEwNjUwOWQ3NDI4ZDBjODg4MTBjOGIwMGUwYjUwMTI5MzlhMGMyM2FmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_46dd8733e1ba4782a592498c659f6678",
+      "statement": "`pause` 事件的归因顺序是一条硬契约：先 `updateRemainTime()` 复位剩余显示，再一次性读出并清空 `pExpectedPause` 作为预期原因返回，`musicPlayer.ended` 为真时记为正常结束返回，剩下的才写 `pUserPausedUntil` 宽限并记 `pause-unattributed`；`pstats.oddPause` 只在定时关闭仍生效（`theTime` 非空）时累加。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L598-L611",
+          "version": "repo-lines-v1:sha256:3f451c530bb91079538ea0a20dd29df9b90b050f235c77d43d86613b75be2c57:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZTE2Zjc0ZjlmYzEwYmRkYzBmZjYwZWM1MjA2NmFkMWFhNDlkMGUyOWU4MjI5MzE2ZDcxMjJjNjJkMGNkYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlNmI0NTJiMjBiNmQ2ZDQyOTljMjkyODFlMGUxNTBjNzFlMThjOGMyMTk3ODM4ZGRhOWNjYTZhMjdmODhlN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4YWJkYWM4Y2I2NmVkNjJiMjJjOTU4NzY4ZDA2Y2I1NzVmMGVjNTk3ODk0YjEyNWQwZjc0YWZmZjBlZTMyYzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bea2d2f05f2145aca733ec369fe11726",
+      "statement": "`pExpectedPause` 是一次性令牌且没有过期时间：它只被 `pause` 处理器读出清空，若设置它的那次 `musicPlayer.pause()` 是空操作（元素本来就已暂停，例如清空选择），令牌会悬挂并被下一次无关的暂停消费，使真正的异常暂停被记成预期原因且不布下宽限。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L236-L247",
+          "version": "repo-lines-v1:sha256:fae133b130f2860eb4b7357b29b70b84c2b561351ecf8e42cc8c2da02463c4f3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkYWNmZDM2NzkwYjhjN2IwNDgyZGM2ZjU2NjE0M2RmYzEyN2VkNGViNDU1MDRiMTY1YWVmN2FiY2MwY2VjODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZiZTMzODIxNzhlMDE1OTYwZTgzOTM5MTI3MDE2MWMwYmM0ODc2NTI0ZDhjNGIxMTgxMmE0MzM2OTgyNzliZjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE0Mjg4Y2IwYzUyZDU0ZWI5ZmJhN2U3OGZhMTg5NjI0Y2ZmOTI2YTUwMGYzNGVjNjU0OTMyODI2NDMxZjljZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhMjRlZDFmZjk0MDk1ZWFiYjQwMWZjY2JkZWQxYzE1YjIyOWEyYzgyMzJiYzYwNzNmNzFkZDI5MzcxMGE2NWIifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L52-L61",
+          "version": "repo-lines-v1:sha256:90bc85095976237507f47ef7ef1a1efe69e3d30ec34a667a928edbbe9dd9f0cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2OWRlMTE2YWExOTRlZDE0Y2ZhNzE4OGEwYmYyMGE4ZWU5YjA2OGM0ZmZjOWQ1M2M5MGVhZjU1ZTI5NTM5MDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2NGZjNmQzNTI4ZDVmMmRjZWE4YTk2NTY3Y2NkYWUzYzQ3YzA3NjZhMDlkYjY5MWI3ZWNiNGMyYjM1NmM1ZWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImExODRmYzBhMGFjMmViNDQwZjZhYTlhMGI4MDg3NTM5YmE4ZGQ4NDAyYjY4ZmVkNGNiNDVmYWIzMWM0YWEwMmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L598-L611",
+          "version": "repo-lines-v1:sha256:3f451c530bb91079538ea0a20dd29df9b90b050f235c77d43d86613b75be2c57:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZTE2Zjc0ZjlmYzEwYmRkYzBmZjYwZWM1MjA2NmFkMWFhNDlkMGUyOWU4MjI5MzE2ZDcxMjJjNjJkMGNkYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlNmI0NTJiMjBiNmQ2ZDQyOTljMjkyODFlMGUxNTBjNzFlMThjOGMyMTk3ODM4ZGRhOWNjYTZhMjdmODhlN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4YWJkYWM4Y2I2NmVkNjJiMjJjOTU4NzY4ZDA2Y2I1NzVmMGVjNTk3ODk0YjEyNWQwZjc0YWZmZjBlZTMyYzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ca27f66a22fd453c9dc4a91722b29184",
+      "statement": "转场（`ptrans`）有四种明确结局：`timeupdate` 里 `!paused && currentTime > 0.5` 判成功；45 秒看门狗按 `paused` 真假分别记 `stuck-paused[:plastErr]` 与 `stuck-loading`；`error` 事件记 `media-error-<code>`；开新转场会把旧转场按失败关闭并记 `superseded`。用户在换曲或停止时进行的转场由 `pDiscardTransition` 撤销（`pstats.trans--`），不计入成败。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L368-L400",
+          "version": "repo-lines-v1:sha256:17f20b1cb908ae83e3dd95e93b967f797bdb113bfae317ed3228fc08f0355ff6:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1NTZjNGM1MWIzYWYzMDI0ODU5MTllM2YxMGI2MjE0Mjc1ZGFhMjBmOGQ3Y2Y1OGQ5Yjg3NTY4ZDZkNTVkMDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwOGQ0NTA1ZTMzM2Y5ZWMzMzc2NjlmNjViYWQ5Mjc1OTc0ZWU4ZTMyNWViYmVkZGE3N2IwNDk1MGRlODgyNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwN2RmMWNlYTg1M2ZmNGRhMGFiNjQ2ZmY4ZWRlZGZhOTUxOTM3MTJjYTZmNDg0ZTQyMTg0ZDJkZGY0MjM0Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY1NWE0ZjUwZTRlY2I4OTc5YWJkMDBjOTU5ZmRlNWJhMWE2MzFmY2Y1YTRkYjlhMDM0NGYwZGUxNTZmOWEzZTQifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L530-L543",
+          "version": "repo-lines-v1:sha256:2cb5a7d5228516cb3c67dcefc2a0194a4f57b976c88b334283a30cba07b4b67a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQwODUyOTUxNTZhZDJkODhiY2I0ZDRhMTBlNTExNGZjODViNDExYTA4NmNlNTNhZWI0ZDU5NjcyNzFmN2VhNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBmMWE4MGEzNTdkMTU3NzMwNjZlMWI0NWE4NWU4OTcyYTg3ODBiMTM4MTI3NTBjMzc1NWUxNjJlZWQwY2UwODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiNTgwZTk2NGY4M2E0NzNmNDNkNDQzODQ2Mjk0OWQ2OGI1NjAwZmRhNzg3ZjE2Mzc0NWQwMGRlODljYmYzNmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L613-L618",
+          "version": "repo-lines-v1:sha256:ff3356ca4568de7a2285f69c0130da2cc754ea90c2c75911d19c26f95cb4c7c4:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGI5MTljOWZhYWRmZDA2Y2U0NWU2MTBlN2ZjMjE3NTI4Y2QzZjM1MjI3MzdjMzJhYzk2NjRkYTEzZDU2N2EyMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGUxMTViZDg4ZDMzYjcyY2JlYWQ2NDgxYWUyNTYwZjUzZTUwZjVhMGJlNTI1ZDk5MDQyMjIxNTA3MjBhYTIyNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDIwZjkxMGNkNmU4ZjI4ZDE2NDgzNDA4NjA2MDdjYWU2NzRlYTNhOTc5ZDZhMDgxZDY5MzIyM2YxZTA2ZDc0YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzk1MTc5ZTIyNDExZDNjOGY4NmMwNGFhZDgwN2UyODI0Y2U0ZjYzMzM0ZDQ0NGRiODAwZGQ0NGRiZTVlM2U4MCJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L66-L70",
+          "version": "repo-lines-v1:sha256:14453bcc9b0fe3035dbd7f635b1061ce94a10371956985789d2df2ee32de0316:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA0NmFlZWE0ZTZhNTA5MWY0ZTU1MzM0MTA1MmY0ZTJhZTI5ZTBmMGYyMGE4MDQyMTg0MzUyMDA1NTBiMmVkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2FlYWI3OTM5ZmQzZDcwMzJkNDAwMTJiOTJjZTA5ZTZhMzJkM2VkOTdmYmFiN2Y0OWZlOTdhOTMxNzA4ZTRiOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTczNTgxYzFiNGE3ZGRlNWIxODVlNmIxZjdkY2I2NTliNDUxMDcxY2M2OTA1ZTBmNGFkZTk2OTkzYTE2MDYyNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_19c042ee237445e19723e447192bc340",
+      "statement": "转场成功判据依赖 `playNext()` 同步把 `<pageid>_currentTime` 写成 0：`loadedmetadata` 会从 localStorage 恢复播放头，若换曲时残留上一首秒数，一次并没有真正出声的加载会被 `currentTime > 0.5` 误判为成功。因此把这两行写入挪到异步回调或调序会破坏成功判定。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L116-L136",
+          "version": "repo-lines-v1:sha256:456687b2d02c68105268a3ec1589de9df4dc6ebd866384868a71109422bbb13c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNWI4ZTU1YzYwOWMzOGQxODk5MGYyMDQwN2JlZTNhNDAxZGQxNWFmNmU0NTkzMjlhZTE2YTVhZWRkNTc2ZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkM2Q0ZjY1YjEwMTc0N2E1MDA3MmM5NmRhYzBkZGYyYzQzZWI3NzJlNmZkY2UyMzkwZmU5N2U2ZDNlN2NhZmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyMzkwZTlhZTk4ZmIwNWUyOTVlODJmMDEwMzI1MDhhM2FlMTY0ODBiNmY5OWFmNjAwZjgzMDRiM2EwOTNhMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlZDhlNzk3NDM2MDBlMDJhMzExMGExY2NkZTMxYzQwNzIxOTFiYWRmNDMyODA4NDVmYzU5ZmIzZjhiYzY0ZjIifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L66-L70",
+          "version": "repo-lines-v1:sha256:14453bcc9b0fe3035dbd7f635b1061ce94a10371956985789d2df2ee32de0316:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA0NmFlZWE0ZTZhNTA5MWY0ZTU1MzM0MTA1MmY0ZTJhZTI5ZTBmMGYyMGE4MDQyMTg0MzUyMDA1NTBiMmVkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2FlYWI3OTM5ZmQzZDcwMzJkNDAwMTJiOTJjZTA5ZTZhMzJkM2VkOTdmYmFiN2Y0OWZlOTdhOTMxNzA4ZTRiOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTczNTgxYzFiNGE3ZGRlNWIxODVlNmIxZjdkY2I2NTliNDUxMDcxY2M2OTA1ZTBmNGFkZTk2OTkzYTE2MDYyNSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L89-L95",
+          "version": "repo-lines-v1:sha256:9b563b95ece91625d84a2c52d8e531ad006f2d955a9fd0f106f2dd6241d4bd3a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmI4ZjE0NjYzMDI5Yjc5YzFiMWU4NjdiNjEwNDM2ZGQ0OWExODMyMDNmYmEzNzcyZmIxODI3MmNlMDQxMjRhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIxZWExNWEwZjdiMWQ3NzQxYzA5MmRlODAyZDM5ZmRhNDQzNGVjZjA1Zjk0MzU4YzZmMzY5Y2E5MTE2ZTIyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjU2ZTg0OGU4NDU3ZWRkYmIyMDhiMGEyYjMwYjE4NWIxMGI3ZGYzNmVkNTBmYWJhMTU4NDQ4MWMzMzllOTA4ZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7bf78a2d16a54becbc6c69650c36d784",
+      "statement": "`pWatchdog()` 没有自己的定时器：它被 `updateRemainTime()` 的最后一行调用，而 `updateRemainTime()` 由 `timeupdate`、`pause` 处理器、播放模式 `change` 与 10 秒 interval 驱动；播放完全卡死（`timeupdate` 不再派发）时只剩 10 秒 interval 这一条触发命脉。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L150-L155",
+          "version": "repo-lines-v1:sha256:0cae1ae9a7f7be16ad0e1d952506809e7fe269cef7a5504cb0d7ef317e9aaa5b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjViYjE1OTliMGI2MGU4OWVlMGYxMDk1NTlmMTc4ODFlZTg5N2I1ZTBhNDNhMjUyZDUxNWUzZWU0ZDM3N2U3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTVjMGI5ZGE0YTc1Y2VhMjU3ZmY4NGI5YzY2OWZhOGM5ZDNiZWUzYzhlNmJkMGU1YzMwNWIwYmI4ODQ3MTdiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzljZTFiMWE2NTYwNTI2YTE5ZTBmYjI1MGNhMzQ1ZjNkYTBmZDlhZmU1NTdhZmE5OTAzOGEwZDVmMWMyMzk5YyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L182-L182",
+          "version": "repo-lines-v1:sha256:20f11627ffaad0c7bf764334d04be547a4cbdd2f538c03fb1c8bb12208974211:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjBmMTE2MjdmZmFhZDBjN2JmNzY0MzM0ZDA0YmU1NDdhNGNiZGQyZjUzOGMwM2ZiMWM4YmIxMjIwODk3NDIxMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjBmMTE2MjdmZmFhZDBjN2JmNzY0MzM0ZDA0YmU1NDdhNGNiZGQyZjUzOGMwM2ZiMWM4YmIxMjIwODk3NDIxMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjI4MjlkMDAzZDdiMjdiNzU1OGUyZjgwMGY3MDE1OWIzYmFhZWQyOTNiYzg1YzQwMzE3MjdhOGJmNTk3ODNhMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzI3YTBiNTE3NzEwYWM1ZDdiNzc0NDVlNGQ2NjVkYWI5Y2I1ZjE5MGUwN2EzYmYwNjBkYjVhOTMxNzc3YzUzZSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L223-L223",
+          "version": "repo-lines-v1:sha256:1a346556e0c745ab4201fce51dff311902041a1508be747dc7443fd2269032da:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWEzNDY1NTZlMGM3NDVhYjQyMDFmY2U1MWRmZjMxMTkwMjA0MWExNTA4YmU3NDdkYzc0NDNmZDIyNjkwMzJkYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWEzNDY1NTZlMGM3NDVhYjQyMDFmY2U1MWRmZjMxMTkwMjA0MWExNTA4YmU3NDdkYzc0NDNmZDIyNjkwMzJkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzgwZWFkYTM3ODI3MmRmYTg1NThjZTExYmY2N2NmMjljOTZjYjIxOTNiZTkxZTI0M2U5NTA2ZTdkMWM5YjMwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDdiMmY2YjZjMmE0NGNiNjE1ZjA0MmE1NDAyYWY4OWQ1YTkxN2I5ODEyODA0NjAxMzY1ODc3ZWRjYTc0NmVkOCJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L527-L545",
+          "version": "repo-lines-v1:sha256:50ac678916fefeffac067a092c3e708e84d60903e21e38960dbddeb70133f99a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNmE5ZWYxMzM5Y2E3ZGVkOTYyNmY0OTFjYzkyNzkxMDBhMmY5YWQ2NTgyYjBkMDUyZTAwOTU3MDk2YTUzNTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY3M2NiNzlhYjU1NzYwYTIyMmE2MTE2NjBlOWU4ZGEzNTJlNjQ0YWY0ZGIyODg2MmQ3YmY4ZWFmZjQ0ZWZjMDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0NGZlMThhMGM1ZGVjOWYzMWVhYjZmMmM3NjVlOTY5ZWQzYzI1NTQ4ZGMwNWZkNTE3Yjk2YTMwMWQxZWY1ZjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b79ee98a598849f8b035c66fdcc2fc2e",
+      "statement": "45 秒看门狗治不了「换曲后卡在开头、时长显示 0 秒」这一类故障：该故障的真实状态是 `paused=false`（`play()` 已 resolve）+ `readyState 0`，看门狗只走 `else if (readyState < 3)` 记一笔 `stuck-loading` 并把 `ptrans` 关成 `null`，此后不再有任何代码回头看它；因此必须存在一个不看 `ptrans`、不看 `paused` 的独立「时长 0」看门狗。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L476-L499",
+          "version": "repo-lines-v1:sha256:5373c52b2ba53885f93b02566dcc10a6bf8b0d66e4087e07dacfa3e25b1f72a2:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNzQ4NGZkODBmYWRiM2Y0Yzc5NWI5ZmQyZTYzNzE0OTQxNTdmMTA5OWJlNDc5MDVmZTNkNjRhNDYzNzk2MGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRmYWI3MTBkZGY3ODU5ZTU3NTc2NGE5MTNhMDAyYzc0NTg1ZmZhNzAwMTUxMGNiODgxMWRhODNkMmNmNzRiMzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmZDYxZmI0MWFjNTBiMjBjOTI1N2I5NmU0ZTdlYzI2NGY0MDI2MjdlM2JmZjhhNTFlNzFjNTk4NDI4MzcxMmIifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L530-L543",
+          "version": "repo-lines-v1:sha256:2cb5a7d5228516cb3c67dcefc2a0194a4f57b976c88b334283a30cba07b4b67a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQwODUyOTUxNTZhZDJkODhiY2I0ZDRhMTBlNTExNGZjODViNDExYTA4NmNlNTNhZWI0ZDU5NjcyNzFmN2VhNTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBmMWE4MGEzNTdkMTU3NzMwNjZlMWI0NWE4NWU4OTcyYTg3ODBiMTM4MTI3NTBjMzc1NWUxNjJlZWQwY2UwODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZiNTgwZTk2NGY4M2E0NzNmNDNkNDQzODQ2Mjk0OWQ2OGI1NjAwZmRhNzg3ZjE2Mzc0NWQwMGRlODljYmYzNmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c8e04ee77714558b0d4e6906dd617d8",
+      "statement": "`pCheckZeroDur()` 用六个从严条件决定是否重载自救：仍是同一首（`pZeroDur.idx === parseInt(musicSelect.value)`）、`duration` 无效、播放头未推进（`currentTime <= 0.5`）、仍在 `pPlayIntent` 内、定时未到、播放模式为 `continuous`；命中后在 `pstats.zeroDur` 计数并 `load()` 后 `tryPlay('zero-dur-heal')`。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L491-L499",
+          "version": "repo-lines-v1:sha256:7622fc66e0fd3837788345ac0edccc8e197bcb7d71fb736a547ae931c0e162b1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQ4NTU2NjRiMzg5ODI0NjFjYWI3OThjYzQyYjVlMjBiMTBkMjVmNDdhY2ZlNGExYWY1OTY1YzczYTkzMzYzZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGYzYjcwZTMyYTYyNDJmMjk0M2ViNTg4ZmQwNjNkYzk0MTMwOTM4NTFhNmY5M2QzNjYyZWI2MThlMWZlZWM3YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2ZkNjFmYjQxYWM1MGIyMGM5MjU3Yjk2ZTRlN2VjMjY0ZjQwMjYyN2UzYmZmOGE1MWU3MWM1OTg0MjgzNzEyYiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L500-L525",
+          "version": "repo-lines-v1:sha256:629a6dc069ab6c467a62f1c383597bdba2e8db4f303a9e3b8b8d7f07e406cf45:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2ZjJhM2YzN2QzNjI5NzRmNTdjNjAwNjhkOTkzOWI1MzEyZTQ2N2IzOWMxZDZmNjk4ZTVmNmQwNGEwZTg5MjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRjMDkxZDNiNDI0ZTA3ZDA5OTVhOTQwOWU0ZGU5MmYzOWVlOGIxNWJjOGRkNDM2ZTYzMzlkMmIyZTRkM2VhNzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwMmM3YzRkYmY1MGZkZmUzN2M5NzIzZDc3ZWY2NDc4ZTgyYjFmYzAxZjU0YWZjNGRjMDlhNTY2MDU0ZWEwNmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c9edf5ac55b4c889e3b6bcba8b85f96",
+      "statement": "`pZeroDur.idx` 必须用 `parseInt` 归一成数字：下拉框 `change` 传入的是字符串（如 `\"1\"`），而 `pCheckZeroDur` 与数字比较用 `!==`，类型不一致会让守卫恒成立并直接返回，自救一次都不触发且日志为空。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L35-L45",
+          "version": "repo-lines-v1:sha256:4d47db5936111a93d5fadf9d5f1b8b7de09bb477ba65826ebb7d83aa40ecd1aa:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2ZTAwOGFkZTdlNjY3ZjdiMzQ3ZDIzOGVhYWMzNGQzMDdhMDcxNDNhYWE5MWZlMjc0NGYyMmJhOTAxYzJjMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwOWMxYTMxNWNlNDY3OWJhM2YxNzc3YzU5ZGJhMzY3Y2QxYzNhZTYzMGY2ZGMxYTZhMzJkNjM3ZmNlYmI3Y2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRhOTlkZjg0NWRjNGY3OTgyODgxZDhmZDJkMTNlOGE2NzA2NDJiNmNjMDQ4ZWIzOGE3YWYxNDE1MjkyY2E5ZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUwZmZlZTA4ZDJiMWQzZmI0NGQ0MDM0ZDExMjY3YzEwZWE3NzMwM2U5YWE5M2NiMTU3MTgwMjNhNDhlMTY1ZGUifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L491-L499",
+          "version": "repo-lines-v1:sha256:7622fc66e0fd3837788345ac0edccc8e197bcb7d71fb736a547ae931c0e162b1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQ4NTU2NjRiMzg5ODI0NjFjYWI3OThjYzQyYjVlMjBiMTBkMjVmNDdhY2ZlNGExYWY1OTY1YzczYTkzMzYzZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGYzYjcwZTMyYTYyNDJmMjk0M2ViNTg4ZmQwNjNkYzk0MTMwOTM4NTFhNmY5M2QzNjYyZWI2MThlMWZlZWM3YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2ZkNjFmYjQxYWM1MGIyMGM5MjU3Yjk2ZTRlN2VjMjY0ZjQwMjYyN2UzYmZmOGE1MWU3MWM1OTg0MjgzNzEyYiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L500-L504",
+          "version": "repo-lines-v1:sha256:b277b2d7a68592f08276cdb9f0f643cace677c9aff6168e28d01f3659dca1c6c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzZmMmEzZjM3ZDM2Mjk3NGY1N2M2MDA2OGQ5OTM5YjUzMTJlNDY3YjM5YzFkNmY2OThlNWY2ZDA0YTBlODkyMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQzNmJhYWE5NWQ5MmVkOWU4OWYzMjgwYzkyODhjMWNlNmE5NTIzMjIxMmExNGNkY2IxYjhmNTdiOWFjMWI2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGMwOTFkM2I0MjRlMDdkMDk5NWE5NDA5ZTRkZTkyZjM5ZWU4YjE1YmM4ZGQ0MzZlNjMzOWQyYjJlNGQzZWE3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjMxZTFjNzM3ZjQyNTlmZWQ3N2RkYzdkZDc2OTY1NjBmOGQzMGUxYWEzZjIyM2IxMzllNTcyOGQ0YzgwYTZkMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5c9435ca531a49558041e07ce2f5beec",
+      "statement": "`tryPlay` 的拒绝处理构成一个阶梯重试状态：延迟序列为 0.6s/2s/5s/10s/20s/30s，首次失败时设定 90 秒限期，`count >= 6` 或超过限期即放弃；`pPlayId` 序号让被换曲作废的旧拒绝只记 `play-rejected-stale` 而不触发重试，`playing` 事件清零 `pRetry.count`、`pRetry.deadline` 与 `pFailedAt`。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L403-L434",
+          "version": "repo-lines-v1:sha256:784bec17278b3831c8ebe8a5648e3aff1dc1c73310c8833e3f998c116c30275e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM0ZjNjMmVlMmVhNjBlNjczNWRkZWQ3YjM0ZDNmNDEyMTU5ZTkxZjVlMzE1MDJhNjczMmYxOTNjYWNhMTI5NmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYzczNzY5MTA5Njc1OTRlMDVmNDU1ZGUyMTNiODViOWExYzgwN2M5Mjc0MTI1MDZmZDQ2NDFhNDdjMjBkMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5NTYwNDEwMTRmMGUyM2U0MjA2YTM3YTdlNjQxY2ZkOTNlYjQ2OTc0MzJlOTE3ODU4YmVjYTI4MDI5YjhkMmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L577-L583",
+          "version": "repo-lines-v1:sha256:218bff7abb0adb4d50a2fa24ec4ca62e0d3326fd608078d29e739b9ed0ddcbf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWVmZGM0Njg1NDkyYTg1YmEzOTg3M2YzNTY5NDQ0NTRlNmVlNGM1M2E3NjI2MjU2Y2QxOTllODUzNWEwNjVmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGY1NTlhMzU4Y2RlZjVjYmZiYzE0MmE4ZTAyZDkyNzdiOWIxODQ2N2FiZjUyNTk0YmY1OWYwNmE3YmRlZjE1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTMyNTQ1ZmRmZWQxNTljNWQ2MDAyMTBhY2YzZDA1M2NjYThmZDFjODAzNjYzYTNlZGQzMTA5ODQ3ZDliNjNlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGZlYTg0Y2FjZDU2MjFkZjcwYTEzZGNkMzhkODk0ZDk4Y2UxMzQ3YjBiNTU2OGM5ZDg2MWM0YTkxMWE3NTc0MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_00d75f05dffb41afae340c83c7b9a06e",
+      "statement": "重试阶梯的计数是会话级的而不是曲目级的：`pRetry.count` / `pRetry.deadline` 只在 `playing` 时清零，而媒体错误自救次数 `pErrHeal`（上限 2）在每次选曲与换曲时清零。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L121-L127",
+          "version": "repo-lines-v1:sha256:988b098263e340e9111b9d74c3f155105fe46452ac4406b93db98c3a06b14d61:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGUwODhhZjRkZjZiNmQ0ZDQzYzc4OWM3MGYxMjU0NmE0OGM1NGQ1ZWNlZjcyMzQ5Nzg0ZDYxYjMzN2ZkZjI2MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDU4NTA1OWIwZjYzNGQ2NGQyM2IwM2ZhYTJkNDIyMGMyZThiMmQzOGQ0Y2Q3M2ZkNzNhNzAyNDM5N2FhN2YxZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjZlYTA4M2EwYTI3MzliZDRhNDZhZDQyNmRiZDYwZGY1NWIzMjhkZGNlNzY3NTBiY2VkN2JjMzVkZmNiMzFiMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2JmMmEyZGQwNzI1OGJlMDVkZWQ1Nzc3M2M1OTMxMmM1YmZiOWU2Y2E3MmQ4M2I2ZWZlMDk2YjE5ZDg5MWU0NSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L38-L45",
+          "version": "repo-lines-v1:sha256:f57f990502cb3690e53e6bb0a4253a2cba5d2bea971f9fc9c4510f3d5ebbe105:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzdjNmJlZjEwNjJmNjc2MjNlMTAyY2UwNTdiMGY1ZTFjY2M1MmM5ZDhmOTViMjkwOGRhYjEwYjM3NDRlMTUyMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA5YzFhMzE1Y2U0Njc5YmEzZjE3NzdjNTlkYmEzNjdjZDFjM2FlNjMwZjZkYzFhNmEzMmQ2MzdmY2ViYjdjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmIxM2Y4YmYzNmEzNTRlMGFlZGUzYzg5NDg0ZDQ3ZGE5NjQxZGI0NjYxOWNmY2RmMGZhMmYzNjFhZGQ4NDJlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTBmZmVlMDhkMmIxZDNmYjQ0ZDQwMzRkMTEyNjdjMTBlYTc3MzAzZTlhYTkzY2IxNTcxODAyM2E0OGUxNjVkZSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L577-L583",
+          "version": "repo-lines-v1:sha256:218bff7abb0adb4d50a2fa24ec4ca62e0d3326fd608078d29e739b9ed0ddcbf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWVmZGM0Njg1NDkyYTg1YmEzOTg3M2YzNTY5NDQ0NTRlNmVlNGM1M2E3NjI2MjU2Y2QxOTllODUzNWEwNjVmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGY1NTlhMzU4Y2RlZjVjYmZiYzE0MmE4ZTAyZDkyNzdiOWIxODQ2N2FiZjUyNTk0YmY1OWYwNmE3YmRlZjE1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTMyNTQ1ZmRmZWQxNTljNWQ2MDAyMTBhY2YzZDA1M2NjYThmZDFjODAzNjYzYTNlZGQzMTA5ODQ3ZDliNjNlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGZlYTg0Y2FjZDU2MjFkZjcwYTEzZGNkMzhkODk0ZDk4Y2UxMzQ3YjBiNTU2OGM5ZDg2MWM0YTkxMWE3NTc0MyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L613-L629",
+          "version": "repo-lines-v1:sha256:6e164d7d5c457d97933e1db24fdceece126b924afdac3ed2a8b31ef6026c5a00:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiOTE5YzlmYWFkZmQwNmNlNDVlNjEwZTdmYzIxNzUyOGNkM2YzNTIyNzM3YzMyYWM5NjY0ZGExM2Q1NjdhMjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyMGY5MTBjZDZlOGYyOGQxNjQ4MzQwODYwNjA3Y2FlNjc0ZWEzYTk3OWQ2YTA4MWQ2OTMyMjNmMWUwNmQ3NGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE0M2E4YjMwMTQ2OGE1ZDBkNWQxMTJiMjEzM2FlN2JlOThlNmMyZGJhNGQ0MDNlNmQyNWJhYTFkZDUyNjk4Y2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f2bd7063d8cd411fac3282790822dc98",
+      "statement": "`visibilitychange` 回前台的「系统暂停后接上」有两条互不相通的通道：第一条要求 `paused && theTime 未到 && pUserPausedUntil <= now && 播放模式非 stop-after`；第二条要求 `pPlayIntent && paused && pFailedAt` 在 10 分钟内。由于系统暂停时 `play()` 早已 resolve、`pFailedAt` 为 0，未开启定时关闭（或定时已到、`theTime` 被置 `null`）的情况下没有任何恢复路径。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L226-L248",
+          "version": "repo-lines-v1:sha256:7f7763011209675eac801ad142ca3a3a188ec616453f3b985aa61ecefa55bee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZmY2NjcwMTM0NTQzNTgxM2I5ZmZmMmY3OTE1N2FmNTEyN2U3NjE4NWE3NmNiZTY0ZGY4ZmI4NjFkY2VkOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE1OTRmMTQ2NzQ1YTA1MGE4ZTRiOWVlOTQyNGRhNzc1ZmM1OGU0NmZlMmY1MWI0NTYwYmUxNDg0OTFlMGFmOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzZjZmMjFjZTI2OGJlMGY3ZjBmOWU5ZWZhNmVkY2MwYTNmNmU1N2YxNjUxYTgzZGQ0OWRkYjFjYTU5NWRiYzQifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L635-L659",
+          "version": "repo-lines-v1:sha256:d00fb8a8b0d904fd1d7bad0629eb4cbfc73478fd4e3451f04781a8a60ddf04b4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1ZmM4Mzc2YTBjNjUyNzQzNmIwOWRkNDQ1ZjI2ODM4NmRmY2Q1NzBiNDNlYzU0ZGQ0OTQ1NGY5MDJhODA3ZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzNWM0NDdmYTY5ZDQ0NTNjZDMzOTJkZWU3YjkxZjNjNzljMDE2MWExNzFiZjY4MjhjY2EzN2IwZWZjZGQ5NzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFmNGI2ZTkxOTMxYzFjMDJmODY3NGVjOTgxYzE5MzkxZGY2ZjNjZjhlZWY4OWMwMjU5YWQwZmZjMDU5NTQwMmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3f1a26437946497abdc6658febee3bfc",
+      "statement": "`stopAudio(reason)` 是状态机的终态迁移，并按固定顺序收尾：置 `pPlayIntent = false`、清 `pRetry.timer`/`pRetry.deadline` 与 `pZeroDur.timer` 并把 `pZeroDur.idx` 复位为 -1、撤销进行中的转场、把 reason 写入 `pExpectedPause`、`pause()`、`theTime = null` 与 `#myselect` 复位为 -1，最后调用 `updateRemainTime()` 把剩余显示复位成「—」。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L226-L248",
+          "version": "repo-lines-v1:sha256:7f7763011209675eac801ad142ca3a3a188ec616453f3b985aa61ecefa55bee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZmY2NjcwMTM0NTQzNTgxM2I5ZmZmMmY3OTE1N2FmNTEyN2U3NjE4NWE3NmNiZTY0ZGY4ZmI4NjFkY2VkOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE1OTRmMTQ2NzQ1YTA1MGE4ZTRiOWVlOTQyNGRhNzc1ZmM1OGU0NmZlMmY1MWI0NTYwYmUxNDg0OTFlMGFmOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzZjZmMjFjZTI2OGJlMGY3ZjBmOWU5ZWZhNmVkY2MwYTNmNmU1N2YxNjUxYTgzZGQ0OWRkYjFjYTU5NWRiYzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a9e29b30c5854f5e9f2e534ade46672d",
+      "statement": "播放模式分支由 `playModeSelect.value` 决定，`isLoopMode` 只是它的缓存位且仅在 `change` 处理器中同步、初值为 `false`：因此布局里默认选中的选项必须保持 `continuous`，否则 `loop` 模式下 `ended` 会走连续播放分支自动换曲；`stop-after` 的 `playNext` 分支是「先置意图并 `tryPlay` 起播、再立刻 `stopAudio('stop-after')`」，终态为 `src` 指向下一首但 `pPlayIntent` 为假。",
+      "evidence": [
+        {
+          "resource": "repo://_layouts/music.html#L64-L70",
+          "version": "repo-lines-v1:sha256:02fc92216f84f9fc2b4030db8d21f29dcc6e58e0ddc7d4f794e0c05a2e4198e0:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTllYzQxNGM4OWZiYWUxZjdkZDNiNWIyYzRmNDQzNDZiZmJkODAyOTE2ZjQ5ZWFiNmI1OGM3Njc1NzdjNTJhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGUzZTE3NDAwMDM1NzZmODVlOGY5MjYyNjRlZGVmOWU2NTZlYjlmZmJiMGFhNTM0MGQ0OTY1MDk1MzBhMzE5NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTdiNmE0NWZjMjU0OTA3MWJjM2YzNzg0NmZhYzc5OGY1ZDA1NjI5MDg1ZjE0ODdiY2QwYjQwYWFkYjA3ZmEwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTUwMGFiZjBhY2EwZGUwYTM5MTgwZDA1Y2FmNjJhYjBjODY5MDI2OGE3OTc1YzQ3MmEzZjBlMDE0ZWI5ZDlhZiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L116-L144",
+          "version": "repo-lines-v1:sha256:884fe9576c8501ec9af94d527206bd5ad9e19e470fc771a7696c7f75c88b8eb7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNWI4ZTU1YzYwOWMzOGQxODk5MGYyMDQwN2JlZTNhNDAxZGQxNWFmNmU0NTkzMjlhZTE2YTVhZWRkNTc2ZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUyMzkwZTlhZTk4ZmIwNWUyOTVlODJmMDEwMzI1MDhhM2FlMTY0ODBiNmY5OWFmNjAwZjgzMDRiM2EwOTNhMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwNjEyNTcyYjAxMmE4NWY5NTNhNWUwMTE1MmUxOTMyYmFmMzc5YzUyMWQ4YjI0MDVmNDRjODMzMTg5NzgyYzUifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L146-L173",
+          "version": "repo-lines-v1:sha256:6aeb427e747f9d2d0ba5fffad8f6207dd62ff4fd95fb816f8d125cbf6c6c3485:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFjNDdhNTRiMzNiNTkyZjA1NmNjYjE4M2Q4MDI0NWI3MzgxOTcxYjZiYWJiOThjYWYzMTEwZWUzZDFmN2I2Y2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBmYzVkOGVjN2Q1M2E5MTkzMzI1NjYzZGMwZTdjYmZiZDgzZTg3ZGY3N2UxYzk2NmI2NjU3ZmU2NTc4NDBlMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwMzVjZGE0YzE1Yjk5YmQ5YTA1MTI0YTM1M2Y1NTVjMWU0NDFlNjRhZWJmMGE1NDljYWEyMGY2N2JmYzU4ODYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e520c61f29347b6b63b3f162d984054",
+      "statement": "`pPlayIntent` 是跨文件契约：[js/keepalive.js](../../js/keepalive.js) 用 `pPlayIntent && !musicPlayer.paused` 决定是否持有 `navigator.wakeLock('screen')`，且其守卫全部是 `typeof ... !== 'undefined'`，所以改名或改变 `pPlayIntent` 的语义会让长亮锁静默失效而不报错。",
+      "evidence": [
+        {
+          "resource": "repo://js/keepalive.js#L25-L34",
+          "version": "repo-lines-v1:sha256:04cd86861f553176ae72d3e38adbc7ffa3f275196bfec33e9137570e448209b6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzYTM0YjhjZDU3NjZlZDgyMGUwMTA2ZTAwN2NiMzUxNmNjOTJhZWVkZTk2MWMwNWQ3YzE5YzdkMTI4YWJkZmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc0YzM1ZjlhNzhjMmZhZGRhYTIwYzJlMmE3OTYyNjZkODhjOTI0NDg4MDA1NDI0OWQxMjU4ZTZiYzJjNTE2ZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2ZjdkZDNiMGQ1NTgwMjYwYTRmNTMyNzY0NDg5OTE3ZmVjM2QwYTkzMWU5Nzg5NDUwNTBhMmMwZGY5MDQ4YmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmOWMxZDJjNDI5MzFhNWU0OGEwOGYxYzAwZTdiMjdhMGU4NDNhNTgzNGFjZDIyZjg5ODJkOGEwM2JmNWE1OTMifQ"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L74-L82",
+          "version": "repo-lines-v1:sha256:b0c5818b39fb51cdf39b54fa4bacfc3ac867e766596580da3cb9fc5dcc011cea:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ExZTVlZDJmNTc3ZTgwYzkzNTNiMGVlZTE5ZmI2ZjRhODJjZDhhOTc5MDgwMDIyZjdjNDA0NWJlODMzMjEwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQwZjJkM2EzYWFkYTI3NTg2NDU3OGQwYTQzOTE1NjM4ZDU0M2ZlY2EyYzk0ODU4ZGI5NDEyMTFlODZjZWYyYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTlkZmU2YzNhZTA0ODA0ZDdlOWIxNWFkZTBmYzc1MjY5ZjFmZDVlNjE0OWVjYTZhYTg5NzU1MWUxNzVjOGM3YiJ9"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L98-L116",
+          "version": "repo-lines-v1:sha256:371772f846904af90df8477b0f2c7a4914b24fbbdec92f549075567ca0872288:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzNGE0ODY0NTk4NDE1MWFjNjFhZDkxOGFiZWI1YWMwOGJmMjMyNzI5MTAxOTNiZWJlZDAwN2VkZDU0NzhkM2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImViMWVhMTVhMGY3YjFkNzc0MWMwOTJkZTgwMmQzOWZkYTQ0MzRlY2YwNWY5NDM1OGM2ZjM2OWNhOTExNmUyMmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4MGU0Y2ZiMTE5YjIzYmUyZjEyOTNmZTY0YTVjNjZjMGUxMGNlNjhiYTZmZjUzNjM1YmY1NDhjNGM0ZGI1Y2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cbb98b91fc4845a4a5361c206f70192e",
+      "statement": "`timeupdate` 处理器所读的 `P_PREFETCH_MAX`、`P_PREFETCH_LEAD`、`pUserPausedUntil` 必须声明在文件前部，因为 `const`/`let` 不提升；同时该处理器里裸调用的 `localStorage.setItem(_currentTime)` 排在 `updateRemainTime()` 与预取判断之前，任何抛错都会连带让「剩余」刷新与预取不执行。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L6-L18",
+          "version": "repo-lines-v1:sha256:b58728de7dba0d2f443011519fe9e9050ac1788e2cbcc32404ea32c77d395a75:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2MTUxYzQxMjYyYjZmYjUwNDQ5M2M1MmVhODQ2OGMzYjE3OThkMmZlY2Y5MWUzMTExN2U5OGExNDY0MmMyMWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRkNjNmM2RiZDY2M2Q5ZTVhYzU4MmM0Y2M3ZmQxMGY5NDI4YmU5NTUyNTdmMzYxNGZiMTljZWVkYjgwYTEwMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI5ZDZlOTkwODZmODAzMmYwMDcxNGM0MDRmNTFhOTQwMTNlMWRlMTVlYWVjNGUyNWU1NTQ0MzExM2QyZDVkMDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJiMjFkZGQxNTU4ZWY2YjQ1MDI1MDA5NmQ1NDQ5OGNjNjQwZmZmM2VlMmEwN2MxNTI0MTA5Zjk2YzIwYmFmNzgifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L66-L87",
+          "version": "repo-lines-v1:sha256:ced85f7684510695baac9951d3d0ee1fdf78ce84e43a248d753e9d119f23fdf0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwNDZhZWVhNGU2YTUwOTFmNGU1NTMzNDEwNTJmNGUyYWUyOWUwZjBmMjBhODA0MjE4NDM1MjAwNTUwYjJlZGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNhZWFiNzkzOWZkM2Q3MDMyZDQwMDEyYjkyY2UwOWU2YTMyZDNlZDk3ZmJhYjdmNDlmZTk3YTkzMTcwOGU0YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEyMzhiODllZmU2MzU4ODVmY2Y3OTJhNTNmY2VmMjk1MmY0MTM1MzYwYTJhNzk3OWMwMzVjZjA0NGNmOWJiYjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_30e65768e5df4e11a0c901ea3dfe3226",
+      "statement": "`pZeroDur` 对象必须在任何可能调用 `stopAudio()` 的路径之前初始化：`var` 提升后值为 `undefined`，若 `stopAudio()` 早于赋值被调用，`pZeroDur.timer` 会抛 `TypeError` 并打断 `stopAudio` 本身，使暂停、`theTime` 复位与 `#myselect` 复位全部不执行。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L226-L248",
+          "version": "repo-lines-v1:sha256:7f7763011209675eac801ad142ca3a3a188ec616453f3b985aa61ecefa55bee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZmY2NjcwMTM0NTQzNTgxM2I5ZmZmMmY3OTE1N2FmNTEyN2U3NjE4NWE3NmNiZTY0ZGY4ZmI4NjFkY2VkOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE1OTRmMTQ2NzQ1YTA1MGE4ZTRiOWVlOTQyNGRhNzc1ZmM1OGU0NmZlMmY1MWI0NTYwYmUxNDg0OTFlMGFmOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzZjZmMjFjZTI2OGJlMGY3ZjBmOWU5ZWZhNmVkY2MwYTNmNmU1N2YxNjUxYTgzZGQ0OWRkYjFjYTU5NWRiYzQifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L330-L335",
+          "version": "repo-lines-v1:sha256:99b7db2a54520cc5b87b012c30edc459cfe93e3e18012ba1ac2e3795fdd88528:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2U4ODlmMjVhMWNkZTY4YzkwYzFkODJkYjZkZTUyMTFlZjE2NTEwMDE4NWRkMThkOWZlMzg2ZmY1MGViMzk2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNhMDQwYzIyNTdkYjQxZGUyMWE0ZWFhOGEwZWIyZTY3NDMwZmQyZWQ2ZTkyZTNhNTgwOTk3MmIwMDljMjg4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWQ1OWVhNzI2YzU3M2I1MmFlOTZjMGFmYTkzYjEwNTMwY2FjOWMxNWU5ZTJkMzE2MzYwYTMwZTBmODdkODUyMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGEzYmE1MGM1NWFlOWUxMmZmODdlYzUwZWFhZDc1ZGFkMmU2OTQzZTJhNDZkZjA2NzY2MGFjNTMzNGJhOTNiOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bbcb3d13f728445c8c1cc46a66650dec",
+      "statement": "`ended` 事件的分支选择是：`isLoopMode` 为真时把 `currentTime` 归零、保持 `pPlayIntent = true` 并 `tryPlay('loop')`；否则在 `playModeSelect.value !== 'stop-after'` 时先 `pOpenTransition(from, to)` 再 `playNext()`，让后续由 `timeupdate` 或看门狗裁定转场成败。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L157-L173",
+          "version": "repo-lines-v1:sha256:f9b78bf604cb7e8b657bd3cdbb83b5beb967b60d69e348fa14c372c8a01a2412:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlMWE0ZTE1ZTY4NjAzYzFkZjU5NTA5YjhmODFkYWRkOWRmZjZmY2RhZGE4MGNlOWEyYTE1Y2Y3MzY1MGE3M2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIwOTQzZjUzZmU3NDI5NWZhMDc1NzhmN2ExYTVkNjQ1Nzk3ZGY5MDllNzkzZDYxMWU4ZWI0YTE1NzExMmIxMDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwMzVjZGE0YzE1Yjk5YmQ5YTA1MTI0YTM1M2Y1NTVjMWU0NDFlNjRhZWJmMGE1NDljYWEyMGY2N2JmYzU4ODYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T17:58:00.384Z"
+  }
+}

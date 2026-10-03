@@ -1,0 +1,7 @@
+# 文件
+
+- [留言板读写往返与失败分支](comments-roundtrip.md) - 一次留言从挂载点 _includes/comments.html 经 data-api/data-page 传给 js/comments.js，到 GET/POST /api/comments 的完整往返：DOM 渲染与 truncated 提示、提交前的本地校验与蜜罐 website/t 两个反垃圾字段、先取文本再解析 JSON 的失败分支与 no-cors 健康探测，以及蜜罐字段与浏览器自动填充的冲突。
+- [连续播放转场全流程（含预取与时长 0 看门狗）](continuous-playback-transition.md) - 端到端讲清 js/musicplayer.js 里「一首播完切下一首」这一条链：ended 如何分流、pOpenTransition 与 playNext 的开场顺序、timeupdate 里「播放头推进超过 0.5 秒」这个唯一被信任的成功判据、剩余不足 60 秒时只取头部 512KB 的 Range 预取及其常量取值理由、10 秒「时长 0」看门狗与 45 秒看门狗的分工，以及「预取抢带宽」与「时长显示 0」两个已定位故障的完整因果链与失败原因分类表。
+- [失败恢复与自愈路径](playback-recovery-and-selfhealing.md) - 汇总 js/musicplayer.js 里播放中断后的全部救援通道及其守卫：tryPlay 的 0.6s/2s/5s/10s/20s/30s 拒绝阶梯（90 秒或 6 次放弃、旧拒绝靠 pPlayId 作废）、error 事件的媒体错误自救（每曲最多 2 次）、visibilitychange 回前台的 visible-resume 两条分支、pWatchdog 的 45 秒重载、pArmZeroDur 的 10 秒元数据看门狗、载入时把残留 _ptrans 判为进程被杀；每条都写明「何时不救」，并记下历史上写错守卫导致「永不接上」的教训。
+- [息屏连续播放与屏幕长亮锁](screen-off-continuous-playback.md) - 记录 js/keepalive.js 这块最容易被改坏的行为：如何在「有播放意图且未暂停」期间申请 navigator.wakeLock('screen')、如何靠 3 秒意图轮询 + 事件驱动 + 5 秒锁复查 + visibilitychange 补申请维持锁（息屏期间该事件不派发）、失败 3 次后放弃；以及为什么策略是「消除熄屏这个触发条件」而不是对抗息屏后果，包括已明确删除且不得加回的 Web Audio 静音导频、真机验证证据与桌面/headless 模拟不可信的结论。
+- [定时关闭与「剩余」时间显示](timed-stop-and-remaining-time.md) - 讲清 js/musicplayer.js 里两个停止源如何合成一个「剩余」读数：定时关闭（#myselect 的毫秒值 → timingChange → setTimeout 加 theTime 绝对时间戳）与「播放完停止」模式（以当前曲目 duration 减 currentTime 为停止点），updateRemainTime 取先到者，由 timeupdate、pause、10 秒 interval 与播放模式 change 四处驱动；并说明 stopAudio(reason) 作为终态如何撤销意图、取消所有自愈定时器、复位下拉框与剩余显示，以及 timer-sweep 兜底与 earlyTimer 异常计数。

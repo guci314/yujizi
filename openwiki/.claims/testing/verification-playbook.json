@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:b1ab902506a30f4853c21dfce9f5f71717aa1710827a4aa3f7ce430a58fddaa8",
+  "claims": [
+    {
+      "id": "claim_2fd86d7cd91540f78022cac1e94b6b91",
+      "statement": "本仓库没有依赖清单、lint 或测试命令：根目录没有 package.json / Gemfile / Makefile，jsconfig.json 全文只有 typeAcquisition.include 的 jquery 一项；唯一 workflow 里的 `npm install --global openwiki@0.6.1` 只是安装 OpenWiki CLI 工具本身，不执行任何针对播放器的检查。",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L29-L31",
+          "version": "repo-lines-v1:sha256:9ca5d28c9d58e6d43056cf35df8e80ddc1e72f9e91276a82ed4991e6608a5f39:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODZjZTBiMGQzYjM4MTIyYmMyNzUxNWE4ZDk2OTYxNWQ5ZTEwZTI4MDY0NGY3NjEyMjFkMDQ0NzlhZDI1MzkzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjQxZDU5OGMwYzMwMDljYTM1MWMwMTNhMGRhMDU2NDZkMGZjMDVkOGM1ZTEwMzk3ZDJjNzUxMjhkMjYyYjI1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjNmM2I4ODAyYjMxMGZmMmFkZDAwMjZiODJlZTJlOWU1NzE1OTEyZWFmMDgxYWY4NmNlMTEwZGQ2NDJmYzFhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTM3NjlkMjkyYWFhMDBjMmQzZDAyNzBkZmM5MjIzODZhMGRlNGRhMzhjOTA3MDA1NThlYjIzMmI4ZGIyYjdiNyJ9"
+        },
+        {
+          "resource": "repo://jsconfig.json#L1-L7",
+          "version": "repo-lines-v1:sha256:cd0fcf90eee906b6b61a72c2e29f9858a339aa8cf016ca2c7de3518d4ccea8ce:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODNlYWU3ZTZhNGQzYzcxYmNjOTYzMjhjNTE5ZmJhMjk0MWVlNDg2OTY4YTZkNjMyMmZiMDhjZWI0NGUzZWZkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwYjM2YWE3NGE1OWJjZjRhODgxODU4MzdmNjU4YWZhZjM2NDZlZmYyYmIxNmMzOTI4ZDBlOTMzNWU5NDVkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fea9c247474f4f7bb3e08a8428545ee7",
+      "statement": "local-test.html 是不经过任何 Jekyll 布局的手写 HTML（L1 直接是 <!doctype html>、无 front matter），内联定义 `pageid = \"localtest\"` 与三首 musicList，播放器结构与 _layouts/music.html 几乎逐字相同，并额外提供一个只属于它的 `<option value=\"15000\">15 秒(测试)</option>` 定时选项。",
+      "evidence": [
+        {
+          "resource": "repo://local-test.html#L1-L6",
+          "version": "repo-lines-v1:sha256:1e3b53c4caf770b59a81dd8052f1026720bd62a02de073007e90c56ba2c9fafa:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzM1ZmNhODU3NGYwNjBlZWEyNGViY2RhZTZiNzhmMzI0MTRmNWRlMDNkYTEwODRmZDBlNzNkNzEwNzY4ZTNhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmY3NDM1NmRhZTAyMmMwN2E1NmE5ODg3MmVlYWQ5ZDg5NWIwZmU2MjdlZmQ4MmI1NTdiMzkxMjhiNjFkNDRiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTUyNWZhNjhiODAxZDE1YzZlZjEyODM1NjM2NGE4OWZhNzQwYTUwNmRjYTg2NWRjMGUzNDEzYWY0ZmVmZWU5NSJ9"
+        },
+        {
+          "resource": "repo://local-test.html#L20-L27",
+          "version": "repo-lines-v1:sha256:b1d6c2daea77f2bbaa62d6122a4229c27fe06fa10d3f2f5e3dec2ba7006bf3bb:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFiNzU0ZDBhODc3N2Y2YzU1NjkxODU3OGI5OWRhMWZkZWNmYWNjZDgzZTVkNjhjOGY1MDZmNDRmNGIzN2EwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NjZmVkZjZhNGQ2Njg0NjkyY2UyOTNiNDY4NDdkODIzNWQ0ZjAyNTEyYTc4YTNkNWFiNWIyNzU0NDY1OWQ2YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWFlODRlYTIzMWRmNGY5OWJiZDQ0NGZkYzBkOThiOTE2OTllN2ZjODc4MzFiZGEyYTg1MTEwMzY2MDNkY2Q0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTE3OTZjYjlkNjQyMDhiZGU1ZDU3ZTBkZjY4Mjc4MGRmNjUyNjUwMWI4ZDJiODQ5ZGI0NGRjYjc0ZDAxNTczMyJ9"
+        },
+        {
+          "resource": "repo://local-test.html#L29-L56",
+          "version": "repo-lines-v1:sha256:8f5b31939856daa5085ff4e67948068ef80352d1aa02251d3160a5bfcb28f79b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NDlhZTU3NmMwZjEyM2RiZTUwM2VmMTk0YWNmZjRhNjk3ZmVkNDMwMTRiYWVkMmYxYzg3YThlYmI2MzcwN2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlmMWU4NmEzZThjZjU2NTRkNDUyNzE0MGQ0N2ZjODczMjllZDE5MTUyYWVkODk0NmI4YWMyOWJiNzdhY2NiYzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA3MTAyZDdiZTcyOTY5OWZjYTQ4N2M1M2ZhMDcwNDViNWYzYzRkN2YxMjUzZGQyNzNhMmUzNWVhMDFkYjBkNGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwMjdkMWUwZDZiMTM1ZWNmNzQ3NzM2ZmU2N2JiYTEzZTA2NjU3NjQ5M2RmZDk5MTE0OTNmM2YxZmVjODBkOTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_82d583dfaa364d92af1b2d13a9988c85",
+      "statement": "local-test.html 只加载 jquery 与 musicplayer.js 两个脚本且引用不带 ?v= 的裸路径，因此它验证不到 keepalive.js 的屏幕长亮锁，也复现不出回访用户的旧缓存行为；它被 .gitignore 排除，不入版本控制，只是工作区里的测量装置。",
+      "evidence": [
+        {
+          "resource": "repo://.gitignore#L8-L8",
+          "version": "repo-lines-v1:sha256:29bfc9401543531d4bb2de78a04fc36b3c58f0e96e2b1ce57c56f907cd0364f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjliZmM5NDAxNTQzNTMxZDRiYjJkZTc4YTA0ZmMzNmIzYzU4ZjBlOTZlMmIxY2U1N2M1NmY5MDdjZDAzNjRmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZmYjE2ZTM3ZGNmYmMxNDkyZDk3MTU3OTQ3NzViNDIwYWMzODZlZjFhOWI2ZWYwODJlZjVjOWY1NmU2ZTJmNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgwZGQ4YWEzNWNiYThhZGQ5YTJiMmQ0ZTg5ZGE2MGYzYmNiMjZjNzdkNTUxNWU2ZTJkNDc2MWI4MWY3ZWE4NiJ9"
+        },
+        {
+          "resource": "repo://local-test.html#L76-L77",
+          "version": "repo-lines-v1:sha256:98ce0fa24e154ccf9992ea3cdfbaea3f34edc7b6764d93737846df6616666f2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q2YjQ1YTVhYWM0MzE1MjI4YzIyNDBlOTU1ODM3YzgxMjYwNjYxZTAxZTdlMmUzNGJlZmU1ZWZjYjRlMDcxMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjIwZmIyNDY1Y2YzNTEyMzlkNmI0MGVjNmIyNDkxNDdkMzVhMDI4YjliNDc5NTc0ZTVlYTdhZDJmNTU5NDNlNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmFhMzU1MmJiMThiZTEzNTQ1YTllY2UzNDdiMjFjODNiMTA5M2E4ZDhhMTBiZDdjYzZhNmI1NDk2Mzg3NWVjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWM4ZmIxMTAzMDg1MWM0M2E4OGI2MDc0ZDM4ODRhYzU3MWQwNzJlMjliMzcxNGVkNDJmMDM5NmQxZWFjN2VjNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_16b98bddf3d046ea80e504ec940d8548",
+      "statement": "local-test.html 用根绝对路径引用 CSS 与 JS，所以必须把仓库根当作站点根用 HTTP 伺服（例如 jekyll serve；_config.yml 的 host: 0.0.0.0 正是它的绑定设置），不能直接以 file:// 打开。",
+      "evidence": [
+        {
+          "resource": "repo://_config.yml#L1-L2",
+          "version": "repo-lines-v1:sha256:02591512829d134fb4d0ba7a57b16dacd847149735fcbd19e75141b7a4746d63:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdhNWQzYzVkNTlkN2FjOTgxNjI2OGZjMTA1ZjY4YmM0M2MxZTZiMjNlZmJmYjY5NmM0NjZjNWEwMDYxZGZiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjBjZjFmYzdhMWQ3MjQxODA4ZTAwMjc3ZDM3ZDdkN2JkMWUyZjdlOGJhMDljNGFlYTQxOTI4Zjg1YTM1NWJkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGU3ZDNhMmI4MDc4MGQzNGRiYjdiZjQ5ZjkwYjZiY2M1MGM3NzVjM2YyY2IyMDMzOGJiNmM4ODBlMjE1YmU3ZCJ9"
+        },
+        {
+          "resource": "repo://local-test.html#L76-L77",
+          "version": "repo-lines-v1:sha256:98ce0fa24e154ccf9992ea3cdfbaea3f34edc7b6764d93737846df6616666f2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q2YjQ1YTVhYWM0MzE1MjI4YzIyNDBlOTU1ODM3YzgxMjYwNjYxZTAxZTdlMmUzNGJlZmU1ZWZjYjRlMDcxMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjIwZmIyNDY1Y2YzNTEyMzlkNmI0MGVjNmIyNDkxNDdkMzVhMDI4YjliNDc5NTc0ZTVlYTdhZDJmNTU5NDNlNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmFhMzU1MmJiMThiZTEzNTQ1YTllY2UzNDdiMjFjODNiMTA5M2E4ZDhhMTBiZDdjYzZhNmI1NDk2Mzg3NWVjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWM4ZmIxMTAzMDg1MWM0M2E4OGI2MDc0ZDM4ODRhYzU3MWQwNzJlMjliMzcxNGVkNDJmMDM5NmQxZWFjN2VjNCJ9"
+        },
+        {
+          "resource": "repo://local-test.html#L8-L9",
+          "version": "repo-lines-v1:sha256:62727315397fc3dc7296afaf90dbab4837417d3cb261451603b8201a616b8c17:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQ2YzRkNWY4NzE3MjhiNGY2NzgzODE4ZWU2Y2U1M2RlZmI5MjA3YzI4ZTk4NjVhZTY2ZDg2NTI0MzM2NjE4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODI1ZDBhNThkMTg3YTEyOTgzMGQ5YjAxYTI5ZDA5NGFmNWQ3NTMyMWJhYjU2ODY3MDYwNGMxY2Q2NWJmNGMxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzliNTdlZTNiYmIxYTkxYTc4ZTg2NGNmNWYyYjQxNzhkMzQ2OTY2ZDE4N2ZlZDcwZTRjODY0ZDZlNmEyNDUxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWQwMjEyMDA2ZTVhYjMzZGFkZjQyZGU3ZmZiNWMwYmY5YzQxYjA5YjFhNjdjZWJhN2QyMDE3YzU0NTc5MjUyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3e6814f7fe8249869005604cae99641c",
+      "statement": "?debug 诊断面板只在 URL 带该参数时注入 body，每 2 秒重绘一次，且只渲染 plogBuf 的最后 12 条，每行只含 vis 的前三个字符、idx、ct 与 paused；plogCopy / plogReset 是挂到 window 上的入口，供面板行内 onclick 调用。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L679-L686",
+          "version": "repo-lines-v1:sha256:7540e52f230bfc2912dabd34fd2229ba27eed92385163961184d2e072d4fc786:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTcwNzgzMTI3ZDVlZTVlYmY0ZjZjOGY4NWZiYjdlNTI0ZGFjMjIxNTg3ODFkYjU2N2NjZWY3MDYxMTM4NjZjMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFmYTM4YWU1NDI3OWExYWFiZTM0ZGJmYTk0NTVjMGNmY2M1MmFiZjc3MWI0OTYwM2FlZTZjMTYwNDNiYjYyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTcyZjVlOTRiMjJhOGFjZGRlMThlMDM0NTRkNTMyZGZlODY2YWJiNGE0MDEyN2MzMWFhMWQzY2FkNWQ1MmY2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmVjYzc2NTc4NzdlNzcwOGE4NTM0NGQ0N2IzOGFjOWFiNzRlY2ExZDQ1ZmE0NGIzODI1YTEyNjg3YjFiMWVmZCJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L718-L733",
+          "version": "repo-lines-v1:sha256:b265b725cd2bd8897646febc0a7473732bf41f993ef0fde41def2cea96000309:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwYTI1ZTc5NDU2MzhkYmJiMzE4NDJmNTllMmJlZDIzNmU4Mzk0OTAyYzNkZWZiMzI1ZGIxMWY0MmM1N2VjYTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyNjhjMWIyOWE1ZDliYWE4ZTQyMjk0NGVmODFlMGE1ZGM5MWZmMDI4YmZjZGQ5OTQzMmNhZWI0Yjk1NTdmYTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI4ZGY5ZDhmZDJiNWZiZjE4YWJkZGJiMWE1MzQ5MWQ0MzM0NDdmMjAyMDAxZmU3ZDM2MzA4NjRlMjk0ODk3M2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmYTExYTM2NjkxM2FjN2JkNTNiZjk3MmFiZjI2NjAxYjI4ZTdmNjBjNWZmZWZlNzUyMzE0MGY1OGU2ZmIwNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bf02ebc9a2e646c5b18d1b71c4ec4688",
+      "statement": "plogCopy 把 {stats, log} 序列化成 JSON 写入剪贴板；剪贴板 API 不可用或写入被拒时退回 prompt('手动复制:', data)，这时用户只能手抄或截图。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L693-L699",
+          "version": "repo-lines-v1:sha256:7b1b30b4c77ee4a01a133b4bcb2c40c83603b1b975751572a20477910bd97923:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzUyMDY2MzQwNzM4MmM5NTlhOGZkMzExZWQyYmQ5YjI1MmU4MWJmNjE5NjNmYWE3Njg5OGNiNGViMTZiNWRjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWQ5ZTEyNTQ2NDI1NTc2ZDNkZWFlOGM5YjlkYmYxMjhkNWQ2ZGRhZjVkN2ZlODU3OTM0OTI3ZGVmZmEzYjlkZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWYwOGNmNmFjMzgyMmRkZmI4NjRkMjYzMTZkMjg1NTMyZDlmYjM5ZjQ0NWYyYmY1OGU0MTVhYWFiZDIxYmM1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzRjZWYwYjlkMWRmMTIyMTg5NGIwMjVjYmM1MDIxNzEyYWZhMDZjNWY3OTRkYzk3MzExODcxYjY1MzcwYzJmNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c881141b88744ae298820625a174dd8e",
+      "statement": "plogReset 清空内存中的 plogBuf / pstats / ptrans 与 _plog / _pstats / _ptrans 三个键并立刻写一条 stats-reset，但完全不触碰 _currentMusic 与 _currentTime，因此它不能用来复位续播位置。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L33-L34",
+          "version": "repo-lines-v1:sha256:f881bf0fd475d5f57876ca60481dd2dfd9f448a88e7873e31ab3a8401e80c414:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y2NzAzOGY5NDA3OTAyMGQ0OGVlZGYyNTBmODQwNDk0NWZkOGUzNTJhOWJmZTczYmQyYzEwNGNhZTY3YmY2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDc3MTgxYmE5ZTkyNjZmMGNlM2FjOWM0MWNlNjk0MmY0MGMxNGRiNTg4MTAxMzI1ZmExMzdlYmM1MTQyNmQ2NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTE4YTFlNGY4NTEwZDI4ZGE5MTA3MDNjYWVlYWYxNWI5MjU0NGJhYWI4MGVjNzU0ODFhMWFlNDJhNjliMmQ2MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmIxM2Y4YmYzNmEzNTRlMGFlZGUzYzg5NDg0ZDQ3ZGE5NjQxZGI0NjYxOWNmY2RmMGZhMmYzNjFhZGQ4NDJlNyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L700-L710",
+          "version": "repo-lines-v1:sha256:e49e81599a98ae7dc6277e4cb3835d6c96ea14bbcdb744ceb0497049c7637975:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZmZhNjJlMDcwMDEzY2U4MWY0MGNjZDViMDI5NmY0N2UyZGZkMTQyZDBmZDRjMzI4ZmU3OTQ4NjEzYWVlMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOWUxMjU0NjQyNTU3NmQzZGVhZThjOWI5ZGJmMTI4ZDVkNmRkYWY1ZDdmZTg1NzkzNDkyN2RlZmZhM2I5ZGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg2Yzk5Mjg1YWFmODFkMWYxZGFmNWMyZmVhZGJlNWU5Zjk3N2Y2M2IxMWY1ZDg5MGNmMTRkMmI4ZTM1YTU0MjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNiOTU4YzgzNTcwN2EyM2VhYmVhOGJkYjIyNTlkNDBjMWRhNzRjN2RhNTU3YTBiYjczZWFiMGRmMWMyOWJlYWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3c01d993f1b54c3582ba53a9d2ad3c00",
+      "statement": "?fast 的解析方式使任何无法解析成非零数字的值都等于 20（?fast 不带值、?fast=abc、甚至 ?fast=0 都是 20），只有完全不带 fast 参数时 PFAST 才是 0（关闭）。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L312-L313",
+          "version": "repo-lines-v1:sha256:effdc0f5f3105683dfbcc31650d26cc756b9095cb4d64438fb329df1c163a477:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Y0ODI2NmYxZTVkODhlYzc3ZmZiZjc3NjJiZGMxOGQ0OWE4MWNkMmM0YzkyY2I1NWI2NTIwZjI0ZTA5ZTE1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzZiYmQwY2NjYjg3ODRmOWJiODM4NzNhNjEwNmFhMmU1ZTg4ZDk0ODA2ZGJmMTQ0NDYzMDdjZmE5M2IwYzJmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDM0NWU1ZGY5YzhiODRlNzZmMzViZWZlOGM2ODEzZDUyNWViYzQ3NzM0NmE3M2JlOTMzYTRmZGI0MTUxYTE3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODNlZmE0MDE4NTJhMzE2YjlkYmYwOTMzYTYyY2VjYzk4NTZjZDFjYTJiZWE2ZmE4ZTQ2NGI4NzE1YjkyZjM3YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7ab11eae7cb44499b4ff199db4b77708",
+      "statement": "?fast=N 的起跳只发生在每首曲目首次 playing、且剩余时间大于 N+2 秒时；pFastSeeked 在 loadstart 复位，所以一次加载只起跳一次，换曲重新加载后可以再次起跳，短曲不会起跳。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L584-L590",
+          "version": "repo-lines-v1:sha256:0267ddd18c721721de636394d0ef44e8021fc6326036c24a99e661b9c7015619:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGY1M2VlMzM2ZmQ5OGVjOTk5YzY0ODFhODZhZDIwZDAyNDkyZGU1ZmUxNDYxODQyM2U2ZTJjNDBmMzljODI1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTdjM2QxNjQ4MmYyYjI0NmEyNzRhOWJmOGI5MzNiYjhlOTA5NzJmOGE4NDdhMjYyNDMzNzQzZmE2YTZlMWU1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTcyNmJmYTQzMzRmMWRhNWM2YjE0NjdjZmJiNzljYTY5NTQ4M2ExZWE0YjU4YzM5YTAzNjUzNjJhNGI5NjZlNSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L593-L596",
+          "version": "repo-lines-v1:sha256:59e2a1fc9e171182e496c1c50e532811af9afc2b31449c12c22e2a9810340fdc:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTViNjY0YTljMDE2YTFjMGM2YzBmMzBjNjVhNWU0ZjRlMTFlOGRkM2U4NGEyMWY2MTc5NGYyN2JmMzUxMmViMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIxZWExNWEwZjdiMWQ3NzQxYzA5MmRlODAyZDM5ZmRhNDQzNGVjZjA1Zjk0MzU4YzZmMzY5Y2E5MTE2ZTIyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDQ2MWNmYWI4NDk2Y2I3NTEzZjYwODRjNTc3ZmVjYTdkYzIwYjhjMjlhMDM0NTc1NDAyYjJmNDQzYzc1NTQwNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ca6a6753179e42aab8d1fd5cee2c7a9f",
+      "statement": "plog 的每条记录固定携带 ts/e/d/vis/idx/ct/rs/paused 八个字段，其中 readyState（rs）只出现在 plogCopy 的原始 JSON 里、不在 ?debug 面板行里，因此判定「paused=false 且 rs=0」这类故障必须取原始 JSON。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L343-L358",
+          "version": "repo-lines-v1:sha256:6ba4624a3e8c299f9b340a0c09b556a29d76ae2d56036e2583e6807011c5f994:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxZjUzZTQyMjdiMmI2MTcxNTY3MDZlMDFiODYyNDg1YmM1YzAzM2I2ZDRmYThhNzI5N2QzZTE1NTEyOTg3OTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg4NDE2YjFlMDBhYWE1NDg1MmMyZWVjYzFlM2NhNTQ2Yzc5ZjNhNTg1OGQ1ZWQ3ZmRlZGFkMjQ2NDNjMjY3ZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4ZWYwN2JmYmU1YmMxMWU5NzJhNDJlMjc4MzgzNmQ4ZGE4YzRlNjAwZjBmYjMyNmE0NmZlZDEzZmNmMjcxZjAifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L718-L722",
+          "version": "repo-lines-v1:sha256:4214a50f225a6657478fca9e30209fab311f368e424e3bc1f1f3d1ac5b522297:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTBhMjVlNzk0NTYzOGRiYmIzMTg0MmY1OWUyYmVkMjM2ZTgzOTQ5MDJjM2RlZmIzMjVkYjExZjQyYzU3ZWNhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQ5MTE0ODlmOThmZDQwYzc0Mjg1MTg4OWIxMzM5NTQ4MTllYjIzMzUyNjhjMjFmMGE1ZmVjNGNkMmQ3MGViNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjhkZjlkOGZkMmI1ZmJmMThhYmRkYmIxYTUzNDkxZDQzMzQ0N2YyMDIwMDFmZTdkMzYzMDg2NGUyOTQ4OTczZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGZjYzFhNTE3MjVjYzljYTIyMGUxNmQ1OWE4NzZiMTE5YjY0NTIwOTk1ODUzYzU2ODQ0ZDFhMGJiNDYwMTI4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_21f3c1fdf9f34f0ba44393027188912e",
+      "statement": "本仓库的证据标准：只有真机（用户实际使用的设备与浏览器）上的行为及其回传日志算证据；CDP 的 Page.setWebLifecycleState('frozen') 与 headless 多标签的 visibilityState 都不算证据（实测两个标签页都报 visible、visibilitychange 根本不派发），因为桌面模拟不出手机行为。",
+      "evidence": [
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L45-L52",
+          "version": "repo-lines-v1:sha256:aae0cb65c3b891d2785b3cf3aee93e31b0d56da2a8e432287757c7f264c201f7:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDE2MTkxNmNmMWI5YTQ5Yjk4OTc3M2ZjMDk3MGFjOGQ3MDM4NmY4YmNkNDI0NTI2OGMxMWFmZWEyYzg0OGVkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTNiMDc3MjQ5ZjBkMjU1NTlmZDNkMTQzMmM3YmU0ZGU2NDJjODQzM2QyZTI4MjNlNDg2ZWRmOWE0ODcwYjIwZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTZmM2FjNGE5YmYyYjQ4NzU4NWViNjAxOTFjMDc0MDVhNTZhZmMyZThmMDlmMzkxOTBjOGVmY2ZkNjA5ZTA0NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_38bf56a86d8642959757ef67f31b837f",
+      "statement": "由于 pause 无法归因时会被布下 P_USER_PAUSE_GRACE（8 秒）宽限，复现「系统暂停后回前台自动接上」必须让暂停与回前台的间隔超过 8 秒；在 8 秒内回前台看到「没接上」是设计行为而非回归。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L11-L18",
+          "version": "repo-lines-v1:sha256:cd9b4f44be8ed618c89955567f48950e9a63c6263db740e1ac992932ef955780:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkzMTdmYmVjNWI5ZmY1YzY3OTBhMjQxMmJjYmU2NWRiYTc5MmQ1Y2RiYzI2NzlkZTU3MDg3NWQxODdkYTU0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ2M2YzZGJkNjYzZDllNWFjNTgyYzRjYzdmZDEwZjk0MjhiZTk1NTI1N2YzNjE0ZmIxOWNlZWRiODBhMTAxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWRkMzVkMWRlZDg3NjM1ZGUwMjY4ZTNiOTFiYjVhOGY2ZDY1OWEyMTQyZjM5ZGVmZmE2YTkwMzAyOTdhMjUyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmIyMWRkZDE1NThlZjZiNDUwMjUwMDk2ZDU0NDk4Y2M2NDBmZmYzZWUyYTA3YzE1MjQxMDlmOTZjMjBiYWY3OCJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L598-L611",
+          "version": "repo-lines-v1:sha256:3f451c530bb91079538ea0a20dd29df9b90b050f235c77d43d86613b75be2c57:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZTE2Zjc0ZjlmYzEwYmRkYzBmZjYwZWM1MjA2NmFkMWFhNDlkMGUyOWU4MjI5MzE2ZDcxMjJjNjJkMGNkYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlNmI0NTJiMjBiNmQ2ZDQyOTljMjkyODFlMGUxNTBjNzFlMThjOGMyMTk3ODM4ZGRhOWNjYTZhMjdmODhlN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4YWJkYWM4Y2I2NmVkNjJiMjJjOTU4NzY4ZDA2Y2I1NzVmMGVjNTk3ODk0YjEyNWQwZjc0YWZmZjBlZTMyYzEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L646-L651",
+          "version": "repo-lines-v1:sha256:4051f3eab4d97a4e0305c5f4a730fea75032f4402e20a39dc7d57eacf343f865:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhkYzQzODg2ZWVlZDEwMTE5NTg2ZTMyMGQyMTg1ZTAyMTQ1ZTMxMWI4N2ViMTVlMDA5MTgwZTI2MTU5NWRkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg3ZWUwZjkyN2ExNWFjYjRkMmUzNjJiNmYyZGFmMGJlYTAwYjM2OGU5NGU3YjQwYTM1OTE4MWE5YjFkNzUyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGM2YjkyMGUxODllMDYzZGM4ZTc2YmEwNjUwOWQ3NDI4ZDBjODg4MTBjOGIwMGUwYjUwMTI5MzlhMGMyM2FmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d024a4997f7748eb91c9f86e527dca30",
+      "statement": "keepalive.js 的 pWakeReady 守卫要求 plog、pPlayIntent、musicPlayer 三者已存在（均由 musicplayer.js 定义），脚本顺序颠倒时它安静地什么都不做，日志里也不会出现任何 wakelock-* 事件——因此「日志里没有 wakelock-on」不等于「没有申请长亮锁」。",
+      "evidence": [
+        {
+          "resource": "repo://_layouts/music.html#L119-L125",
+          "version": "repo-lines-v1:sha256:81355a2ad85cba45af1478848bc5ac123ae1602b57c9131735653e697cdc2c99:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM3NjNmM2ZjOTQzODZlZjgyYTQzMDAyYWUzOTBiNWQ0OTNkZmJhZjVmYmM0NmE1OWRkNzYwNWU1ZmY5Yjk0YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVlODMwYTQ3NmNkN2IyNWFlYTg2NTk2YjEwMTE1MzQ2N2YyYzY1ZWY1ZTA4Nzk2YjUwZmIxZmE3ZGRjMTdiMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjMzYjM0YmJmY2IwZWI0ZWNlYzJhOGIwZmJiOGU3Y2RkNzY2NDVlNzAzYTVlNjg4MmNkYjBhYjMzNzI1YzEwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTJjYjdiY2QwZjkwOTE0YTI5YTg4Y2ZlMmIwYzMwNzFhMGJiMGM0NzE0ZTBlN2IxZDEyZGE5Y2U0Zjk1MGRlNiJ9"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L25-L28",
+          "version": "repo-lines-v1:sha256:ff643cc3d18394ebb9cb322a345297775e86b47846dda4be4accaae9fbcba396:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzNhMzRiOGNkNTc2NmVkODIwZTAxMDZlMDA3Y2IzNTE2Y2M5MmFlZWRlOTYxYzA1ZDdjMTljN2QxMjhhYmRmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTZmN2RkM2IwZDU1ODAyNjBhNGY1MzI3NjQ0ODk5MTdmZWMzZDBhOTMxZTk3ODk0NTA1MGEyYzBkZjkwNDhiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzg5NzY2ZjU5MTM4YzFjMjIwZTYxNjFlMmMwZDI5MTJkOGY4NDVhN2JkZTNhNmMwNjkxN2FkMzJhMjgxNjU1MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a8eaf241c1b84ee7acc4b321cbf2c0ad",
+      "statement": "docs/播放器息屏播放-已验证版本.md 是本仓库唯一把「已验证」写成结论的文档，它固定记录四类内容：验证身份（小米 Android + Chrome、2026-10-03、验证 commit 5c75dbb）、根因结论（息屏后系统暂停音频且恢复路径有缺陷，而非 JS 被冻结）、5 个 commit 的提交链与「是否关键」判定（39ede4f 标为部分无效、5c75dbb 标为决定性）、以及已知无效部分与给未来的自己的四条经验。",
+      "evidence": [
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L3-L5",
+          "version": "repo-lines-v1:sha256:f3fd678178be99fb176358cd9235be71162b60986e59fca37d312597e8608889:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAyYzJkMDk3OWI3MzQwMDMxZDJjNTAwYTc0MDk4YTgzYzk3OTY1OGNlZDUxOWRlZGU1YWIyYmUwMzJlNDIyZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJiOGJkNzNmOTZlZmZjYzIxZTk2NzY0ZTM1NGQzMjYzYzczYjA4MWVhMGQ1ZjhmZDAxYTU4MDA2NzBiNmIxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODQ5ZDQyZjc3ZWExMDYyN2UxMTMxMzYwMjRmM2M3ZGZkNzM5OWI0MWQ1MmQwNmYxNGQyZWU2YWM2NWEzMTdjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2QwZjA2MGYxMWZmNzEyOTA1MTdlNzZmYTczMzYxOTY3MmE0YWRjNTlhNWM3YjAyZWRlMzc5Y2ZjOWRhOGZlNyJ9"
+        },
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L35-L52",
+          "version": "repo-lines-v1:sha256:3f48d0e21b34ccd492cb03525fcf2513fef0d1bdc1d1aa95e1908e9dcb67c378:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiYTBjM2Y4NmY2YmZkZGRhYzVhNTVmOTI0ZWE3MmJkNWZiZGM4ZTVkNjcyYzNhMjFhOThiOWU3MGQ5M2UzZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzYjA3NzI0OWYwZDI1NTU5ZmQzZDE0MzJjN2JlNGRlNjQyYzg0MzNkMmUyODIzZTQ4NmVkZjlhNDg3MGIyMGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4ODNjN2M0YzA3YTIwN2FmMzlhOWQ2MmI5YjE0NGJiOGZhZjY2NDY1ZWQ1MWJhZGJmZjUwYWU2YjNhODdiOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L7-L33",
+          "version": "repo-lines-v1:sha256:080411345e2b83892ee49efcb80a056d656661d50c19cd86ac4db9bcfe533f8e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1OWIxYzFhZmRiZDUxNzZlNDI5MzdiNzc4YzNmZjVhOTZkOTFmYWU4MWYwYzFiMDNiNzI1ZGNmYjMwNjQ5MGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlYjBjMjg1ZWU5MTVkMjMzYjRkNzIwMGJhMDgyOTMwMTEzYThhMjBmMTQ4NTMwNWE5MTQ5NTZmZGU3N2I0MmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU5MTdhYjQyNTNiMTllZDhlYzk4MDYzZWI0N2I1OWFlZDJmYTMxYTc3YWJjNzFiZTU0YmIyYWUzZDZkMDk1MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgxOTQ0ZmZkYjdmNWZkYWExNGVmNGM5NDU3ODg5MDU5YTgxYjliM2RkN2M4ZGNkYWUyYmQxM2E1YWNkMjViY2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_86c83a4a40d84ee5aee89e7558d56da2",
+      "statement": "该基线的效力被限定在「那一台设备 + 那个浏览器 + 那个 commit」；换机型或系统版本后它是一份待复验的假设，且它的证据来自用户回传而非本地测量，因此本地或桌面复现不出来不构成对它的反驳。",
+      "evidence": [
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L3-L5",
+          "version": "repo-lines-v1:sha256:f3fd678178be99fb176358cd9235be71162b60986e59fca37d312597e8608889:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTAyYzJkMDk3OWI3MzQwMDMxZDJjNTAwYTc0MDk4YTgzYzk3OTY1OGNlZDUxOWRlZGU1YWIyYmUwMzJlNDIyZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJiOGJkNzNmOTZlZmZjYzIxZTk2NzY0ZTM1NGQzMjYzYzczYjA4MWVhMGQ1ZjhmZDAxYTU4MDA2NzBiNmIxYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODQ5ZDQyZjc3ZWExMDYyN2UxMTMxMzYwMjRmM2M3ZGZkNzM5OWI0MWQ1MmQwNmYxNGQyZWU2YWM2NWEzMTdjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2QwZjA2MGYxMWZmNzEyOTA1MTdlNzZmYTczMzYxOTY3MmE0YWRjNTlhNWM3YjAyZWRlMzc5Y2ZjOWRhOGZlNyJ9"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L1-L19",
+          "version": "repo-lines-v1:sha256:5755197776cce6ad91545c45dba2bbdd9973a8c8cf05eeddb642a0c680143a3a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwNTIyZDY0MTQ4MTk1ZjQ4ZDM4ZmQxNTUxY2RmYjkwYjBhYThiNTdiMTFhOTczMTJhODgyMTAyODU4NDY5NWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhYmZmOGYyMGY5NjE1NWJlMmJkYjhjYjU2MjFhN2IwOWVlNDIyYzNiY2M0MWM2NjA1YTg4MzAwZTRlM2QzYjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2YWY1YTc0NTg0ZmI2NmNlNDczYzgzOTJmYzQ0MTdkZDRlNTg5N2Y4NjFjMGZkZTkzYWQ4M2VlY2RlYmEyNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8028310c1366455fa585f7419d1fb2c4",
+      "statement": "Web Audio 静音导频（18kHz @ −58dB）已被实测证明对本次故障无效并移除、不得加回，keepalive.js 现在只做播放期间申请 navigator.wakeLock('screen')；随之失效的调试字段 keepalive-on 在当前代码里已不存在，只剩 wakelock-on / wakelock-off / wakelock-fail / wakelock-reacquire。",
+      "evidence": [
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L35-L41",
+          "version": "repo-lines-v1:sha256:4811c2560ee5927308e8b74aaee1fea91827e2f6b14bfc52e4e141f726d24bef:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmJhMGMzZjg2ZjZiZmRkZGFjNWE1NWY5MjRlYTcyYmQ1ZmJkYzhlNWQ2NzJjM2EyMWE5OGI5ZTcwZDkzZTNlNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzg4M2M3YzRjMDdhMjA3YWYzOWE5ZDYyYjliMTQ0YmI4ZmFmNjY0NjVlZDUxYmFkYmZmNTBhZTZiM2E4N2I4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTZmM2FjNGE5YmYyYjQ4NzU4NWViNjAxOTFjMDc0MDVhNTZhZmMyZThmMDlmMzkxOTBjOGVmY2ZkNjA5ZTA0NCJ9"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L1-L19",
+          "version": "repo-lines-v1:sha256:5755197776cce6ad91545c45dba2bbdd9973a8c8cf05eeddb642a0c680143a3a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwNTIyZDY0MTQ4MTk1ZjQ4ZDM4ZmQxNTUxY2RmYjkwYjBhYThiNTdiMTFhOTczMTJhODgyMTAyODU4NDY5NWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhYmZmOGYyMGY5NjE1NWJlMmJkYjhjYjU2MjFhN2IwOWVlNDIyYzNiY2M0MWM2NjA1YTg4MzAwZTRlM2QzYjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2YWY1YTc0NTg0ZmI2NmNlNDczYzgzOTJmYzQ0MTdkZDRlNTg5N2Y4NjFjMGZkZTkzYWQ4M2VlY2RlYmEyNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_400f703429c2451b93ad8d0044860c8c",
+      "statement": "pstats 在载入时是与旧值浅合并（Object.assign）而非覆盖，所以转场计数与 reasons 原因表都跨会话累计；复现前必须先用 plogReset 清零，否则 fail 与 reasons 不能归因到本次复现。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L337-L341",
+          "version": "repo-lines-v1:sha256:629212d0f910a3107bf1682529188765de262c92bbedca517266a0f73ec5a32d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGIxMzZiMWY3MzllYjdjODY4N2ExNGQwYTAzOGVkYjBjODMxY2RlZTc2MjVmNmFlYjQ2YzQzZGY1NDcxYmVmYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTVlM2JjNDZlZDFkOWNkNzhmNmI0NTJmMDhjODc2MTdiZDVmZjNjN2RlZjgyNWRkMzcwNjM1YmU3NDkwMWFkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjM4MjgzYzZmNDI3Mjc0MWU4NWQ0Yzg3YmVlZGE0ZGU0NTQ4YjY2YzVjMWY2MzBkMjY2MGIyOTE5Y2EyOGM0NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2UzODgzODA5YWRiZmE0OTYzYzk3NDI5ODg4ZTVmZjE4MWI3YTliM2IyN2ZkZWNmZDg5NmQ4OWJhNWMzNjgyZSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L700-L710",
+          "version": "repo-lines-v1:sha256:e49e81599a98ae7dc6277e4cb3835d6c96ea14bbcdb744ceb0497049c7637975:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZmZhNjJlMDcwMDEzY2U4MWY0MGNjZDViMDI5NmY0N2UyZGZkMTQyZDBmZDRjMzI4ZmU3OTQ4NjEzYWVlMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOWUxMjU0NjQyNTU3NmQzZGVhZThjOWI5ZGJmMTI4ZDVkNmRkYWY1ZDdmZTg1NzkzNDkyN2RlZmZhM2I5ZGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg2Yzk5Mjg1YWFmODFkMWYxZGFmNWMyZmVhZGJlNWU5Zjk3N2Y2M2IxMWY1ZDg5MGNmMTRkMmI4ZTM1YTU0MjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNiOTU4YzgzNTcwN2EyM2VhYmVhOGJkYjIyNTlkNDBjMWRhNzRjN2RhNTU3YTBiYjczZWFiMGRmMWMyOWJlYWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3e9966dd476c4eefb6bb287aef647bea",
+      "statement": "musicplayer.js 与 keepalive.js 的缓存版本号只写在 _layouts/music.html 的 script 标签上（?v=4 / ?v=3），没有 manifest 或指纹流水线，所以任何真机验证前都必须手工 bump 该版本号，否则回访用户可能仍在跑旧代码、验证对象与改动不一致。",
+      "evidence": [
+        {
+          "resource": "repo://_layouts/music.html#L113-L125",
+          "version": "repo-lines-v1:sha256:57538f2a318b8e1ca158b14070265c04653996bca801b0971ef0ab75cc319f5a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUwMmM1OGYyNjM4NzJhZjAyOTcyYWYzZmIxZWZmNTRlOTE3MDdkNDY3ZWFmOGM4NTc4MTJjODRiYmVhMDY1ZDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1ZTgzMGE0NzZjZDdiMjVhZWE4NjU5NmIxMDExNTM0NjdmMmM2NWVmNWUwODc5NmI1MGZiMWZhN2RkYzE3YjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ3NWVhYTQwNDBkYjJiZDgwMTRhM2YzZWJmYzEzMDYzM2EzZDRiMWQ0MzU5OGI2YjRjZmVhMjg5MWJkOTI3ZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkyY2I3YmNkMGY5MDkxNGEyOWE4OGNmZTJiMGMzMDcxYTBiYjBjNDcxNGUwZTdiMWQxMmRhOWNlNGY5NTBkZTYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T17:58:00.384Z"
+  }
+}

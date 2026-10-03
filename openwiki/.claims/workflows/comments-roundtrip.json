@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:50ab5e513460a672b341402cfe6aa98a3e096d1c015c871b1d6924f2d7d1f37f",
+  "claims": [
+    {
+      "id": "claim_15ffaae1a4004ab59317c11b4c9514c7",
+      "statement": "留言板挂载点由 _includes/comments.html 输出，被 default 与 music 两个布局在正文之后各 include 一次，因此每页都带留言板；配置以 data-* 属性而非写死的 JS 常量传递：data-api 取 site.comments_api，data-page 取 Liquid 的 page.url（取不到时回退 '/'），js/comments.js 读取二者作为 API 前缀与分区键。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L14-L17",
+          "version": "repo-lines-v1:sha256:bc7fa0822d184d4fce3b0b9ef02dcb3449fd8249a28250f2c5328980781d7dc6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGExZDk3YjgxMGJhMDVjY2FlN2JmMmZlOGIwZDAwODg3NDE4N2M4MWIzOTk3OTRlODg3NTgxNTFkYTM4YjIwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVjODQ0N2I1ZTc0MjQwZmQ0MWMxMzUyNTk4NTVkZjE1ZWUyNTAwYTkxMmZmNGU2YWJjZTYxZWQ3NzNjMTU2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQ0MTI0NGJjMGRkMzU1MDE2ZTJlZTc2MzYxOGM0MTQzNmFkZjdhNGI5OTAyYmQ0YWEwNWViMmY1N2I3YWUyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjZlYjJiNmY4NmY1NTQ5MzllMTcwMjYxMjQ1YjlhZmQ0ZTFkNWY4NmFmZTFiOTg0YjdlNDZkZmJlNzQ0NmI0NSJ9"
+        },
+        {
+          "resource": "repo://_layouts/default.html#L85-L85",
+          "version": "repo-lines-v1:sha256:911986bcbd8f6aea8e6b7cbe7970526128055ee11e14e2a1f26a5edb9f9e9267:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjZkNDMyNWUzYmVhYWRlMzdmOTM5NTc5OWY2MWZlNWUzN2VjZTA2ZTE0Y2ExMzNlZmY3YzEyODhmNjlmOGVjYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDg2MzczNjAyNjYyNWViZDJjMjkzNWRkOGY3MzQ2NDA1YjgyZWY0ZjNmYmUxODcwNTZjOTk2ODc5MDljNjY3YyJ9"
+        },
+        {
+          "resource": "repo://_layouts/music.html#L97-L97",
+          "version": "repo-lines-v1:sha256:911986bcbd8f6aea8e6b7cbe7970526128055ee11e14e2a1f26a5edb9f9e9267:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExOTg2YmNiZDhmNmFlYThlNmI3Y2JlNzk3MDUyNjEyODA1NWVlMTFlMTRlMmExZjI2YTVlZGI5ZjllOTI2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM2ZTM5NTViZDMyMGVhNWE2ZjlkODc3ZjQ0YmNkMmVjMDI5NjQ0ZGExYjJjYTYwZGZkODY5MDhkOGVlZTc2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDg2MzczNjAyNjYyNWViZDJjMjkzNWRkOGY3MzQ2NDA1YjgyZWY0ZjNmYmUxODcwNTZjOTk2ODc5MDljNjY3YyJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L10-L18",
+          "version": "repo-lines-v1:sha256:9de9966c6ee858b1035de1adf22be34b8bec881306b24d256443cab7b98dd63f:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE3ZDk3NDU4MDk1Y2I4YjM4Yjc1NTUxYzY4Nzk5NzYxYzVjN2JkMWM5YTVmMDUyM2FjZDA3OGRhNjNlYmQxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA2OGRkMjJhZjAyOGY4MTdhZGM4NTgyMzEwZDVhZWM3ZjFhZjI4OWI4Mjg0MzJjNDdhZDQzYTI1Mzk3NTJjNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmZlMjQ0MDUzODRkZDdmY2M5MGQ5YWVjMWE5ZWM4YmViOTc0YTJlYTRhYTE1MTljYmNjYWZlNGZkNjgzYmM5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDljZjBjYWI2ODgyNTQ0YjFiZGI5N2YwNGQzYTUzMDg0N2JlMTA0ZGFlNGQ5ODNmMTQzZDNkNGU2YmI3ZWRiYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9fb47756187a478ea21ec36ccb32ac63",
+      "statement": "留言后端的调用模式由 _config.yml 的单个键 comments_api 决定：留空即生产采用的同源模式，由 Cloudflare Worker 路由 www.yujizi.org/api/* 接管 /api/*，前端走相对路径、不触发 CORS 预检；填绝对地址则回退到跨域模式并依赖后端白名单放行。js/comments.js 还对 data-api 做尾部斜杠剥离。",
+      "evidence": [
+        {
+          "resource": "repo://_config.yml#L4-L8",
+          "version": "repo-lines-v1:sha256:b75f4b69bde86e65a513c37ef66384c69873c692742607b2a9b56ea0766cb545:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVkN2RhMzFmYjE3MzBiZmU5NjQ2ZGI4YjdhNjk0MDVlYjNhMDBhNjRkMTZiMTVjZmViZGVlMzRkNjU3NGNmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkNmFkZWNiZTEyMzk3YjdhMjYyZjdmMTlhYTYyNjAwNTQyMDRkMWZkN2Y2OGYwN2E2NTI1MjFhNTBmNmU4MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWMzZmQxZDdlOTM1MzllYzY3MjFlZWY5ZGMyOTZkMmI2MjRhMjc1Y2UxYmQ5ZDA2YTUxZmFhYTExNGQ1NTJlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L5-L10",
+          "version": "repo-lines-v1:sha256:6e8dff1622b0ba02c5ef65a039af48f8992d4773e486c661f4fbda938922eae2:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk2OGZkMDBjZmQ0OWNjNDA4YzcwM2VlNjljNGNjYzk1MDQyMjE5OGQxMDQxNjkwZDAxNzZhYWY1NTU3MmZkMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QzNTQ4MTJhZmQ5Y2ViN2I5NTFjNmIzYzBlOWRiYzlhYjYxOTA1Y2E0OTU3NTRkZDc4MmY5MDFhODVhNTA1MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzk5ZDlhMWYwZDRkOTcyOTFlYzgzMTVmMjQyOWI5Zjc0MzQ4NTZiZjJlMzE0MDk2ODkwYTRhNTA2ZGMyOTAzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDQ0MTI0NGJjMGRkMzU1MDE2ZTJlZTc2MzYxOGM0MTQzNmFkZjdhNGI5OTAyYmQ0YWEwNWViMmY1N2I3YWUyYSJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L13-L17",
+          "version": "repo-lines-v1:sha256:afcdbfcbcc6fc7639b1df119f2f3ae5c0603a3ae84edf2e5394c6aa183822a91:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTQzNjExZWRkOWM4ZTEzZDA5ODE1ZmY4ZmQwOGQ3NzFkYmM5N2U4Y2NmNjBjZTQzNDhjNjE4YTQ0ZDAwZjI5NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY3MzBkNTk5MGQ2MWUxMWZhYWVjNzY1M2MxN2VjOWVlOGJkMWJjODM5MzFjMjhkOTczYzIyYTMwZTE2MmNhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWEzYWYxYWJjZjhhY2ViMTNmYjM3OGIxY2JjMDZlNTM4NDFlMDZlZDk2N2NlOGZkY2Y4ZTJjNWFmMmE2NjkyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGY1ZWFlMDUzNDVhNzE5ZmQwOGQwZTM4MDc3N2Q4OTM1ZGRiODAyYTRkZGZkNjVmMzNlMDlkNmVkOTcwZDQwMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c73e96bd455c45c2b2d2715ffbc51fc4",
+      "statement": "读路径为 GET {API}/api/comments?page=<page.url> 并带 accept: application/json；前端以 res.ok 区分成功与「留言载入失败（HTTP <status>）」，成功时用 data.comments 渲染，并在 data.truncated 为真时追加一条提示「仅显示最近 N 条，共 data.total 条」，以免旧留言无声消失（源码注释记录后端上限为 200 条，提示中的条数与总数分别来自返回数组长度与 data.total）。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L125-L148",
+          "version": "repo-lines-v1:sha256:8f855b72b436980a943b8f481abee69a3986a1ffa300a37ef97638273f4104e9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5NDU0NjMwYTNmYTllODMyOGNkZmZkM2UyMmQyNjExOTM4ODIyZWUyZDA0NThhYTkwMzdjMjRjNmE5OTk4N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxN2FmMTEwMWM5N2I3YzJmNTI1NDA3ODJlNjM0Y2M0NDQwZjBlOTcwMzQxZTUyZjk3NTIzMTFkNzhiN2Q3ZDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjczYTM1YzhjMzlkMThhY2ViYjc3MDU4ZjAyYmExNzkwZDQ5YTQxMTU1MWFiYWYxZDg0NTE1MThkOWE2MGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0YTdjNDlmMzM0ODc2Yzk2NTkyMDAyMTkwOWFhYjdhZGYyZjMyMGJiNmZkZTA1YTY1NzIwYmI3ODVlZTU0NmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a470efd3f8b9448cbbbb890d0a079625",
+      "statement": "留言列表的渲染全程使用 createElement 与 textContent，不使用 innerHTML 拼字符串，因此留言内容中的 < > & 不依赖转义正确性、结构上不存在 XSS 面；纯文本渲染配合 style.css 的 white-space: pre-wrap 与 overflow-wrap: anywhere 保留换行并防止长串撑破容器，不需要把换行转换成 <br>。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L1-L6",
+          "version": "repo-lines-v1:sha256:8ce42dba24426b489d0270715272c79cd6e5c4c5333df578b14bf5508218b6a4:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIzMDNmNzBlMjUxYTQyNmY3NmMzNWVjN2EzYzQ4YzRiNGU3NWNhM2VlMTIyMjUwYzFhMTIxYWRmNDU3NTEzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRhZDUwMDU3ZGYxN2JmZjA2YjViZmJlNjJmNDM1OThhOTc4NzQ3NWQzMjRhNGVlNDMyMzAxNDZiYmE3ZGI1NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmZlMjQ0MDUzODRkZDdmY2M5MGQ5YWVjMWE5ZWM4YmViOTc0YTJlYTRhYTE1MTljYmNjYWZlNGZkNjgzYmM5NiJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L45-L96",
+          "version": "repo-lines-v1:sha256:d945dd2b075bb255fbd9ba4b3f5ceffe57780dff8328381d8927ce7257855736:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVlNjI5NzhiNjg4Yzk1ZTFhOWJlZjZkZDVkNDdhMmM0ZDE2ZWNjZTBmNjViYmIyZDg2Mzc2ZWI1N2JkZjUwYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0MDkzM2M5YzA3MTY1YWI3ZGMxYWNjNGFjYzg4NDU2MzQ3MzhiYTY1YTFkZTRhZDRkNzY5NWU4MDQxNGQ4NTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmZDAxMDhjOGQwODUwYjQzYWY4NDg4Yjg1NDAyMzRmM2M2YWY5NzI1ODI5MDkxYTdlMzMxYzBjNTBiZTg0MzEifQ"
+        },
+        {
+          "resource": "repo://style.css#L338-L343",
+          "version": "repo-lines-v1:sha256:70b06663eb0d363c632cbade4a7e8c9079f8c44b368958abb2812b415a2eb20b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODI0YzlkMjg4OWI0NTEzNTg3MmU0YWQ2YjI4YjcyYTJjMmZiYWRlYmFlMWY4NDlmZTIyMjY5N2Q1MGEyYTkxNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGYyMDdjNWI5YzUxZjM0MjM0MGI3NjgwNzZhMjNmOGIwNWQ3OWU0MzNkMDZjY2FlMzhhN2RiYjVhMjdjMTU4MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWMzNGY5N2I3MGVmMWRjOTcyZTg0MzVmZmU0YjYwODg5OThjMDY1NjNkOTMzYjY3MWYwNDU5ZGI4NDMzYWVjNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_364baeba10504899b27f1fa5e838a3cf",
+      "statement": "渲染一条留言时 name 为空则显示「无名」并加 is-anon 类，created_at 既用于本地格式化显示又写入 <time datetime> 的 ISO 串，因此 created_at 必须是可被 new Date() 解析的时间戳，否则渲染阶段抛异常。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L38-L61",
+          "version": "repo-lines-v1:sha256:7f0186e9672594f455318b6ff93212b232d83c4d411007cec9f7de2d73531da1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY4ZDJjOTg5YWEwOTdmMzY3NGFhM2EzNGUxOGMwNjdiYmQwNTNlMzMzODliMWYzNzc5YmIwN2ZhYmYwYmExOTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0ZDk4NTdkZWM0ZTI0OWJkODQzODlmYmYwMDExNjlkZGI5M2Q4YTkwMWNkMWE4OGJhNzIwMTZmMmYyYTE4OGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwYjNmZWMxNmFkNjI5OGNiY2Q4ODhjMDM2NzExMmRjNDYyYzA4ZGY1NzhhNmVmZjkyMGFmY2MwZDJjZDRlZjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAxMjRmODg2MDJhYmRkNDJiZjI3ODE4NmU4Mzc4ZDFjZDk4ZjU3NDUxMTA1MTQ0ZWNiMGZkYTgyYWE4YjQ0MzYifQ"
+        },
+        {
+          "resource": "repo://style.css#L331-L337",
+          "version": "repo-lines-v1:sha256:532448c0940effa9cde6611c94c1916ac583d7071f75f5ed4906b0077f4ea43d:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjg0MzJhNDNmZTBkNTg4Y2EzYjgwMTVhY2JmMGUxZmE3ZGQ5NDlkNGFmOGVlNmRiZTkyNzkxNmJiOWI1NzYzMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDRhMzYxYzQ4OWRkNTdjYzg3YWFjZWI5MTg1Zjc4YzdjOTM1NjhiM2NjNDdiNWIzZGM3ZTM5OTVkNDkzYzEyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzk0OGExNmFmMTVhMTM1OWIzYzA5Zjk2NTA2YzllNzk1YzM1NWM2Zjg3NmE5ZTY4M2UzMmRiY2Y5NWRhYzFlOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6f332a7737a247c0b78950349a505de6",
+      "statement": "写路径为 POST {API}/api/comments，JSON body 只含 page、content（已 trim）、name（已 trim）、website（蜜罐值）与 t；t 是脚本执行时取一次的页面渲染时刻 RENDERED_AT，后端只用它判断「提交太快 = 机器人」，源码注释明确后端只卡下限、上限为 2 小时，因此页面停留很久后再提交不会被拒。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L162-L173",
+          "version": "repo-lines-v1:sha256:2590431d7b6374d63894ab389c9a16df26694ba000d73f6996e7811bea439ee7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5MTdiNjZhYjg0N2JjYTlhOWNkMmEzMTA2MjkzNWI1YTYwYjkxZmI3MGMxMzE3NmYxODY0ZDY0OTBhZDkzMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MzU1MmFiNTcxNDk0YjM5OWIxODE5OTYyMmRiZTNiMzgyNmViNjFmY2QxZjc0Y2ZiMTJhYmNmODhlNGY3MjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3M2IyMTM5ZGRlYzc3NGYyMzZjM2UxOTVhNzZjMTk3NzhhZjliYTljZGNiNjQ5YjE2ZTg1NWU2Nzg2YzAwMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMyNjFhMzI3YjBhMmY4ZjA0NTQ2MjQ2Mzc5ZTg5MWUyNTFiYTQ5YzYyMzdlNTFkYWViYTJjNmM4YWQwNDgzMjkifQ"
+        },
+        {
+          "resource": "repo://js/comments.js#L28-L31",
+          "version": "repo-lines-v1:sha256:9c2b511aa0dccabd58828f2872de634dcce39cf261035f964bea97069d2367ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmY1ZTdjODg4ZWY4Mjk1YTVjNDZjNWQ4NjZmOTU4ZmFhMTc4NzQ1ZGU3NjFmZmJiZmFhMDlmMTkyZjJiNDE3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzhiYWEyY2M1YWVhZTU5MTA2YjQ2ZTY3ZGJmODU0ZTFiYjc0YjA2MzM3ZDYzM2ZlZmUyYmI1ZjMyM2NlMmI1YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDFhNjZlMmI4ZGQ1YTMxYThjNjBjOWMwNDIyNmE1MDI0MmVkNjliOWZiOTAwODllNGM0OTZlMThiNDBlNzFlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTdjODE4Zjc5NGY3YjY1YjQ3NDY2MzNiOTU4Njc2NTI5MDBkYzU1MzA5NjIzNWU2ZmZmZTdhOWUxMjQ1Mzc1OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4b549414ec88456a9194d21922eddf4a",
+      "statement": "提交前唯一的本地校验是去空格后 content.length < 2 时提示「请至少写两个字。」并聚焦输入框、不发请求（表单带 novalidate，文字上限依赖 textarea 的 maxlength=500，name 无本地校验）；busy 守卫与 submit 按钮 disabled 从提交开始生效，两者都在整条 promise 链最尾部的回调里复位，因此从点击到结果落地期间无法重复提交。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L25-L28",
+          "version": "repo-lines-v1:sha256:1a4d595e7e919099c55050cf14f1d08572b9a9f52de4df1a04dd9c8b2c66aac3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmFmMThlZWQ0ZTIxMmU1OTczNmMxNzNkNmFhYTE3YjI4YTFkZDY2ZTc4Nzg3MTgzN2E5Mjk4YjUzMmQ5MjYwMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGRjOGZmMjkyZjQ2ZThhYzA0YjEyNDUwNjFjMDU0NjQ3MDE2Yjk4MjEyZDI5NmZjODA5NTEzZWRhNDI1ZDI0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzEyYjYxMGQzNjJmNDM4NTdjYzg4Njc2MmM4OGI2MDFjOWFiNjM1ZmMzODA4N2MyYzcyNGZkZDZhMjIwNzJmZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWFjZWZkZWQ1Nzg3MWI3NTFhNzNjZWIzY2E5YjQ1YjhmMTEyZGVkZmJhYmIyMjA4NmY2Nzg4NGY1N2Y1N2Q4NCJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L151-L159",
+          "version": "repo-lines-v1:sha256:67c616c50fcd2aa8f33916e960be1ff7fff61ad7a38e5aa7928c3f87e1db7fec:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDIxNGM4YTU1YTIzMGRkNmZjZWNiYmZjYTE4NDEzZDY0M2MwZWZlZmIwZGY3NTM2OGE0ZDhjNGZjODhhOTExMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNmOTM2YTkyZjMwYjNkZDIxNTBjY2U5NDRhN2MyN2E3YzZmNjFhZWQ4YWY2M2Q4N2YyMWM3ZDJjMTUxMmQzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWViNzNhMzVjOGMzOWQxOGFjZWJiNzcwNThmMDJiYTE3OTBkNDlhNDExNTUxYWJhZjFkODQ1MTUxOGQ5YTYwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzRhMWU3YTg1NTJjOTgzMmQ5NjA2NWE3MzMzZjY1ZWMyZWE5YzAxMjlkODIyYTIxYjFmZDBkN2U5MjlhM2FhZCJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L188-L188",
+          "version": "repo-lines-v1:sha256:0f8e1435275625a6b7010b7d2eea343ef1a5192da9057a19e136bab576316aa6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGY4ZTE0MzUyNzU2MjVhNmI3MDEwYjdkMmVlYTM0M2VmMWE1MTkyZGE5MDU3YTE5ZTEzNmJhYjU3NjMxNmFhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGY4ZTE0MzUyNzU2MjVhNmI3MDEwYjdkMmVlYTM0M2VmMWE1MTkyZGE5MDU3YTE5ZTEzNmJhYjU3NjMxNmFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzdiMWM3NjVkYjhiZjNkZjEyYTEzZWViMmI1NmE1ZDcwMmRiODUzOTIyYTZjMDdkMTc5YzliYmZkYjI3OTcwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODUwMzc3ODM4NTk5YTRiY2RiNzU3YjJhMDU0ODU4MTVlNTdlYTllNTQwNGVkNDUyZDJmMWI5ZjBkY2JiMTNjNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a14b2d0f6b454e6fbeac1825f62f0e66",
+      "statement": "提交成功时前端清空 contentEl、在 #talk-msg 写「已留言。」并重新调用 load() 拉取列表（不做本地插入，顺序与截断提示以服务端返回为准）；提交失败时优先把后端返回的 data.error 文案直接透传给用户，取不到时才退回「提交失败（HTTP <status>）。」。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L175-L184",
+          "version": "repo-lines-v1:sha256:852affd43f3b86790294d9cd7605c8aaee8c0cd64b21c5f6e5107056b3a266c5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNWQ0NzRiZmIyNDVhNjU5M2Y3NDdlM2M2MzAxMzc3MzAzNTJmYjllMjMwNjY0NjZlM2ZiZDk3ZjM4ODVhMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MzU1MmFiNTcxNDk0YjM5OWIxODE5OTYyMmRiZTNiMzgyNmViNjFmY2QxZjc0Y2ZiMTJhYmNmODhlNGY3MjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ1OWQ1OGE0MjE2M2MwYTBlMzgwYWQ0ZGJkYzEyOGFkNzhiMjhjMDk5YmI4NzVhYWI4MzZhNzRmYzVjZTcyMjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3YjFjNzY1ZGI4YmYzZGYxMmExM2VlYjJiNTZhNWQ3MDJkYjg1MzkyMmE2YzA3ZDE3OWM5YmJmZGIyNzk3MDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8a177c233ef14272a012b671667efcfc",
+      "statement": "两个请求共用的 readJson 先把响应读成文本再尝试 JSON.parse，返回 {ok, status, data}；这样做的目的是在被边缘防护以 HTML 错误页拦下时不会因 r.json() 抛异常而把「被拦」误报成「网络不通」；副作用是 data 解析失败时为 null，读路径的 res.data || {} 会让「HTTP 200 但非 JSON」静默退化渲染为空列表。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L130-L137",
+          "version": "repo-lines-v1:sha256:76a249a6e3973ac63ee010ee66c581112f818929b8c9b0dffa560aeecdd1c532:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTcwMDQ2MzQxYzI5NDA4OTE2ZDQwNzMzNTQ0Zjg4YWUyZDJkYTNkMzcyYTNiYjIzNzQ2ZjFkOGQzYTEzZDBlYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFjMmE0YmE0YWJlOGM3NmJkNjY1OThlMjc1ODEwMjllNmYzMzdiYzk5MGNmYzY5NTNhOGY0YmFjNTRhNDQ2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTU5OThlMGExZjU2ZjhhMjAxNjBkOTljZDc5MGJkOTE2ZjBmMjI5ODNmMzkyODczMGI0ZWNjY2ZhNGNlNjU0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTgxNDFjNTk4ZTYyZWYzYTg2ZDkzNTAzYjhlMGJiNDMxMGRmNmU4ZTVmZTNlNTUxYTBkYjNjNDY4NTg1ZGViZSJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L98-L106",
+          "version": "repo-lines-v1:sha256:5c42558ba12692667e63ed84f7fbcd764e27b6a36a75551788ec0ff6555508b3:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRiZGY3ZDllZWJiNjMxOWU1Yjg1MzlkODY1YmM1NDU5YzdiZDM1MDE1NzYwZmI3YmZlN2JmNGY3ZjQwZjc1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODMyYWQzODcyZmU5YjRlNzY2ZTAwMWEzMjNlNmVkODI3MDQzN2ZlZmZhN2JjZDZlZGNjNWYyMzk5ZDVhYmRkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjgyMjk3MWEzODgwNGVlYjA0NGQ0YTFlMDc0OTJiMThjOTAyODE5MTA2YjAyMmY5OGJlZGMwYTQ3MzMzNTZmYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5da73acf844c4ace9f36230db948164e",
+      "statement": "fetch 被拒时的 diagnose() 先打一条 console.warn('[talk] …') 作为唯一现场痕迹，再用 mode no-cors、cache no-store 与 ?probe=<时间戳> 探测 /api/health：拿到 opaque 响应说明主机可达、问题在响应环节（文案「这次请求没能完成，请稍后再试。」），连探测都失败才是真断网（文案「连不上留言接口，请检查网络后重试。」）；注释明确禁止在该分支写「可能触发频率限制」之类猜测，因为限流会返回正常 HTTP 响应、根本走不到这里。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L108-L123",
+          "version": "repo-lines-v1:sha256:819283f27620fd8b386a26a858bbcedc6f022989b739f4b8d37cb0de423c56cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNiODM3ODUxY2JhYWIzMTM0ZDM2OTFjOGNkYTVlZjc5MDMyNjNmYjhhMzU1MmE5ZjAxZTFmOTM0M2FkZmI0ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlMTJiNjExODk0M2UzMGMwMDY4MzNlNzgxNjMwYTUzYjMyZjQxN2VmNWY5Nzk1YzNmMTJmMzMwODAyNGM1ZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkYjg3OThjZTk2ZTM4OGMyYzJiNWM1ZTVjOTk3ODEzNmExNTUzMGYyOTkzZWU0N2ZjNGZjMGQ5N2UxZDExYTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_47ab531971894f908f1ecd81ba24d605",
+      "statement": "蜜罐字段的字段名故意选 website（经典机器人填充目标）并配「网址」标签，但该名字同时是浏览器与密码管理器的自动填充目标，一旦被自动填上，真人提交会被后端当机器人拒掉且难以自查；因此该输入挂齐 autocomplete=off、tabindex=-1 与 data-lpignore/data-1p-ignore/data-bwignore/data-form-type 各家忽略标记，而旁边的 name 字段反而显式写 autocomplete=nickname——两个字段的自动填充策略是有意成对设计的。JS 侧把该字段值随 POST 发出（缺元素时回退空串），是否拒绝由后端判定。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L30-L48",
+          "version": "repo-lines-v1:sha256:4c864babacd07a6c195e329dc0fefefafd3af8bb76f0ca3ec3fe8337ad47bcf1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE4M2ViZWU2NDE5ZTljZWIyODMyMmJjM2UyNTBiNGM3MWNjZDM5NDE2MTY0YWJlNjMxYTcxYzY2NGQ0NGM2YmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4N2E5ZDNiMzZkYzg2NjM0MzNlODJmYWE1MDRjYWNmZTczMDJmODU4NDQ5MzU1NzQ4NTUwZGQ5YzM1NDE3NjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzZWYwYTQyNDc1NDZkY2EzYTE3ZTg1NTUwNzU1NjA1NDM4OGZiNjkzNWZjZjVhZjg3ZGM3M2I1MWY5ZjY3MzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkODk3YjA1NWU3ZjA2MDJjYjg5MzE2ZjI3YTBlNGYzNGQ2YTU5NTdkMWU4YjQ1Njk4YThjMzM2ZGEzZDNmOWMifQ"
+        },
+        {
+          "resource": "repo://js/comments.js#L169-L171",
+          "version": "repo-lines-v1:sha256:ae764af514677f68065fff7064a9a4056414716a57bb3abfc7cf3d6110e312ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDBlYWY0Y2YwMmJlYTYxMzE5ZjZiZDNjNmNjYjc2NjE1Zjg5MTI2MTkyMjA1MmUyMzU2NDA5ZThiNTIwYmU4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E0MzQwNzVmOGVmYmJiZDNiMGRmYTRlNjk0Y2UxY2NhMzA3YmQ2MGMzNWQ0NjRmZGEzZDQwZmY2ZjIyMjI4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzM1YjU5ZDg5NzRlY2FkY2I5NGJlZjY4YjljNmJjM2FjNjM0NzM0YmYwMmVlY2QzZTMyODk0NGM1MTRmMzQ1YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDU5ZDU4YTQyMTYzYzBhMGUzODBhZDRkYmRjMTI4YWQ3OGIyOGMwOTliYjg3NWFhYjgzNmE3NGZjNWNlNzIyNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_90285cdb8ae64fe3a57e27e34585d1fa",
+      "statement": "蜜罐容器 .talk-hp 刻意不用 display:none 隐藏，而是 position: absolute + left: -9999px + 1px 尺寸移出视口，因为一部分机器人会跳过 display:none 的字段、那样陷阱就失效。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L38-L44",
+          "version": "repo-lines-v1:sha256:c30b182354bb55a13fbb56efd9f64aeb3d99b3bef8879a15cdc7f133f7413d25:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTYxY2JhNGY2Mjk1OGJmZWFlNGNmNzgzYjUzMjk2MjhlZmM0MjZjYmNmZDFkZjA0YjY4YzQ2MjE0ZTYwYzcwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyMTVmZDAzY2ZjMmJlZWJmODA0YTE3YWM1ZTk0Nzk1MWY3Y2QyZGMwNTYwNTIyNDk5YzYwNmZkYmNkNzE4NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzA5OTJlZmQ5NDQzMDU2MTM0ODc5NGMwNzg3YWRhMzIzYTkwYjFiY2FmZDFjMTg2NzViYWE1NTQxZGI0MDdmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjcxZTE3NTc3NTI4NDVmM2QzN2IwZjRhZWNhN2E4YTE0Mzg0MTY5ZjkwMTBkY2MyMjg0ODcxYzU4NzllOTY1ZCJ9"
+        },
+        {
+          "resource": "repo://style.css#L379-L381",
+          "version": "repo-lines-v1:sha256:d2fd653103ec882222d4032e446669e177cf65fb7e8739637cad996965820a87:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTI3ODk3ZjljMjBlZGYyNzdkYTdjMDVmYzhiNDg1NTlhOGZlZjliNDI3ZjQ1NzBkY2JkMGVhMWQ1NjU3ZDFmOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjkwYzJjMDM5ZTA2Zjc0MjFiMTFlMzI3MzJlY2E1N2EwNDhjZjQ2ZWUwYWM2N2EyMGFjYzU0M2RiZTlhZmY2ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTM0MmVmZGYxMTliODVjZjdlYTBjNmM2NTBhN2RhZDZjMjcyNmIyOTAyNTEwNDg3YzM3YzBmYmU0YjZkMGFlZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmRhOGY0OTU3M2I2YWUxZTY1NzJiZjdkODg3M2UwNDRjZGM3YzNiODdhNmE5MzNkODVjYjcwMDJmZTM2OTQ2NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a53f6a5fb4424cfd97880e2498d9fd52",
+      "statement": "用户可见反馈有两个固定落点：#talk-msg 承担提交相关反馈（role=status、aria-live=polite，会被读屏播报，通过 say() 切换 is-error/is-ok 类）；#talk-list 承担载入中、空态、载入失败与截断提示（fail() 生成 .talk-empty.is-error，截断提示生成 .talk-note），且不在 live region 内。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L21-L23",
+          "version": "repo-lines-v1:sha256:bf556c8fc8c601edf77d79c29ecf1722ae132d06d45aa135206c608b9ae31553:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTgxMWU5YzM0MjJjZTBmZTIwODNiNTk3OTk4ZDg2ZjUwNjcxNzFiNmQwZGYwMWZjZDA4NDRjZDRiNDZiZjFhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA1NjMwNGIwZWVhYmQ4OGFkNGNiZGQ2MGJkZjQ2NjUxYWQ4NTdhZDFlMDEwNGU0MmFiZmY2YjA0M2FlOGVhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjZlYjJiNmY4NmY1NTQ5MzllMTcwMjYxMjQ1YjlhZmQ0ZTFkNWY4NmFmZTFiOTg0YjdlNDZkZmJlNzQ0NmI0NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2IxNGJjMzk5YjBiYTExYzNiODFhODY2N2EzYTY0ZTNjNWI3MWY4OTExNmUxYjBmMzY5MTcyZmQ4NmZjMzNjMSJ9"
+        },
+        {
+          "resource": "repo://_includes/comments.html#L53-L53",
+          "version": "repo-lines-v1:sha256:0a8c3145aed8f0644c8b9f7169b9711e6b57770e5bc441d6fc9eb4c777073fa9:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE4YzMxNDVhZWQ4ZjA2NDRjOGI5ZjcxNjliOTcxMWU2YjU3NzcwZTViYzQ0MWQ2ZmM5ZWI0Yzc3NzA3M2ZhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE4YzMxNDVhZWQ4ZjA2NDRjOGI5ZjcxNjliOTcxMWU2YjU3NzcwZTViYzQ0MWQ2ZmM5ZWI0Yzc3NzA3M2ZhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTU5YzE1MDc4OTkwZDRmOGI1MTdhMjc2ZGRmZDRlZTE1MWNiOGNmYTY5MGNjMTkwNzM0YjIyYTU5MDRiYTIxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmEwNzE3MTMwMjYxODE1YTUxMmFiYTlmOWRhZGQwNjQwYjk0MjI3MGY4NDZhNDhhNzFiYzBjMWYwOWUyZjNjYiJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L33-L36",
+          "version": "repo-lines-v1:sha256:d55e8a2c72cc6cf737bed67527867fdb8bbc7e2ec5707c473d52b09fb7e31b78:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGYwNGM1ODM5YzRjMWNlZmQ1Yjk5M2EzMjIwOTFmYWE1NTlhYWIxNWMxZjQ0MDBkY2NkZWRmZTJiZDhjMDdjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWYxZmFmNDE0ZThjNWQ1ZTQ0YjA3NmM5YWU5MGFhODFlMWIzODdkNmRmMmRlYjdkNjg4Y2FmYjVkMmM1Zjk2NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTQyMjk1MmE1ZTE4ZTEwMTk2Y2FkMTdiYzQyMTVlMGNlODgyNDU3YTk5NGViN2VlNWRlOGJkZmZlY2ZiYjk2MCJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L75-L96",
+          "version": "repo-lines-v1:sha256:37f74d3efba6f632833add215db6c1e527934853d08ef461500e93d494ad95d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiMWMzZDE5NTRjYjRkMGI3YTE5MzA5ZWEyZGExYzk5MDFhZDBlOWRhOTlkOTMyNzgzYTkwYjRlMWFkYjc2NjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3YWJiNDQ5NmYzNDJjMjkxZjYzZjcxODQ4OGFlNjZlMTNlMjgzNWYyMTI3Yzk5ZjM1ZTIwZWNlNjAzNDdiY2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmZDAxMDhjOGQwODUwYjQzYWY4NDg4Yjg1NDAyMzRmM2M2YWY5NzI1ODI5MDkxYTdlMzMxYzBjNTBiZTg0MzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d5f7c417c2c14013858bbe50d8c094af",
+      "statement": "JS 写死的类名（talk-item / talk-head / talk-who / is-anon / talk-when / talk-text / talk-empty / is-error / talk-items / talk-note / talk-msg / is-ok）是 style.css「留言板」一节唯一的挂点，改名即掉样式而不报错；该节样式只使用 var(--*) 令牌、不写死颜色，因此昼夜主题自动跟随、不需要第二套样式。",
+      "evidence": [
+        {
+          "resource": "repo://js/comments.js#L139-L143",
+          "version": "repo-lines-v1:sha256:0d1ba5c7ac1fa351fe08fa3c28f35c88470a57c50479fb03dac004c1cd347819:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjAyNTZjMzRkNjhiYjVhMTQyZmM4ODZhMzRjODY4YzY5YjVhMTM0YWEwYzFkOWM2OGZjMjM4N2NiNmMxODY4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDYyYmEzNzExZmY0M2ZhMzY0MGMyODI4MmExMDE5MGEwNjU1ZjQ5ZDgzNjVmYzk1MmQxYzYyZjlkNjhhMDM0OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODU1Y2QwMzllYWQ4MWEyOGIzNmFjYjRiZjgyZDkyNDQ0NzQ0YjI3NmIxYjQyOWRjNDlkMTliNTg1MmUwNDNjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjYwM2RhNTdhOTExMWQzNjgxMTcyZmYxZmI4YmQxYmYyYTAyYmQ4ZWU4OWE2MmVmODYzZGZhOTQ0YWFmM2ZmOCJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L46-L96",
+          "version": "repo-lines-v1:sha256:111fda273e3b1453227055d515da104c61e00013d0a8029346d9db6438160753:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzOWRkMjNlOGFjOTUwMjNkZjcxYTk1YTlmMzJiMjE3NjRhYzEwZDdjMGI3ZTQ4MzQ1NmQ0NzQ0NGY5NGM3ZjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5NGU5NzRlZmYxYzA4MDVhOGEyZTQ4N2NmMzllMzY4ZTEyNDU4MzgxYWUzNzMwNWJkOWNiNWZlYjY2MmNiYzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmZDAxMDhjOGQwODUwYjQzYWY4NDg4Yjg1NDAyMzRmM2M2YWY5NzI1ODI5MDkxYTdlMzMxYzBjNTBiZTg0MzEifQ"
+        },
+        {
+          "resource": "repo://style.css#L313-L385",
+          "version": "repo-lines-v1:sha256:328d35e5a8d5bd9ca270df2107822ff21a58cd07981d6ce445e6dcd5f653c077:eyJzZWxlY3RlZExpbmVDb3VudCI6NzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMzAzZjcwZTI1MWE0MjZmNzZjMzVlYzdhM2M0OGM0YjRlNzVjYTNlZTEyMjI1MGMxYTEyMWFkZjQ1NzUxM2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzOWZhNzhkNDdlMGNkMmUyZWQ3Mjk1YTljOWZkYWIxYWUwNDM5YTFlZTllOGZkYzFmYWYxMGZhOTk2ODEwNTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlYmM0NTBiZDQxY2RhYTMxN2ZkMjc3M2I1ZTU1MmQxZDY3OGU0OGEzZWM4ZGQ0NjUyNzE3NDk2MGEyOTI2NDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ5ODc5ZmUxM2VmNzc3NDA1YzgyODcxYTlhYjYwZWZhZWY5OWJkOWZhMDNhZTE1NDIzMzhjYTdhMmM2Zjk4ZWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7bee5ff948d446128ad99bdc46245a05",
+      "statement": "js/comments.js 在顶层直接对 #talk-list、#talk-form、#talk-msg、#talk-content、#talk-name、#talk-submit 赋值且无判空（只有 #talk-website 读了判空），因此改这些 id 会导致运行时错误；挂载点 #talk 缺失时脚本以 if (!mount) return 整体退出，脚本带 defer 且在 readyState 非 loading 时立即调用 load()，否则等 DOMContentLoaded。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L64-L64",
+          "version": "repo-lines-v1:sha256:ef991e014f9541e698645e36a773342e7b9c30fb228ce986330d5a5d63136d44:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY5OTFlMDE0Zjk1NDFlNjk4NjQ1ZTM2YTc3MzM0MmU3YjljMzBmYjIyOGNlOTg2MzMwZDVhNWQ2MzEzNmQ0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY5OTFlMDE0Zjk1NDFlNjk4NjQ1ZTM2YTc3MzM0MmU3YjljMzBmYjIyOGNlOTg2MzMwZDVhNWQ2MzEzNmQ0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODdiMTQwZWYxMDJlNjZjNjc1Yjg4ZTZjMWFjOWRjNzE1MzcwNTkzNjAzM2ZmMzE3NWE0ZWRiMGU4MDBmNmIyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmZkMmI5M2Y5MzA5MjM1ZTBhYTU0ODNkNTk1M2NjZjNlYTgxNTRlODNjNzlmMGY2OWMwNzkzOWYwMWEyYjczYiJ9"
+        },
+        {
+          "resource": "repo://js/comments.js#L10-L26",
+          "version": "repo-lines-v1:sha256:df923f6f56805ffd62ac2e30154718a0efa7d75051756822e737aa6224ec7be5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxN2Q5NzQ1ODA5NWNiOGIzOGI3NTU1MWM2ODc5OTc2MWM1YzdiZDFjOWE1ZjA1MjNhY2QwNzhkYTYzZWJkMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhODgxZjcwMDQ3Nzc0NDJkMzg3ZjVmMzk3OWM4NmRmYzIxZTJlYmM1OGQ4MDUxZDZmZDg3ZTY4ODg0NTBlMTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmZTI0NDA1Mzg0ZGQ3ZmNjOTBkOWFlYzFhOWVjOGJlYjk3NGEyZWE0YWExNTE5Y2JjY2FmZTRmZDY4M2JjOTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVhZDVmNzJkOTc0NTM1NzQ4ZTIzOGIwOGE5NjI0NjkzMWEwM2RjYTA0ZGJmOWMzM2M5MTM5YzU3OWVhZmExNmUifQ"
+        },
+        {
+          "resource": "repo://js/comments.js#L191-L195",
+          "version": "repo-lines-v1:sha256:0d1703e469d8b56dc8783d66c27819d10aaf780aeee9c14bee4485b8ab04f6f4:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ZmODU0MGVhMjBiYjU5NjdlMmNjZTUwYTYzODc3MTc4MDBkMmFhMzJjOTgxY2RmYWMxNWVjMmJlNjViNjE1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2E0NDk3MDcxODg5YzU5NzU2MGI1ZDE2MjdhYjUyN2I4ZDgwODE3Njg1OTA3ZDEzZjE4YTI2NmZhYWZlYTI4NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDlmYWM1YTMwMzliYmFkMjg3YWM4MTVkNTMzY2YzYWJkNGI0MjE3OTIwY2JlMmM5M2JiMzRhNmUzMDAwMzE0MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9de7fb55c038443bb988d0ce02b147e5",
+      "statement": "comments.js 由挂载点自己以 /js/comments.js?v=4 加载，版本号必须随该文件每次改动手工加一（不存在 manifest 或指纹流水线），因为 GitHub Pages 对 js 设 Cache-Control max-age=600、Cloudflare 还会缓存静态资源约 4 小时（清缓存动作在仓库外的部署脚本里）；注释保留的版本演进史即当前失败处理的由来：v2 区分断网与被边缘拦下并解析非 JSON、v3 改同源调用去掉 CORS、v4 修掉误导性文案并在失败时打 console.warn。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L56-L64",
+          "version": "repo-lines-v1:sha256:0e2029db0c65fc9d92205a2ababbd5951ef5376963530b6fc87de340d5700a59:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY4NWY4NDZlMTk1MWQ3MWUwMjY2ZmZiYWE1NmZlNmY2MjJmODM0NmI2YmQ1ZTIzNmEwYmIzNzVlOGNkZTZlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY5OTFlMDE0Zjk1NDFlNjk4NjQ1ZTM2YTc3MzM0MmU3YjljMzBmYjIyOGNlOTg2MzMwZDVhNWQ2MzEzNmQ0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzAyZjlkYzgxZDU1NWQ1ZmM4MGVhYjg3OWI5NmI1MTJkNDk5NTNkZjA3ZWE3NzI0NzMyMDY0ZjZmYTRiYzkwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmZkMmI5M2Y5MzA5MjM1ZTBhYTU0ODNkNTk1M2NjZjNlYTgxNTRlODNjNzlmMGY2OWMwNzkzOWYwMWEyYjczYiJ9"
+        },
+        {
+          "resource": "repo://style.css#L377-L377",
+          "version": "repo-lines-v1:sha256:b3014a2545ad94dd0cad96c4a07bb50149d15ceb346c0d9e1cf6edfd97b127ae:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjMwMTRhMjU0NWFkOTRkZDBjYWQ5NmM0YTA3YmI1MDE0OWQxNWNlYjM0NmMwZDllMWNmNmVkZmQ5N2IxMjdhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjMwMTRhMjU0NWFkOTRkZDBjYWQ5NmM0YTA3YmI1MDE0OWQxNWNlYjM0NmMwZDllMWNmNmVkZmQ5N2IxMjdhZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGU3OGIyNTE1YmRkNTI1NjRmMDllMzU1ODA5NmFlMTM1YjE2YzQzOTYzYzhkYjVlODc2MzZjZmQ1ODAyZjBkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTY5NzIxNjU0NGZlZDEwNzgyODk1OGMyYzIwMGU2NzQwMzM4N2U5ZDkzYjVjYWFjNjIxNDAzODBiNDM3Zjc2ZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d8731fbbfdf14ae49c8b1dae9ac3712a",
+      "statement": "local-test.html 是没有 front matter 的手写页面，只加载 jquery 与 musicplayer.js、不包含留言板挂载点也不加载 comments.js，因此它是播放器装置而非留言板装置；留言板改动只能在真页上（生产同源模式下即打开 www.yujizi.org 任意页面）验证，并须先 bump comments.js 的 ?v= 否则验证的不是改动后的文件。",
+      "evidence": [
+        {
+          "resource": "repo://_includes/comments.html#L56-L64",
+          "version": "repo-lines-v1:sha256:0e2029db0c65fc9d92205a2ababbd5951ef5376963530b6fc87de340d5700a59:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY4NWY4NDZlMTk1MWQ3MWUwMjY2ZmZiYWE1NmZlNmY2MjJmODM0NmI2YmQ1ZTIzNmEwYmIzNzVlOGNkZTZlNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWY5OTFlMDE0Zjk1NDFlNjk4NjQ1ZTM2YTc3MzM0MmU3YjljMzBmYjIyOGNlOTg2MzMwZDVhNWQ2MzEzNmQ0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzAyZjlkYzgxZDU1NWQ1ZmM4MGVhYjg3OWI5NmI1MTJkNDk5NTNkZjA3ZWE3NzI0NzMyMDY0ZjZmYTRiYzkwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmZkMmI5M2Y5MzA5MjM1ZTBhYTU0ODNkNTk1M2NjZjNlYTgxNTRlODNjNzlmMGY2OWMwNzkzOWYwMWEyYjczYiJ9"
+        },
+        {
+          "resource": "repo://local-test.html#L1-L2",
+          "version": "repo-lines-v1:sha256:8afe3a00bb103d75c51446ccb50aaff786a7a0c66c2233f262e6fb3f76e9090c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzM1ZmNhODU3NGYwNjBlZWEyNGViY2RhZTZiNzhmMzI0MTRmNWRlMDNkYTEwODRmZDBlNzNkNzEwNzY4ZTNhOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcxNWM1ODc0NzFhNTE4NzNmNTczODRlNDczZGQ5OWMwN2JlYjY3ZGZhNDkxNzg1MjZkZDQzNGFjMGQxMDA0ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzlkZTUxZWU5YWY5OTYzYzdjNjA2MjVlNDlkMzYwYzgyZTRjM2NiNTU3NTMxNDU5NDg4MGNlNGUyNWI0YjhjZiJ9"
+        },
+        {
+          "resource": "repo://local-test.html#L76-L77",
+          "version": "repo-lines-v1:sha256:98ce0fa24e154ccf9992ea3cdfbaea3f34edc7b6764d93737846df6616666f2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2Q2YjQ1YTVhYWM0MzE1MjI4YzIyNDBlOTU1ODM3YzgxMjYwNjYxZTAxZTdlMmUzNGJlZmU1ZWZjYjRlMDcxMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjIwZmIyNDY1Y2YzNTEyMzlkNmI0MGVjNmIyNDkxNDdkMzVhMDI4YjliNDc5NTc0ZTVlYTdhZDJmNTU5NDNlNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmFhMzU1MmJiMThiZTEzNTQ1YTllY2UzNDdiMjFjODNiMTA5M2E4ZDhhMTBiZDdjYzZhNmI1NDk2Mzg3NWVjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWM4ZmIxMTAzMDg1MWM0M2E4OGI2MDc0ZDM4ODRhYzU3MWQwNzJlMjliMzcxNGVkNDJmMDM5NmQxZWFjN2VjNCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T17:58:00.384Z"
+  }
+}

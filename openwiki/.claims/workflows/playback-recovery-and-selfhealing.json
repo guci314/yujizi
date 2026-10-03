@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:b8239d57970a74e71b192cf7eb6b711aad58b2d22bc28c91cf6260a894b0410b",
+  "claims": [
+    {
+      "id": "claim_2811bbabfa894333b83b377a975d10e0",
+      "statement": "播放器的全部救援通道都以 pPlayIntent 为第一步守卫：stopAudio(reason) 实现的终态是先置 pPlayIntent 为假、再清掉 pRetry 与 pZeroDur 的定时器并撤销进行中的转场，最后才 pause()，因此置假即等于一次断电；window.clearTimeout 只让已排队的回调消失，真正的保险是这些回调内部再查一次 pPlayIntent。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L226-L248",
+          "version": "repo-lines-v1:sha256:7f7763011209675eac801ad142ca3a3a188ec616453f3b985aa61ecefa55bee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyZmY2NjcwMTM0NTQzNTgxM2I5ZmZmMmY3OTE1N2FmNTEyN2U3NjE4NWE3NmNiZTY0ZGY4ZmI4NjFkY2VkOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE1OTRmMTQ2NzQ1YTA1MGE4ZTRiOWVlOTQyNGRhNzc1ZmM1OGU0NmZlMmY1MWI0NTYwYmUxNDg0OTFlMGFmOGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzZjZmMjFjZTI2OGJlMGY3ZjBmOWU5ZWZhNmVkY2MwYTNmNmU1N2YxNjUxYTgzZGQ0OWRkYjFjYTU5NWRiYzQifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L432-L432",
+          "version": "repo-lines-v1:sha256:986146fab10377cf2b6695ee0c0f53acef787fe00132a7219cbff1b3c9696513:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg2MTQ2ZmFiMTAzNzdjZjJiNjY5NWVlMGMwZjUzYWNlZjc4N2ZlMDAxMzJhNzIxOWNiZmYxYjNjOTY5NjUxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg2MTQ2ZmFiMTAzNzdjZjJiNjY5NWVlMGMwZjUzYWNlZjc4N2ZlMDAxMzJhNzIxOWNiZmYxYjNjOTY5NjUxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDQxOTczZDQ5ZWNkYTUzNjY0NDc4YWMyOTQzMTYxZjQyNTM1NDE0MTUxNzU4YzY4OWY1ZmEwZjc5MWNiYzA3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2RiZmNhMjAzNzJhMTE3ZDFmNWQyOGI1ZGRiYzdmZGVlYzFmYTcwMDY2OTFkODVkMjk3YTMwZTcxMDQ4YWUwMiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L623-L623",
+          "version": "repo-lines-v1:sha256:bd8974221b660c963c56f9583d993dd865e1f692d49482fbe03b27d3cd30cecc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ4OTc0MjIxYjY2MGM5NjNjNTZmOTU4M2Q5OTNkZDg2NWUxZjY5MmQ0OTQ4MmZiZTAzYjI3ZDNjZDMwY2VjYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQ4OTc0MjIxYjY2MGM5NjNjNTZmOTU4M2Q5OTNkZDg2NWUxZjY5MmQ0OTQ4MmZiZTAzYjI3ZDNjZDMwY2VjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWY1ZTQ0ODRmYTUyMWUyZDdjM2Q2YTQ0OTY2N2Q5MzQ4NzU1NTY5ZGU4ODBiMDZiNWNkZmM0ZWQxOGJmOGI1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWM0MzM0Nzk5ODFhZDI0MmFjYjgzNGNkMjRhZjlkNzExOTZiOTQwMGU1NTY2ZmUzY2Q3ZTQ5NGNkYWM0ZDNmNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1cc3cdd4e34a49d0b689d895c064684d",
+      "statement": "tryPlay() 是全部播放发起点共用的包装（选曲、换曲、单曲重播、MediaSession 的 ms-play 以及三条自救通道自己），它自增 pPlayId、把拒绝的错误名记进 plastErr 供 stuck-paused 归类，并把拒绝交给 pScheduleRetry。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L126-L126",
+          "version": "repo-lines-v1:sha256:8bf6c3979bcc6f4ab22e07cd7066814d17291390edeee8ca2308bd3d2cc5cff6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJmNmMzOTc5YmNjNmY0YWIyMmUwN2NkNzA2NjgxNGQxNzI5MTM5MGVkZWVlOGNhMjMwOGJkM2QyY2M1Y2ZmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGJmNmMzOTc5YmNjNmY0YWIyMmUwN2NkNzA2NjgxNGQxNzI5MTM5MGVkZWVlOGNhMjMwOGJkM2QyY2M1Y2ZmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQzZGZiMzhmOWY2MTQwOGI4NDEwNDFlYmFlM2Y3NWY2ZTNiODY5YTg2YWExMWQ3Mjg5Njg0NzVkNzZmYjZkMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTBhM2Q3OTQ4YzQ0YjI4MzMwYzhiMThkNTI2N2Q4ODA3Y2MwZTZhOTE4MDgyMDNjMzEzNWIzYjU4YjY4MzAzNiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L163-L163",
+          "version": "repo-lines-v1:sha256:fa8cf9f1cbbdd1e3f57a3bbbf02c01406d99d6867820f3eaaac4375f082c1399:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmE4Y2Y5ZjFjYmJkZDFlM2Y1N2EzYmJiZjAyYzAxNDA2ZDk5ZDY4Njc4MjBmM2VhYWFjNDM3NWYwODJjMTM5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmE4Y2Y5ZjFjYmJkZDFlM2Y1N2EzYmJiZjAyYzAxNDA2ZDk5ZDY4Njc4MjBmM2VhYWFjNDM3NWYwODJjMTM5OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDdhZjE4ZmUxNGIyODc3ZTA2MjE5OWU0MWU0ODdjNGVmYzFjM2Q5Y2ZmZTQzOTFmN2MxYzcyYThlYjE5NDYzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjFmNGFiNDk3MDZlNzc3MDRkZTE0ZjQ1ZDY4ZTc3ZDI4NThkNjdmZTBhYjE4ZWJlMWJkNTRkZDNmNmU5MWNhMyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L403-L419",
+          "version": "repo-lines-v1:sha256:36a2a4b4abaa1e5f31b6b8cd3c4c86b81f450cad201f8d329b8374d19ad2e669:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM0ZjNjMmVlMmVhNjBlNjczNWRkZWQ3YjM0ZDNmNDEyMTU5ZTkxZjVlMzE1MDJhNjczMmYxOTNjYWNhMTI5NmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYzczNzY5MTA5Njc1OTRlMDVmNDU1ZGUyMTNiODViOWExYzgwN2M5Mjc0MTI1MDZmZDQ2NDFhNDdjMjBkMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM3Y2RjMGFlNzI2MzA0MmQ5NzI5ZWZjYjU1NWM1OTc3ZWE2MGEwMWM3N2IwNzcyZTllZDFhNzEyZjg3OTEyNzAifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L43-L43",
+          "version": "repo-lines-v1:sha256:8e66ae11ec6f972ba5980821b4002164df7aa3fdbad4ed28ed588168e78c0a55:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2NmFlMTFlYzZmOTcyYmE1OTgwODIxYjQwMDIxNjRkZjdhYTNmZGJhZDRlZDI4ZWQ1ODgxNjhlNzhjMGE1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU2NmFlMTFlYzZmOTcyYmE1OTgwODIxYjQwMDIxNjRkZjdhYTNmZGJhZDRlZDI4ZWQ1ODgxNjhlNzhjMGE1NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTBjNTBkMzlkNmVmMDI2OTY3MDg3ZmIyNGJjMjU3M2I0YjJhNjE4OWE2ZTFlMWMwZDdhMWJlZDUyZGVmZTYyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGU3YWVmZDFkMmZlMTkyZTkyYTg3NTE2NjI5NjJhN2UxZTMwOGZlMzUwMWY1N2VjNzY0OTMwOWVhNWY5MDA4MiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L524-L524",
+          "version": "repo-lines-v1:sha256:03986db4d69cd01d29cc25268146181a0220a06af3f92b99e5668d85953af10b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDM5ODZkYjRkNjljZDAxZDI5Y2MyNTI2ODE0NjE4MWEwMjIwYTA2YWYzZjkyYjk5ZTU2NjhkODU5NTNhZjEwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDM5ODZkYjRkNjljZDAxZDI5Y2MyNTI2ODE0NjE4MWEwMjIwYTA2YWYzZjkyYjk5ZTU2NjhkODU5NTNhZjEwYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTllZjk5ODI5ZmRmYWUzNGNjZDhiY2FjMWYyOTUzYTc5MjY1NjQzNTQ0ZGMwYTc5MzU2NTdjMTE5YzVlYTc5YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Y3MDUwZjMwOTVkMTk2ODg5ZDIxNGQxM2FjNDM1NGYwNTk1ZjcxYzA0NWMyMTU4YmY1ZjMzZmU3M2U5ZmRkOSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L539-L539",
+          "version": "repo-lines-v1:sha256:fc6f74bf12e9b27ea42b9a26cef7d036557416a8d40d79ac9d1236f21dd1bc9f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM2Zjc0YmYxMmU5YjI3ZWE0MmI5YTI2Y2VmN2QwMzY1NTc0MTZhOGQ0MGQ3OWFjOWQxMjM2ZjIxZGQxYmM5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM2Zjc0YmYxMmU5YjI3ZWE0MmI5YTI2Y2VmN2QwMzY1NTc0MTZhOGQ0MGQ3OWFjOWQxMjM2ZjIxZGQxYmM5ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDhlOTE3YjRlMWY1ZWViZGQyYjg0OTBhN2Y2Yzg2ODg2YzFhMjY2MGQ1NzczMzE5MGQ2ZGQ3OTk4MTY3ZDI3MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDVlYzgwMzk2NjhjNDMzNmRlY2E2NDE0OTJiMjZiZGQyZTE3M2Q5NjUxMjY5ODVkMTI2N2M1MTUzY2JlM2Y2OSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L626-L626",
+          "version": "repo-lines-v1:sha256:b1d2937ee5cce8b295df598936ba40a9e35d779c057d5613b4502bbb6092aca7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFkMjkzN2VlNWNjZThiMjk1ZGY1OTg5MzZiYTQwYTllMzVkNzc5YzA1N2Q1NjEzYjQ1MDJiYmI2MDkyYWNhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFkMjkzN2VlNWNjZThiMjk1ZGY1OTg5MzZiYTQwYTllMzVkNzc5YzA1N2Q1NjEzYjQ1MDJiYmI2MDkyYWNhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYThkYWMwMGU1MzIyMTRhNGMxYWEwNzMwODgzOTkyYjZlMWRjMWI1ODJlYmYzNThiY2Y1ZDMyNWNiMWI3M2E5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzY4Mjc2NTZhMDhiZjFhZDYyMmY3ZjYzNTY4NWE2ZTVhNWIxNTlhNDEzMDcxNDI4YjkwNjY4YmZmYTYwMWEwMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9e2e07f900f34b3f9a493e3148b334e0",
+      "statement": "play() 拒绝后的重试阶梯按 600ms/2s/5s/10s/20s/30s 六档推进，首次失败时设定 pRetry.deadline = now + 90 秒，超过限期或 count >= 6 时记 retry-giveup 放弃；pRetry.count 与 deadline 只在 playing 事件里清零，因此是会话级额度，而 pErrHeal 才在选曲与换曲时归零、是每曲额度。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L124-L124",
+          "version": "repo-lines-v1:sha256:32e07938820a26863b7910678b582da8263709968faf66a4bf35db8faddd7ebb:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJlMDc5Mzg4MjBhMjY4NjNiNzkxMDY3OGI1ODJkYTgyNjM3MDk5NjhmYWY2NmE0YmYzNWRiOGZhZGRkN2ViYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJlMDc5Mzg4MjBhMjY4NjNiNzkxMDY3OGI1ODJkYTgyNjM3MDk5NjhmYWY2NmE0YmYzNWRiOGZhZGRkN2ViYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODY4Y2I4YTUzOTE5MzM5MDliMGE5NDg2NzU5NmNjNDE4ZTE4MTI4YTFjYjdlODQwNmQ2NGQxZjRjNzJiNzg3NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmNmMTRiZWRjMGFjNWYzY2RkOWJkMzBhMWUxYTc5MzNiYzkyOTJjMDRmYWUxZWU1NzRiY2E3YzI1ZWZjOWVhMiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L41-L41",
+          "version": "repo-lines-v1:sha256:a259a132243d647158d84b184cc195ae9415dde041b3a739502bd1370f9efe34:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTI1OWExMzIyNDNkNjQ3MTU4ZDg0YjE4NGNjMTk1YWU5NDE1ZGRlMDQxYjNhNzM5NTAyYmQxMzcwZjllZmUzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTI1OWExMzIyNDNkNjQ3MTU4ZDg0YjE4NGNjMTk1YWU5NDE1ZGRlMDQxYjNhNzM5NTAyYmQxMzcwZjllZmUzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmNhZWI1MTZkNDEzM2IxNjMyZjY0Y2ViM2UwZDdkYzU2YzJkOTA4OGRjMjQwYzEwOGFkNmRjMDZhOWM5YTA2OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTg5MDU1NzdhMTE3N2I4MDUyNjBiZDQ5MTJiNmNiZDVjYWQyZTRhOTdiYTk1YmI1NGZkMzg0OGFhOWQ1ZTY1NiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L421-L434",
+          "version": "repo-lines-v1:sha256:c307255dcbaea8c0e5db4492657ad32a11f92d30357888afcd235df0800b9eca:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYwODRlYWUwZmQ3ZWU3NzQ0NjI0NTYyODczOTgwMzQzZGVkNjExM2Q1ZTdhNzMyN2UxMzc4NTdlYzlmNjM3ZTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzZDVkNzg3ZDk5NTAxMzY4ZTc5Y2EwNTJiMTQ5ZjY3ZWUyMmJjNTViOTI2YTM5MTU5YzlmYWIyMDY0YmM0MGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5NTYwNDEwMTRmMGUyM2U0MjA2YTM3YTdlNjQxY2ZkOTNlYjQ2OTc0MzJlOTE3ODU4YmVjYTI4MDI5YjhkMmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L577-L583",
+          "version": "repo-lines-v1:sha256:218bff7abb0adb4d50a2fa24ec4ca62e0d3326fd608078d29e739b9ed0ddcbf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWVmZGM0Njg1NDkyYTg1YmEzOTg3M2YzNTY5NDQ0NTRlNmVlNGM1M2E3NjI2MjU2Y2QxOTllODUzNWEwNjVmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGY1NTlhMzU4Y2RlZjVjYmZiYzE0MmE4ZTAyZDkyNzdiOWIxODQ2N2FiZjUyNTk0YmY1OWYwNmE3YmRlZjE1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTMyNTQ1ZmRmZWQxNTljNWQ2MDAyMTBhY2YzZDA1M2NjYThmZDFjODAzNjYzYTNlZGQzMTA5ODQ3ZDliNjNlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGZlYTg0Y2FjZDU2MjFkZjcwYTEzZGNkMzhkODk0ZDk4Y2UxMzQ3YjBiNTU2OGM5ZDg2MWM0YTkxMWE3NTc0MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_95101463967d4f5581b7afbad5cf6300",
+      "statement": "旧 play() 拒绝靠 pPlayId 作废而非取消：tryPlay 自增 pPlayId 并在 catch 里比较 myId !== pPlayId，不等时只记 play-rejected-stale 直接返回，既不推进阶梯也不写 pFailedAt，从而避免用户快速换曲后累积出针对旧曲目的重试。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L403-L419",
+          "version": "repo-lines-v1:sha256:36a2a4b4abaa1e5f31b6b8cd3c4c86b81f450cad201f8d329b8374d19ad2e669:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM0ZjNjMmVlMmVhNjBlNjczNWRkZWQ3YjM0ZDNmNDEyMTU5ZTkxZjVlMzE1MDJhNjczMmYxOTNjYWNhMTI5NmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJhYzczNzY5MTA5Njc1OTRlMDVmNDU1ZGUyMTNiODViOWExYzgwN2M5Mjc0MTI1MDZmZDQ2NDFhNDdjMjBkMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM3Y2RjMGFlNzI2MzA0MmQ5NzI5ZWZjYjU1NWM1OTc3ZWE2MGEwMWM3N2IwNzcyZTllZDFhNzEyZjg3OTEyNzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_07abb58f12f743aebf66fb14416e7958",
+      "statement": "媒体错误自救在 error 事件里重启当前曲目：守卫是 currentSrc 非空（挡下清空选择造成的伪错误）、pPlayIntent 为真、pErrHeal < 2，且 3 秒延迟的回调里再查一次 pPlayIntent；同时若存在 ptrans 会把转场按失败记成 media-error-<code>。重载后的续播位置由 loadedmetadata 从 <pageid>_currentTime 恢复。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L613-L629",
+          "version": "repo-lines-v1:sha256:6e164d7d5c457d97933e1db24fdceece126b924afdac3ed2a8b31ef6026c5a00:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiOTE5YzlmYWFkZmQwNmNlNDVlNjEwZTdmYzIxNzUyOGNkM2YzNTIyNzM3YzMyYWM5NjY0ZGExM2Q1NjdhMjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyMGY5MTBjZDZlOGYyOGQxNjQ4MzQwODYwNjA3Y2FlNjc0ZWEzYTk3OWQ2YTA4MWQ2OTMyMjNmMWUwNmQ3NGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE0M2E4YjMwMTQ2OGE1ZDBkNWQxMTJiMjEzM2FlN2JlOThlNmMyZGJhNGQ0MDNlNmQyNWJhYTFkZDUyNjk4Y2MifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L89-L95",
+          "version": "repo-lines-v1:sha256:9b563b95ece91625d84a2c52d8e531ad006f2d955a9fd0f106f2dd6241d4bd3a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmI4ZjE0NjYzMDI5Yjc5YzFiMWU4NjdiNjEwNDM2ZGQ0OWExODMyMDNmYmEzNzcyZmIxODI3MmNlMDQxMjRhMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWIxZWExNWEwZjdiMWQ3NzQxYzA5MmRlODAyZDM5ZmRhNDQzNGVjZjA1Zjk0MzU4YzZmMzY5Y2E5MTE2ZTIyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjU2ZTg0OGU4NDU3ZWRkYmIyMDhiMGEyYjMwYjE4NWIxMGI3ZGYzNmVkNTBmYWJhMTU4NDQ4MWMzMzllOTA4ZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9d191a68859a4f02a777fd43ee8f6b9f",
+      "statement": "45 秒看门狗只在 musicPlayer.paused 为真时自救：它记 trans-fail stuck-paused（可带 plastErr）、并在 pPlayIntent && !pHealDone 时把 src 重新指向当前曲目后 tryPlay('watchdog-heal')（每次转场一次，pHealDone 在 pOpenTransition 复位）；paused 为假但 readyState < 3 时只记 trans-fail stuck-loading 并把 ptrans 关成 null，此后没有代码回看。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L368-L376",
+          "version": "repo-lines-v1:sha256:db730d06df1110d2cb0206279efc31165bb9bf82e59b309783b75407d8429814:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzU1NmM0YzUxYjNhZjMwMjQ4NTkxOWUzZjEwYjYyMTQyNzVkYWEyMGY4ZDdjZjU4ZDliODc1NjhkNmQ1NWQwNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzA3ZGYxY2VhODUzZmY0ZGEwYWI2NDZmZjhlZGVkZmE5NTE5MzcxMmNhNmY0ODRlNDIxODRkMmRkZjQyMzRjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDMyMGJlYmVlYWY3ZGM1YWFkYmExOTJlZTZhMmQ5YjdhYmQ4OTYyMGUxMzlmYjM5ZGRmN2I4NzZmODdiYWVmZiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L527-L545",
+          "version": "repo-lines-v1:sha256:50ac678916fefeffac067a092c3e708e84d60903e21e38960dbddeb70133f99a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzNmE5ZWYxMzM5Y2E3ZGVkOTYyNmY0OTFjYzkyNzkxMDBhMmY5YWQ2NTgyYjBkMDUyZTAwOTU3MDk2YTUzNTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY3M2NiNzlhYjU1NzYwYTIyMmE2MTE2NjBlOWU4ZGEzNTJlNjQ0YWY0ZGIyODg2MmQ3YmY4ZWFmZjQ0ZWZjMDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0NGZlMThhMGM1ZGVjOWYzMWVhYjZmMmM3NjVlOTY5ZWQzYzI1NTQ4ZGMwNWZkNTE3Yjk2YTMwMWQxZWY1ZjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_78d9777aba754608b1eebd3b735a22d9",
+      "statement": "10 秒「时长 0」看门狗是唯一由自己的定时器驱动的救援通道：pArmZeroDur 由 playNext 与选曲处理器开启 10 秒定时器，pCheckZeroDur 的六个守卫是仍是同一首、duration 无效、播放头未推进、pPlayIntent、定时未到、模式为 continuous，全部成立才 musicPlayer.load() 加 tryPlay('zero-dur-heal')；它刻意不看 ptrans、不看 paused，所以计数进独立的 pstats.zeroDur 而不是 pstats.reasons。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L128-L128",
+          "version": "repo-lines-v1:sha256:f5e8b18832bdae35fd9958920b43314ec75f392870ec340581b9a10880f172ea:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVlOGIxODgzMmJkYWUzNWZkOTk1ODkyMGI0MzMxNGVjNzVmMzkyODcwZWMzNDA1ODFiOWExMDg4MGYxNzJlYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVlOGIxODgzMmJkYWUzNWZkOTk1ODkyMGI0MzMxNGVjNzVmMzkyODcwZWMzNDA1ODFiOWExMDg4MGYxNzJlYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmNmMTRiZWRjMGFjNWYzY2RkOWJkMzBhMWUxYTc5MzNiYzkyOTJjMDRmYWUxZWU1NzRiY2E3YzI1ZWZjOWVhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjRiMTU0ODlkMjA0NTg2M2I5NmNmMDU3M2ZhNmY4OWEwMzc0MDk5YWU3ZTUzM2U5ZTY1ZDM0ZTc3N2Q2NmYxYyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L45-L45",
+          "version": "repo-lines-v1:sha256:609c1a315ce4679ba3f1777c59dba367cd1c3ae630f6dc1a6a32d637fcebb7ca:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA5YzFhMzE1Y2U0Njc5YmEzZjE3NzdjNTlkYmEzNjdjZDFjM2FlNjMwZjZkYzFhNmEzMmQ2MzdmY2ViYjdjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA5YzFhMzE1Y2U0Njc5YmEzZjE3NzdjNTlkYmEzNjdjZDFjM2FlNjMwZjZkYzFhNmEzMmQ2MzdmY2ViYjdjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTg5MDU1NzdhMTE3N2I4MDUyNjBiZDQ5MTJiNmNiZDVjYWQyZTRhOTdiYTk1YmI1NGZkMzg0OGFhOWQ1ZTY1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTBmZmVlMDhkMmIxZDNmYjQ0ZDQwMzRkMTEyNjdjMTBlYTc3MzAzZTlhYTkzY2IxNTcxODAyM2E0OGUxNjVkZSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L476-L486",
+          "version": "repo-lines-v1:sha256:2656946659ae1074d124e9bf3bde838a1a2b4bb36fe3f79a3ce768f830327124:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNzQ4NGZkODBmYWRiM2Y0Yzc5NWI5ZmQyZTYzNzE0OTQxNTdmMTA5OWJlNDc5MDVmZTNkNjRhNDYzNzk2MGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4MTI5NjhhNGQ5YWZjMGQwZjgxMTgxYWIzODE4NjgxMzFmZTFjNWY0ZTJhNmQ5YjZkNDIwZjlkY2JkMWExMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRmYWI3MTBkZGY3ODU5ZTU3NTc2NGE5MTNhMDAyYzc0NTg1ZmZhNzAwMTUxMGNiODgxMWRhODNkMmNmNzRiMzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRjY2JlZWIxNmUyYTkyMGI4ZDExZjE5OTVlMmZlY2M0YjcyMzcxOTc2NmJjYjJjZjk0MjFmNzk2NzZiNjEzMjUifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L491-L525",
+          "version": "repo-lines-v1:sha256:302852d19540279ad22abf4298602683ce68569a8267c27019796927b122be24:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0ODU1NjY0YjM4OTgyNDYxY2FiNzk4Y2M0MmI1ZTIwYjEwZDI1ZjQ3YWNmZTRhMWFmNTk2NWM3M2E5MzM2M2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRmM2I3MGUzMmE2MjQyZjI5NDNlYjU4OGZkMDYzZGM5NDEzMDkzODUxYTZmOTNkMzY2MmViNjE4ZTFmZWVjN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwMmM3YzRkYmY1MGZkZmUzN2M5NzIzZDc3ZWY2NDc4ZTgyYjFmYzAxZjU0YWZjNGRjMDlhNTY2MDU0ZWEwNmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d7ce0c5cecda4d67aeb10a9ccaf53604",
+      "statement": "visibilitychange 回到 visible 时有两条彼此独立的续播分支：分支一修系统暂停，守卫是 paused 且 theTime 未到 且 pUserPausedUntil <= Date.now() 且模式不是 stop-after，成立时由该通道主动置 pPlayIntent = true 并 tryPlay 后记 visible-resume；分支二修 play() 拒绝后的长时间未起播，守卫是 pPlayIntent 且 paused 且 pFailedAt 在 10 分钟内。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L635-L659",
+          "version": "repo-lines-v1:sha256:d00fb8a8b0d904fd1d7bad0629eb4cbfc73478fd4e3451f04781a8a60ddf04b4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1ZmM4Mzc2YTBjNjUyNzQzNmIwOWRkNDQ1ZjI2ODM4NmRmY2Q1NzBiNDNlYzU0ZGQ0OTQ1NGY5MDJhODA3ZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzNWM0NDdmYTY5ZDQ0NTNjZDMzOTJkZWU3YjkxZjNjNzljMDE2MWExNzFiZjY4MjhjY2EzN2IwZWZjZGQ5NzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFmNGI2ZTkxOTMxYzFjMDJmODY3NGVjOTgxYzE5MzkxZGY2ZjNjZjhlZWY4OWMwMjU5YWQwZmZjMDU5NTQwMmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f7d48dddcc38400c8581255bd8db574c",
+      "statement": "「没开定时关闭 + 系统暂停」在今天的代码里没有恢复路径：分支一要求 theTime && theTime.getTime() > Date.now()，而分支二要求的 pFailedAt 在 play() 已 resolve 的情况下是 0；因此真机验证的配置必须是「连续播放 + 定时 1 小时」，在没有开定时的配置下回前台不接上是设计而非回归。",
+      "evidence": [
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L14-L21",
+          "version": "repo-lines-v1:sha256:b7c9f0dcdc3a4363e548b67a802de317563190df7f0443e4dbae26cf7f043ee5:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdjMDZjNTYxZDVjMzI3MzQzNjg1MjY4YTQ2YjMzOTFmMzk5OGVlZTg5MGQyYmU1MWYwZDIxY2M0YTUzYWU2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTk1MTc1NjY3NDM2NDMwMDllNmNjYzYzZWI4MTNiNzk3YmMwNjhhOWIzNWQ2YjM4MWYwYzM2NTYyOTMwOGU2NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmJjNWU3ZjI4YzRlZGZlOTgwOWI0YWE5MDc2YmI3MDllYWQwOGI1OTdmYzEwM2U0ODg0Y2QyZGQ5YjEzZjU5YiJ9"
+        },
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L7-L9",
+          "version": "repo-lines-v1:sha256:d342b211f2f575a845f2a9f42e294a9ce908ff0464ec3313b9572d79fdad6f92:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU5YjFjMWFmZGJkNTE3NmU0MjkzN2I3NzhjM2ZmNWE5NmQ5MWZhZTgxZjBjMWIwM2I3MjVkY2ZiMzA2NDkwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA4YzExYWViMTJmOTcxNjY3OTA5Y2E4N2NjMzE5YjhmYTM0NzEzYzE1MmYwZjM4Y2NjMGZmMGFmYjlmNzZhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTkxN2FiNDI1M2IxOWVkOGVjOTgwNjNlYjQ3YjU5YWVkMmZhMzFhNzdhYmM3MWJlNTRiYjJhZTNkNmQwOTUyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmU0OTM0Yzc3YTQ4N2IyN2Q3NWMwYWQyZTMyYTZlNDRjMTI1ZmZhODkxOGM0ODE4NmViZDVjNWQ0MTIxYzVlYiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L646-L658",
+          "version": "repo-lines-v1:sha256:18f8832520c7eba47397bacdc654c3d22faa3fe3ad805bd0741ae11aef7bd7ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4ZGM0Mzg4NmVlZWQxMDExOTU4NmUzMjBkMjE4NWUwMjE0NWUzMTFiODdlYjE1ZTAwOTE4MGUyNjE1OTVkZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4N2VlMGY5MjdhMTVhY2I0ZDJlMzYyYjZmMmRhZjBiZWEwMGIzNjhlOTRlN2I0MGEzNTkxODFhOWIxZDc1MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxNWY0YTAyMmQ5ZmU3NjE0YzA2ZTI1YWZlNzU5Mzg4YjQwNGVlMTg2YjliMzY5OGY1YmRjODFiOTRhOGQ1ODMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_22c29b64241444d480339f27d3546bcb",
+      "statement": "pUserPausedUntil 必须按时刻戳比较而非真假判断：早先写成 !pUserPausedUntil，而该值一旦被设过就永远不为 0，守卫恒为假、系统暂停后永远接不上，正确判据是「已过期」的 pUserPausedUntil <= Date.now()；且「绝不复活」只在 P_USER_PAUSE_GRACE（8 秒）之内成立，超过宽限后一次锁屏面板上的用户暂停与一次系统暂停在状态上完全一致。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L11-L18",
+          "version": "repo-lines-v1:sha256:cd9b4f44be8ed618c89955567f48950e9a63c6263db740e1ac992932ef955780:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDkzMTdmYmVjNWI5ZmY1YzY3OTBhMjQxMmJjYmU2NWRiYTc5MmQ1Y2RiYzI2NzlkZTU3MDg3NWQxODdkYTU0NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ2M2YzZGJkNjYzZDllNWFjNTgyYzRjYzdmZDEwZjk0MjhiZTk1NTI1N2YzNjE0ZmIxOWNlZWRiODBhMTAxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWRkMzVkMWRlZDg3NjM1ZGUwMjY4ZTNiOTFiYjVhOGY2ZDY1OWEyMTQyZjM5ZGVmZmE2YTkwMzAyOTdhMjUyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmIyMWRkZDE1NThlZjZiNDUwMjUwMDk2ZDU0NDk4Y2M2NDBmZmYzZWUyYTA3YzE1MjQxMDlmOTZjMjBiYWY3OCJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L564-L569",
+          "version": "repo-lines-v1:sha256:d7606f3be0b21e6e9df8b4a85723737a4e5fc1bdeadb86c51c2b14ee650831f9:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDhkNWViMDUzMWM5ZDUwNTlmNTQ0MGExYjUyMjI1YTkzOTE4YzExM2UyYTI2ZWU3ZTgwM2E1ZDE3NWUwZGVhZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJkMTFjYWY0M2U5N2VmMzY5ZTZiZWVkMWEyNjhiZDA1ODM4ZjI5YjlkZDI1NGJmNjliYTY0ODg0MTQ3MjM0YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTNmMzJhYjVjYjNkYzVkMjc0MGNjMDM4ZmU4Njc0N2ZhYjJjNGU5YjkyMTdkMjIxNWM3YzJhNzE1ZDlhZDJiZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjU0YjFmZWFkZmVkODFjYzBjZTEyNjkyZTA2ZDU0ODc5MjVlMWFmNGM0NDUwZGZjZDBmMGRjNDE2ZGM5Y2FlNiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L598-L611",
+          "version": "repo-lines-v1:sha256:3f451c530bb91079538ea0a20dd29df9b90b050f235c77d43d86613b75be2c57:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZTE2Zjc0ZjlmYzEwYmRkYzBmZjYwZWM1MjA2NmFkMWFhNDlkMGUyOWU4MjI5MzE2ZDcxMjJjNjJkMGNkYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlNmI0NTJiMjBiNmQ2ZDQyOTljMjkyODFlMGUxNTBjNzFlMThjOGMyMTk3ODM4ZGRhOWNjYTZhMjdmODhlN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4YWJkYWM4Y2I2NmVkNjJiMjJjOTU4NzY4ZDA2Y2I1NzVmMGVjNTk3ODk0YjEyNWQwZjc0YWZmZjBlZTMyYzEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L647-L647",
+          "version": "repo-lines-v1:sha256:866da6e71d56a33f439ffbe968e93e99f7e97d29de46b05b9c50b70034062a57:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODY2ZGE2ZTcxZDU2YTMzZjQzOWZmYmU5NjhlOTNlOTlmN2U5N2QyOWRlNDZiMDViOWM1MGI3MDAzNDA2MmE1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODY2ZGE2ZTcxZDU2YTMzZjQzOWZmYmU5NjhlOTNlOTlmN2U5N2QyOWRlNDZiMDViOWM1MGI3MDAzNDA2MmE1NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWY0NmEyMDk2MDAyNWJhZDA3ODllODAzN2U5ODRlNzczNmQ4MTg5ZDFjOTkxN2UxOGU5ZjM4N2IzN2M1ZTZiMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWUzMjQ3ODc2NjkwMDMyMzY3NjA0MTIxOGYzOWNlYjIwNDg0MTY5MmIwMGMzMzhjYmI5NDZkMzNkYzE3NzA5MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b55abd7a7bee4ceca93f91c3879b4f99",
+      "statement": "pExpectedPause 是一次性令牌、没有过期时间，只被 pause 处理器读出并立刻清空，负责把 stopAudio/清空选择/MediaSession 触发的预期暂停与异常暂停分开；若设置它时那次 pause() 是空操作（元素本来已暂停，清空选择时会出现），令牌会挂到下一次无关的暂停上被消费，使真正的异常暂停被误记成预期原因且不布下宽限。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L243-L243",
+          "version": "repo-lines-v1:sha256:7fcb4a5b6ccb4fb2f67e415e2c8cb11a7e1db831c2f9e12f0b78f0614c3d82ea:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ZjYjRhNWI2Y2NiNGZiMmY2N2U0MTVlMmM4Y2IxMWE3ZTFkYjgzMWMyZjllMTJmMGI3OGYwNjE0YzNkODJlYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ZjYjRhNWI2Y2NiNGZiMmY2N2U0MTVlMmM4Y2IxMWE3ZTFkYjgzMWMyZjllMTJmMGI3OGYwNjE0YzNkODJlYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzgwNDdlNjQ1YzNkYTQxZTE2YzAyNjQ5ZjIwNzFhMjc0ODcxMDU3ODY4MmI0ZjJhNDlhOTM3ZmYzYjU3NjczNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTFkM2IzNGRjNWFlOGQ5MzJkMDhlY2ZjOTViMWFmYTRjMjQ3NzU4MDUzY2ZmMWFiYWE3YjYyMDU5NGU1NDZjZiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L52-L61",
+          "version": "repo-lines-v1:sha256:90bc85095976237507f47ef7ef1a1efe69e3d30ec34a667a928edbbe9dd9f0cf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2OWRlMTE2YWExOTRlZDE0Y2ZhNzE4OGEwYmYyMGE4ZWU5YjA2OGM0ZmZjOWQ1M2M5MGVhZjU1ZTI5NTM5MDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2NGZjNmQzNTI4ZDVmMmRjZWE4YTk2NTY3Y2NkYWUzYzQ3YzA3NjZhMDlkYjY5MWI3ZWNiNGMyYjM1NmM1ZWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImExODRmYzBhMGFjMmViNDQwZjZhYTlhMGI4MDg3NTM5YmE4ZGQ4NDAyYjY4ZmVkNGNiNDVmYWIzMWM0YWEwMmEifQ"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L566-L566",
+          "version": "repo-lines-v1:sha256:5491fc4e61ee212d89c72d013093cc97d175b9a05f7e1f9646dffe0bba985728:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTQ5MWZjNGU2MWVlMjEyZDg5YzcyZDAxMzA5M2NjOTdkMTc1YjlhMDVmN2UxZjk2NDZkZmZlMGJiYTk4NTcyOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTQ5MWZjNGU2MWVlMjEyZDg5YzcyZDAxMzA5M2NjOTdkMTc1YjlhMDVmN2UxZjk2NDZkZmZlMGJiYTk4NTcyOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGUwNjRkZGEzZmZlNjI1Njc2OWVkMDUzMjc4NjM4NjUzNWFmNmY5NzU0NzUwMTBjZmU5NjI4MjBjYmQwOGMxOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGNiYzhiNjMzN2MyZWE1OGFmNTJjZTMzYmJmYTRmZDQ5M2MxZDAzNDE5YWI1YzI3N2MyNDhiNjIzOGJhNDNmZiJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L598-L611",
+          "version": "repo-lines-v1:sha256:3f451c530bb91079538ea0a20dd29df9b90b050f235c77d43d86613b75be2c57:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1ZTE2Zjc0ZjlmYzEwYmRkYzBmZjYwZWM1MjA2NmFkMWFhNDlkMGUyOWU4MjI5MzE2ZDcxMjJjNjJkMGNkYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlNmI0NTJiMjBiNmQ2ZDQyOTljMjkyODFlMGUxNTBjNzFlMThjOGMyMTk3ODM4ZGRhOWNjYTZhMjdmODhlN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4YWJkYWM4Y2I2NmVkNjJiMjJjOTU4NzY4ZDA2Y2I1NzVmMGVjNTk3ODk0YjEyNWQwZjc0YWZmZjBlZTMyYzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_02a6433f92654906bb7f4cfdd1045fc9",
+      "statement": "载入时读取残留的 <pageid>_ptrans 是七条通道里唯一只记账、不尝试恢复的一条：它把上次会话死在转场中途记为 pstats.reasons['process-died'] 加一条 trans-fail 日志再删除该键。这是启发式判定——正常关页面时恰在转场中同样会得到 process-died，且 pstats 在载入时以 Object.assign 浅合并旧值，所以计数跨会话累计。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L337-L341",
+          "version": "repo-lines-v1:sha256:629212d0f910a3107bf1682529188765de262c92bbedca517266a0f73ec5a32d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGIxMzZiMWY3MzllYjdjODY4N2ExNGQwYTAzOGVkYjBjODMxY2RlZTc2MjVmNmFlYjQ2YzQzZGY1NDcxYmVmYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTVlM2JjNDZlZDFkOWNkNzhmNmI0NTJmMDhjODc2MTdiZDVmZjNjN2RlZjgyNWRkMzcwNjM1YmU3NDkwMWFkOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjM4MjgzYzZmNDI3Mjc0MWU4NWQ0Yzg3YmVlZGE0ZGU0NTQ4YjY2YzVjMWY2MzBkMjY2MGIyOTE5Y2EyOGM0NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2UzODgzODA5YWRiZmE0OTYzYzk3NDI5ODg4ZTVmZjE4MWI3YTliM2IyN2ZkZWNmZDg5NmQ4OWJhNWMzNjgyZSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L360-L366",
+          "version": "repo-lines-v1:sha256:c9542f6576b784cfedf44956be44464efce504e3b034b9c85cd49dc7170ea90b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDJmNzAzNjBmYzhkYjA4ODZkNjIwYjI5NGU2NmU3ZmNjNzkyY2RlZWUwZmI1MzA5ZjY2M2UzMTg4NzlmMTg2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzA3ZGYxY2VhODUzZmY0ZGEwYWI2NDZmZjhlZGVkZmE5NTE5MzcxMmNhNmY0ODRlNDIxODRkMmRkZjQyMzRjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjhhZmQzNTZmMmI4OWQxOGY5MDJkZmExZTI3Y2Q1MDJiMmYxMzIxMjVkODc3OTQxZWQ5MGU4YWY0YWE3ZGFlYyJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L663-L674",
+          "version": "repo-lines-v1:sha256:0b94400a67a195aa0c154ddeaf4c4f64442f9a7f77f90e0654fb03c0a8f9b7a2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmNjYyNzJkMzNmNzVhMWU4OWVhMGEwNzc3MWMyNTY2MzgyYjRkYzUxN2YxYWE3Y2UyMGM4YTVmZGYwMzkyZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1ZTNiYzQ2ZWQxZDljZDc4ZjZiNDUyZjA4Yzg3NjE3YmQ1ZmYzYzdkZWY4MjVkZDM3MDYzNWJlNzQ5MDFhZDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFmNGI2ZTkxOTMxYzFjMDJmODY3NGVjOTgxYzE5MzkxZGY2ZjNjZjhlZWY4OWMwMjU5YWQwZmZjMDU5NTQwMmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE3MzdhNGNlYmRjMGI3YTFlOGUxNGRkNzlmYzQ0NjFmMjNmZDM4MDI2MDgyNGZkYWZjOGQxODgxMDNhMjYzOGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5cf1e1eafd6f4ec3b802893dd764c52a",
+      "statement": "keepalive.js 把 pPlayIntent 当作跨文件读取契约：pWakeLockSync() 用 pPlayIntent && !musicPlayer.paused && pWake.fails < 3 决定是否持有 navigator.wakeLock('screen')，所以「意图为真但尚未出声」这段窗口正是长亮锁最难申请到的时刻；把 pPlayIntent 改名或改语义会让长亮锁静默失效，因为该文件的守卫都是 typeof 检查、不报错。",
+      "evidence": [
+        {
+          "resource": "repo://js/keepalive.js#L111-L115",
+          "version": "repo-lines-v1:sha256:7ea7b4735bf021b6dd64ae0e4ddbabc77f174a6f1e9a51f78d12cf3f435b9308:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q3ZWZkYjhjZDFmMWJlYWY0OWQ1MzE2NzAwMTU5YjI2MTkxNTFjNDM5YzA0YmQ0OWIwNjIwNDg3OWEyMzUxZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDYzZmEwMjJlM2VlMjRjNDUzNjJlMTdlZmRkMjY0ODgwMWE4ZjBkZjU5ZDQ2OTNkMDhlNWNiYjMzNTJkNTJiYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzFhOTgzOGY5N2ZhNTAxZDVjMTZlYzYxOTE2ZmY3MDg0ZGNhYzBjY2FiZGE2YmYwMThhNGZlOWIxN2RlMjcxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGZjYTUwZjg1YWE5NTg1ZTE1NTI4NWRlYzVhZTZjZWE1MTE4ZTM2ODEyYTE4MTdkZjQ3MjEwMzAxNWQ0ZjcyNCJ9"
+        },
+        {
+          "resource": "repo://js/keepalive.js#L32-L34",
+          "version": "repo-lines-v1:sha256:cfe53f6a9c8c123fccbd855ee15ce0eef9630be9cdb6ec7536c7316a03365ca6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFjZDgzZGFjZThmYjczNjE5NGM0ZWZkMjljYzg1OGRiYjViMjY0ZDg4MWZmNGRiZjc3NzJkNDA2NjQ2Yzk3YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzRjMzVmOWE3OGMyZmFkZGFhMjBjMmUyYTc5NjI2NmQ4OGM5MjQ0ODgwMDU0MjQ5ZDEyNThlNmJjMmM1MTZkNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzg5NzY2ZjU5MTM4YzFjMjIwZTYxNjFlMmMwZDI5MTJkOGY4NDVhN2JkZTNhNmMwNjkxN2FkMzJhMjgxNjU1MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmY5YzFkMmM0MjkzMWE1ZTQ4YTA4ZjFjMDBlN2IyN2EwZTg0M2E1ODM0YWNkMjJmODk4MmQ4YTAzYmY1YTU5MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d084ee43d1174b41b0f96c516118bad9",
+      "statement": "pZeroDur 这类被 stopAudio 引用的状态对象必须声明在任何可能调用 stopAudio() 的路径之前：var 会提升但值是 undefined，声明过晚会让 stopAudio 里的 pZeroDur.timer 抛 TypeError 并打断 stopAudio 本身，从而连暂停、theTime 复位与 #myselect 复位一起不执行。",
+      "evidence": [
+        {
+          "resource": "repo://js/musicplayer.js#L240-L241",
+          "version": "repo-lines-v1:sha256:ec5da461b35f6443aea31d40b8ca539138a06425c5cda2d32becdbc14353424a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjIyZDE3MjhmMDY4OTJkNGJlYzNlN2NhNTRiMDgwZjljY2JlMzVjYWU3OWM2NTE5NWYxZTM3MTQ1YWE3MjBiNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGMyOWRhMDk2YjZmODdkNGYyYzVlNTYyODA4NTRjMmNiNmQ4YTgzOTI0MmQ2NTNhNWVjMjg2ZDU4NGY1YzIxYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODE5OGMxYjkzMDU1OWNkMjI3MTExYzc1NzkwOGE0YTI1MzAxMGJhZjJiNGI3OTkzZWQzOWRjNTYyN2ZiNGJjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMxYmRmZDFkZjhlNDIxNzUzMzc5MTJmMmUzYjMwM2Q2OTk0ZjRkZjg0YTgwYTMxMTRhNzc2NWJhOWY4YzJhMSJ9"
+        },
+        {
+          "resource": "repo://js/musicplayer.js#L332-L335",
+          "version": "repo-lines-v1:sha256:45af35f7855d82f27d15ffa6fc9411b32cf6d003dba6b24fc300041453dd78ef:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjY2ZGNjY2E4YmQ3NjQxZjJjMTRlNzFlZWI4ZGRjMGYzZTY2ZWJiYzcxNjRiMzY5ZGU4Zjc2NDYwNmE4YTc2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNhMDQwYzIyNTdkYjQxZGUyMWE0ZWFhOGEwZWIyZTY3NDMwZmQyZWQ2ZTkyZTNhNTgwOTk3MmIwMDljMjg4ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzAxZWI5NTc2YmYzYmI0MzA0ZWU3YjM4YTIzOTdlYjI4OWE3ZWNlMTM0ZTVmYzk3Zjc3NzBmNjUxNTA0ZTVkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGEzYmE1MGM1NWFlOWUxMmZmODdlYzUwZWFhZDc1ZGFkMmU2OTQzZTJhNDZkZjA2NzY2MGFjNTMzNGJhOTNiOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3a3e0d8bfe5a493aa308c6d5980fffb0",
+      "statement": "本仓库没有针对播放器的测试框架，这些救援通道只能靠真机日志（?debug 面板与 plogCopy 的八个字段）加 ?fast=N 高频转场来验证，桌面或 headless 模拟不构成证据；且必须原样保留失败输出。",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L12-L12",
+          "version": "repo-lines-v1:sha256:bcb305dcb14dcb4153e1a3f259465ceadadc9b044a793da427d2c43d3a09d491:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNiMzA1ZGNiMTRkY2I0MTUzZTFhM2YyNTk0NjVjZWFkYWRjOWIwNDRhNzkzZGE0MjdkMmM0M2QzYTA5ZDQ5MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmNiMzA1ZGNiMTRkY2I0MTUzZTFhM2YyNTk0NjVjZWFkYWRjOWIwNDRhNzkzZGE0MjdkMmM0M2QzYTA5ZDQ5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDhhMTMzOGFlN2QxMWM5NDRlODVjNTU0N2JiNmVmNDRlZTljMmNkZjA4ZDZjOWIwOTI3ZDgzMGIxNzFjYzBlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjU1MjQ4YjYyZjU1MmY2Y2I2ZjcxMTA5YzgzY2E0OWZlOTU1MmU5NjYyYTBhZmNjZTdjNjY5YTJiYmEwZWMwYSJ9"
+        },
+        {
+          "resource": "repo://docs/%E6%92%AD%E6%94%BE%E5%99%A8%E6%81%AF%E5%B1%8F%E6%92%AD%E6%94%BE-%E5%B7%B2%E9%AA%8C%E8%AF%81%E7%89%88%E6%9C%AC.md#L46-L48",
+          "version": "repo-lines-v1:sha256:299651fdfa0d5fa5528b68a826841f1668fae8c4c7bb00e2cbf751b9ef9f1e0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVjMWI0NmUwOThlNjU3MjM4OGZmYzVjOWIwMWZlNzVlY2E1YjhhNjVkMjYwYWU2NWRiMmNhOTg5YWFhNjY5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzA2YjJjYzhkZmUyMTA5NjY3Y2I5YzMxOTM3MTM4MGNhNzkwYjVlZWQyZDJkYWJiNWUzOGI4MTcxNGVlYjczYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmY0M2M5ZmVlZTU4ODZlYzU4NzEzYjJjZDkzNTE2ZDA1YzhiNzhlMzdhYmZjMTE2YmRiODI5NGI1YjdhYTlmZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzhlNDEwMTU3N2NlNGNkZTk0MGZiNTUzMWEwNWE1NWE0M2IzMGQxZTVlYzA1NmRhZjQ1NTI5Njc4NzI4NzkyMSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.6.1",
+    "at": "2026-10-03T17:58:00.384Z"
+  }
+}
