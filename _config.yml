@@ -6,3 +6,16 @@ host: 0.0.0.0
 # 同源不触发 CORS 预检、不需要跨域头，移动端最稳 —— 当前生产就是留空。
 # 若填绝对地址（如 https://comments.yujizi.org）则回退跨域模式，靠后端白名单放行。
 comments_api:
+
+# ⚠️ openwiki/ 必须排除 —— 那是由 OpenWiki 自动生成的「给模型读的仓库文档」
+# （提交 f8b02d2，10-04），里面是带 Liquid/GitHub-Actions 片段的 Markdown
+# （如 {{ steps.openwiki.outcome == 'failure' }}、`{% unless %}`），
+# Jekyll 会把它们当模板渲染，直接抛 Liquid::SyntaxError 让整站构建失败。
+#
+# 症状：加了 openwiki/ 之后 Pages 每次都 failure，首页停留在旧版本，
+# 但 push 成功、git 也没问题 —— 很容易误判成「Pages 延迟」。
+# 定位：gh run view <id> --log-failed | grep -i liquid
+#
+# 排除而不是改文档：这些 md 是模型输入，改了会被 OpenWiki 覆盖回去。
+exclude:
+  - openwiki/
