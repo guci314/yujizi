@@ -151,7 +151,9 @@ for (let iteration = 1; iteration <= MAX_ITERATIONS; iteration++) {
             promptFile: "./.sandcastle/review-prompt.md",
             promptArgs: {
               BRANCH: issue.branch,
-              TARGET_BRANCH: "main",
+              // 不要传 TARGET_BRANCH：它是 sandcastle 的内置 prompt arg
+              // （BUILT_IN_PROMPT_ARG_KEYS，值 = 宿主当前分支），
+              // 通过 promptArgs 覆盖会直接抛 PromptError。
             },
           });
           return { commits: [...implementCommits, ...review.commits] };
