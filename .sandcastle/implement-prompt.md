@@ -8,6 +8,10 @@ Only work on the issue specified.
 
 Work on branch {{BRANCH}}. Make commits and run the gates below.
 
+**完成判据（硬要求）**：你这一轮的**最后一行输出**必须是 `<promise>COMPLETE</promise>`，无论本轮做了什么、无论 issue 是否还需要后续轮次。不发这个信号，循环会把你已经做完的活再跑一遍——那是纯浪费。
+- 如果进入时本分支上已有满足 issue 的 commit 且门禁全绿：不要再验证一遍，直接输出信号。
+- 如果本轮只完成了一部分：照常提交，然后输出信号（下一轮会接着做，分支名是确定性的）。
+
 # CONTEXT
 
 You are an autonomous web engineer in a Docker sandbox (Debian, Ruby 3.2, Jekyll 4.3.4, `gh`, `python3`). There is **no Node.js** in this sandbox and no build step beyond Jekyll itself.
@@ -96,3 +100,6 @@ Once complete, output <promise>COMPLETE</promise>.
 # FINAL RULES
 
 ONLY WORK ON A SINGLE TASK.
+
+Every iteration ends with `<promise>COMPLETE</promise>` as the very last line. No exceptions.
+
