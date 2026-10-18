@@ -1,0 +1,11 @@
+{
+  "name": "yujizi-site",
+  "private": true,
+  "scripts": {
+    "sandcastle": "npx tsx .sandcastle/main.mts"
+  },
+  "devDependencies": {
+    "@ai-hero/sandcastle": "^0.12.0",
+    "zod": "^4.6.7"
+  }
+}

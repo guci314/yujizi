@@ -7,6 +7,10 @@ _site/
 .jekyll-cache/
 local-test.html
 
+# Sandcastle 流水线（.sandcastle/）的 node 依赖。配置本身要进 git，
+# 只有依赖树和它的产物需要忽略。
+node_modules/
+
 # APK 发布走 GitHub Releases(releases/download/v1.0.0/...),不入库。
 # 每次出新版都提交 7MB 二进制会持续膨胀 .git(目前已 1.5GB,主要是音频)。
 downloads/*.apk

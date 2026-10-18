@@ -1,0 +1,19 @@
+# Docker build context —— 只影响 `docker build`，不影响沙箱挂载。
+# 本仓库 1.5GB 主体是音频/文档资产（玉机子/ 经典读诵/ 体真山人语录/ downloads/），
+# 镜像里一个字节都用不到；不排除的话每次 build 都要把它们打进 context。
+.git
+.sandcastle/worktrees
+.sandcastle/logs
+.sandcastle/.env
+_site
+.jekyll-cache
+node_modules
+node_modules.bak
+玉机子
+经典读诵
+体真山人语录
+downloads
+*.mp3
+*.m4a
+*.doc
+*.docx

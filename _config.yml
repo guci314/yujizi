@@ -17,5 +17,14 @@ comments_api:
 # 定位：gh run view <id> --log-failed | grep -i liquid
 #
 # 排除而不是改文档：这些 md 是模型输入，改了会被 OpenWiki 覆盖回去。
+#
+# node_modules/ 是 Sandcastle 流水线（.sandcastle/）的依赖，同样必须排除 ——
+# 否则 Jekyll 会把整个依赖树当静态文件复制进 _site 产物。
+# 其余几项是流水线自身的配置与元数据，没有发布价值。
 exclude:
   - openwiki/
+  - node_modules/
+  - .sandcastle/
+  - package.json
+  - package-lock.json
+  - .dockerignore
