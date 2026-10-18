@@ -1,7 +1,5 @@
 var audioArray=[];
 setInterval("saveState()",10000);
-var stopAudioTimeOut;
-var theTime;
 
 function reset(){
     for ( var i=0;i<audioArray.length;i++ ) {
@@ -32,17 +30,7 @@ function saveState()
         // if (a.currentTime>0 && !a.paused && !a.ended && a.readyState>2){
         //     window.localStorage.setItem("lastPlayId",a.id);
         // }
-    }    
-    if (theTime){
-        var d=new Date();
-        var x=theTime-d;//Math.floor((theTime-d)/60000)
-        if (x<0) x=0;
-        if (x>=0){
-            var min=Math.floor(x/60000);
-            var sec=Math.floor((x-min*60000)/1000);
-            document.getElementById("remainTime").innerText=min+"分钟"+sec+"秒";
-        }
-    };
+    }
 };
 
 function getNextId(id){
@@ -79,41 +67,8 @@ function loadState(){
     // }
 };
 
-function stopAudio(){
-    for ( var i=0;i<audioArray.length;i++ ) {
-        var id=audioArray[i];
-        document.getElementById(id).pause();
-    }
-    document.getElementById("myselect").value=-1;
-};
-
-Date.dateAdd = function(currentDate, value, timeUnit) {
-
-    timeUnit = timeUnit.toLowerCase();
-    var multiplyBy = { w:604800000,
-                     d:86400000,
-                     h:3600000,
-                     m:60000,
-                     s:1000 };
-    var updatedDate = new Date(currentDate.getTime() + multiplyBy[timeUnit] * value);
-
-    return updatedDate;
-};
-
-function timingChange(){
-    window.clearTimeout(stopAudioTimeOut);
-    var t=parseInt(this.value);
-    if(t != -1){
-        stopAudioTimeOut=window.setTimeout(stopAudio,t);
-        var d=new Date();
-        theTime=Date.dateAdd(d,t/1000,"s");
-    }
-};
-
-
 $(
     function(){
         loadState();
-        document.getElementById("myselect").onchange=timingChange;    
     }
 );
