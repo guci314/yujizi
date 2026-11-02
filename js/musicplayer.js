@@ -1,3 +1,274 @@
+/* ==================================================================
+   纯业务形式模型（Formal Model）— 与以下两处同源，逐格一致：
+     · web/src/pim/listening-grid.ts        （iPad PWA / 现代 Web）
+     · core/playback/.../pim/ListeningGrid.kt （Android）
+   0 技术词：只有 经卷 / 篇章 / 位置（秒）/ 语速 / 睡眠香。
+   挂到 globalThis.__YUJIZI_FM__ 供三端对拍与自动化测试直接调取。
+   ================================================================== */
+(function (global) {
+  'use strict';
+
+  var RESUME_REWIND_SECONDS = 3;
+
+  function clampTime(seconds, durationSec) {
+    if (!isFinite(seconds)) return 0;
+    var positive = Math.max(0, seconds);
+    return durationSec > 0 ? Math.min(positive, durationSec) : positive;
+  }
+
+  function resumePosition(savedSec, durationSec) {
+    if (!isFinite(savedSec) || savedSec <= 0) return 0;
+    var rewound = Math.max(0, savedSec - RESUME_REWIND_SECONDS);
+    if (!isFinite(durationSec) || durationSec <= 0) return rewound;
+    return Math.min(rewound, Math.max(0, durationSec - 1));
+  }
+
+  function clampChapter(book, index) {
+    if (!book.chapters.length) return 0;
+    return Math.min(Math.max(0, Math.trunc(index)), book.chapters.length - 1);
+  }
+
+  function chapterDuration(ctx) {
+    var chapter = ctx.book && ctx.book.chapters[ctx.chapterIndex];
+    return chapter ? chapter.durationSec : 0;
+  }
+
+  function withChapterDuration(ctx, durationSec) {
+    if (!ctx.book || !isFinite(durationSec) || durationSec <= 0) return ctx;
+    var chapter = ctx.book.chapters[ctx.chapterIndex];
+    if (!chapter || chapter.durationSec === durationSec) return ctx;
+    var chapters = ctx.book.chapters.map(function (entry, index) {
+      return index === ctx.chapterIndex ? { index: entry.index, title: entry.title, durationSec: durationSec } : entry;
+    });
+    return Object.assign({}, ctx, { book: { id: ctx.book.id, title: ctx.book.title, chapters: chapters } });
+  }
+
+  function initialListeningContext() {
+    return {
+      state: 'S0_IDLE',
+      book: null,
+      chapterIndex: 0,
+      positionSec: 0,
+      speed: 1,
+      sleepMode: 'off',
+      sleepRemainingSec: 0
+    };
+  }
+
+  function actOpenBook(ctx, book, savedChapter, savedSec) {
+    if (!book.chapters.length) return ctx;
+    var chapterIndex = clampChapter(book, savedChapter);
+    var duration = book.chapters[chapterIndex].durationSec;
+    return Object.assign({}, ctx, {
+      state: 'S1_PAUSED',
+      book: book,
+      chapterIndex: chapterIndex,
+      positionSec: resumePosition(savedSec, duration)
+    });
+  }
+
+  function actJumpAndPlay(ctx, book, chapterIndex, startSec) {
+    if (!book.chapters.length) return ctx;
+    var index = clampChapter(book, chapterIndex);
+    return Object.assign({}, ctx, {
+      state: 'S2_PLAYING',
+      book: book,
+      chapterIndex: index,
+      positionSec: clampTime(startSec, book.chapters[index].durationSec)
+    });
+  }
+
+  function actTogglePlay(ctx) {
+    if (ctx.state === 'S1_PAUSED' || ctx.state === 'S3_SLEEP_STOPPED') {
+      return Object.assign({}, ctx, { state: 'S2_PLAYING' });
+    }
+    if (ctx.state === 'S2_PLAYING') return Object.assign({}, ctx, { state: 'S1_PAUSED' });
+    return ctx;
+  }
+
+  function actSeek(ctx, targetSec, durationSec) {
+    if (ctx.state === 'S0_IDLE') return ctx;
+    var withDuration = durationSec === undefined || durationSec === null ? ctx : withChapterDuration(ctx, durationSec);
+    var position = clampTime(targetSec, chapterDuration(withDuration));
+    if (withDuration.state === 'S3_SLEEP_STOPPED') {
+      return Object.assign({}, withDuration, { state: 'S1_PAUSED', positionSec: position });
+    }
+    return Object.assign({}, withDuration, { positionSec: position });
+  }
+
+  function actNextChapter(ctx) {
+    if (!ctx.book || ctx.chapterIndex + 1 >= ctx.book.chapters.length) return ctx;
+    return Object.assign({}, ctx, { state: 'S2_PLAYING', chapterIndex: ctx.chapterIndex + 1, positionSec: 0 });
+  }
+
+  function actPreviousChapter(ctx) {
+    if (!ctx.book || ctx.chapterIndex <= 0) return ctx;
+    return Object.assign({}, ctx, { state: 'S2_PLAYING', chapterIndex: ctx.chapterIndex - 1, positionSec: 0 });
+  }
+
+  // 事件载荷沿用三端统一形状：sleepOption 缺省=不改，null=取消，对象=设香。
+  function sleepChangeFrom(event) {
+    if (!Object.prototype.hasOwnProperty.call(event, 'sleepOption')) return undefined;
+    var option = event.sleepOption;
+    if (option === null) return { kind: 'off' };
+    return option;
+  }
+
+  function actSetPreference(ctx, speed, sleepChange) {
+    var nextSpeed = speed !== undefined && speed !== null && speed > 0 ? speed : ctx.speed;
+    if (sleepChange === undefined || sleepChange === null) {
+      return Object.assign({}, ctx, { speed: nextSpeed });
+    }
+    var next;
+    if (sleepChange.kind === 'off') {
+      next = Object.assign({}, ctx, { speed: nextSpeed, sleepMode: 'off', sleepRemainingSec: 0 });
+    } else if (sleepChange.kind === 'end-of-chapter') {
+      next = Object.assign({}, ctx, { speed: nextSpeed, sleepMode: 'end-of-chapter', sleepRemainingSec: 0 });
+    } else {
+      next = Object.assign({}, ctx, {
+        speed: nextSpeed,
+        sleepMode: 'minutes',
+        sleepRemainingSec: Math.max(0, Math.round(sleepChange.minutes * 60))
+      });
+    }
+    // 止息之后重新点香，说明听众醒了：回到静置待播，香已点好（否则违反 P6）。
+    if (ctx.state === 'S3_SLEEP_STOPPED' && sleepChange.kind !== 'off') {
+      return Object.assign({}, next, { state: 'S1_PAUSED' });
+    }
+    return next;
+  }
+
+  function actSecondElapsed(ctx, currentPositionSec, durationSec) {
+    if (ctx.state !== 'S2_PLAYING') return ctx;
+    var withDuration = durationSec === undefined || durationSec === null ? ctx : withChapterDuration(ctx, durationSec);
+    var duration = chapterDuration(withDuration);
+    var sleepRemaining = withDuration.sleepRemainingSec;
+
+    if (withDuration.sleepMode === 'minutes') {
+      sleepRemaining = Math.max(0, sleepRemaining - 1);
+      if (sleepRemaining <= 0) {
+        return Object.assign({}, withDuration, {
+          state: 'S3_SLEEP_STOPPED',
+          sleepMode: 'off',
+          sleepRemainingSec: 0,
+          positionSec: clampTime(
+            currentPositionSec === undefined || currentPositionSec === null
+              ? withDuration.positionSec + 1
+              : currentPositionSec,
+            duration
+          )
+        });
+      }
+    }
+
+    var position = clampTime(
+      currentPositionSec === undefined || currentPositionSec === null
+        ? withDuration.positionSec + 1
+        : currentPositionSec,
+      duration
+    );
+    var advanced = Object.assign({}, withDuration, { sleepRemainingSec: sleepRemaining, positionSec: position });
+
+    if (duration > 0 && position >= duration) {
+      if (advanced.sleepMode === 'end-of-chapter') {
+        return Object.assign({}, advanced, {
+          state: 'S3_SLEEP_STOPPED',
+          sleepMode: 'off',
+          sleepRemainingSec: 0,
+          positionSec: duration
+        });
+      }
+      if (advanced.book && advanced.chapterIndex + 1 < advanced.book.chapters.length) {
+        return Object.assign({}, advanced, { chapterIndex: advanced.chapterIndex + 1, positionSec: 0 });
+      }
+      return Object.assign({}, advanced, { state: 'S1_PAUSED', positionSec: duration });
+    }
+    return advanced;
+  }
+
+  function ignore(ctx) {
+    return ctx;
+  }
+
+  var CELLS = {
+    S0_IDLE: {
+      E_OPEN_BOOK: function (ctx, e) { return actOpenBook(ctx, e.book, e.savedChapter, e.savedSec); },
+      E_JUMP_AND_PLAY: function (ctx, e) { return actJumpAndPlay(ctx, e.book, e.chapterIndex, e.startSec); },
+      E_TOGGLE_PLAY: ignore,
+      E_SEEK: ignore,
+      E_NEXT_CHAPTER: ignore,
+      E_PREV_CHAPTER: ignore,
+      E_SET_PREF: function (ctx, e) { return actSetPreference(ctx, e.speed, sleepChangeFrom(e)); },
+      E_SECOND_ELAPSED: ignore
+    },
+    S1_PAUSED: {
+      E_OPEN_BOOK: ignore,
+      E_JUMP_AND_PLAY: function (ctx, e) { return actJumpAndPlay(ctx, e.book, e.chapterIndex, e.startSec); },
+      E_TOGGLE_PLAY: function (ctx) { return actTogglePlay(ctx); },
+      E_SEEK: function (ctx, e) { return actSeek(ctx, e.targetSec, e.chapterDurationSec); },
+      E_NEXT_CHAPTER: function (ctx) { return actNextChapter(ctx); },
+      E_PREV_CHAPTER: function (ctx) { return actPreviousChapter(ctx); },
+      E_SET_PREF: function (ctx, e) { return actSetPreference(ctx, e.speed, sleepChangeFrom(e)); },
+      E_SECOND_ELAPSED: ignore
+    },
+    S2_PLAYING: {
+      E_OPEN_BOOK: ignore,
+      E_JUMP_AND_PLAY: function (ctx, e) { return actJumpAndPlay(ctx, e.book, e.chapterIndex, e.startSec); },
+      E_TOGGLE_PLAY: function (ctx) { return actTogglePlay(ctx); },
+      E_SEEK: function (ctx, e) { return actSeek(ctx, e.targetSec, e.chapterDurationSec); },
+      E_NEXT_CHAPTER: function (ctx) { return actNextChapter(ctx); },
+      E_PREV_CHAPTER: function (ctx) { return actPreviousChapter(ctx); },
+      E_SET_PREF: function (ctx, e) { return actSetPreference(ctx, e.speed, sleepChangeFrom(e)); },
+      E_SECOND_ELAPSED: function (ctx, e) {
+        return actSecondElapsed(ctx, e.currentPositionSec, e.chapterDurationSec);
+      }
+    },
+    S3_SLEEP_STOPPED: {
+      E_OPEN_BOOK: ignore,
+      E_JUMP_AND_PLAY: function (ctx, e) { return actJumpAndPlay(ctx, e.book, e.chapterIndex, e.startSec); },
+      E_TOGGLE_PLAY: function (ctx) { return actTogglePlay(ctx); },
+      E_SEEK: function (ctx, e) { return actSeek(ctx, e.targetSec, e.chapterDurationSec); },
+      E_NEXT_CHAPTER: function (ctx) { return actNextChapter(ctx); },
+      E_PREV_CHAPTER: function (ctx) { return actPreviousChapter(ctx); },
+      E_SET_PREF: function (ctx, e) { return actSetPreference(ctx, e.speed, sleepChangeFrom(e)); },
+      E_SECOND_ELAPSED: ignore
+    }
+  };
+
+  function stepListeningGrid(ctx, event) {
+    var row = CELLS[ctx.state];
+    var cell = row && row[event.type];
+    if (!cell) throw new Error('网格缺少格子：state=' + ctx.state + ' event=' + event.type);
+    return cell(ctx, event);
+  }
+
+  function listeningSnapshot(ctx) {
+    return {
+      state: ctx.state,
+      bookId: ctx.book ? ctx.book.id : null,
+      chapterIndex: ctx.chapterIndex,
+      positionSec: ctx.positionSec,
+      speed: ctx.speed,
+      sleepMode: ctx.sleepMode,
+      sleepRemainingSec: ctx.sleepRemainingSec,
+      chapterDurationSec: chapterDuration(ctx)
+    };
+  }
+
+  global.__YUJIZI_FM__ = {
+    version: 1,
+    states: ['S0_IDLE', 'S1_PAUSED', 'S2_PLAYING', 'S3_SLEEP_STOPPED'],
+    events: [
+      'E_OPEN_BOOK', 'E_JUMP_AND_PLAY', 'E_TOGGLE_PLAY', 'E_SEEK',
+      'E_NEXT_CHAPTER', 'E_PREV_CHAPTER', 'E_SET_PREF', 'E_SECOND_ELAPSED'
+    ],
+    cellCount: 32,
+    initialListeningContext: initialListeningContext,
+    stepListeningGrid: stepListeningGrid,
+    listeningSnapshot: listeningSnapshot
+  };
+})(typeof globalThis !== 'undefined' ? globalThis : window);
+
 // 获取 DOM 元素
 const musicSelect = document.getElementById('music-select');
 const musicPlayer = document.getElementById('music-player');
@@ -49,6 +320,7 @@ musicSelect.addEventListener('change', (e) => {
     musicDownload.style.display = 'inline';
     // 存储当前播放的音乐
     localStorage.setItem(`${pageid}_currentMusic`, selectedIndex);
+    fmJumpAndPlay(parseInt(selectedIndex, 10) || 0, 0);
   } else {
     pPlayIntent = false;
     pExpectedPause = 'select-clear';
@@ -57,6 +329,7 @@ musicSelect.addEventListener('change', (e) => {
     musicPlayer.src = '';
     // 隐藏下载链接
     musicDownload.style.display = 'none';
+    fmReset();
 
   }
 });
@@ -71,6 +344,7 @@ musicPlayer.addEventListener('timeupdate', () => {
   localStorage.setItem(`${pageid}_currentTime`, musicPlayer.currentTime);
   // 「剩余」实时走字:定时关闭和播完停止都靠这里刷新,不用等 10 秒兜底 interval
   updateRemainTime();
+  fmTick();
   // 预加载下一首:剩余不足 1 分钟时开始,只做一次(靠 pPrefetched 去重)。
   // (原 <link rel=preload as=audio> 方案 Safari/Chrome 都基本不执行,换成真实 fetch 暖缓存)
   // 2026-09-29:阈值从 300 秒收紧到 60 秒。早先设 5 分钟是拍脑袋的,
@@ -104,6 +378,7 @@ function restoreMusic() {
     const selectedMusic = musicList[currentMusic];
     musicSelect.value = currentMusic;
     musicPlayer.src = selectedMusic.url;
+    fmOpenBook(parseInt(currentMusic, 10) || 0, parseFloat(localStorage.getItem(`${pageid}_currentTime`) || '0') || 0);
 
     // 更新下载链接
     musicDownload.href = selectedMusic.url;
@@ -123,6 +398,7 @@ function playNext() {
   pPlayIntent = true;
   pErrHeal = 0;
   musicPlayer.src = nextMusic.url;
+  fmJumpAndPlay(nextIndex, 0);
   tryPlay('next');
   pSetSessionMeta(nextMusic.name);
   pArmZeroDur(nextIndex);   // 换曲后开「时长 0 看门狗」:10 秒后元数据还没到就重载
@@ -146,10 +422,97 @@ function playNext() {
 const playModeSelect = document.getElementById('play-mode');
 let isLoopMode = false;
 
+/* ===== 形式模型桥接：只把业务事件喂给网格，不改变旧播放行为 ===== */
+var fmCtx = window.__YUJIZI_FM__ ? window.__YUJIZI_FM__.initialListeningContext() : null;
+var fmLastTickAt = 0;
+
+function fmBookSpec() {
+  return {
+    id: pageid,
+    title: pageid,
+    chapters: musicList.map(function (m, i) { return { index: i, title: m.name, durationSec: 0 }; })
+  };
+}
+
+function fmStep(event) {
+  if (!fmCtx || !window.__YUJIZI_FM__) return fmCtx;
+  try {
+    fmCtx = window.__YUJIZI_FM__.stepListeningGrid(fmCtx, event);
+  } catch (e) {
+    plog('fm-error', e && e.message ? e.message : String(e));
+  }
+  return fmCtx;
+}
+
+function fmOpenBook(index, sec) {
+  fmStep({ type: 'E_OPEN_BOOK', book: fmBookSpec(), savedChapter: index, savedSec: sec || 0 });
+}
+
+function fmJumpAndPlay(index, sec) {
+  fmStep({ type: 'E_JUMP_AND_PLAY', book: fmBookSpec(), chapterIndex: index, startSec: sec || 0 });
+}
+
+function fmReset() {
+  fmCtx = window.__YUJIZI_FM__.initialListeningContext();
+}
+
+function fmSeek(delta) {
+  fmStep({ type: 'E_SEEK', targetSec: musicPlayer.currentTime + delta });
+}
+
+function fmSetSleepMinutes(minutes) {
+  fmStep({ type: 'E_SET_PREF', sleepOption: { kind: 'minutes', minutes: minutes } });
+}
+
+function fmSetSleepEndOfChapter() {
+  fmStep({ type: 'E_SET_PREF', sleepOption: { kind: 'end-of-chapter' } });
+}
+
+function fmClearSleep() {
+  fmStep({ type: 'E_SET_PREF', sleepOption: null });
+}
+
+// 定时到点 / 播完停止：让网格自己走到止息（倒计时归零 → S3）。
+function fmEnterSleepStop() {
+  if (!fmCtx) return;
+  fmStep({ type: 'E_SET_PREF', sleepOption: { kind: 'minutes', minutes: 0 } });
+  var duration = fmCtx.book ? fmCtx.book.chapters[fmCtx.chapterIndex].durationSec : 0;
+  fmStep({
+    type: 'E_SECOND_ELAPSED',
+    currentPositionSec: duration > 0 ? duration : fmCtx.positionSec,
+    chapterDurationSec: duration > 0 ? duration : undefined
+  });
+}
+
+// timeupdate 每秒至少一次：把播放头交给网格推进睡眠倒计时。
+function fmTick() {
+  if (!fmCtx) return;
+  var now = Date.now();
+  if (now - fmLastTickAt < 950) return;
+  fmLastTickAt = now;
+  var duration = isFinite(musicPlayer.duration) ? musicPlayer.duration : 0;
+  fmStep({
+    type: 'E_SECOND_ELAPSED',
+    currentPositionSec: musicPlayer.currentTime,
+    chapterDurationSec: duration > 0 ? duration : undefined
+  });
+  if (fmCtx.state === 'S3_SLEEP_STOPPED' && !musicPlayer.paused) {
+    stopAudio('timer');
+  }
+}
+
+window.__YUJIZI_MUSICPLAYER_FM__ = { context: function () { return fmCtx; } };
+
+
 // 监听播放模式选择事件
 playModeSelect.addEventListener('change', (e) => {
   isLoopMode = e.target.value === 'loop';
   plog('mode-change', e.target.value);
+  if (e.target.value === 'stop-after') {
+    fmSetSleepEndOfChapter();
+  } else if (fmCtx && fmCtx.sleepMode === 'end-of-chapter') {
+    fmClearSleep();
+  }
   // 立刻重算剩余:切到「播放完停止」应马上显示曲目剩余,切走则复位成「—」
   updateRemainTime();
 });
@@ -157,6 +520,10 @@ playModeSelect.addEventListener('change', (e) => {
 // 监听播放器的 ended 事件
 musicPlayer.addEventListener('ended', () => {
   plog('ended');
+  if (fmCtx) {
+    var fmDur = isFinite(musicPlayer.duration) ? musicPlayer.duration : 0;
+    fmStep({ type: 'E_SECOND_ELAPSED', currentPositionSec: fmDur, chapterDurationSec: fmDur > 0 ? fmDur : undefined });
+  }
   if (isLoopMode) {
     musicPlayer.currentTime = 0;
     pPlayIntent = true;
@@ -228,6 +595,9 @@ function stopAudio(reason) {
   reason = reason || 'unknown';
   var pRemain = theTime ? Math.round((theTime - new Date()) / 1000) : null;
   plog('stop-audio', reason + (pRemain !== null ? ' 剩余' + pRemain + 's' : ''));
+  if (reason === 'timer' || reason === 'stop-after' || reason === 'timer-sweep') {
+    fmEnterSleepStop();
+  }
   // 定时器提前 60 秒以上触发 = 定时异常,单独计数
   if (reason === 'timer' && pRemain !== null && pRemain > 60) {
     pstats.earlyTimer++;
@@ -272,9 +642,11 @@ function timingChange() {
     var d = new Date();
     theTime = Date.dateAdd(d, t / 1000, "s");
     plog('timer-set', (t / 60000) + 'min');
+    fmSetSleepMinutes(t / 60000);
   } else {
     theTime = null;
     plog('timer-set', 'off');
+    fmClearSleep();
   }
 }
 
@@ -284,14 +656,16 @@ document.getElementById("myselect").onchange = timingChange;
 //后退三十秒
 function back30sec() {
   if (musicPlayer.currentTime > 0 && !musicPlayer.paused && !musicPlayer.ended && musicPlayer.readyState > 2) {
-    musicPlayer.currentTime = musicPlayer.currentTime - 30
+    fmSeek(-30);
+    musicPlayer.currentTime = fmCtx ? fmCtx.positionSec : musicPlayer.currentTime - 30;
   }
 };
 
 //前进三十秒
 function forward30sec() {
   if (musicPlayer.currentTime > 0 && !musicPlayer.paused && !musicPlayer.ended && musicPlayer.readyState > 2) {
-    musicPlayer.currentTime = musicPlayer.currentTime + 30
+    fmSeek(30);
+    musicPlayer.currentTime = fmCtx ? fmCtx.positionSec : musicPlayer.currentTime + 30;
   }
 }
 
